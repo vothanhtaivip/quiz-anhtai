@@ -5,52 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>ANH TÀI VÕ VIP 123 — Hệ Thống Khảo Thí Trực Tuyến 5.0</title>
+<title>ThanhTaiCoder — Hệ Thống Khảo Thí Trực Tuyến v5.1 Final</title>
 
-<!-- GOOGLE FONTS: Plus Jakarta Sans & Outfit & Space Grotesk -->
+<!-- GOOGLE FONTS: Plus Jakarta Sans, Outfit & JetBrains Mono (Optimal Vietnamese Web Typography) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
-   5.0 CYBER TECH DESIGN SYSTEM
+   N8N WORKFLOW DESIGN SYSTEM & UX/UI PRO MAX
    ============================================================ */
 :root {
-  --bg-dark: #05070f;
-  --bg-card: rgba(13, 19, 36, 0.75);
-  --bg-card-hover: rgba(20, 29, 54, 0.85);
-  --bg-surface: #0a0e1c;
-  --bg-input: rgba(16, 24, 46, 0.9);
+  /* n8n Signature Color Palette */
+  --n8n-coral: #ff6d5a;
+  --n8n-coral-hover: #ff5742;
+  --n8n-coral-glow: rgba(255, 109, 90, 0.35);
+  --n8n-orange: #ea580c;
+  --n8n-purple: #8b5cf6;
+  --n8n-indigo: #6366f1;
+  --n8n-emerald: #10b981;
+  --n8n-cyan: #06b6d4;
+  --n8n-amber: #f59e0b;
+  --n8n-rose: #f43f5e;
   
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(0, 242, 254, 0.4);
-  --border-glow: 0 0 25px rgba(0, 242, 254, 0.15);
+  /* Canvas & Dark Slate Surfaces */
+  --canvas-bg: #0b0f19;
+  --canvas-grid: rgba(255, 255, 255, 0.035);
+  --node-bg: rgba(17, 24, 39, 0.85);
+  --node-bg-hover: rgba(26, 36, 56, 0.95);
+  --node-surface: #111827;
+  --input-bg: rgba(15, 23, 42, 0.9);
   
-  /* Cyber Neon Palettes */
-  --cyan: #00f2fe;
-  --cyan-deep: #4facfe;
-  --gold: #f6c90e;
-  --amber: #ff9900;
-  --pink: #ff007f;
-  --rose: #ff4f7b;
-  --emerald: #00f5a0;
-  --purple: #8b5cf6;
-  --violet: #7f00ff;
+  /* High-end Borders & Glass */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-node: rgba(255, 255, 255, 0.12);
+  --border-active: var(--n8n-coral);
   
-  --text-main: #f1f5f9;
-  --text-muted: #8899b5;
-  --text-dim: #4d5d78;
+  /* Typography Colors */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
   
-  --radius-xl: 22px;
-  --radius-lg: 16px;
+  /* Radius & Shadows */
+  --radius-node: 18px;
+  --radius-pill: 9999px;
   --radius-md: 12px;
   --radius-sm: 8px;
-  
-  --shadow-main: 0 20px 50px rgba(0, 0, 0, 0.6);
-  --glow-cyan: 0 0 35px rgba(0, 242, 254, 0.25);
-  --glow-gold: 0 0 35px rgba(246, 201, 14, 0.25);
-  --glow-rose: 0 0 35px rgba(255, 79, 123, 0.25);
+  --shadow-node: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--border-node);
+  --shadow-glow: 0 0 30px var(--n8n-coral-glow);
 }
 
 *, *::before, *::after {
@@ -62,11 +65,14 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-  background-color: var(--bg-dark);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--canvas-bg);
   color: var(--text-main);
   min-height: 100vh;
   line-height: 1.6;
@@ -74,340 +80,354 @@ body {
   position: relative;
 }
 
-/* Cyber Matrix Background Effect */
+/* N8N Workflow Dot Canvas Pattern */
 body::before {
   content: '';
   position: fixed; inset: 0;
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(127, 0, 255, 0.12) 0%, transparent 55%),
-    radial-gradient(circle at 100% 100%, rgba(0, 242, 254, 0.08) 0%, transparent 45%),
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    radial-gradient(var(--canvas-grid) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 50% 0%, rgba(255, 109, 90, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  background-size: 28px 28px, 100% 100%, 100% 100%;
   pointer-events: none; z-index: 0;
 }
 
-/* Animated Ambient Glow Bulbs */
-.glow-orb {
+/* Atmospheric Glow Ambient */
+.canvas-ambient {
   position: fixed; border-radius: 50%;
-  filter: blur(120px); pointer-events: none; z-index: 0;
-  opacity: 0.6;
-  animation: floatOrb 16s ease-in-out infinite alternate;
+  filter: blur(140px); pointer-events: none; z-index: 0;
+  opacity: 0.5;
 }
-.orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,242,254,0.18), transparent 70%); top: -100px; right: -100px; }
-.orb-2 { width: 450px; height: 450px; background: radial-gradient(circle, rgba(246,201,14,0.14), transparent 70%); bottom: -80px; left: -80px; animation-duration: 22s; }
-.orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(255,0,127,0.12), transparent 70%); top: 40%; left: 30%; animation-duration: 18s; }
+.ambient-1 { width: 500px; height: 500px; background: rgba(255, 109, 90, 0.14); top: -120px; right: -100px; }
+.ambient-2 { width: 450px; height: 450px; background: rgba(139, 92, 246, 0.12); bottom: -80px; left: -80px; }
 
-@keyframes floatOrb {
-  0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(40px) scale(1.08); }
-}
-
-.container {
+.app-container {
   position: relative; z-index: 1;
-  max-width: 860px; margin: 0 auto;
+  max-width: 880px; margin: 0 auto;
   padding: 24px 18px 100px;
 }
 
 /* ============================================================
-   TOP NAVIGATION & BRAND BAR
+   N8N BRAND NAV & WORKFLOW STATUS
    ============================================================ */
-.brand-nav {
+.n8n-nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 12px 20px;
-  background: rgba(13, 19, 36, 0.6);
-  border: 1px solid var(--border-glass);
-  border-radius: 100px;
+  background: rgba(17, 24, 39, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
   margin-bottom: 28px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-.brand-badge {
-  display: flex; align-items: center; gap: 10px;
+.n8n-brand-cluster {
+  display: flex; align-items: center; gap: 12px;
+}
+.n8n-node-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--n8n-coral) 0%, var(--n8n-orange) 100%);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 16px var(--n8n-coral-glow);
+  color: #fff; font-size: 16px; font-weight: 900;
+  flex-shrink: 0;
+}
+.n8n-title-group {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.coder-name {
   font-family: 'Outfit', sans-serif;
-  font-size: 13.5px; font-weight: 800;
-  letter-spacing: 0.5px;
-}
-.brand-pulse-dot {
-  width: 9px; height: 9px; border-radius: 50%;
-  background: var(--emerald);
-  box-shadow: 0 0 12px var(--emerald);
-  position: relative;
-}
-.brand-pulse-dot::after {
-  content: ''; position: absolute; inset: -4px;
-  border-radius: 50%; border: 1.5px solid var(--emerald);
-  animation: pulsePing 2s infinite; opacity: 0.8;
-}
-@keyframes pulsePing {
-  0% { transform: scale(0.8); opacity: 0.9; }
-  100% { transform: scale(2.2); opacity: 0; }
-}
-
-.brand-name {
-  background: linear-gradient(135deg, #fff 30%, var(--cyan) 100%);
+  font-size: 16px; font-weight: 800;
+  letter-spacing: -0.2px;
+  background: linear-gradient(135deg, #fff 40%, var(--n8n-coral) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  font-weight: 800;
 }
-.vip-pill-5 {
-  background: linear-gradient(135deg, #f6c90e, #ff8c00);
-  color: #060913; font-family: 'Space Grotesk', sans-serif;
-  font-weight: 800; font-size: 10.5px; letter-spacing: 1.5px;
-  padding: 3px 9px; border-radius: 6px;
-  box-shadow: 0 0 15px rgba(246, 201, 14, 0.4);
+.n8n-version-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; font-weight: 700;
+  background: rgba(255, 109, 90, 0.12);
+  border: 1px solid rgba(255, 109, 90, 0.3);
+  color: var(--n8n-coral); padding: 2px 8px;
+  border-radius: var(--radius-pill);
 }
 
-.nav-actions { display: flex; align-items: center; gap: 8px; }
-.btn-sound-toggle {
+.n8n-nav-tools {
+  display: flex; align-items: center; gap: 8px;
+}
+.n8n-icon-btn {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-subtle);
   border-radius: 50%; width: 36px; height: 36px;
   display: flex; align-items: center; justify-content: center;
   color: var(--text-muted); cursor: pointer;
   transition: all .2s; font-size: 14px;
 }
-.btn-sound-toggle:hover {
-  background: rgba(0, 242, 254, 0.15);
-  border-color: var(--cyan); color: var(--cyan);
+.n8n-icon-btn:hover {
+  background: rgba(255, 109, 90, 0.15);
+  border-color: var(--n8n-coral); color: var(--n8n-coral);
 }
 
 /* ============================================================
-   HERO HEADER
+   WORKFLOW HERO SECTION
    ============================================================ */
-header {
+.workflow-hero {
   text-align: center;
-  padding: 24px 0 36px;
+  padding: 20px 0 36px;
 }
 
-.hero-tag {
+.workflow-status-pill {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11.5px; font-weight: 700;
-  letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--cyan);
-  background: rgba(0, 242, 254, 0.08);
-  border: 1px solid rgba(0, 242, 254, 0.25);
-  padding: 8px 20px; border-radius: 100px;
-  margin-bottom: 20px;
-  box-shadow: var(--glow-cyan);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--n8n-coral);
+  background: rgba(255, 109, 90, 0.08);
+  border: 1px solid rgba(255, 109, 90, 0.25);
+  padding: 6px 16px; border-radius: var(--radius-pill);
+  margin-bottom: 18px;
+}
+.status-indicator-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--n8n-coral);
+  box-shadow: 0 0 10px var(--n8n-coral);
+  animation: pulseDot 2s infinite;
+}
+@keyframes pulseDot {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
 }
 
-h1.hero-title {
+h1.workflow-heading {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(32px, 6.5vw, 54px);
-  font-weight: 900; line-height: 1.1;
-  letter-spacing: -1px; margin-bottom: 14px;
+  font-size: clamp(30px, 6vw, 50px);
+  font-weight: 900; line-height: 1.15;
+  letter-spacing: -0.8px; margin-bottom: 12px;
 }
-h1.hero-title span {
-  background: linear-gradient(135deg, var(--cyan) 0%, var(--emerald) 100%);
+h1.workflow-heading span {
+  background: linear-gradient(135deg, var(--n8n-coral) 0%, #ff9e7d 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 25px rgba(0, 242, 254, 0.4));
+  filter: drop-shadow(0 0 30px var(--n8n-coral-glow));
 }
 
-.hero-subtitle {
+.workflow-subtext {
   color: var(--text-muted);
   font-size: 15.5px; font-weight: 400;
-  max-width: 520px; margin: 0 auto;
+  max-width: 540px; margin: 0 auto;
   line-height: 1.65;
 }
 
 /* ============================================================
-   GLASS CARD 5.0
+   N8N NODE CARD SYSTEM (Glass + Port Pins)
    ============================================================ */
-.glass-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-xl);
+.n8n-node-card {
+  background: var(--node-bg);
+  border: 1px solid var(--border-node);
+  border-radius: var(--radius-node);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  box-shadow: var(--shadow-main);
-  position: relative; overflow: hidden;
-  transition: border-color .3s, box-shadow .3s;
+  box-shadow: var(--shadow-node);
+  position: relative;
+  transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.glass-panel::before {
-  content: ''; position: absolute;
-  top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--cyan), var(--emerald), transparent);
-  opacity: 0.8;
+.n8n-node-card:hover {
+  border-color: rgba(255, 109, 90, 0.35);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 109, 90, 0.15);
 }
 
+/* Node Connector Pins Styling */
+.n8n-node-card::before, .n8n-node-card::after {
+  content: ''; position: absolute; top: 50%;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--node-surface);
+  border: 2px solid var(--n8n-coral);
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px var(--n8n-coral-glow);
+  z-index: 2;
+}
+.n8n-node-card::before { left: -5px; }
+.n8n-node-card::after { right: -5px; }
+
 /* ============================================================
-   START SCREEN 5.0
+   START SCREEN FORM
    ============================================================ */
 #start-screen { text-align: center; }
 
-.mode-badge-wrap {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 1px;
-  color: #05070f; background: linear-gradient(135deg, var(--cyan), var(--emerald));
-  padding: 10px 24px; border-radius: 100px;
-  box-shadow: 0 4px 20px rgba(0, 242, 254, 0.35);
-  margin-bottom: 24px;
+.auth-node-wrap {
+  max-width: 480px; margin: 0 auto 32px;
+  padding: 34px 30px;
 }
 
-.login-glass-card {
-  max-width: 460px; margin: 0 auto 30px;
-  padding: 32px 28px;
-}
-
-.form-group-5 { margin-bottom: 20px; text-align: left; }
-.form-label-5 {
+.node-header-bar {
   display: flex; align-items: center; justify-content: space-between;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px; font-weight: 700;
-  letter-spacing: 1.2px; text-transform: uppercase;
-  color: var(--cyan); margin-bottom: 8px;
+  margin-bottom: 24px; border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 14px;
 }
-.form-label-5 .label-hint { font-size: 11px; color: var(--emerald); font-weight: 500; text-transform: none; }
+.node-type-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 700;
+  color: var(--n8n-coral); letter-spacing: 1px;
+}
+.node-status-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; font-weight: 700;
+  color: var(--n8n-emerald);
+  display: flex; align-items: center; gap: 6px;
+}
+.node-status-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--n8n-emerald); box-shadow: 0 0 8px var(--n8n-emerald);
+}
 
-.input-cyber-wrap { position: relative; }
-.input-cyber {
+.input-block-5 {
+  margin-bottom: 20px; text-align: left;
+}
+.input-label-5 {
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12.5px; font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  color: var(--text-main); margin-bottom: 8px;
+}
+.input-label-5 .param-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px; color: var(--text-dim); text-transform: none;
+}
+
+.input-field-wrap { position: relative; }
+.n8n-input {
   width: 100%;
-  background: var(--bg-input);
-  border: 1.5px solid var(--border-glass);
+  background: var(--input-bg);
+  border: 1.5px solid var(--border-node);
   border-radius: var(--radius-md);
   padding: 15px 18px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 15px; font-weight: 500;
   color: var(--text-main);
   outline: none;
-  transition: all .25s ease;
+  transition: all .2s ease;
 }
-.input-cyber:focus {
-  border-color: var(--cyan);
-  background: rgba(16, 24, 46, 0.95);
-  box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.12), var(--glow-cyan);
+.n8n-input:focus {
+  border-color: var(--n8n-coral);
+  background: rgba(22, 32, 54, 0.95);
+  box-shadow: 0 0 0 3px rgba(255, 109, 90, 0.15), 0 0 20px var(--n8n-coral-glow);
 }
-.input-cyber::placeholder { color: var(--text-dim); }
-.input-cyber.error {
-  border-color: var(--rose);
+.n8n-input::placeholder { color: var(--text-dim); }
+.n8n-input.error {
+  border-color: var(--n8n-rose);
   animation: shake 0.4s ease;
-  box-shadow: 0 0 0 4px rgba(255, 79, 123, 0.15);
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.15);
 }
 
-.btn-eye-pass {
+.pass-visibility-toggle {
   position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.05);
   border: none; cursor: pointer;
-  padding: 6px 9px; border-radius: var(--radius-sm);
-  color: var(--cyan); font-size: 14px;
+  padding: 6px 10px; border-radius: var(--radius-sm);
+  color: var(--n8n-coral); font-size: 13px;
 }
-.btn-eye-pass:hover { background: rgba(0, 242, 254, 0.15); }
+.pass-visibility-toggle:hover { background: rgba(255, 109, 90, 0.15); }
 
-.error-hint-msg {
-  color: var(--rose); font-size: 13px; font-weight: 600;
+.error-output-text {
+  color: var(--n8n-rose); font-size: 13px; font-weight: 600;
   margin-top: 10px; min-height: 20px; text-align: center;
 }
 
-/* Modern Cyber Rules Grid */
-.rules-grid-5 {
+/* N8N Workflow Rules Grid */
+.workflow-rules-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px; max-width: 540px; margin: 0 auto;
   text-align: left;
 }
 
-.rule-card-5 {
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-lg);
+.rule-node {
   padding: 22px 20px;
   cursor: pointer; position: relative;
-  transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.rule-card-5:hover {
-  border-color: var(--cyan);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), var(--glow-cyan);
-}
-.rule-card-5.danger {
+.rule-node::before, .rule-node::after { display: none; } /* clean rule boxes */
+.rule-node.danger-node {
   grid-column: 1 / -1;
-  background: rgba(255, 0, 127, 0.04);
-  border-color: rgba(255, 79, 123, 0.3);
+  border-color: rgba(244, 63, 94, 0.35);
+  background: rgba(244, 63, 94, 0.04);
 }
-.rule-card-5.danger:hover {
-  border-color: var(--rose);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5), var(--glow-rose);
+.rule-node.danger-node:hover {
+  border-color: var(--n8n-rose);
+  box-shadow: 0 10px 30px rgba(244, 63, 94, 0.15);
 }
 
-.rule-icon-5 {
-  font-size: 28px; margin-bottom: 12px; display: inline-block;
-}
-.rule-title-5 {
+.rule-node-icon { font-size: 26px; margin-bottom: 12px; display: inline-block; }
+.rule-node-title {
   font-family: 'Outfit', sans-serif;
   font-size: 15px; font-weight: 700;
   color: #fff; margin-bottom: 6px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.rule-title-5 .rule-link {
-  font-size: 11px; color: var(--cyan); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500;
+.rule-node-title .rule-action-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--n8n-coral); font-weight: 600;
 }
-.rule-desc-5 {
+.rule-node-desc {
   font-size: 13px; color: var(--text-muted); line-height: 1.6;
 }
 
-/* Cyber Buttons */
-.btn-cyber {
+/* N8N Execution Buttons */
+.btn-n8n-primary {
   font-family: 'Outfit', sans-serif;
   font-size: 16px; font-weight: 800;
   letter-spacing: 0.5px; border-radius: var(--radius-md);
   border: none; cursor: pointer;
-  transition: all .25s ease;
+  background: linear-gradient(135deg, var(--n8n-coral) 0%, var(--n8n-orange) 100%);
+  color: #fff; width: 100%; padding: 18px;
+  box-shadow: 0 8px 25px var(--n8n-coral-glow);
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  text-decoration: none; position: relative; overflow: hidden;
+  transition: all .25s ease; position: relative; overflow: hidden;
 }
-
-.btn-cyber-primary {
-  background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-deep) 100%);
-  color: #05070f;
-  box-shadow: 0 8px 25px rgba(0, 242, 254, 0.35);
-  width: 100%; padding: 18px;
-}
-.btn-cyber-primary:hover {
+.btn-n8n-primary:hover {
   filter: brightness(1.1);
   transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(0, 242, 254, 0.5);
+  box-shadow: 0 12px 35px rgba(255, 109, 90, 0.5);
 }
-.btn-cyber-primary:active { transform: translateY(0); filter: brightness(0.95); }
-.btn-cyber-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-n8n-primary:active { transform: translateY(0); filter: brightness(0.95); }
+.btn-n8n-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
 
-.btn-cyber-gold {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
-  color: #05070f; box-shadow: 0 8px 25px rgba(246, 201, 14, 0.35);
-}
-.btn-cyber-gold:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 12px 35px rgba(246, 201, 14, 0.5); }
-
-.btn-cyber-outline {
+.btn-n8n-secondary {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px; font-weight: 700;
+  padding: 14px 28px; border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-node);
   background: rgba(255, 255, 255, 0.04);
-  color: var(--cyan); border: 1.5px solid var(--cyan);
-  padding: 14px 28px;
+  color: var(--text-main); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all .2s;
 }
-.btn-cyber-outline:hover { background: rgba(0, 242, 254, 0.12); transform: translateY(-2px); }
+.btn-n8n-secondary:hover {
+  border-color: var(--n8n-coral); color: var(--n8n-coral);
+  background: rgba(255, 109, 90, 0.08);
+}
 
 /* ============================================================
-   QUIZ HUD & SCREEN 5.0
+   QUIZ HUD & EXECUTION CANVAS
    ============================================================ */
 #quiz-screen { display: none; }
 
-.part1-hud-sticky {
+.sticky-execution-hud {
   position: sticky; top: 14px; z-index: 50;
-  background: rgba(10, 14, 28, 0.85);
-  border: 1.5px solid var(--border-glass);
-  border-radius: var(--radius-lg);
-  padding: 12px 22px; margin-bottom: 20px;
+  background: rgba(17, 24, 39, 0.88);
+  border: 1.5px solid var(--border-node);
+  border-radius: var(--radius-node);
+  padding: 14px 22px; margin-bottom: 20px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   display: flex; justify-content: space-between; align-items: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   transition: all .3s;
 }
-.part1-hud-sticky.urgent {
-  border-color: var(--rose);
-  background: rgba(255, 79, 123, 0.15);
-  box-shadow: 0 0 35px rgba(255, 79, 123, 0.4);
+.sticky-execution-hud.urgent {
+  border-color: var(--n8n-rose);
+  background: rgba(244, 63, 94, 0.15);
+  box-shadow: 0 0 35px rgba(244, 63, 94, 0.4);
   animation: urgentPulse 1s infinite alternate;
 }
 @keyframes urgentPulse {
@@ -415,89 +435,87 @@ h1.hero-title span {
   100% { transform: scale(1.015); }
 }
 
-.hud-title-wrap {
+.hud-label-group {
   display: flex; align-items: center; gap: 10px;
-  font-size: 13.5px; font-weight: 600; color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight: 700; color: var(--text-muted);
 }
-.hud-clock-val {
-  font-family: 'Space Grotesk', monospace;
-  font-size: 22px; font-weight: 700;
-  color: var(--gold); letter-spacing: 1px;
+.hud-countdown-clock {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px; font-weight: 800;
+  color: var(--n8n-coral); letter-spacing: 1px;
 }
-.part1-hud-sticky.urgent .hud-clock-val {
-  color: var(--rose); font-size: 26px;
+.sticky-execution-hud.urgent .hud-countdown-clock {
+  color: var(--n8n-rose); font-size: 26px;
 }
 
-/* Secondary Meta Bar */
-.quiz-meta-bar {
+/* Metrics Node Bar */
+.metrics-node-bar {
   display: flex; align-items: center; gap: 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-lg);
+  background: var(--node-bg);
+  border: 1px solid var(--border-node);
+  border-radius: var(--radius-node);
   padding: 16px 22px; margin-bottom: 22px;
   flex-wrap: wrap;
 }
-.meta-chip {
-  display: flex; align-items: center; gap: 10px;
-  font-size: 14px; font-weight: 600;
+.metric-chip {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; font-weight: 700;
 }
-.meta-chip-val {
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px; font-weight: 800;
-}
-.chip-score .meta-chip-val { color: var(--gold); }
-.chip-timer .meta-chip-val { color: var(--cyan); font-variant-numeric: tabular-nums; }
-.meta-divider {
-  width: 1px; height: 24px; background: rgba(255, 255, 255, 0.08);
+.chip-score-val { color: var(--n8n-amber); font-size: 17px; }
+.chip-timer-val { color: var(--n8n-cyan); font-size: 17px; font-variant-numeric: tabular-nums; }
+.metric-sep {
+  width: 1px; height: 24px; background: var(--border-subtle);
   flex-shrink: 0;
 }
 
-.progress-cluster { flex: 1; min-width: 140px; }
-.progress-meta {
+.progress-node-wrap { flex: 1; min-width: 140px; }
+.progress-meta-text {
   display: flex; justify-content: space-between;
-  font-size: 12px; color: var(--text-muted);
-  font-weight: 600; margin-bottom: 7px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--text-muted);
+  font-weight: 700; margin-bottom: 7px;
 }
-.progress-track {
-  height: 7px; background: rgba(255, 255, 255, 0.06);
-  border-radius: 100px; overflow: hidden;
+.progress-rail {
+  height: 6px; background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pill); overflow: hidden;
 }
-.progress-fill-5 {
+.progress-active-line {
   height: 100%; width: 0%;
-  background: linear-gradient(90deg, var(--cyan), var(--emerald));
-  border-radius: 100px;
+  background: linear-gradient(90deg, var(--n8n-coral), var(--n8n-purple));
+  border-radius: var(--radius-pill);
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+  box-shadow: 0 0 15px var(--n8n-coral-glow);
 }
 
-/* Cyber Question Box */
-.question-panel {
-  padding: 34px 30px; margin-bottom: 22px;
+/* Question Active Node */
+.question-active-node {
+  padding: 36px 32px; margin-bottom: 24px;
 }
-.q-category-tag {
+.q-node-tag {
   display: inline-flex; align-items: center; gap: 6px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: var(--cyan); margin-bottom: 12px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--n8n-coral); margin-bottom: 12px;
 }
-.q-counter-label {
+.q-node-sequence {
   font-family: 'Outfit', sans-serif;
-  font-size: 13px; font-weight: 600;
+  font-size: 13px; font-weight: 700;
   color: var(--text-dim); margin-bottom: 12px;
 }
-.q-body-text {
+.q-node-prompt {
   font-size: clamp(17px, 2.8vw, 22px);
-  font-weight: 600; line-height: 1.6;
-  color: #fff;
+  font-weight: 600; line-height: 1.6; color: #fff;
 }
 
-/* Option Cards 5.0 */
-.options-grid-5 { display: grid; gap: 14px; margin-bottom: 24px; }
-.opt-btn-5 {
-  background: var(--bg-card);
-  border: 1.5px solid var(--border-glass);
-  border-radius: var(--radius-lg);
+/* Option Cards as Node Outputs */
+.options-output-grid { display: grid; gap: 14px; margin-bottom: 24px; }
+.opt-node-output {
+  background: var(--node-bg);
+  border: 1.5px solid var(--border-node);
+  border-radius: var(--radius-node);
   padding: 16px 22px;
   cursor: pointer;
   display: flex; align-items: flex-start; gap: 16px;
@@ -508,272 +526,269 @@ h1.hero-title span {
   color: var(--text-main); line-height: 1.5;
   width: 100%; -webkit-appearance: none;
 }
-.opt-btn-5:hover:not(:disabled) {
-  border-color: var(--cyan);
-  background: var(--bg-card-hover);
+.opt-node-output:hover:not(:disabled) {
+  border-color: var(--n8n-coral);
+  background: var(--node-bg-hover);
   transform: translateX(6px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4), var(--glow-cyan);
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5), 0 0 20px var(--n8n-coral-glow);
 }
-.opt-btn-5:active { transform: translateX(2px); }
 
-.opt-badge-key {
-  min-width: 32px; height: 32px; border-radius: 9px;
+.opt-output-pin {
+  min-width: 32px; height: 32px; border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 13px; font-weight: 800;
-  color: var(--cyan); flex-shrink: 0;
+  color: var(--n8n-coral); flex-shrink: 0;
   transition: all .2s;
 }
 
-.opt-btn-5.correct {
-  border-color: var(--emerald);
-  background: rgba(0, 245, 160, 0.12);
-  box-shadow: 0 0 30px rgba(0, 245, 160, 0.25);
-  animation: correctPop5 .35s ease;
+.opt-node-output.correct {
+  border-color: var(--n8n-emerald);
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.25);
+  animation: nodeSuccess .35s ease;
 }
-.opt-btn-5.correct .opt-badge-key {
-  background: var(--emerald); color: #05070f;
-}
-
-.opt-btn-5.wrong {
-  border-color: var(--rose);
-  background: rgba(255, 79, 123, 0.12);
-  box-shadow: 0 0 30px rgba(255, 79, 123, 0.25);
-}
-.opt-btn-5.wrong .opt-badge-key {
-  background: var(--rose); color: #fff;
+.opt-node-output.correct .opt-output-pin {
+  background: var(--n8n-emerald); color: #0b0f19;
 }
 
-.opt-btn-5.reveal {
-  border-color: var(--emerald);
-  background: rgba(0, 245, 160, 0.06);
+.opt-node-output.wrong {
+  border-color: var(--n8n-rose);
+  background: rgba(244, 63, 94, 0.12);
+  box-shadow: 0 0 30px rgba(244, 63, 94, 0.25);
 }
-.opt-btn-5:disabled { cursor: default; }
+.opt-node-output.wrong .opt-output-pin {
+  background: var(--n8n-rose); color: #fff;
+}
 
-@keyframes correctPop5 {
+.opt-node-output.reveal {
+  border-color: var(--n8n-emerald);
+  background: rgba(16, 185, 129, 0.06);
+}
+.opt-node-output:disabled { cursor: default; }
+
+@keyframes nodeSuccess {
   0% { transform: scale(1); }
-  50% { transform: scale(1.025); }
+  50% { transform: scale(1.02); }
   100% { transform: scale(1); }
 }
 
 /* Feedback Strip */
-.feedback-strip-5 {
+.execution-feedback-bar {
   border-radius: var(--radius-md);
   padding: 16px 22px; margin-bottom: 20px;
   font-size: 15px; font-weight: 600;
   display: none; animation: fadeIn .3s ease; text-align: center;
 }
-.feedback-strip-5.show { display: block; }
-.feedback-strip-5.correct-fb {
-  background: rgba(0, 245, 160, 0.12);
-  border: 1px solid rgba(0, 245, 160, 0.35);
-  color: var(--emerald);
+.execution-feedback-bar.show { display: block; }
+.execution-feedback-bar.correct-fb {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: var(--n8n-emerald);
 }
-.feedback-strip-5.wrong-fb {
-  background: rgba(255, 79, 123, 0.12);
-  border: 1px solid rgba(255, 79, 123, 0.35);
+.execution-feedback-bar.wrong-fb {
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.35);
   color: #ffa4bc;
 }
 
 /* ============================================================
-   RESULT SCREEN 5.0
+   RESULT DASHBOARD
    ============================================================ */
 #result-screen { display: none; text-align: center; }
 
-.result-glass-card {
+.result-dashboard-node {
   padding: 48px 32px; margin-bottom: 24px;
 }
-
-.result-trophy {
+.result-trophy-symbol {
   font-size: 72px; line-height: 1; margin-bottom: 14px;
   display: inline-block;
-  filter: drop-shadow(0 0 30px rgba(246, 201, 14, 0.5));
-  animation: floatOrb 3s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 30px var(--n8n-coral-glow));
 }
-.result-player-title {
+.result-candidate-name {
   font-family: 'Outfit', sans-serif;
   font-size: clamp(22px, 5vw, 36px);
-  font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase;
-  background: linear-gradient(135deg, #fff 20%, var(--cyan) 100%);
+  font-weight: 900; letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #fff 20%, var(--n8n-coral) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   margin-bottom: 8px;
 }
-.result-badge-rating {
+.result-execution-status {
   font-family: 'Outfit', sans-serif;
   font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 8px;
 }
-.result-sub-text {
+.result-execution-details {
   color: var(--text-muted); font-size: 15px; margin-bottom: 26px;
 }
 
-.big-score-display {
+.score-counter-massive {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(68px, 14vw, 96px);
+  font-size: clamp(70px, 15vw, 100px);
   font-weight: 900; line-height: 1;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+  background: linear-gradient(135deg, var(--n8n-coral) 0%, var(--n8n-amber) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   margin-bottom: 4px;
 }
-.big-score-caption {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+.score-caption-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px; font-weight: 700; letter-spacing: 2px;
   color: var(--text-dim); text-transform: uppercase; margin-bottom: 28px;
 }
 
-.stats-grid-5 {
+.metrics-summary-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 14px; margin-bottom: 30px;
 }
-.stat-tile-5 {
+.summary-node-box {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md); padding: 18px 12px;
 }
-.stat-tile-val {
-  font-family: 'Outfit', sans-serif;
+.summary-val-number {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 28px; font-weight: 800; margin-bottom: 4px;
 }
-.stat-tile-label { font-size: 12px; color: var(--text-muted); font-weight: 600; }
-.tile-correct .stat-tile-val { color: var(--emerald); }
-.tile-wrong .stat-tile-val { color: var(--rose); }
-.tile-time .stat-tile-val { color: var(--cyan); }
+.summary-label-sub { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+.sum-correct .summary-val-number { color: var(--n8n-emerald); }
+.sum-wrong .summary-val-number { color: var(--n8n-rose); }
+.sum-time .summary-val-number { color: var(--n8n-cyan); }
 
-.result-cta-row {
+.result-actions-cluster {
   display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
 }
 
 /* ============================================================
-   ESSAY SCREEN 5.0 (PART 2)
+   ESSAY SCREEN (PART 2)
    ============================================================ */
 #essay-screen { display: none; text-align: center; }
 
-.puzzle-cyber-grid {
+.essay-puzzle-nodes-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 18px; max-width: 460px; margin: 32px auto 0;
+  gap: 18px; max-width: 480px; margin: 32px auto 0;
 }
-.puzzle-cyber-tile {
+.puzzle-node-tile {
   aspect-ratio: 1;
-  background: var(--bg-card);
-  border: 1.5px solid var(--border-glass);
-  border-radius: var(--radius-lg);
+  background: var(--node-bg);
+  border: 1.5px solid var(--border-node);
+  border-radius: var(--radius-node);
   display: flex; align-items: center; justify-content: center;
   font-size: 38px; cursor: pointer;
   transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
 }
-.puzzle-cyber-tile:hover {
-  border-color: var(--cyan);
+.puzzle-node-tile:hover {
+  border-color: var(--n8n-coral);
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5), var(--glow-cyan);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6), 0 0 25px var(--n8n-coral-glow);
 }
-.puzzle-cyber-tile.flipped {
-  background: linear-gradient(135deg, var(--cyan), var(--emerald));
-  border-color: var(--cyan); transform: scale(1.08); cursor: default;
+.puzzle-node-tile.flipped {
+  background: linear-gradient(135deg, var(--n8n-coral), var(--n8n-purple));
+  border-color: var(--n8n-coral); transform: scale(1.08); cursor: default;
 }
-.puzzle-cyber-tile.disabled { opacity: 0.25; pointer-events: none; }
+.puzzle-node-tile.disabled { opacity: 0.25; pointer-events: none; }
 
-.essay-question-card {
+.essay-active-card {
   padding: 26px 28px; margin: 28px auto 20px;
   max-width: 680px; font-size: 16.5px; line-height: 1.7;
   text-align: left;
 }
 
-.essay-textarea-5 {
+.essay-workspace-textarea {
   width: 100%; max-width: 680px; display: block; margin: 0 auto;
-  background: var(--bg-input);
-  border: 1.5px solid var(--border-glass);
-  border-radius: var(--radius-lg);
+  background: var(--input-bg);
+  border: 1.5px solid var(--border-node);
+  border-radius: var(--radius-node);
   padding: 20px 22px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 15.5px; color: var(--text-main);
   min-height: 240px; resize: vertical; outline: none;
   line-height: 1.7; transition: all .25s ease;
 }
-.essay-textarea-5:focus {
-  border-color: var(--cyan);
-  background: rgba(16, 24, 46, 0.95);
-  box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.12), var(--glow-cyan);
+.essay-workspace-textarea:focus {
+  border-color: var(--n8n-coral);
+  background: rgba(22, 32, 54, 0.95);
+  box-shadow: 0 0 0 3px rgba(255, 109, 90, 0.15), 0 0 20px var(--n8n-coral-glow);
 }
 
-.word-count-meter {
+.live-word-meter {
   max-width: 680px; margin: 8px auto 22px;
-  text-align: right; font-size: 13px; color: var(--text-muted);
-  font-weight: 600;
+  text-align: right; font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px; color: var(--text-muted); font-weight: 700;
 }
 
 /* ============================================================
-   ADMIN HUD 5.0
+   ADMIN COMMAND CENTER
    ============================================================ */
-.admin-hud-trigger {
+.admin-launcher-button {
   position: fixed; bottom: 24px; right: 24px; z-index: 500;
-  background: rgba(13, 19, 36, 0.85);
-  border: 1.5px solid var(--cyan);
-  border-radius: 100px; padding: 12px 22px;
+  background: rgba(17, 24, 39, 0.88);
+  border: 1.5px solid var(--n8n-coral);
+  border-radius: var(--radius-pill); padding: 12px 22px;
   font-family: 'Outfit', sans-serif; font-size: 13.5px; font-weight: 800;
-  color: var(--cyan); cursor: pointer;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), var(--glow-cyan);
+  color: var(--n8n-coral); cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px var(--n8n-coral-glow);
   display: flex; align-items: center; gap: 8px;
   backdrop-filter: blur(15px);
   transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.admin-hud-trigger:hover {
+.admin-launcher-button:hover {
   transform: translateY(-3px) scale(1.02);
-  background: var(--cyan); color: #05070f;
-  box-shadow: 0 12px 35px rgba(0, 242, 254, 0.5);
+  background: var(--n8n-coral); color: #fff;
+  box-shadow: 0 12px 35px rgba(255, 109, 90, 0.5);
 }
 
-.admin-overlay-5 {
+.admin-command-overlay {
   display: none; position: fixed; inset: 0;
-  background: rgba(5, 7, 15, 0.9); z-index: 99999;
+  background: rgba(5, 7, 15, 0.92); z-index: 99999;
   align-items: center; justify-content: center;
   padding: 16px; backdrop-filter: blur(12px);
 }
-.admin-overlay-5.show { display: flex; }
+.admin-command-overlay.show { display: flex; }
 
-.admin-window-5 {
-  background: var(--bg-surface);
-  border: 1.5px solid rgba(0, 242, 254, 0.3);
-  border-radius: var(--radius-xl);
-  padding: 30px 26px; max-width: 760px; width: 100%;
+.admin-command-window {
+  background: var(--node-surface);
+  border: 1.5px solid var(--border-node);
+  border-radius: var(--radius-node);
+  padding: 30px 26px; max-width: 780px; width: 100%;
   max-height: 92vh; overflow-y: auto;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), var(--glow-cyan);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px var(--n8n-coral-glow);
   position: relative;
 }
 
-.admin-tabs-nav {
+.admin-node-nav {
   display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap;
 }
-.admin-tab-btn {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12.5px; font-weight: 700;
+.admin-tab-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; font-weight: 700;
   padding: 9px 16px; border-radius: var(--radius-sm);
   border: none; cursor: pointer;
   background: rgba(255, 255, 255, 0.04);
   color: var(--text-muted); transition: all .2s;
 }
-.admin-tab-btn.active {
-  background: var(--cyan); color: #05070f;
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.35);
+.admin-tab-chip.active {
+  background: var(--n8n-coral); color: #fff;
+  box-shadow: 0 0 15px var(--n8n-coral-glow);
 }
-.admin-tab-btn:hover:not(.active) {
+.admin-tab-chip:hover:not(.active) {
   background: rgba(255, 255, 255, 0.08); color: #fff;
 }
 
-.admin-section-pane { display: none; }
-.admin-section-pane.active { display: block; }
+.admin-pane-content { display: none; }
+.admin-pane-content.active { display: block; }
 
 /* Review Panel */
 #review-panel { display: none; margin-bottom: 24px; }
-.review-item-5 {
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-lg); padding: 22px;
+.review-node-item {
+  background: var(--node-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-node); padding: 22px;
   margin-bottom: 14px; text-align: left;
 }
-.review-item-5.r-correct { border-color: rgba(0, 245, 160, 0.4); }
-.review-item-5.r-wrong { border-color: rgba(255, 79, 123, 0.4); }
+.review-node-item.r-correct { border-color: rgba(16, 185, 129, 0.4); }
+.review-node-item.r-wrong { border-color: rgba(244, 63, 94, 0.4); }
 
 /* Confetti */
 .confetti-dot {
@@ -786,150 +801,157 @@ h1.hero-title span {
   100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
 }
 
-/* Modals & Alerts */
-.score-modal-overlay {
+/* Modals */
+.modal-overlay-backdrop {
   display: none; position: fixed; inset: 0;
   background: rgba(0, 0, 0, 0.8); z-index: 99999;
   align-items: center; justify-content: center;
   backdrop-filter: blur(6px);
 }
-.score-modal-overlay.show { display: flex; }
+.modal-overlay-backdrop.show { display: flex; }
 
-.modal-close-btn {
+.modal-close-icon {
   position: absolute; top: 18px; right: 20px;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-subtle);
   color: var(--text-muted); font-size: 18px;
   width: 32px; height: 32px; border-radius: 8px;
   cursor: pointer; display: flex; align-items: center; justify-content: center;
 }
-.modal-close-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
+.modal-close-icon:hover { color: #fff; background: rgba(255, 255, 255, 0.12); }
 
 /* Site Footer */
-.site-footer-5 {
-  text-align: center; padding: 48px 0 8px;
+.site-footer-n8n {
+  text-align: center; padding: 50px 0 10px;
   color: var(--text-muted); font-size: 13.5px;
 }
-.site-footer-5 .owner-tag {
+.site-footer-n8n .creator-brand {
   font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 800;
-  color: var(--cyan);
+  color: var(--n8n-coral);
 }
 
 @media (max-width: 600px) {
-  .container { padding: 14px 12px 100px; }
-  .rules-grid-5 { grid-template-columns: 1fr; }
-  .stats-grid-5 { gap: 8px; }
-  .stat-tile-val { font-size: 22px; }
-  .result-cta-row { flex-direction: column; align-items: center; }
-  .btn-cyber { width: 100%; max-width: 320px; }
-  .admin-hud-trigger { bottom: 16px; right: 16px; font-size: 12.5px; padding: 10px 18px; }
+  .app-container { padding: 14px 12px 100px; }
+  .workflow-rules-grid { grid-template-columns: 1fr; }
+  .metrics-summary-grid { gap: 8px; }
+  .summary-val-number { font-size: 22px; }
+  .result-actions-cluster { flex-direction: column; align-items: center; }
+  .btn-n8n-primary, .btn-n8n-secondary { width: 100%; max-width: 320px; }
+  .admin-launcher-button { bottom: 16px; right: 16px; font-size: 12.5px; padding: 10px 18px; }
 }
 </style>
 </head>
 <body>
 
-<div class="glow-orb orb-1"></div>
-<div class="glow-orb orb-2"></div>
-<div class="glow-orb orb-3"></div>
+<div class="canvas-ambient ambient-1"></div>
+<div class="canvas-ambient ambient-2"></div>
 <div class="combo-popup" id="combo-popup"></div>
 <div class="penalty-popup" id="penalty-popup"></div>
 
-<div class="container">
-  <!-- Brand Nav 5.0 -->
-  <div class="brand-nav">
-    <div class="brand-badge">
-      <div class="brand-pulse-dot"></div>
-      <span class="brand-name">ANH TÀI VÕ</span>
-      <span class="vip-pill-5">VIP 123</span>
+<div class="app-container">
+  <!-- N8N Style Brand Header Bar -->
+  <div class="n8n-nav">
+    <div class="n8n-brand-cluster">
+      <div class="n8n-node-icon">⚡</div>
+      <div class="n8n-title-group">
+        <span class="coder-name">ThanhTaiCoder</span>
+        <span class="n8n-version-tag">v5.1 FINAL</span>
+      </div>
     </div>
-    <div class="nav-actions">
-      <button class="btn-sound-toggle" id="sound-btn" onclick="toggleSound()" title="Bật/Tắt âm thanh hiệu ứng">🔊</button>
+    <div class="n8n-nav-tools">
+      <button class="n8n-icon-btn" id="sound-btn" onclick="toggleSound()" title="Bật/Tắt âm thanh hiệu ứng">🔊</button>
     </div>
   </div>
 
-  <header>
-    <div class="hero-tag">⚡ EDTECH 5.0 EXAMINATION PLATFORM</div>
-    <h1 class="hero-title">KHẢO THÍ <span>TRỰC TUYẾN</span></h1>
-    <p class="hero-subtitle">Hệ thống trắc nghiệm thông minh, tính điểm combo, chống gian lận & tự luận chuyên sâu</p>
+  <header class="workflow-hero">
+    <div class="workflow-status-pill">
+      <span class="status-indicator-dot"></span>
+      <span>N8N WORKFLOW AUTOMATION PLATFORM</span>
+    </div>
+    <h1 class="workflow-heading">HỆ THỐNG <span>KHẢO THÍ SỐ</span></h1>
+    <p class="workflow-subtext">Khảo thí trắc nghiệm tư duy & tự luận chuyên sâu theo tiêu chuẩn giao diện tự động hóa N8N</p>
   </header>
 
   <!-- ================= START SCREEN ================= -->
   <div id="start-screen">
-    <div class="mode-badge-wrap">
-      <span>🚀 PHẦN 1: TRẮC NGHIỆM TƯ DUY</span>
-    </div>
+    <div class="n8n-node-card auth-node-wrap">
+      <div class="node-header-bar">
+        <span class="node-type-label">// EXECUTION NODE: CANDIDATE_AUTH</span>
+        <span class="node-status-badge">READY TO RUN</span>
+      </div>
 
-    <div class="glass-panel login-glass-card">
-      <div class="form-group-5">
-        <label class="form-label-5" for="student-id">
+      <div class="input-block-5">
+        <label class="input-label-5" for="student-id">
           <span>🎓 Mã Sinh Viên</span>
+          <span class="param-type">string: required</span>
         </label>
-        <div class="input-cyber-wrap">
-          <input class="input-cyber" id="student-id" type="text"
-            placeholder="Nhập mã sinh viên của bạn..." maxlength="100" autocomplete="off">
+        <div class="input-field-wrap">
+          <input class="n8n-input" id="student-id" type="text"
+            placeholder="Nhập mã sinh viên..." maxlength="100" autocomplete="off">
         </div>
       </div>
 
-      <div class="form-group-5">
-        <label class="form-label-5" for="student-fullname">
+      <div class="input-block-5">
+        <label class="input-label-5" for="student-fullname">
           <span>✏️ Họ Và Tên</span>
+          <span class="param-type">string: required</span>
         </label>
-        <div class="input-cyber-wrap">
-          <input class="input-cyber" id="student-fullname" type="text"
-            placeholder="Nhập đầy đủ họ và tên..." maxlength="100" autocomplete="off">
+        <div class="input-field-wrap">
+          <input class="n8n-input" id="student-fullname" type="text"
+            placeholder="Nhập họ và tên đầy đủ..." maxlength="100" autocomplete="off">
         </div>
       </div>
 
       <!-- Password Field (Admin controlled) -->
-      <div class="form-group-5" id="pass-group">
-        <label class="form-label-5" for="pass-input">
+      <div class="input-block-5" id="pass-group">
+        <label class="input-label-5" for="pass-input">
           <span>🔒 Mật Khẩu Phòng Thi</span>
-          <span class="label-hint" id="pass-status-hint">Đã bật Bypass (Tự do vào)</span>
+          <span class="param-type" id="pass-status-hint" style="color:var(--n8n-emerald);">Bypass (Tự do vào)</span>
         </label>
-        <div class="input-cyber-wrap">
-          <input class="input-cyber" id="pass-input" type="password"
+        <div class="input-field-wrap">
+          <input class="n8n-input" id="pass-input" type="password"
             placeholder="Để trống nếu phòng thi mở tự do..." maxlength="50" autocomplete="off" style="padding-right: 48px;">
-          <button type="button" class="btn-eye-pass" onclick="togglePassView()" title="Hiện/Ẩn mật khẩu">👁️</button>
+          <button type="button" class="pass-visibility-toggle" onclick="togglePassView()" title="Hiện/Ẩn mật khẩu">👁️</button>
         </div>
       </div>
 
-      <div class="error-hint-msg" id="start-error"></div>
+      <div class="error-output-text" id="start-error"></div>
 
-      <button type="button" class="btn-cyber btn-cyber-primary" id="btn-start" onclick="startQuiz()">
-        <span>🚀 VÀO LÀM BÀI NGAY</span>
+      <button type="button" class="btn-n8n-primary" id="btn-start" onclick="startQuiz()">
+        <span>🚀 KHỞI CHẠY BÀI THI</span>
       </button>
     </div>
 
-    <!-- Rules Grid 5.0 -->
-    <div class="rules-grid-5">
-      <div class="rule-card-5">
-        <span class="rule-icon-5">⏱️</span>
-        <div class="rule-title-5">30 Giây / Câu</div>
-        <div class="rule-desc-5">
-          Tổng <strong id="rule-q-count" style="color:var(--cyan);">25</strong> câu ngẫu nhiên.<br>
-          ⏳ Tổng thời gian Phần 1: <strong id="rule-p1-time" style="color:var(--gold);">25</strong> phút.<br>
-          💡 Chọn đáp án A, B, C, D hoặc bấm phím tắt.
+    <!-- Workflow Rules Grid -->
+    <div class="workflow-rules-grid">
+      <div class="n8n-node-card rule-node">
+        <span class="rule-node-icon">⏱️</span>
+        <div class="rule-node-title">30 Giây / Câu</div>
+        <div class="rule-node-desc">
+          Tổng <strong id="rule-q-count" style="color:var(--n8n-coral);">25</strong> câu ngẫu nhiên.<br>
+          ⏳ Tổng thời gian Phần 1: <strong id="rule-p1-time" style="color:var(--n8n-amber);">25</strong> phút.<br>
+          💡 Bấm chọn A/B/C/D hoặc phím tắt trên bàn phím.
         </div>
       </div>
 
-      <div class="rule-card-5" onclick="openScoreModal()">
-        <span class="rule-icon-5">🔥</span>
-        <div class="rule-title-5">
+      <div class="n8n-node-card rule-node" onclick="openScoreModal()">
+        <span class="rule-node-icon">🔥</span>
+        <div class="rule-node-title">
           <span>Combo & Phạt Điểm</span>
-          <span class="rule-link">Chi tiết ↗</span>
+          <span class="rule-action-hint">Chi tiết ↗</span>
         </div>
-        <div class="rule-desc-5">
+        <div class="rule-node-desc">
           Đúng nhanh $le$5s: <b>+2⚡⚡</b> điểm tốc độ.<br>
           Đúng liên tiếp: kích hoạt <b>Combo x2, x3...</b><br>
           Sai liên tiếp từ lần 2 bị trừ điểm dần!
         </div>
       </div>
 
-      <div class="rule-card-5 danger">
-        <span class="rule-icon-5">🚨</span>
-        <div class="rule-title-5" style="color:var(--rose);">AI Chống Gian Lận Tự Động</div>
-        <div class="rule-desc-5">
-          Hệ thống phát hiện chuyển tab, thu nhỏ hoặc click ra ngoài cửa sổ trong khi thi $ightarrow$ <strong style="color:var(--rose);">câu đó tính 0 điểm & bị phạt!</strong>
+      <div class="n8n-node-card rule-node danger-node">
+        <span class="rule-node-icon">🚨</span>
+        <div class="rule-node-title" style="color:var(--n8n-rose);">Giám Sát Chống Gian Lận AI</div>
+        <div class="rule-node-desc">
+          Rời khỏi trang, chuyển tab hoặc click ra ngoài cửa sổ trong khi thi $ightarrow$ <strong style="color:var(--n8n-rose);">câu đó tính 0 điểm & bị phạt!</strong>
         </div>
       </div>
     </div>
@@ -937,78 +959,78 @@ h1.hero-title span {
 
   <!-- ================= QUIZ SCREEN ================= -->
   <div id="quiz-screen">
-    <!-- Sticky HUD -->
-    <div class="part1-hud-sticky" id="part1-timer">
-      <div class="hud-title-wrap">
-        <span>⏳ THỜI GIAN PHẦN 1 CÒN LẠI</span>
+    <!-- Sticky Execution HUD -->
+    <div class="sticky-execution-hud" id="part1-timer">
+      <div class="hud-label-group">
+        <span>⏳ PHẦN 1 COUNTDOWN</span>
       </div>
-      <div class="hud-clock-val" id="part1-time-left">25:00</div>
+      <div class="hud-countdown-clock" id="part1-time-left">25:00</div>
     </div>
 
-    <!-- Meta Chips Bar -->
-    <div class="quiz-meta-bar">
-      <div class="meta-chip chip-score">
-        <span>⭐ ĐIỂM:</span>
-        <span class="meta-chip-val" id="score-display">0</span>
+    <!-- Metrics Node Bar -->
+    <div class="metrics-node-bar">
+      <div class="metric-chip">
+        <span>⭐ SCORE:</span>
+        <span class="chip-score-val" id="score-display">0</span>
       </div>
-      <div class="meta-divider"></div>
-      <div class="meta-chip chip-timer">
-        <span>⏱️ CÒN:</span>
-        <span class="meta-chip-val" id="timer-display">30</span>s
+      <div class="metric-sep"></div>
+      <div class="metric-chip">
+        <span>⏱️ TIMER:</span>
+        <span class="chip-timer-val" id="timer-display">30</span>s
       </div>
-      <div class="meta-divider"></div>
-      <div id="combo-display" style="font-family:'Outfit',sans-serif;font-weight:800;color:var(--amber);"></div>
-      <div class="meta-divider"></div>
-      <div class="progress-cluster">
-        <div class="progress-meta">
-          <span id="q-progress-text">Câu 1 / 25</span>
+      <div class="metric-sep"></div>
+      <div id="combo-display" style="font-family:'JetBrains Mono',monospace;font-weight:800;color:var(--n8n-amber);"></div>
+      <div class="metric-sep"></div>
+      <div class="progress-node-wrap">
+        <div class="progress-meta-text">
+          <span id="q-progress-text">NODE 1 / 25</span>
           <span id="q-pct">0%</span>
         </div>
-        <div class="progress-track">
-          <div class="progress-fill-5" id="progress-fill"></div>
+        <div class="progress-rail">
+          <div class="progress-active-line" id="progress-fill"></div>
         </div>
       </div>
     </div>
 
-    <!-- Question Card -->
-    <div class="glass-panel question-panel">
-      <div class="q-category-tag" id="q-tag">Digital Marketing</div>
-      <div class="q-counter-label" id="q-number">CÂU HỎI SỐ 1 / 25</div>
-      <div class="q-body-text" id="q-text">Đang tải câu hỏi...</div>
+    <!-- Question Active Node -->
+    <div class="n8n-node-card question-active-node">
+      <div class="q-node-tag" id="q-tag">Digital Marketing</div>
+      <div class="q-node-sequence" id="q-number">CÂU HỎI SỐ 1 / 25</div>
+      <div class="q-node-prompt" id="q-text">Đang tải câu hỏi...</div>
     </div>
 
-    <!-- Options Grid -->
-    <div class="options-grid-5" id="options-container"></div>
-    <div class="feedback-strip-5" id="feedback"></div>
+    <!-- Options Output Grid -->
+    <div class="options-output-grid" id="options-container"></div>
+    <div class="execution-feedback-bar" id="feedback"></div>
 
-    <button type="button" class="btn-cyber btn-cyber-primary" id="next-btn" onclick="nextQuestion()" disabled>
+    <button type="button" class="btn-n8n-primary" id="next-btn" onclick="nextQuestion()" disabled>
       <span>CÂU TIẾP THEO →</span>
     </button>
   </div>
 
   <!-- ================= RESULT SCREEN ================= -->
   <div id="result-screen">
-    <div class="glass-panel result-glass-card">
-      <div class="result-trophy" id="result-medal">🏆</div>
-      <div class="result-player-title" id="result-name">THÍ SINH</div>
-      <div class="result-badge-rating" id="result-title">XUẤT SẮC!</div>
-      <div class="result-sub-text" id="result-sub"></div>
+    <div class="n8n-node-card result-dashboard-node">
+      <div class="result-trophy-symbol" id="result-medal">🏆</div>
+      <div class="result-candidate-name" id="result-name">THÍ SINH</div>
+      <div class="result-execution-status" id="result-title">HOÀN THÀNH XUẤT SẮC!</div>
+      <div class="result-execution-details" id="result-sub"></div>
 
-      <div class="big-score-display" id="result-score">0</div>
-      <div class="big-score-caption">TỔNG ĐIỂM ĐẠT ĐƯỢC</div>
+      <div class="score-counter-massive" id="result-score">0</div>
+      <div class="score-caption-mono">TOTAL ACCUMULATED SCORE</div>
 
-      <div class="stats-grid-5">
-        <div class="stat-tile-5 tile-correct">
-          <div class="stat-tile-val" id="stat-correct">0</div>
-          <div class="stat-tile-label">✅ Câu Đúng</div>
+      <div class="metrics-summary-grid">
+        <div class="summary-node-box sum-correct">
+          <div class="summary-val-number" id="stat-correct">0</div>
+          <div class="summary-label-sub">✅ Câu Đúng</div>
         </div>
-        <div class="stat-tile-5 tile-wrong">
-          <div class="stat-tile-val" id="stat-wrong">0</div>
-          <div class="stat-tile-label">❌ Câu Sai</div>
+        <div class="summary-node-box sum-wrong">
+          <div class="summary-val-number" id="stat-wrong">0</div>
+          <div class="summary-label-sub">❌ Câu Sai</div>
         </div>
-        <div class="stat-tile-5 tile-time">
-          <div class="stat-tile-val" id="stat-time">0s</div>
-          <div class="stat-tile-label">⏱️ Tốc Độ TB</div>
+        <div class="summary-node-box sum-time">
+          <div class="summary-val-number" id="stat-time">0s</div>
+          <div class="summary-label-sub">⏱️ Tốc Độ TB</div>
         </div>
       </div>
 
@@ -1016,19 +1038,19 @@ h1.hero-title span {
         Bạn muốn chơi lại Phần trắc nghiệm hay chuyển sang làm Phần Tự Luận?
       </div>
       <div style="font-size:14px;color:var(--text-muted);margin-bottom:18px;" id="p1-result-time">
-        ⏳ Thời gian Phần 1 còn lại: <b id="p1-result-left" style="color:var(--cyan);">25:00</b>
+        ⏳ Thời gian Phần 1 còn lại: <b id="p1-result-left" style="color:var(--n8n-coral);">25:00</b>
       </div>
-      <div class="restart-lock-msg" id="restart-lock-msg" style="display:none;margin-bottom:18px;color:var(--rose);"></div>
+      <div class="restart-lock-msg" id="restart-lock-msg" style="display:none;margin-bottom:18px;color:var(--n8n-rose);"></div>
 
-      <div class="result-cta-row">
-        <button type="button" class="btn-cyber btn-cyber-gold" id="btn-restart" onclick="restartQuiz()">🔄 Chơi Lại</button>
-        <button type="button" class="btn-cyber btn-cyber-primary" id="btn-essay" onclick="goToEssay()">✍️ Sang Phần Tự Luận</button>
-        <button type="button" class="btn-cyber btn-cyber-outline" id="btn-review" onclick="toggleReview()">📋 Xem Lại Đáp Án</button>
+      <div class="result-actions-cluster">
+        <button type="button" class="btn-n8n-primary" id="btn-restart" onclick="restartQuiz()" style="max-width:200px;">🔄 Chơi Lại</button>
+        <button type="button" class="btn-n8n-primary" id="btn-essay" onclick="goToEssay()" style="max-width:240px;background:linear-gradient(135deg, var(--n8n-purple), var(--n8n-indigo));">✍️ Sang Phần Tự Luận</button>
+        <button type="button" class="btn-n8n-secondary" id="btn-review" onclick="toggleReview()">📋 Xem Lại Đáp Án</button>
       </div>
     </div>
 
     <div id="review-panel">
-      <div style="font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;color:var(--cyan);text-align:center;margin-bottom:20px;">
+      <div style="font-family:'Outfit',sans-serif;font-size:20px;font-weight:800;color:var(--n8n-coral);text-align:center;margin-bottom:20px;">
         📋 CHI TIẾT ĐÁP ÁN & GIẢI THÍCH
       </div>
       <div id="review-items"></div>
@@ -1037,141 +1059,141 @@ h1.hero-title span {
 
   <!-- ================= ESSAY SCREEN (PART 2) ================= -->
   <div id="essay-screen">
-    <div class="mode-badge-wrap">
-      <span>✍️ PHẦN 2: TỰ LUẬN CHUYÊN SÂU</span>
+    <div class="workflow-status-pill">
+      <span>✍️ WORKFLOW PART 2: COMPREHENSIVE ESSAY</span>
     </div>
     <h2 style="font-family:'Outfit',sans-serif;font-size:26px;font-weight:800;color:#fff;margin:12px 0 6px;">
-      🧩 Chọn một <span style="color:var(--cyan);">Mảnh Ghép Bí Mật</span>
+      🧩 Chọn một <span style="color:var(--n8n-coral);">Mảnh Ghép Node</span>
     </h2>
     <p style="color:var(--text-muted);font-size:15px;max-width:540px;margin:0 auto 24px;">
-      Mỗi mảnh ghép ẩn chứa một đề bài tự luận ngẫu nhiên. Chỉ được chọn một lần.<br>
+      Mỗi mảnh ghép đại diện cho một node tự luận chuyên sâu ngẫu nhiên. Chỉ được chọn một lần.<br>
       ⏱️ Thời gian: <b>20 phút</b> · Giới hạn từ: <b>40</b> đến <b>240</b> từ.
     </p>
 
-    <div class="puzzle-cyber-grid" id="puzzle-grid"></div>
+    <div class="essay-puzzle-nodes-grid" id="puzzle-grid"></div>
 
     <div id="essay-question-area" style="display:none;margin-top:28px;">
-      <div class="part1-hud-sticky" style="max-width:680px;margin:0 auto 20px;">
-        <span>⏱️ THỜI GIAN LÀM BÀI PHẦN 2</span>
-        <b class="hud-clock-val" id="essay-time-left" style="color:var(--cyan);">20:00</b>
+      <div class="sticky-execution-hud" style="max-width:680px;margin:0 auto 20px;">
+        <span>⏱️ COUNTDOWN PART 2</span>
+        <b class="hud-countdown-clock" id="essay-time-left" style="color:var(--n8n-coral);">20:00</b>
       </div>
-      <div class="glass-panel essay-question-card" id="essay-question-text"></div>
-      <textarea class="essay-textarea-5" id="essay-answer"
-        placeholder="Nhập nội dung bài làm của bạn tại đây (tối thiểu 40 từ, tối đa 240 từ)..."
+      <div class="n8n-node-card essay-active-card" id="essay-question-text"></div>
+      <textarea class="essay-workspace-textarea" id="essay-answer"
+        placeholder="Nhập nội dung bài làm tự luận của bạn tại đây (tối thiểu 40 từ, tối đa 240 từ)..."
         oninput="onEssayAnswerInput()"></textarea>
-      <div class="word-count-meter" id="word-counter">0 / 240 từ (tối thiểu 40 từ)</div>
-      <div class="error-hint-msg" id="essay-msg" style="margin-bottom:14px;"></div>
-      <button type="button" class="btn-cyber btn-cyber-primary" id="btn-submit-essay" onclick="submitEssay()" style="max-width:320px;margin:0 auto;display:flex;">
+      <div class="live-word-meter" id="word-counter">0 / 240 từ (tối thiểu 40 từ)</div>
+      <div class="error-output-text" id="essay-msg" style="margin-bottom:14px;"></div>
+      <button type="button" class="btn-n8n-primary" id="btn-submit-essay" onclick="submitEssay()" style="max-width:320px;margin:0 auto;display:flex;">
         <span>📨 NỘP BÀI TỰ LUẬN</span>
       </button>
     </div>
   </div>
 
-  <footer class="site-footer-5">
-    <div class="owner-tag">ANH TÀI VÕ VIP 123</div>
-    <div style="font-size:13px;margin-top:4px;">Chủ phòng thi & Hệ thống khảo thí trực tuyến hiện đại</div>
-    <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">Tên miền chính thức: <span style="color:var(--cyan);">vthanhtai.id.vn</span></div>
+  <footer class="site-footer-n8n">
+    <div class="creator-brand">ThanhTaiCoder</div>
+    <div style="font-size:13px;margin-top:4px;">Chủ phòng thi & Hệ thống khảo thí Workflow Automation v5.1</div>
+    <div style="font-size:12px;color:var(--text-dim);margin-top:4px;">Tên miền chính thức: <span style="color:var(--n8n-coral);">vthanhtai.id.vn</span></div>
   </footer>
 </div>
 
 <!-- ================= SCORE RULES MODAL ================= -->
-<div class="score-modal-overlay" id="score-modal-overlay" onclick="closeScoreModal(event)">
-  <div class="glass-panel" style="max-width:480px;width:92%;padding:32px 28px;background:var(--bg-surface);position:relative;">
-    <button class="modal-close-btn" onclick="closeScoreModal(null)">✕</button>
-    <h3 style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:var(--cyan);margin-bottom:6px;">
-      🔥 Quy Tắc Tính Điểm Chuẩn 5.0
+<div class="modal-overlay-backdrop" id="score-modal-overlay" onclick="closeScoreModal(event)">
+  <div class="n8n-node-card" style="max-width:480px;width:92%;padding:32px 28px;background:var(--node-surface);position:relative;">
+    <button class="modal-close-icon" onclick="closeScoreModal(null)">✕</button>
+    <h3 style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:800;color:var(--n8n-coral);margin-bottom:6px;">
+      🔥 Quy Tắc Tính Điểm v5.1
     </h3>
-    <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Hệ thống tính điểm thông minh theo tốc độ phản xạ và chuỗi đúng</p>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:18px;">Hệ thống tính điểm thông minh theo chuỗi node thực thi</p>
 
-    <div style="background:rgba(0,242,254,0.06);border:1px solid rgba(0,242,254,0.2);border-radius:12px;padding:14px;font-size:13px;margin-bottom:16px;">
-      Điểm = <code style="color:var(--gold);font-weight:700;">4 (Cơ bản)</code> + <code style="color:var(--cyan);font-weight:700;">Speed Bonus (⚡)</code> + <code style="color:var(--emerald);font-weight:700;">Combo Bonus (🔥)</code>
+    <div style="background:rgba(255,109,90,0.06);border:1px solid rgba(255,109,90,0.25);border-radius:12px;padding:14px;font-size:13px;margin-bottom:16px;">
+      Điểm = <code style="color:var(--n8n-amber);font-weight:700;">4 (Cơ bản)</code> + <code style="color:var(--n8n-cyan);font-weight:700;">Speed Bonus (⚡)</code> + <code style="color:var(--n8n-emerald);font-weight:700;">Combo Bonus (🔥)</code>
     </div>
 
     <table style="width:100%;border-collapse:collapse;font-size:13px;">
-      <tr style="border-bottom:1px solid var(--border-glass);color:var(--text-muted);"><th style="padding:8px 6px;text-align:left;">Thành phần</th><th style="padding:8px 6px;text-align:left;">Chi tiết</th><th style="padding:8px 6px;text-align:right;">Điểm</th></tr>
-      <tr style="border-bottom:1px solid var(--border-glass);"><td style="padding:8px 6px;">Cơ bản</td><td style="padding:8px 6px;">Khi trả lời đúng</td><td style="padding:8px 6px;text-align:right;color:var(--emerald);font-weight:700;">+4</td></tr>
-      <tr style="border-bottom:1px solid var(--border-glass);"><td style="padding:8px 6px;">Tốc độ ⚡⚡</td><td style="padding:8px 6px;">Giây 0 – 5</td><td style="padding:8px 6px;text-align:right;color:var(--cyan);font-weight:700;">+2</td></tr>
-      <tr style="border-bottom:1px solid var(--border-glass);"><td style="padding:8px 6px;">Tốc độ ⚡</td><td style="padding:8px 6px;">Giây 6 – 12</td><td style="padding:8px 6px;text-align:right;color:var(--cyan);font-weight:700;">+1</td></tr>
-      <tr style="border-bottom:1px solid var(--border-glass);"><td style="padding:8px 6px;">Combo 🔥</td><td style="padding:8px 6px;">Đúng liên tiếp $ge$3 câu</td><td style="padding:8px 6px;text-align:right;color:var(--gold);font-weight:700;">+(combo - 3)</td></tr>
-      <tr><td style="padding:8px 6px;color:var(--rose);">Sai liên tiếp</td><td style="padding:8px 6px;color:var(--rose);">Lần 2: -2đ | Lần 3: -3đ | Lần 4+: -4đ</td><td style="padding:8px 6px;text-align:right;color:var(--rose);font-weight:700;">Trừ điểm</td></tr>
+      <tr style="border-bottom:1px solid var(--border-subtle);color:var(--text-muted);"><th style="padding:8px 6px;text-align:left;">Thành phần</th><th style="padding:8px 6px;text-align:left;">Chi tiết</th><th style="padding:8px 6px;text-align:right;">Điểm</th></tr>
+      <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:8px 6px;">Cơ bản</td><td style="padding:8px 6px;">Khi trả lời đúng</td><td style="padding:8px 6px;text-align:right;color:var(--n8n-emerald);font-weight:700;">+4</td></tr>
+      <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:8px 6px;">Tốc độ ⚡⚡</td><td style="padding:8px 6px;">Giây 0 – 5</td><td style="padding:8px 6px;text-align:right;color:var(--n8n-cyan);font-weight:700;">+2</td></tr>
+      <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:8px 6px;">Tốc độ ⚡</td><td style="padding:8px 6px;">Giây 6 – 12</td><td style="padding:8px 6px;text-align:right;color:var(--n8n-cyan);font-weight:700;">+1</td></tr>
+      <tr style="border-bottom:1px solid var(--border-subtle);"><td style="padding:8px 6px;">Combo 🔥</td><td style="padding:8px 6px;">Đúng liên tiếp $ge$3 câu</td><td style="padding:8px 6px;text-align:right;color:var(--n8n-amber);font-weight:700;">+(combo - 3)</td></tr>
+      <tr><td style="padding:8px 6px;color:var(--n8n-rose);">Sai liên tiếp</td><td style="padding:8px 6px;color:var(--n8n-rose);">Lần 2: -2đ | Lần 3: -3đ | Lần 4+: -4đ</td><td style="padding:8px 6px;text-align:right;color:var(--n8n-rose);font-weight:700;">Trừ điểm</td></tr>
     </table>
   </div>
 </div>
 
 <!-- ================= ANTI-CHEAT MODAL ================= -->
-<div id="ac-modal" class="score-modal-overlay">
-  <div class="glass-panel" style="max-width:440px;width:90%;padding:36px 30px;background:#0d1120;border:2px solid var(--rose);text-align:center;">
+<div id="ac-modal" class="modal-overlay-backdrop">
+  <div class="n8n-node-card" style="max-width:440px;width:90%;padding:36px 30px;background:#0d1120;border:2px solid var(--n8n-rose);text-align:center;">
     <div style="font-size:58px;margin-bottom:14px;">👀</div>
-    <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;color:var(--rose);margin-bottom:10px;">
-      Thầy ANH TÀI VÕ đã thấy rồi nhé!
+    <div style="font-family:'Outfit',sans-serif;font-size:24px;font-weight:900;color:var(--n8n-rose);margin-bottom:10px;">
+      Thầy ThanhTaiCoder đã thấy rồi nhé!
     </div>
     <div style="font-size:14.5px;color:var(--text-main);line-height:1.6;margin-bottom:24px;">
       Bạn đã chuyển tab hoặc thoát khỏi màn hình làm bài.<br>
-      Câu này tính <strong style="color:var(--rose);">0 điểm</strong> và bị tính là trả lời sai!
+      Câu này tính <strong style="color:var(--n8n-rose);">0 điểm</strong> và bị tính là trả lời sai!
     </div>
-    <button class="btn-cyber btn-cyber-primary" onclick="closeAnticheat()" style="width:100%;">
+    <button class="btn-n8n-primary" onclick="closeAnticheat()" style="width:100%;">
       <span>ĐÃ HIỂU, LÀM CÂU TIẾP</span>
     </button>
   </div>
 </div>
 
-<!-- ================= ADMIN HUD BUTTON & PANEL ================= -->
-<button class="admin-hud-trigger" onclick="openAdminPanel()">
-  <span>👑 QUẢN LÝ ĐỀ & ADMIN</span>
+<!-- ================= ADMIN COMMAND CENTER BUTTON & WINDOW ================= -->
+<button class="admin-launcher-button" onclick="openAdminPanel()">
+  <span>👑 ADMIN: ThanhTaiCoder</span>
 </button>
 
-<div class="admin-overlay-5" id="admin-overlay" onclick="onAdminOverlayClick(event)">
-  <div class="admin-window-5">
-    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;border-bottom:1px solid var(--border-glass);padding-bottom:16px;">
+<div class="admin-command-overlay" id="admin-overlay" onclick="onAdminOverlayClick(event)">
+  <div class="admin-command-window">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;border-bottom:1px solid var(--border-subtle);padding-bottom:16px;">
       <div>
-        <h2 style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:900;color:var(--cyan);margin-bottom:4px;">
-          👑 TRUNG TÂM QUẢN TRỊ — ANH TÀI VÕ
+        <h2 style="font-family:'Outfit',sans-serif;font-size:22px;font-weight:900;color:var(--n8n-coral);margin-bottom:4px;">
+          👑 TRUNG TÂM QUẢN TRỊ — ThanhTaiCoder
         </h2>
-        <p style="font-size:13px;color:var(--text-muted);">Quản lý mật khẩu phòng thi, nhét đề thi bằng Word/JSON và cài đặt hệ thống</p>
+        <p style="font-size:13px;color:var(--text-muted);">Quản lý mật khẩu phòng thi, nhét đề thi bằng Word/JSON và cài đặt hệ thống v5.1</p>
       </div>
-      <button class="modal-close-btn" onclick="closeAdminPanel()" style="position:static;">✕</button>
+      <button class="modal-close-icon" onclick="closeAdminPanel()" style="position:static;">✕</button>
     </div>
 
     <!-- Login Check -->
     <div id="admin-login-box" style="display:none;padding:24px 0;text-align:center;">
       <p style="font-size:14px;color:var(--text-muted);margin-bottom:14px;">Nhập mật khẩu Admin để truy cập:</p>
       <div style="max-width:320px;margin:0 auto;">
-        <input class="input-cyber" type="password" id="admin-pass-verify" placeholder="Mật khẩu Admin (mặc định: admin123)">
-        <button class="btn-cyber btn-cyber-gold" onclick="verifyAdminPass()" style="width:100%;margin-top:12px;padding:12px;">Đăng Nhập</button>
-        <div id="admin-verify-err" style="color:var(--rose);font-size:13px;margin-top:8px;"></div>
+        <input class="n8n-input" type="password" id="admin-pass-verify" placeholder="Mật khẩu Admin (mặc định: admin123)">
+        <button class="btn-n8n-primary" onclick="verifyAdminPass()" style="width:100%;margin-top:12px;padding:12px;">Đăng Nhập</button>
+        <div id="admin-verify-err" style="color:var(--n8n-rose);font-size:13px;margin-top:8px;"></div>
       </div>
     </div>
 
     <div id="admin-main-box">
-      <div class="admin-tabs-nav">
-        <button class="admin-tab-btn active" onclick="switchAdminTab('pass')">🔒 Mật Khẩu</button>
-        <button class="admin-tab-btn" onclick="switchAdminTab('import-text')">📝 Nhét Đề Bằng Word</button>
-        <button class="admin-tab-btn" onclick="switchAdminTab('import-json')">📋 Nhét Đề Bằng JSON</button>
-        <button class="admin-tab-btn" onclick="switchAdminTab('bank')">📚 Ngân Hàng Đề (<span id="bank-count-badge">0</span>)</button>
-        <button class="admin-tab-btn" onclick="switchAdminTab('essay')">✍️ Đề Tự Luận</button>
-        <button class="admin-tab-btn" onclick="switchAdminTab('config')">⚙️ Cài Đặt</button>
+      <div class="admin-node-nav">
+        <button class="admin-tab-chip active" onclick="switchAdminTab('pass')">🔒 Mật Khẩu</button>
+        <button class="admin-tab-chip" onclick="switchAdminTab('import-text')">📝 Nhét Đề Bằng Word</button>
+        <button class="admin-tab-chip" onclick="switchAdminTab('import-json')">📋 Nhét Đề Bằng JSON</button>
+        <button class="admin-tab-chip" onclick="switchAdminTab('bank')">📚 Ngân Hàng Đề (<span id="bank-count-badge">0</span>)</button>
+        <button class="admin-tab-chip" onclick="switchAdminTab('essay')">✍️ Đề Tự Luận</button>
+        <button class="admin-tab-chip" onclick="switchAdminTab('config')">⚙️ Cài Đặt</button>
       </div>
 
       <!-- Tab 1: Password -->
-      <div class="admin-section-pane active" id="atab-pass">
-        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-glass);border-radius:12px;padding:20px;margin-bottom:16px;">
+      <div class="admin-pane-content active" id="atab-pass">
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:12px;padding:20px;margin-bottom:16px;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
-            <b style="color:var(--cyan);font-size:14px;">Chế Độ Mật Khẩu Phòng Thi</b>
+            <b style="color:var(--n8n-coral);font-size:14px;">Chế Độ Mật Khẩu Phòng Thi</b>
             <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
-              <span id="pass-mode-text" style="font-size:12px;color:var(--emerald);">Bypass (Tự do vào)</span>
+              <span id="pass-mode-text" style="font-size:12px;color:var(--n8n-emerald);">Bypass (Tự do vào)</span>
               <input type="checkbox" id="setting-require-pass" onchange="toggleRequirePassSetting()">
             </label>
           </div>
           <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:14px;">
             Gạt BẬT nếu bạn muốn học sinh bắt buộc phải nhập đúng mật khẩu phòng thi. Gạt TẮT (Bypass) để học sinh vào làm bài tự do mà không cần mật khẩu.
           </p>
-          <label style="font-size:12px;color:var(--gold);font-weight:700;">Mật khẩu phòng thi:</label>
-          <input class="input-cyber" type="text" id="setting-exam-pass" placeholder="Ví dụ: ANHTAI123" style="margin-top:6px;">
+          <label style="font-size:12px;color:var(--n8n-amber);font-weight:700;">Mật khẩu phòng thi:</label>
+          <input class="n8n-input" type="text" id="setting-exam-pass" placeholder="Ví dụ: ANHTAI123" style="margin-top:6px;">
         </div>
 
-        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-glass);border-radius:12px;padding:20px;margin-bottom:16px;">
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:12px;padding:20px;margin-bottom:16px;">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-            <b style="color:var(--cyan);font-size:14px;">Chế Độ Chống Gian Lận (Anti-Cheat)</b>
+            <b style="color:var(--n8n-coral);font-size:14px;">Chế Độ Chống Gian Lận (Anti-Cheat)</b>
             <input type="checkbox" id="setting-anticheat" onchange="toggleAnticheatSetting()">
           </div>
           <p style="font-size:12.5px;color:var(--text-muted);">
@@ -1179,92 +1201,92 @@ h1.hero-title span {
           </p>
         </div>
 
-        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-glass);border-radius:12px;padding:20px;margin-bottom:18px;">
-          <b style="color:var(--cyan);font-size:14px;display:block;margin-bottom:8px;">Mật Khẩu Đăng Nhập Admin</b>
-          <input class="input-cyber" type="text" id="setting-admin-pass" placeholder="Mật khẩu vào bảng này (mặc định: admin123)">
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:12px;padding:20px;margin-bottom:18px;">
+          <b style="color:var(--n8n-coral);font-size:14px;display:block;margin-bottom:8px;">Mật Khẩu Đăng Nhập Admin</b>
+          <input class="n8n-input" type="text" id="setting-admin-pass" placeholder="Mật khẩu vào bảng này (mặc định: admin123)">
         </div>
 
-        <button class="btn-cyber btn-cyber-primary" onclick="saveSecuritySettings()" style="padding:14px 28px;">
+        <button class="btn-n8n-primary" onclick="saveSecuritySettings()" style="padding:14px 28px;">
           💾 LƯU CÀI ĐẶT BẢO MẬT
         </button>
         <div id="notify-pass" style="margin-top:12px;font-size:13px;display:none;"></div>
       </div>
 
       <!-- Tab 2: Nhét đề bằng chữ (Word/Raw text) -->
-      <div class="admin-section-pane" id="atab-import-text">
-        <div style="background:rgba(0,242,254,0.05);border:1px solid rgba(0,242,254,0.2);border-radius:10px;padding:14px;font-size:12.5px;line-height:1.6;margin-bottom:14px;">
-          <b style="color:var(--cyan);">💡 Bộ Parser thông minh 5.0 tự nhận diện đề thi từ Word:</b><br>
+      <div class="admin-pane-content" id="atab-import-text">
+        <div style="background:rgba(255,109,90,0.05);border:1px solid rgba(255,109,90,0.25);border-radius:10px;padding:14px;font-size:12.5px;line-height:1.6;margin-bottom:14px;">
+          <b style="color:var(--n8n-coral);">💡 Bộ Parser thông minh v5.1 tự nhận diện đề thi từ Word:</b><br>
           Chỉ cần copy đề dán vào khung dưới dạng:<br>
           <code>Câu 1: Câu hỏi ở đây?</code><br>
           <code>A. Lựa chọn A</code> | <code>B. Lựa chọn B</code> | <code>C. Lựa chọn C</code> | <code>D. Lựa chọn D</code><br>
           <code>Đáp án: B</code> (hoặc <code>Key: B</code>)<br>
           <code>Giải thích: Giải thích nếu có (tùy chọn)</code>
         </div>
-        <textarea class="input-cyber" id="import-raw-text" style="min-height:220px;font-family:'DM Mono',monospace;font-size:13px;" placeholder="Dán nội dung đề từ file Word vào đây..."></textarea>
+        <textarea class="n8n-input" id="import-raw-text" style="min-height:220px;font-family:'JetBrains Mono',monospace;font-size:13px;" placeholder="Dán nội dung đề từ file Word vào đây..."></textarea>
         <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;">
-          <button class="btn-cyber btn-cyber-primary" onclick="parseAndImportText(false)" style="padding:12px 20px;">📥 Phân Tích & Thêm Vào Đề</button>
-          <button class="btn-cyber btn-cyber-gold" onclick="parseAndImportText(true)" style="padding:12px 20px;">🔄 Thay Thế Toàn Bộ Đề</button>
-          <button class="btn-cyber btn-cyber-outline" onclick="loadSampleTextExam()" style="padding:12px 20px;">📋 Điền Đề Mẫu</button>
+          <button class="btn-n8n-primary" onclick="parseAndImportText(false)" style="padding:12px 20px;max-width:260px;">📥 Phân Tích & Thêm Vào Đề</button>
+          <button class="btn-n8n-secondary" onclick="parseAndImportText(true)" style="padding:12px 20px;color:var(--n8n-amber);border-color:var(--n8n-amber);">🔄 Thay Thế Toàn Bộ Đề</button>
+          <button class="btn-n8n-secondary" onclick="loadSampleTextExam()" style="padding:12px 20px;">📋 Điền Đề Mẫu</button>
         </div>
         <div id="notify-text" style="margin-top:12px;font-size:13px;display:none;"></div>
       </div>
 
       <!-- Tab 3: Nhét đề bằng JSON -->
-      <div class="admin-section-pane" id="atab-import-json">
-        <textarea class="input-cyber" id="import-json-text" style="min-height:220px;font-family:'DM Mono',monospace;font-size:13px;" placeholder='[{"tag":"...","q":"...","opts":["A","B","C","D"],"ans":1,"explain":""}]'></textarea>
+      <div class="admin-pane-content" id="atab-import-json">
+        <textarea class="n8n-input" id="import-json-text" style="min-height:220px;font-family:'JetBrains Mono',monospace;font-size:13px;" placeholder='[{"tag":"...","q":"...","opts":["A","B","C","D"],"ans":1,"explain":""}]'></textarea>
         <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;">
-          <button class="btn-cyber btn-cyber-primary" onclick="importJsonQuestions(false)" style="padding:12px 20px;">📥 Import Thêm Vào Đề</button>
-          <button class="btn-cyber btn-cyber-gold" onclick="importJsonQuestions(true)" style="padding:12px 20px;">🔄 Thay Thế Toàn Bộ Đề</button>
-          <button class="btn-cyber btn-cyber-outline" onclick="exportQuestionsJson()" style="padding:12px 20px;">📤 Tải File JSON Đề Về Máy</button>
+          <button class="btn-n8n-primary" onclick="importJsonQuestions(false)" style="padding:12px 20px;max-width:240px;">📥 Import Thêm Vào Đề</button>
+          <button class="btn-n8n-secondary" onclick="importJsonQuestions(true)" style="padding:12px 20px;color:var(--n8n-amber);border-color:var(--n8n-amber);">🔄 Thay Thế Toàn Bộ Đề</button>
+          <button class="btn-n8n-secondary" onclick="exportQuestionsJson()" style="padding:12px 20px;">📤 Tải File JSON Đề Về Máy</button>
         </div>
         <div id="notify-json" style="margin-top:12px;font-size:13px;display:none;"></div>
       </div>
 
       <!-- Tab 4: Ngân hàng đề -->
-      <div class="admin-section-pane" id="atab-bank">
+      <div class="admin-pane-content" id="atab-bank">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px;flex-wrap:wrap;">
-          <input class="input-cyber" type="text" id="bank-search" placeholder="🔍 Tìm kiếm câu hỏi..." style="max-width:280px;" oninput="renderBankList()">
+          <input class="n8n-input" type="text" id="bank-search" placeholder="🔍 Tìm kiếm câu hỏi..." style="max-width:280px;" oninput="renderBankList()">
           <div style="display:flex;gap:8px;">
-            <button class="btn-cyber btn-cyber-gold" onclick="restoreDefaultQuestions()" style="padding:10px 16px;font-size:12.5px;">↺ Đề Gốc (75 câu)</button>
-            <button class="btn-cyber btn-cyber-outline" onclick="clearAllExamQuestions()" style="padding:10px 16px;font-size:12.5px;color:var(--rose);border-color:var(--rose);">🗑️ Xóa Hết</button>
+            <button class="btn-n8n-secondary" onclick="restoreDefaultQuestions()" style="padding:10px 16px;font-size:12.5px;">↺ Đề Gốc (75 câu)</button>
+            <button class="btn-n8n-secondary" onclick="clearAllExamQuestions()" style="padding:10px 16px;font-size:12.5px;color:var(--n8n-rose);border-color:var(--n8n-rose);">🗑️ Xóa Hết</button>
           </div>
         </div>
-        <div style="max-height:360px;overflow-y:auto;border:1px solid var(--border-glass);border-radius:12px;" id="q-bank-container"></div>
+        <div style="max-height:360px;overflow-y:auto;border:1px solid var(--border-subtle);border-radius:12px;" id="q-bank-container"></div>
         <div id="notify-bank" style="margin-top:12px;font-size:13px;display:none;"></div>
       </div>
 
       <!-- Tab 5: Đề tự luận -->
-      <div class="admin-section-pane" id="atab-essay">
+      <div class="admin-pane-content" id="atab-essay">
         <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Mỗi dòng là 1 câu hỏi tự luận ngẫu nhiên cho Phần 2:</p>
-        <textarea class="input-cyber" id="essay-bank-input" style="min-height:220px;" placeholder="Nhập mỗi câu hỏi tự luận trên một dòng..."></textarea>
+        <textarea class="n8n-input" id="essay-bank-input" style="min-height:220px;" placeholder="Nhập mỗi câu hỏi tự luận trên một dòng..."></textarea>
         <div style="display:flex;gap:10px;margin-top:14px;">
-          <button class="btn-cyber btn-cyber-primary" onclick="saveEssayQuestionsBank()" style="padding:12px 22px;">💾 Lưu Câu Tự Luận</button>
-          <button class="btn-cyber btn-cyber-outline" onclick="restoreDefaultEssay()" style="padding:12px 22px;">↺ Khôi Phục Mặc Định</button>
+          <button class="btn-n8n-primary" onclick="saveEssayQuestionsBank()" style="padding:12px 22px;max-width:240px;">💾 Lưu Câu Tự Luận</button>
+          <button class="btn-n8n-secondary" onclick="restoreDefaultEssay()" style="padding:12px 22px;">↺ Khôi Phục Mặc Định</button>
         </div>
         <div id="notify-essay" style="margin-top:12px;font-size:13px;display:none;"></div>
       </div>
 
       <!-- Tab 6: Cài đặt luật thi -->
-      <div class="admin-section-pane" id="atab-config">
+      <div class="admin-pane-content" id="atab-config">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">
           <div>
             <label style="font-size:12px;color:var(--text-muted);">Số câu trắc nghiệm mỗi bài thi</label>
-            <input class="input-cyber" type="number" id="cfg-qcount" min="1" max="100" value="25">
+            <input class="n8n-input" type="number" id="cfg-qcount" min="1" max="100" value="25">
           </div>
           <div>
             <label style="font-size:12px;color:var(--text-muted);">Thời gian mỗi câu (giây)</label>
-            <input class="input-cyber" type="number" id="cfg-qtime" min="5" max="180" value="30">
+            <input class="n8n-input" type="number" id="cfg-qtime" min="5" max="180" value="30">
           </div>
           <div>
             <label style="font-size:12px;color:var(--text-muted);">Tổng thời gian Phần 1 (phút)</label>
-            <input class="input-cyber" type="number" id="cfg-p1time" min="1" max="180" value="25">
+            <input class="n8n-input" type="number" id="cfg-p1time" min="1" max="180" value="25">
           </div>
           <div>
             <label style="font-size:12px;color:var(--text-muted);">Thời gian Phần 2 Tự Luận (phút)</label>
-            <input class="input-cyber" type="number" id="cfg-essaytime" min="5" max="120" value="20">
+            <input class="n8n-input" type="number" id="cfg-essaytime" min="5" max="120" value="20">
           </div>
         </div>
-        <button class="btn-cyber btn-cyber-primary" onclick="saveExamConfig()" style="padding:14px 28px;">💾 Lưu Cài Đặt</button>
+        <button class="btn-n8n-primary" onclick="saveExamConfig()" style="padding:14px 28px;max-width:240px;">💾 Lưu Cài Đặt</button>
         <div id="notify-config" style="margin-top:12px;font-size:13px;display:none;"></div>
       </div>
     </div>
@@ -1273,7 +1295,7 @@ h1.hero-title span {
 
 <script>
 /* ============================================================
-   WEB AUDIO API SYNTHESIZER (CYBER AUDIO ENGINE)
+   WEB AUDIO API SYNTHESIZER (N8N RETRO SOUND ENGINE)
    ============================================================ */
 let audioCtx = null;
 let soundEnabled = true;
@@ -1308,9 +1330,9 @@ function playSound(type) {
     osc.start(now); osc.stop(now + 0.04);
   } else if (type === 'correct') {
     osc.type = 'triangle';
-    osc.frequency.setValueAtTime(523.25, now); // C5
-    osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
-    osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+    osc.frequency.setValueAtTime(523.25, now);
+    osc.frequency.setValueAtTime(659.25, now + 0.08);
+    osc.frequency.setValueAtTime(783.99, now + 0.16);
     gain.gain.setValueAtTime(0.18, now);
     gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
     osc.start(now); osc.stop(now + 0.35);
@@ -2259,16 +2281,16 @@ const DEFAULT_ESSAY_QUESTIONS = [
   "Phân tích yếu tố “Trung gian” có tác động như thế nào đến hoạt động của Marketing trên môi trường số (Digital Marketing). Cho ví dụ minh họa và phân tích cụ thể."
 ];
 
-const KEY_QS = 'at_quiz_questions_5';
-const KEY_ESSAY_QS = 'at_quiz_essay_questions_5';
-const KEY_REQUIRE_PASS = 'at_quiz_require_pass_5';
-const KEY_EXAM_PASS = 'at_quiz_exam_pass_5';
-const KEY_ADMIN_PASS = 'at_quiz_admin_pass_5';
-const KEY_ANTICHEAT = 'at_quiz_anticheat_5';
-const KEY_CFG_QCOUNT = 'at_quiz_cfg_qcount_5';
-const KEY_CFG_QTIME = 'at_quiz_cfg_qtime_5';
-const KEY_CFG_P1TIME = 'at_quiz_cfg_p1time_5';
-const KEY_CFG_ESSAYTIME = 'at_quiz_cfg_essaytime_5';
+const KEY_QS = 'at_quiz_questions_n8n';
+const KEY_ESSAY_QS = 'at_quiz_essay_questions_n8n';
+const KEY_REQUIRE_PASS = 'at_quiz_require_pass_n8n';
+const KEY_EXAM_PASS = 'at_quiz_exam_pass_n8n';
+const KEY_ADMIN_PASS = 'at_quiz_admin_pass_n8n';
+const KEY_ANTICHEAT = 'at_quiz_anticheat_n8n';
+const KEY_CFG_QCOUNT = 'at_quiz_cfg_qcount_n8n';
+const KEY_CFG_QTIME = 'at_quiz_cfg_qtime_n8n';
+const KEY_CFG_P1TIME = 'at_quiz_cfg_p1time_n8n';
+const KEY_CFG_ESSAYTIME = 'at_quiz_cfg_essaytime_n8n';
 
 function getStorage(key, def) {
   try {
@@ -2327,11 +2349,11 @@ function updatePassUI() {
   const hint = $('pass-status-hint');
   if (REQUIRE_PASS) {
     hint.textContent = 'Bắt buộc mật khẩu';
-    hint.style.color = 'var(--rose)';
+    hint.style.color = 'var(--n8n-rose)';
     $('pass-input').placeholder = 'Nhập mật khẩu phòng thi...';
   } else {
-    hint.textContent = 'Đã bật Bypass (Tự do vào)';
-    hint.style.color = 'var(--emerald)';
+    hint.textContent = 'Bypass (Tự do vào)';
+    hint.style.color = 'var(--n8n-emerald)';
     $('pass-input').placeholder = 'Đã bật Bypass — để trống hoặc nhập tùy ý';
   }
 }
@@ -2342,7 +2364,7 @@ function togglePassView() {
 }
 
 function part1StorageKey() {
-  return 'at_p1_end_5:' + String(currentStudentId || currentStudentFullname || 'guest').trim().toLowerCase();
+  return 'at_p1_end_n8n:' + String(currentStudentId || currentStudentFullname || 'guest').trim().toLowerCase();
 }
 function loadPart1EndTime() {
   try {
@@ -2395,13 +2417,13 @@ function updateRestartLock() {
   if (!btn || !msg) return;
   const remain = part1Remaining();
   if (part1EndTime && remain < PART1_NO_RESTART_MS) {
-    btn.disabled = true; btn.classList.add('locked');
+    btn.disabled = true;
     msg.style.display = 'block';
     msg.textContent = remain <= 0
       ? '⏰ Đã hết thời gian Phần 1 — Không được chơi lại. Vui lòng qua làm Phần 2.'
       : 'Chỉ còn dưới 3 phút Phần 1 — Khóa nút Chơi Lại để chuyển sang Phần 2.';
   } else {
-    btn.disabled = false; btn.classList.remove('locked');
+    btn.disabled = false;
     msg.style.display = 'none';
   }
 }
@@ -2507,12 +2529,12 @@ function loadQuestion() {
   $('q-tag').textContent = q.tag || 'Digital Marketing';
   $('q-number').textContent = 'CÂU HỎI SỐ ' + (currentIdx + 1) + ' / ' + total;
   $('q-text').textContent = q.q;
-  $('q-progress-text').textContent = 'Câu ' + (currentIdx + 1) + ' / ' + total;
+  $('q-progress-text').textContent = 'NODE ' + (currentIdx + 1) + ' / ' + total;
   $('q-pct').textContent = pct + '%';
   $('progress-fill').style.width = pct + '%';
 
   const fb = $('feedback');
-  fb.className = 'feedback-strip-5';
+  fb.className = 'execution-feedback-bar';
   fb.style.display = 'none';
 
   const nb = $('next-btn');
@@ -2527,20 +2549,20 @@ function loadQuestion() {
     const origIdx = shuffleIdx[i];
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'opt-btn-5';
-    btn.innerHTML = '<span class="opt-badge-key">' + keys[i] + '</span><span>' + escHtml(q.opts[origIdx] || '') + '</span>';
+    btn.className = 'opt-node-output';
+    btn.innerHTML = '<span class="opt-output-pin">' + keys[i] + '</span><span>' + escHtml(q.opts[origIdx] || '') + '</span>';
     btn.onclick = () => selectAnswer(i, newCorrect, q.explain, q.tag, q.q, shuffleIdx, q.opts);
     container.appendChild(btn);
   }
 
   timeLeft = QUESTION_TIME;
   $('timer-display').textContent = timeLeft;
-  $('timer-display').style.color = 'var(--cyan)';
+  $('timer-display').style.color = 'var(--n8n-cyan)';
 
   timerInterval = setInterval(() => {
     timeLeft--;
     $('timer-display').textContent = timeLeft;
-    $('timer-display').style.color = timeLeft <= 5 ? 'var(--rose)' : 'var(--cyan)';
+    $('timer-display').style.color = timeLeft <= 5 ? 'var(--n8n-rose)' : 'var(--n8n-cyan)';
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
       totalTimeUsed += QUESTION_TIME;
@@ -2557,7 +2579,7 @@ function selectAnswer(chosen, correct, explain, tag, qText, shuffleIdx, origOpts
   const timeUsed = QUESTION_TIME - timeLeft;
   totalTimeUsed += timeUsed;
 
-  const opts = document.querySelectorAll('.opt-btn-5');
+  const opts = document.querySelectorAll('.opt-node-output');
   opts.forEach((btn, i) => {
     btn.disabled = true;
     if (i === correct) btn.classList.add(chosen === correct ? 'correct' : 'reveal');
@@ -2582,7 +2604,7 @@ function selectAnswer(chosen, correct, explain, tag, qText, shuffleIdx, origOpts
       playSound('combo');
     }
 
-    fb.className = 'feedback-strip-5 correct-fb show';
+    fb.className = 'execution-feedback-bar correct-fb show';
     fb.innerHTML = msg + (explain ? '<div style="margin-top:8px;font-size:13px;font-weight:400;color:#a8f0d8;line-height:1.5;border-top:1px solid rgba(255,255,255,.12);padding-top:8px;">💡 ' + escHtml(explain) + '</div>' : '');
   } else {
     playSound('wrong');
@@ -2616,14 +2638,14 @@ function applyPenalty(fb, streak, explain) {
     msg = '❌ Sai lần ' + streak + ' liên tiếp! −' + penalty + ' điểm 💸';
   }
 
-  fb.className = 'feedback-strip-5 wrong-fb show';
+  fb.className = 'execution-feedback-bar wrong-fb show';
   fb.innerHTML = msg + (explain ? '<div style="margin-top:8px;font-size:13px;font-weight:400;color:#ffa4bc;line-height:1.5;border-top:1px solid rgba(255,255,255,.12);padding-top:8px;">💡 ' + escHtml(explain) + '</div>' : '');
 }
 
 function timeOut(correct, explain, tag, qText, shuffleIdx, origOpts) {
   playSound('wrong');
   answered = true; combo = 0; wrongStreak++; wrongCount++;
-  const opts = document.querySelectorAll('.opt-btn-5');
+  const opts = document.querySelectorAll('.opt-node-output');
   opts.forEach((btn, i) => {
     btn.disabled = true;
     if (i === correct) btn.classList.add('reveal');
@@ -2639,7 +2661,7 @@ function timeOut(correct, explain, tag, qText, shuffleIdx, origOpts) {
     msg += ' ⚠️ Sai thêm sẽ bị trừ điểm!';
   }
 
-  fb.className = 'feedback-strip-5 wrong-fb show';
+  fb.className = 'execution-feedback-bar wrong-fb show';
   fb.innerHTML = msg + (explain ? '<div style="margin-top:8px;font-size:13px;font-weight:400;color:#ffa4bc;line-height:1.5;border-top:1px solid rgba(255,255,255,.12);padding-top:8px;">💡 ' + escHtml(explain) + '</div>' : '');
   updateComboDisplay();
 
@@ -2662,10 +2684,10 @@ function updateComboDisplay() {
   const el = $('combo-display');
   if (combo >= 2) {
     el.textContent = '🔥 x' + combo + ' COMBO!';
-    el.style.color = combo >= 5 ? 'var(--rose)' : (combo >= 3 ? 'var(--amber)' : 'var(--gold)');
+    el.style.color = combo >= 5 ? 'var(--n8n-rose)' : (combo >= 3 ? 'var(--n8n-orange)' : 'var(--n8n-amber)');
   } else if (wrongStreak >= 2) {
     el.textContent = '💸 −' + wrongStreak + ' STREAK';
-    el.style.color = 'var(--rose)';
+    el.style.color = 'var(--n8n-rose)';
   } else {
     el.textContent = '';
   }
@@ -2679,7 +2701,7 @@ function nextQuestion() {
 }
 
 /* ============================================================
-   SHOW RESULT 5.0
+   SHOW RESULT DASHBOARD
    ============================================================ */
 function showResult() {
   clearInterval(timerInterval);
@@ -2752,15 +2774,15 @@ function buildReview() {
 
   reviewLog.forEach((item, idx) => {
     const div = document.createElement('div');
-    div.className = 'review-item-5 ' + (item.isCorrect ? 'r-correct' : 'r-wrong');
+    div.className = 'review-node-item ' + (item.isCorrect ? 'r-correct' : 'r-wrong');
     const chosenText = item.chosen >= 0 ? (keys[item.chosen] + '. ' + escHtml(item.opts[item.chosen])) : 'Hết giờ (chưa chọn)';
     div.innerHTML =
-      '<div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--cyan);text-transform:uppercase;margin-bottom:6px;">' + escHtml(item.tag) + '</div>' +
-      '<div style="font-size:13px;font-weight:800;color:' + (item.isCorrect ? 'var(--emerald)' : 'var(--rose)') + ';margin-bottom:8px;">' + (item.isCorrect ? '✅ Đúng' : '❌ Sai') + ' — Câu ' + (idx + 1) + '</div>' +
+      '<div style="font-family:JetBrains Mono,monospace;font-size:11px;font-weight:700;color:var(--n8n-coral);text-transform:uppercase;margin-bottom:6px;">' + escHtml(item.tag) + '</div>' +
+      '<div style="font-size:13px;font-weight:800;color:' + (item.isCorrect ? 'var(--n8n-emerald)' : 'var(--n8n-rose)') + ';margin-bottom:8px;">' + (item.isCorrect ? '✅ Đúng' : '❌ Sai') + ' — Node ' + (idx + 1) + '</div>' +
       '<div style="font-size:15px;font-weight:600;margin-bottom:10px;line-height:1.55;">' + escHtml(item.q) + '</div>' +
       '<div style="font-size:13.5px;margin-bottom:5px;">Bạn chọn: <span style="font-weight:700;">' + chosenText + '</span></div>' +
-      '<div style="font-size:13.5px;margin-bottom:8px;">Đáp án đúng: <span style="font-weight:700;color:var(--emerald);">' + keys[item.correct] + '. ' + escHtml(item.opts[item.correct]) + '</span></div>' +
-      '<div style="font-size:13px;color:var(--text-muted);border-top:1px solid var(--border-glass);padding-top:8px;">💡 ' + escHtml(item.explain || '(Không có giải thích)') + '</div>';
+      '<div style="font-size:13.5px;margin-bottom:8px;">Đáp án đúng: <span style="font-weight:700;color:var(--n8n-emerald);">' + keys[item.correct] + '. ' + escHtml(item.opts[item.correct]) + '</span></div>' +
+      '<div style="font-size:13px;color:var(--text-muted);border-top:1px solid var(--border-subtle);padding-top:8px;">💡 ' + escHtml(item.explain || '(Không có giải thích)') + '</div>';
     container.appendChild(div);
   });
 }
@@ -2786,7 +2808,7 @@ function setupPuzzleGrid() {
   const icons = ['🧩', '⚡', '💡', '🎯', '🔮', '🌟'];
   for (let i = 0; i < 6; i++) {
     const tile = document.createElement('div');
-    tile.className = 'puzzle-cyber-tile';
+    tile.className = 'puzzle-node-tile';
     tile.textContent = icons[i];
     tile.onclick = (e) => onPuzzleTileClick(e);
     grid.appendChild(tile);
@@ -2795,7 +2817,7 @@ function setupPuzzleGrid() {
 
 function onPuzzleTileClick(e) {
   playSound('click');
-  const tiles = document.querySelectorAll('.puzzle-cyber-tile');
+  const tiles = document.querySelectorAll('.puzzle-node-tile');
   tiles.forEach(t => t.classList.add('disabled'));
   e.currentTarget.classList.remove('disabled');
   e.currentTarget.classList.add('flipped');
@@ -2826,7 +2848,7 @@ function limitWords(text, max) {
     if (count === max) {
       const end = m.index + m[0].length;
       if (/\S/.test(text.slice(end))) return { text: text.slice(0, end), count: max, truncated: true };
-      return { text: text, count: max, truncated: false };
+      return { text: text, count: count, truncated: false };
     }
   }
   return { text: text, count: count, truncated: false };
@@ -2835,7 +2857,7 @@ function limitWords(text, max) {
 function updateWordCounter(n) {
   const c = $('word-counter');
   c.textContent = n + ' / ' + ESSAY_MAX_WORDS + ' từ (tối thiểu ' + ESSAY_MIN_WORDS + ' từ)';
-  c.style.color = n >= ESSAY_MAX_WORDS ? 'var(--rose)' : (n >= ESSAY_MIN_WORDS ? 'var(--emerald)' : 'var(--text-muted)');
+  c.style.color = n >= ESSAY_MAX_WORDS ? 'var(--n8n-rose)' : (n >= ESSAY_MIN_WORDS ? 'var(--n8n-emerald)' : 'var(--text-muted)');
 }
 
 function onEssayAnswerInput() {
@@ -2904,7 +2926,7 @@ function closeAnticheat() {
   if (acCurrentCorrect < 0) { nextQuestion(); return; }
 
   answered = true; combo = 0; wrongStreak++; wrongCount++;
-  const opts = document.querySelectorAll('.opt-btn-5');
+  const opts = document.querySelectorAll('.opt-node-output');
   opts.forEach((btn, i) => {
     btn.disabled = true;
     if (i === acCurrentCorrect) btn.classList.add('reveal');
@@ -2920,7 +2942,7 @@ function closeAnticheat() {
     msg += ' ⚠️ Sai tiếp sẽ bị trừ điểm!';
   }
 
-  fb.className = 'feedback-strip-5 wrong-fb show';
+  fb.className = 'execution-feedback-bar wrong-fb show';
   fb.innerHTML = msg;
   updateComboDisplay();
 
@@ -2940,7 +2962,7 @@ function closeAnticheat() {
 }
 
 /* ============================================================
-   ADMIN CONTROLS & PARSER
+   ADMIN COMMAND CENTER CONTROLS
    ============================================================ */
 let adminVerified = false;
 
@@ -2981,9 +3003,9 @@ function onAdminOverlayClick(e) { if (e.target === $('admin-overlay')) closeAdmi
 
 function switchAdminTab(tabName) {
   playSound('click');
-  document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.admin-section-pane').forEach(t => t.classList.remove('active'));
-  const btn = document.querySelector('.admin-tab-btn[onclick*="' + tabName + '"]');
+  document.querySelectorAll('.admin-tab-chip').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.admin-pane-content').forEach(t => t.classList.remove('active'));
+  const btn = document.querySelector('.admin-tab-chip[onclick*="' + tabName + '"]');
   if (btn) btn.classList.add('active');
   const target = $('atab-' + tabName);
   if (target) target.classList.add('active');
@@ -2995,7 +3017,7 @@ function switchAdminTab(tabName) {
 function loadAdminData() {
   $('setting-require-pass').checked = REQUIRE_PASS;
   $('pass-mode-text').textContent = REQUIRE_PASS ? 'Bắt buộc mật khẩu' : 'Bypass (Tự do vào)';
-  $('pass-mode-text').style.color = REQUIRE_PASS ? 'var(--rose)' : 'var(--emerald)';
+  $('pass-mode-text').style.color = REQUIRE_PASS ? 'var(--n8n-rose)' : 'var(--n8n-emerald)';
   $('setting-exam-pass').value = EXAM_PASS;
 
   $('setting-anticheat').checked = ANTICHEAT_ENABLED;
@@ -3012,7 +3034,7 @@ function loadAdminData() {
 function toggleRequirePassSetting() {
   const val = $('setting-require-pass').checked;
   $('pass-mode-text').textContent = val ? 'Bắt buộc mật khẩu' : 'Bypass (Tự do vào)';
-  $('pass-mode-text').style.color = val ? 'var(--rose)' : 'var(--emerald)';
+  $('pass-mode-text').style.color = val ? 'var(--n8n-rose)' : 'var(--n8n-emerald)';
 }
 
 function toggleAnticheatSetting() {
@@ -3032,10 +3054,10 @@ function saveSecuritySettings() {
   setStorage(KEY_ADMIN_PASS, ADMIN_PASS);
 
   updatePassUI();
-  showNotify('notify-pass', '✅ Đã lưu cài đặt bảo mật và mật khẩu thành công!', 'var(--emerald)');
+  showNotify('notify-pass', '✅ Đã lưu cài đặt bảo mật và mật khẩu thành công!', 'var(--n8n-emerald)');
 }
 
-/* SMART TEXT PARSER 5.0 */
+/* SMART TEXT PARSER 5.1 */
 function parseRawExamText(text) {
   const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
   const parsed = [];
@@ -3095,13 +3117,13 @@ function parseAndImportText(replace) {
   playSound('click');
   const raw = $('import-raw-text').value.trim();
   if (!raw) {
-    showNotify('notify-text', '❌ Vui lòng dán nội dung đề thi vào khung text!', 'var(--rose)');
+    showNotify('notify-text', '❌ Vui lòng dán nội dung đề thi vào khung text!', 'var(--n8n-rose)');
     return;
   }
 
   const extracted = parseRawExamText(raw);
   if (extracted.length === 0) {
-    showNotify('notify-text', '❌ Không nhận diện được câu hỏi nào! Hãy chắc chắn có dạng: "Câu 1: ... A. ... B. ... C. ... D. ... Đáp án: A"', 'var(--rose)');
+    showNotify('notify-text', '❌ Không nhận diện được câu hỏi nào! Hãy chắc chắn có dạng: "Câu 1: ... A. ... B. ... C. ... D. ... Đáp án: A"', 'var(--n8n-rose)');
     return;
   }
 
@@ -3117,7 +3139,7 @@ function parseAndImportText(replace) {
   $('rule-q-count').textContent = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
   $('import-raw-text').value = '';
 
-  showNotify('notify-text', '✅ Đã trích xuất & thêm ' + extracted.length + ' câu hỏi thành công! (Tổng: ' + ALL_QUESTIONS.length + ' câu)', 'var(--emerald)');
+  showNotify('notify-text', '✅ Đã trích xuất & thêm ' + extracted.length + ' câu hỏi thành công! (Tổng: ' + ALL_QUESTIONS.length + ' câu)', 'var(--n8n-emerald)');
 }
 
 function loadSampleTextExam() {
@@ -3144,12 +3166,12 @@ function importJsonQuestions(replace) {
   playSound('click');
   try {
     const raw = $('import-json-text').value.trim();
-    if (!raw) { showNotify('notify-json', '❌ Vui lòng nhập JSON!', 'var(--rose)'); return; }
+    if (!raw) { showNotify('notify-json', '❌ Vui lòng nhập JSON!', 'var(--n8n-rose)'); return; }
     const arr = JSON.parse(raw);
-    if (!Array.isArray(arr)) { showNotify('notify-json', '❌ JSON phải là một mảng []!', 'var(--rose)'); return; }
+    if (!Array.isArray(arr)) { showNotify('notify-json', '❌ JSON phải là một mảng []!', 'var(--n8n-rose)'); return; }
 
     const valid = arr.filter(q => q.q && Array.isArray(q.opts) && q.opts.length >= 4 && typeof q.ans === 'number');
-    if (valid.length === 0) { showNotify('notify-json', '❌ Không có câu hỏi nào hợp lệ trong JSON!', 'var(--rose)'); return; }
+    if (valid.length === 0) { showNotify('notify-json', '❌ Không có câu hỏi nào hợp lệ trong JSON!', 'var(--n8n-rose)'); return; }
 
     if (replace) {
       if (!confirm('Thay thế toàn bộ bằng ' + valid.length + ' câu JSON này?')) return;
@@ -3162,9 +3184,9 @@ function importJsonQuestions(replace) {
     $('bank-count-badge').textContent = ALL_QUESTIONS.length;
     $('rule-q-count').textContent = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
     $('import-json-text').value = '';
-    showNotify('notify-json', '✅ Đã import thành công ' + valid.length + ' câu! (Tổng: ' + ALL_QUESTIONS.length + ')', 'var(--emerald)');
+    showNotify('notify-json', '✅ Đã import thành công ' + valid.length + ' câu! (Tổng: ' + ALL_QUESTIONS.length + ')', 'var(--n8n-emerald)');
   } catch(e) {
-    showNotify('notify-json', '❌ Lỗi định dạng JSON: ' + e.message, 'var(--rose)');
+    showNotify('notify-json', '❌ Lỗi định dạng JSON: ' + e.message, 'var(--n8n-rose)');
   }
 }
 
@@ -3175,10 +3197,10 @@ function exportQuestionsJson() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'de-thi-anhtai.json';
+  a.download = 'de-thi-thanhtaicoder.json';
   document.body.appendChild(a); a.click();
   document.body.removeChild(a); URL.revokeObjectURL(url);
-  showNotify('notify-json', '✅ Đã tải file JSON câu hỏi về máy!', 'var(--emerald)');
+  showNotify('notify-json', '✅ Đã tải file JSON câu hỏi về máy!', 'var(--n8n-emerald)');
 }
 
 function renderBankList() {
@@ -3199,14 +3221,14 @@ function renderBankList() {
     const realIdx = ALL_QUESTIONS.indexOf(q);
     const item = document.createElement('div');
     item.style.padding = '12px 16px';
-    item.style.borderBottom = '1px solid var(--border-glass)';
+    item.style.borderBottom = '1px solid var(--border-subtle)';
     item.style.display = 'flex';
     item.style.alignItems = 'center';
     item.style.gap = '12px';
     item.style.fontSize = '13.5px';
 
     item.innerHTML =
-      '<span style="font-family:Space Grotesk,monospace;font-size:12px;color:var(--text-dim);min-width:32px;">#' + (realIdx + 1) + '</span>' +
+      '<span style="font-family:JetBrains Mono,monospace;font-size:12px;color:var(--text-dim);min-width:32px;">#' + (realIdx + 1) + '</span>' +
       '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="' + escHtml(q.q) + '">' + escHtml(q.q) + '</span>' +
       '<button style="background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:16px;" onclick="deleteBankQuestion(' + realIdx + ')">🗑</button>';
     list.appendChild(item);
@@ -3229,7 +3251,7 @@ function clearAllExamQuestions() {
   $('bank-count-badge').textContent = 0;
   $('rule-q-count').textContent = 0;
   renderBankList();
-  showNotify('notify-bank', 'Đã xóa toàn bộ câu hỏi.', 'var(--rose)');
+  showNotify('notify-bank', 'Đã xóa toàn bộ câu hỏi.', 'var(--n8n-rose)');
 }
 
 function restoreDefaultQuestions() {
@@ -3239,26 +3261,26 @@ function restoreDefaultQuestions() {
   $('bank-count-badge').textContent = ALL_QUESTIONS.length;
   $('rule-q-count').textContent = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
   renderBankList();
-  showNotify('notify-bank', '✅ Đã khôi phục 75 câu hỏi gốc!', 'var(--emerald)');
+  showNotify('notify-bank', '✅ Đã khôi phục 75 câu hỏi gốc!', 'var(--n8n-emerald)');
 }
 
 function saveEssayQuestionsBank() {
   playSound('click');
   const lines = $('essay-bank-input').value.split('\n').map(l => l.trim()).filter(l => l.length > 0);
   if (lines.length === 0) {
-    showNotify('notify-essay', '❌ Cần ít nhất 1 câu hỏi tự luận!', 'var(--rose)');
+    showNotify('notify-essay', '❌ Cần ít nhất 1 câu hỏi tự luận!', 'var(--n8n-rose)');
     return;
   }
   ESSAY_QUESTIONS = lines;
   setStorage(KEY_ESSAY_QS, ESSAY_QUESTIONS);
-  showNotify('notify-essay', '✅ Đã lưu ' + lines.length + ' câu hỏi tự luận!', 'var(--emerald)');
+  showNotify('notify-essay', '✅ Đã lưu ' + lines.length + ' câu hỏi tự luận!', 'var(--n8n-emerald)');
 }
 
 function restoreDefaultEssay() {
   ESSAY_QUESTIONS = DEFAULT_ESSAY_QUESTIONS.slice();
   $('essay-bank-input').value = ESSAY_QUESTIONS.join('\n');
   setStorage(KEY_ESSAY_QS, ESSAY_QUESTIONS);
-  showNotify('notify-essay', '✅ Đã khôi phục câu tự luận mặc định!', 'var(--emerald)');
+  showNotify('notify-essay', '✅ Đã khôi phục câu tự luận mặc định!', 'var(--n8n-emerald)');
 }
 
 function saveExamConfig() {
@@ -3281,7 +3303,7 @@ function saveExamConfig() {
   $('rule-q-count').textContent = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
   $('rule-p1-time').textContent = p1m;
 
-  showNotify('notify-config', '✅ Đã lưu cài đặt thời gian & số câu!', 'var(--emerald)');
+  showNotify('notify-config', '✅ Đã lưu cài đặt thời gian & số câu!', 'var(--n8n-emerald)');
 }
 
 function showNotify(id, msg, color) {
@@ -3297,7 +3319,7 @@ function showNotify(id, msg, color) {
    CONFETTI & MODALS
    ============================================================ */
 function launchConfetti() {
-  const colors = ['#00f2fe', '#4facfe', '#f6c90e', '#00f5a0', '#ff007f', '#ffffff'];
+  const colors = ['#ff6d5a', '#ea580c', '#8b5cf6', '#10b981', '#06b6d4', '#ffffff'];
   for (let i = 0; i < 80; i++) {
     setTimeout(() => {
       const el = document.createElement('div');
@@ -3355,7 +3377,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const keyMap = { 'a': 0, 'b': 1, 'c': 2, 'd': 3, '1': 0, '2': 1, '3': 2, '4': 3 };
       const idx = keyMap[e.key.toLowerCase()];
       if (idx !== undefined) {
-        const btns = document.querySelectorAll('.opt-btn-5:not(:disabled)');
+        const btns = document.querySelectorAll('.opt-node-output:not(:disabled)');
         if (btns[idx]) btns[idx].click();
       }
     }
