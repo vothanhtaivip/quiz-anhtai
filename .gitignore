@@ -1,0 +1,6 @@
+node_modules/
+*.log
+generate_app.js
+parse_questions.js
+validate_syntax.js
+extract_questions.py

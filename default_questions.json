@@ -1,0 +1,902 @@
+[
+  {
+    "tag": "Digital Marketing",
+    "q": "Digital Marketing là gì?",
+    "opts": [
+      "Chỉ sử dụng mạng xã hội để bán hàng",
+      "Sử dụng các kênh trực tuyến, công cụ số hóa và nền tảng trực tuyến để quảng cáo, tiếp cận và tương tác với khách hàng mục tiêu",
+      "Marketing truyền thống được in ấn trên báo chí",
+      "Chỉ áp dụng cho doanh nghiệp lớn có ngân sách cao"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu KHÔNG phải là biểu hiện của “xu hướng tất yếu” chuyển dịch sang Digital Marketing?",
+    "opts": [
+      "Người dùng chuyển dịch sang môi trường trực tuyến",
+      "Quyết định mua hàng dựa nhiều vào thông tin số",
+      "Doanh nghiệp cần có mặt trên nền tảng số để cạnh tranh",
+      "Người tiêu dùng quay trở lại hoàn toàn với quảng cáo truyền thống"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Người tiêu dùng hiện nay có xu hướng làm gì trước khi quyết định mua hàng?",
+    "opts": [
+      "Mua ngay không cần tìm hiểu",
+      "Chủ động tìm kiếm thông tin trên Internet",
+      "Cả 3 đáp án đều đúng",
+      "Đợi nhân viên bán hàng tư vấn trực tiếp"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Người tiêu dùng ngày nay kỳ vọng điều gì từ thương hiệu trên nền tảng số ?",
+    "opts": [
+      "Trải nghiệm cá nhân hóa",
+      "Tương tác và phản hồi nhanh",
+      "Có thể mua hàng mọi lúc",
+      "Cả 3 đáp án đều đúng"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Nhóm đối tượng nào có ảnh hưởng lớn đến quyết định mua hàng của người tiêu dùng qua nội dung UGC?",
+    "opts": [
+      "Cơ quan nhà nước",
+      "KOL/KOC",
+      "Đối thủ cạnh tranh",
+      "Nhà cung ứng nguyên liệu"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Trong mô hình phễu AIDA, chữ “A” đầu tiên (Attention) có ý nghĩa gì?",
+    "opts": [
+      "Tạo mong muốn sở hữu sản phẩm",
+      "Thu hút sự chú ý ban đầu bằng nội dung, hình ảnh, quảng cáo nổi bật",
+      "Thúc đẩy hành động mua hàng",
+      "Khơi gợi sự quan tâm bằng thông tin sản phẩm"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Trong mô hình AIDA, giai đoạn “Interest” (Thích thú) thực hiện điều gì?",
+    "opts": [
+      "Thúc đẩy khách hàng hành động cụ thể",
+      "Thu hút sự chú ý ban đầu",
+      "Khơi gợi sự quan tâm bằng thông tin, giá trị sản phẩm/dịch vụ",
+      "Tạo mong muốn sở hữu thông qua cảm xúc"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "“Desire” trong mô hình AIDA được mô tả là giai đoạn nào?",
+    "opts": [
+      "Tạo mong muốn sở hữu thông qua lợi ích, ưu đãi, cảm xúc",
+      "Thu hút sự chú ý ban đầu",
+      "Đăng ký nhận bản tin",
+      "Khơi gợi sự quan tâm ban đầu"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Giai đoạn “Action” trong mô hình AIDA hướng đến kết quả nào?",
+    "opts": [
+      "Thu hút sự chú ý ban đầu bằng nội dung, hình ảnh, quảng cáo nổi bật",
+      "Thúc đẩy khách hàng thực hiện hành động cụ thể",
+      "Khơi gợi sự quan tâm bằng thông tin, giá trị sản phẩm/dịch vụ",
+      "Không có hành động cụ thể nào"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Giai đoạn “Giữ chân” (Retention) trong Customer Journey sử dụng công cụ nào để duy trì tương tác?",
+    "opts": [
+      "Quảng cáo hiển thị",
+      "Quảng cáo tìm kiếm",
+      "Email, mạng xã hội, CRM",
+      "Nội dung so sánh sản phẩm"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Mô hình POEM trong Digital Marketing phân loại các kênh truyền thông theo mấy nhóm?",
+    "opts": [
+      "2 nhóm",
+      "3 nhóm",
+      "4 nhóm",
+      "5 nhóm"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Owned Media được định nghĩa là gì?",
+    "opts": [
+      "Kênh truyền thông phải trả phí để hiển thị",
+      "Sự lan tỏa tự nhiên do khách hàng tạo ra",
+      "Các kênh truyền thông do doanh nghiệp sở hữu và kiểm soát",
+      "Kênh dành cho quảng cáo trên truyền hình, trên tiktok và trên mạng xã hội"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Phương tiện nào thuộc Owned Media?",
+    "opts": [
+      "Bài viết báo chí nhắc đến thương hiệu",
+      "Quảng cáo Google Ads và Facebook Ads",
+      "Website, ứng dụng di động, Fanpage",
+      "Đánh giá của khách hàng trên diễn đàn"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Ưu điểm của Owned Media là gì?",
+    "opts": [
+      "Độ tin cậy cao vì đến từ bên thứ ba",
+      "Toàn quyền kiểm soát nội dung",
+      "Tiếp cận nhanh và mở rộng quy mô dễ dàng",
+      "Không cần đầu tư thời gian"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Earned Media là gì?",
+    "opts": [
+      "Kênh do doanh nghiệp sở hữu hoàn toàn",
+      "Sự lan tỏa tự nhiên do khách hàng và cộng đồng tạo ra",
+      "Kênh phải trả phí để hiển thị",
+      "Gồm các quảng cáo trên mạng xã hội"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là ví dụ của Earned Media?",
+    "opts": [
+      "Website doanh nghiệp",
+      "Quảng cáo Facebook/TikTok",
+      "UGC nhắc đến thương hiệu",
+      "Email chăm sóc khách hàng"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Ưu điểm nổi bật của Earned Media là gì?",
+    "opts": [
+      "Toàn quyền kiểm soát nội dung",
+      "Tính khách quan, độ tin cậy cao",
+      "Đo lường hiệu quả rõ ràng nhất",
+      "Chi phí duy trì thấp nhất"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Hạn chế của Earned Media là gì?",
+    "opts": [
+      "Doanh nghiệp không thể kiểm soát hoàn toàn nội dung",
+      "Chi phí quá cao để duy trì",
+      "Cần thời gian dài xây dựng",
+      "Ngừng chi tiền là ngừng hiệu quả"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Paid Media được định nghĩa là gì?",
+    "opts": [
+      "Kênh truyền thông do doanh nghiệp sở hữu",
+      "Sự lan tỏa tự nhiên do khách hàng và cộng đồng tạo ra",
+      "Các kênh truyền thông phải trả phí để hiển thị đến khách hàng mục tiêu",
+      "Không đáp án nào đúng"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là ví dụ của Paid Media?",
+    "opts": [
+      "Email khách hàng",
+      "Đánh giá từ cộng đồng",
+      "Banner hiển thị, quảng cáo Google Ads,",
+      "Bài viết trên website doanh nghiệp"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Ưu điểm của Paid Media là gì?",
+    "opts": [
+      "Tiết kiệm ngân sách, không tốn chi phí vận hành",
+      "Tiếp cận nhanh đến khách hàng mục tiêu",
+      "Độ tin cậy cao nhất vì đến từ bên thứ ba",
+      "Không cần đo lường"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Hạn chế của Paid Media là gì?",
+    "opts": [
+      "Cần thời gian dài xây dựng lượng theo dõi",
+      "Không kiểm soát được hoàn toàn về nội dung",
+      "Ngừng chi tiền là ngừng hiệu quả",
+      "Độ tin cậy thấp nhất"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Vai trò của dữ liệu trong Digital Marketing là gì?",
+    "opts": [
+      "Cá nhân hóa nội dung",
+      "Giúp xác định đúng đối tượng mục tiêu, khách hàng tiềm năng",
+      "Giúp hiểu rõ về hành vi khách hàng",
+      "Cả 3 đáp án đều Đúng"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "“Audience” trong cấu trúc kế hoạch Digital Marketing là gì?",
+    "opts": [
+      "Xác định chân dung khách hàng mục tiêu cụ thể",
+      "Đo lường chỉ số chiến dịch",
+      "Phân bổ ngân sách",
+      "Lựa chọn kênh triển khai"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Theo mô hình Digital Platform (POEM), “Display Ads, Search Ads, Mobile Ads, Sponsored Content” thuộc nhóm kênh nào?",
+    "opts": [
+      "Owned Media",
+      "Earned Media",
+      "Paid Media",
+      "Không thuộc nhóm nào"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Môi trường Digital Marketing được định nghĩa là gì?",
+    "opts": [
+      "Là các yếu tố bên trong doanh nghiệp như Tài chính, Nhân lực, Công nghệ",
+      "Tổng hợp các yếu tố bên trong và bên ngoài tác động đến hoạt động marketing trên nền tảng số",
+      "Là công nghệ được doanh nghiệp sử dụng",
+      "Là các yếu tố có liên quan đến đối thủ cạnh tranh"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là yếu tố thuộc môi trường vi mô của Digital Marketing?",
+    "opts": [
+      "Dân số, kinh tế, tự nhiên",
+      "Trung gian marketing",
+      "Công nghệ, chính trị pháp luật",
+      "Văn hóa toàn cầu"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là yếu tố thuộc môi trường vi mô của Digital Marketing?",
+    "opts": [
+      "Dân số",
+      "Kinh tế",
+      "Công chúng",
+      "Văn hóa toàn cầu"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là yếu tố thuộc môi trường vi mô của Digital Marketing?",
+    "opts": [
+      "Kinh tế, tự nhiên",
+      "Chính trị pháp luật",
+      "Khách hàng, đối thủ cạnh tranh",
+      "Văn hóa toàn cầu"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là yếu tố môi trường vĩ mô của Digital Marketing?",
+    "opts": [
+      "Doanh nghiệp, nhà cung ứng",
+      "Trung gian marketing, khách hàng",
+      "Dân số, tự nhiên",
+      "Đối thủ cạnh tranh, công chúng"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là yếu tố môi trường vĩ mô của Digital Marketing?",
+    "opts": [
+      "Doanh nghiệp",
+      "Trung gian marketing",
+      "Chính trị pháp luật",
+      "Đối thủ cạnh tranh, công chúng"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là yếu tố môi trường vĩ mô của Digital Marketing?",
+    "opts": [
+      "Nhà cung ứng",
+      "Trung gian marketing",
+      "Đối thủ cạnh tranh tiềm ẩn",
+      "Công nghệ kỹ thuật"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Doanh nghiệp có website thương mại điện tử có nghĩa vụ gì?",
+    "opts": [
+      "Không cần đăng ký với cơ quan nào",
+      "Báo cáo thông tin và đăng ký hoạt động với Bộ Công Thương",
+      "Báo cáo thông tin và đăng ký hoạt động với Bộ Thông tin Truyền thông",
+      "Báo cáo thông tin và đăng ký hoạt động với Bộ Công An"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Theo Luật Quảng cáo, đâu là sản phẩm/dịch vụ bị cấm quảng cáo?",
+    "opts": [
+      "Thực phẩm chức năng",
+      "Thuốc lá, rượu mạnh, tiền ảo",
+      "Mỹ phẩm",
+      "Đồ điện tử"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Theo Luật Quảng cáo, những đối tượng nào có quyền và nghĩa vụ pháp lý nhất định?",
+    "opts": [
+      "Người quảng cáo",
+      "Người kinh doanh dịch vụ quảng cáo",
+      "Người chuyển tải sản phẩm quảng cáo",
+      "Cả 3 đáp án đều đúng"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Theo Luật bản quyền được đề cập, hành vi nào bị coi là khai thác thương mại?",
+    "opts": [
+      "Nghe nhạc cá nhân tại nhà",
+      "Phát nhạc tại không gian kinh doanh",
+      "Mua bản quyền nhạc",
+      "Chia sẻ nhạc miễn phí trên mạng xã hội cá nhân"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Theo Luật nhãn hiệu được đề cập, doanh nghiệp KHÔNG được làm gì trong quảng cáo nếu chưa được phép?",
+    "opts": [
+      "Sử dụng logo, slogan, tên thương hiệu của đối thủ",
+      "Đăng ký nhãn hiệu riêng",
+      "Quảng cáo sản phẩm của chính mình",
+      "Sử dụng màu sắc thương hiệu riêng"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Luật sáng chế nhằm mục đích gì?",
+    "opts": [
+      "Bảo vệ dữ liệu cá nhân",
+      "Chống sao chép công nghệ",
+      "Quy định về quảng cáo",
+      "Quy định về thuế"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Doanh nghiệp quảng cáo qua nền tảng nước ngoài như Meta, Google phải thực hiện nghĩa vụ gì?",
+    "opts": [
+      "Không cần nộp thuế",
+      "Nộp thuế nhà thầu",
+      "Chỉ cần đăng ký kinh doanh",
+      "Chỉ cần thông báo với nền tảng"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Luật Thương mại điện tử mới (122/2025/QH15) có điểm mới nào so với các nghị định trước?",
+    "opts": [
+      "Thu hẹp phạm vi điều chỉnh",
+      "Khung pháp lý toàn diện, thống nhất, quy định chi tiết hơn về trách nhiệm các chủ thể và TMĐT xuyên biên giới",
+      "Không đề cập đến bảo mật dữ liệu",
+      "Chỉ áp dụng cho doanh nghiệp trong nước"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Yếu tố nào sau đây thuộc nhóm “chính sách nền tảng” ảnh hưởng đến Digital Marketing?",
+    "opts": [
+      "Quy định kiểm soát nội dung của Facebook",
+      "Luật Quảng cáo của nhà nước",
+      "Lãi suất ngân hàng",
+      "Tỷ lệ thất nghiệp"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là yếu tố thuộc nhóm Kinh tế (Economic) ảnh hưởng đến Digital Marketing?",
+    "opts": [
+      "Tỷ lệ thất nghiệp",
+      "Ngôn ngữ và giá trị văn hóa",
+      "Chính sách nền tảng mạng xã hội",
+      "Trí tuệ nhân tạo và Machine Learning"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Yếu tố Kinh tế ảnh hưởng đến hoạt động Digital Marketing của doanh nghiệp như thế nào?",
+    "opts": [
+      "Ảnh hưởng đến chi phí vận hành và chiến lược đầu tư trên nền tảng số",
+      "Ảnh hưởng đến sức mua của khách hàng",
+      "Ảnh hưởng đến hành vi tiêu dùng của khách hàng",
+      "Ảnh hưởng đến đối thủ cạnh tranh cùng ngành"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Yếu tố Văn hóa - Xã hội nào ảnh hưởng trực tiếp đến cách người tiêu dùng tiếp nhận thông điệp marketing?",
+    "opts": [
+      "Lãi suất ngân hàng",
+      "Chuẩn mực xã hội",
+      "Tốc độ tăng trưởng kinh tế",
+      "Hạ tầng Internet"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Khi triển khai chiến dịch Digital Marketing, doanh nghiệp cần tránh điều gì liên quan đến yếu tố văn hóa - xã hội?",
+    "opts": [
+      "Tối ưu nội dung theo từng nhóm khách hàng",
+      "Thông điệp gây tranh cãi hoặc phản cảm trong xã hội",
+      "Sử dụng ngôn ngữ địa phương",
+      "Cá nhân hóa nội dung"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu KHÔNG phải là yếu tố Công nghệ kỹ thuật được đề cập trong bài giảng?",
+    "opts": [
+      "Sự phát triển của Internet và hạ tầng số",
+      "Big Data và phân tích dữ liệu",
+      "Luật Bảo vệ dữ liệu cá nhân",
+      "Trí tuệ nhân tạo (AI) và Machine Learning"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Ứng dụng Công nghệ trong sáng tạo nội dung số là:",
+    "opts": [
+      "Công nghệ dựng video bằng AI",
+      "Sử dụng AI trong việc sáng tạo hình ảnh",
+      "AR/VR",
+      "Tất cả đáp án"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Trung gian Digital Marketing là?",
+    "opts": [
+      "KOC/KOL",
+      "Trung gian thanh toán, vận chuyển",
+      "Sàn thương mại điện tử",
+      "Cả 3 đáp án"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Trung gian Digital Marketing hỗ trợ doanh nghiệp trong những hoạt động nào?",
+    "opts": [
+      "Hỗ trợ vận chuyển",
+      "Truyền thông - quảng bá, kết nối với người dùng cuối",
+      "Hỗ trợ khách hàng thanh toán bằng nhiều hình thức",
+      "Cả 3 đáp án"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Đâu là thành phần của “Công chúng” (Publics) trong môi trường Digital Marketing?",
+    "opts": [
+      "Khách hàng hiện tại",
+      "Khách hàng tiềm năng",
+      "Cơ quan nhà nước",
+      "Cả 3 đáp án"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Theo mô hình môi trường Digital Marketing, “Nhà cung ứng” thuộc nhóm yếu tố nào?",
+    "opts": [
+      "Yếu tố vĩ mô",
+      "Yếu tố vi mô",
+      "Yếu tố nội vi",
+      "Không thuộc nhóm nào"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Yếu tố “Dân số” trong môi trường Digital Marketing thuộc nhóm nào?",
+    "opts": [
+      "Yếu tố vi mô",
+      "Yếu tố vĩ mô",
+      "Yếu tố nội bộ doanh nghiệp",
+      "Yếu tố trung gian"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "“Chu kỳ kinh tế” trong môi trường Digital Marketing thuộc nhóm nào?",
+    "opts": [
+      "Yếu tố vi mô",
+      "Yếu tố vĩ mô",
+      "Yếu tố Chính trị - Pháp lý",
+      "Yếu tố Công nghệ kỹ thuật"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Trong hoạt động Marketing, STP là viết tắt của các bước nào?",
+    "opts": [
+      "Segmentation, Targeting, Positioning",
+      "Sales, Trading, Promotion",
+      "Strategy, Tactics, Planning",
+      "Social, Technology, Product"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "4P trong hoạt động Marketing gồm những yếu tố nào?",
+    "opts": [
+      "Product, Price, Place, Promotion",
+      "People, Process, Physical evidence, Product",
+      "Plan, People, Price, Product",
+      "Product, Platform, Payment, Promotion"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Theo bài giảng, hoạt động Marketing chịu tác động của những môi trường nào?",
+    "opts": [
+      "Môi trường vĩ mô",
+      "Môi trường vi mô",
+      "Cả 2 môi trường trên",
+      "Không chịu tác động của môi trường nào"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "“Product” trong 4P Digital Marketing chú trọng vào yếu tố nào?",
+    "opts": [
+      "Trải nghiệm số, nội dung số đi kèm",
+      "Mức giá sản phẩm",
+      "Kênh phân phối, quảng cáo sản phẩm",
+      "Cả 3 đáp án đều Đúng"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "“Livestream” là một kênh thuộc yếu tố nào trong 4P?",
+    "opts": [
+      "Place",
+      "Price",
+      "Product",
+      "Không thuộc 4P"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Hoạt động nghiên cứu Marketing trên nền tảng số bắt đầu từ bước nào?",
+    "opts": [
+      "Xác định mục tiêu",
+      "Đo lường hiệu quả",
+      "Triển khai chiến dịch",
+      "Tối ưu ngân sách"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Sau bước “Xác định mục tiêu” trong nghiên cứu Marketing trên nền tảng số, bước tiếp theo là gì?",
+    "opts": [
+      "Lên kế hoạch",
+      "Thu thập & phân tích dữ liệu",
+      "Triển khai",
+      "Tối ưu, điều chỉnh"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "“Targeting” trong quy trình STP nhằm mục đích gì?",
+    "opts": [
+      "Xác định đối tượng khách hàng mục tiêu sau khi đã phân khúc thị trường",
+      "Đo lường hiệu quả chiến dịch",
+      "Định vị thương hiệu/sản phẩm trong tâm trí khách hàng mục tiêu",
+      "Tính toán ngân sách quảng cáo"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Dữ liệu thứ cấp bao gồm?",
+    "opts": [
+      "Khảo sát trực tiếp",
+      "Phỏng vấn nhóm",
+      "Báo cáo ngành, tin tức",
+      "Gọi điện khách hàng"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Digital Marketing giúp doanh nghiệp:",
+    "opts": [
+      "Tạo ra nhu cầu mới",
+      "Tác động đến mong muốn và hành vi",
+      "Giảm giá sản phẩm",
+      "Tăng số lượng kho hàng"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Dữ liệu thứ cấp có đặc điểm:",
+    "opts": [
+      "Thu thập trực tiếp",
+      "Tốn nhiều thời gian khảo sát",
+      "Có sẵn từ nguồn bên ngoài",
+      "Không thể phân tích"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Segmentation là:",
+    "opts": [
+      "Định giá sản phẩm",
+      "Phân khúc thị trường",
+      "Lựa chọn kênh bán hàng",
+      "Tối ưu quảng cáo"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Hành vi của khách hàng bao gồm:",
+    "opts": [
+      "Tần suất mua",
+      "Tính cách",
+      "Giá trị sống",
+      "Nghề nghiệp"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Yếu tố quan trọng để đánh giá phân khúc mục tiêu:",
+    "opts": [
+      "Màu sắc thương hiệu",
+      "Quy mô",
+      "Số lượng nhân viên",
+      "Vị trí văn phòng"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Key message trong Persona dùng để:",
+    "opts": [
+      "Hiểu rõ nhu cầu khách hàng",
+      "Truyền tải thông điệp chính",
+      "Giảm chi phí quảng cáo",
+      "Cả 3 đáp án đều đúng"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "RTB là:",
+    "opts": [
+      "Lý do tin tưởng",
+      "Giá sản phẩm",
+      "Chi phí quảng cáo",
+      "Tên thương hiệu"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Trải nghiệm số tốt bao gồm:",
+    "opts": [
+      "Tốc độ tải trang nhanh",
+      "Giá rẻ",
+      "Nhiều kho hàng",
+      "Đảm bảo số lượng nhân viên tư vấn, chăm sóc khách hàng"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Kênh phân phối số gồm:",
+    "opts": [
+      "Website, sàn TMĐT",
+      "Kho hàng",
+      "Văn phòng, cửa hàng",
+      "Xe vận chuyển"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "SEM là:",
+    "opts": [
+      "Search Engine Marketing",
+      "Social Engagement Marketing",
+      "Sales Event Management",
+      "System Email Marketing"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "CRM thuộc nhóm:",
+    "opts": [
+      "Promotion",
+      "Price",
+      "Place",
+      "Product"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Một lợi ích của tối ưu liên tục:",
+    "opts": [
+      "Tăng hiệu quả chiến dịch quảng cáo",
+      "Tăng chi phí",
+      "Rút ngắn thời gian giao hàng",
+      "Cả 3 đáp án đều Đúng"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Digital Marketing",
+    "q": "Một yếu tố quan trọng trong Product trên nền tảng số:",
+    "opts": [
+      "Trải nghiệm số",
+      "Kho hàng , cửa hàng",
+      "Xe vận chuyển",
+      "Nhân viên chăm sóc khách hàng"
+    ],
+    "ans": 0,
+    "explain": ""
+  }
+]
