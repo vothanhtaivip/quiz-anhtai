@@ -1224,7 +1224,7 @@ h1.workflow-heading span {
   </nav>
 
   <!-- ================= START SCREEN ================= -->
-  <div id="start-screen">
+  <div id="start-screen" style="display:block;">
     <div class="workflow-hero">
       <div class="workflow-status-pill">
         <span class="status-indicator-dot"></span>
@@ -1324,7 +1324,7 @@ h1.workflow-heading span {
   </div>
 
   <!-- ================= QUIZ SCREEN ================= -->
-  <div id="quiz-screen">
+  <div id="quiz-screen" style="display:none;">
     <!-- Sticky Execution HUD -->
     <div class="sticky-execution-hud" id="part1-timer">
       <div class="hud-label-group">
@@ -1380,7 +1380,7 @@ h1.workflow-heading span {
   </div>
 
   <!-- ================= RESULT SCREEN (Clean 5.2 - NO RETRY CLUTTER, NO PINS) ================= -->
-  <div id="result-screen">
+  <div id="result-screen" style="display:none;">
     <div class="n8n-node-card result-dashboard-node no-pins">
       <div class="result-trophy-symbol" id="result-medal">🏆</div>
       <div class="result-candidate-name" id="result-name">THÍ SINH</div>
@@ -1433,7 +1433,7 @@ h1.workflow-heading span {
   </div>
 
   <!-- ================= ESSAY SCREEN (PART 2) ================= -->
-  <div id="essay-screen">
+  <div id="essay-screen" style="display:none;">
     <div class="workflow-status-pill">
       <span>✍️ WORKFLOW PART 2: COMPREHENSIVE ESSAY</span>
     </div>
@@ -1992,6 +1992,7 @@ let currentStudentId = '';
 let currentStudentFullname = '';
 let currentPlayerName = '';
 let currentSubmissionId = '';
+let quizActive = false; // Strictly false until startQuiz() validates and starts!
 
 let questions = [];
 let currentIdx = 0;
@@ -2140,7 +2141,17 @@ function closeLimitModal() {
 /* ============================================================
    INITIALIZATION & SECRET ADMIN ACCESS
    ============================================================ */
+function cleanupPhantomSubmissions() {
+  const subs = getStudentSubmissions();
+  // Remove any bugged submissions with empty student ID and 0 points
+  const valid = subs.filter(s => s.studentId && s.studentId.trim() !== '' && s.studentId !== 'N/A');
+  if (valid.length !== subs.length) {
+    saveStudentSubmissions(valid);
+  }
+}
+
 function initUI() {
+  cleanupPhantomSubmissions();
   $('rule-q-count').textContent = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
   $('rule-p1-time').textContent = Math.round(PART1_LIMIT_MS / 60000);
   $('bank-count-badge').textContent = ALL_QUESTIONS.length;
@@ -2229,6 +2240,7 @@ function tickPart1() {
   }
 }
 function endPart1ByTimeout() {
+  quizActive = false;
   part1TimedOut = true;
   clearInterval(timerInterval);
   if (!answered) totalTimeUsed += Math.max(0, QUESTION_TIME - timeLeft);
@@ -2302,6 +2314,10 @@ function startQuiz() {
   questions = shuffle(ALL_QUESTIONS).slice(0, qLimit);
   currentIdx = 0; score = 0; correctCount = 0; wrongCount = 0; totalTimeUsed = 0;
   combo = 0; maxCombo = 0; wrongStreak = 0; reviewLog = [];
+
+  quizActive = true;
+  answered = false;
+  acFired = false;
 
   showScreen('quiz-screen');
   $('score-display').textContent = '0';
@@ -2559,6 +2575,7 @@ function updateComboDisplay() {
 }
 
 function nextQuestion() {
+  if (!quizActive || questions.length === 0) return;
   playSound('click');
   triggerHaptic('tap');
   currentIdx++;
@@ -2570,6 +2587,8 @@ function nextQuestion() {
    SHOW RESULT DASHBOARD (Clean 5.2 - Strictly 1 Attempt)
    ============================================================ */
 function showResult() {
+  quizActive = false;
+  answered = true;
   clearInterval(timerInterval);
   $('screen-danger-overlay').classList.remove('active');
   $('screen-combo-overlay').classList.remove('active');
@@ -2772,11 +2791,11 @@ function submitEssay() {
    ANTI-CHEAT SYSTEM
    ============================================================ */
 function isQuizActive() {
-  return ANTICHEAT_ENABLED && $('quiz-screen').style.display !== 'none' && !answered;
+  return ANTICHEAT_ENABLED && quizActive && !answered;
 }
 
 function fireAnticheat() {
-  if (!isQuizActive() || acFired) return;
+  if (!isQuizActive() || acFired || !quizActive) return;
   acFired = true;
   clearInterval(timerInterval);
   $('ac-modal').classList.add('show');
@@ -2786,6 +2805,7 @@ function closeAnticheat() {
   playSound('click');
   triggerHaptic('tap');
   $('ac-modal').classList.remove('show');
+  if (!quizActive) return;
   if (acCurrentCorrect < 0) { nextQuestion(); return; }
 
   answered = true; combo = 0; wrongStreak++; wrongCount++;
@@ -3470,12 +3490,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden) fireAnticheat();
+  if (document.hidden && isQuizActive()) fireAnticheat();
   if (!document.hidden && essayTimerId) tickEssayTimer();
-  if (!document.hidden && part1TimerId) tickPart1();
+  if (!document.hidden && part1TimerId && quizActive) tickPart1();
 });
 window.addEventListener('blur', () => {
-  fireAnticheat();
+  if (isQuizActive()) fireAnticheat();
 });
 </script>
 </body>
