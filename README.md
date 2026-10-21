@@ -1,34 +1,63 @@
-# 🚀 Hệ Thống Khảo Thí Trực Tuyến v5.1 Final — ThanhTaiCoder
+# 🚀 Hệ Thống Khảo Thí Trực Tuyến & CMS v5.2 Final — ThanhTaiCoder
 
-Hệ thống thi trắc nghiệm và tự luận trực tuyến với giao diện tối ưu được thiết kế theo ngôn ngữ Workflow Automation của **N8N** kết hợp bộ tiêu chuẩn **UX/UI Pro Max** và tối ưu font chữ tiếng Việt (`Plus Jakarta Sans` & `JetBrains Mono`).
+Hệ thống thi trắc nghiệm và tự luận trực tuyến với giao diện tối ưu được thiết kế theo ngôn ngữ Workflow Automation của **N8N** kết hợp bộ tiêu chuẩn **UX/UI Pro Max** và phông chữ Google Fonts **Be Vietnam Pro** (chuẩn mực thiết kế tiếng Việt hiện đại).
 
 ## 🌐 Tên Miền Chính Thức
 - **Domain:** [https://vthanhtai.id.vn](https://vthanhtai.id.vn) (hoặc [https://vothanhtaivip.github.io/quiz-anhtai/](https://vothanhtaivip.github.io/quiz-anhtai/))
 
-## ✨ Tính Năng Nổi Bật (v5.1 N8N Edition)
+## ✨ Tính Năng Nâng Cấp Vượt Trội (v5.2 Final)
 
-- 🎨 **Giao diện N8N Workflow Canvas**: Thiết kế dạng node canvas tối giản, sang trọng với các tông màu biểu tượng N8N (Coral, Purple, Emerald, Amber).
-- 🔤 **Tối ưu hóa Font chữ Web**:
-  - `Plus Jakarta Sans`: Hiển thị tiếng Việt 100% hoàn hảo, độ sắc nét cao, không bị lỗi dấu.
-  - `Outfit`: Tiêu đề hiện đại, đậm chất tech.
-  - `JetBrains Mono`: Thông số thời gian, node counter và bảng điểm số chuẩn xác.
-- 🔊 **Âm thanh haptic Web Audio API**: Tích hợp âm thanh khi click node, trả lời đúng, sai, combo và chiến thắng (có nút bật/tắt âm thanh 🔊).
-- 🔓 **Chế độ Mật khẩu & Bypass**: Admin có thể bật bắt buộc mật khẩu phòng thi hoặc bật Bypass để học sinh vào thi ngay.
-- ⏱️ **Quy tắc thi chuẩn**:
-  - 25 câu hỏi trắc nghiệm ngẫu nhiên, 30 giây/câu.
-  - Tổng thời gian Phần 1: 25 phút.
-  - Thưởng tốc độ (Speed Bonus): 0–5s (+2⚡⚡), 6–12s (+1⚡).
-  - Thưởng chuỗi đúng (Combo Bonus): Từ câu 3 trở đi (+combo - 3).
-  - Phạt sai liên tiếp: Lần 1 (0đ), lần 2 (-2đ), lần 3 (-3đ), lần 4+ (-4đ).
-  - Chống gian lận (Anti-cheat): Tự động phát hiện khi chuyển tab hoặc click ra ngoài cửa sổ khi đang làm bài.
-- ✍️ **Phần 2 Tự Luận**: Lật mở mảnh ghép node bí mật, đếm ngược 20 phút, giới hạn từ 40–240 từ.
-- 👑 **Bảng điều khiển Admin**:
-  - Dán đề bằng văn bản thô (Word / Docs / Notepad) với bộ Smart Parser tự động bóc tách câu hỏi, đáp án A/B/C/D, đáp án đúng và lời giải thích.
-  - Import / Export câu hỏi bằng JSON.
-  - Quản lý ngân hàng câu hỏi & câu tự luận.
-  - Tùy chỉnh luật thi, thời gian, số câu.
+1. **🔤 Phông Chữ Be Vietnam Pro**:
+   - Sử dụng phông chữ Google Fonts `Be Vietnam Pro` chuẩn mực cho tiếng Việt (độ đậm 300 đến 900).
+   - Tối ưu hiển thị các dấu câu tiếng Việt (sắc, huyền, hỏi, ngã, nặng) không bị vỡ hoặc lệch dòng.
+   - Kết hợp `JetBrains Mono` cho các thông số đồng hồ, combo và mã sinh viên.
 
-## 👤 Chủ Sở Hữu
+2. **📊 CMS Xem Lại Kết Quả Học Viên**:
+   - Tab quản trị `Kết Quả Học Viên` thống kê chi tiết toàn bộ bài nộp của thí sinh.
+   - 4 thẻ KPI tổng quan: Tổng thí sinh, Điểm trung bình, Điểm cao nhất, Tỷ lệ đạt (&ge; 5.0đ).
+   - Bảng kết quả: Mã SV, Họ Tên, Điểm Trắc Nghiệm, Thang 10, Đúng/Sai, Trạng thái Tự Luận, Thời gian nộp.
+   - Modal xem chi tiết từng bài thi và nội dung tự luận hoàn chỉnh của học viên.
+   - Nút **Xuất File Excel (CSV)** với chuẩn UTF-8 BOM hiển thị chuẩn tiếng Việt trên Microsoft Excel.
+
+3. **🔒 Giới Hạn Số Lần Thi (Tối Đa 1 Lần)**:
+   - Mỗi thí sinh chỉ được tham gia làm bài **duy nhất 1 lần**.
+   - Khi nhập Mã SV hoặc Họ Tên đã có bài nộp trong hệ thống, hệ thống lập tức khóa quyền làm bài và hiển thị modal thông báo điểm số đã ghi nhận.
+   - Admin có quyền reset/xóa bài nộp trong CMS nếu cho phép học viên thi lại.
+
+4. **🕵️ Ẩn Giao Diện Admin Đối Với Học Viên**:
+   - Nút Admin nổi ở góc màn hình được ẩn hoàn toàn đối với học sinh thông thường.
+   - **Cách truy cập Admin CMS**:
+     - Thêm `?admin` hoặc `#admin` vào URL (Ví dụ: `https://vthanhtai.id.vn/?admin`).
+     - Bấm nhanh 3 lần liên tiếp vào logo **ThanhTaiCoder** ở thanh điều hướng trên cùng.
+     - Phím tắt bàn phím: `Ctrl + Shift + A` (hoặc `Cmd + Shift + A`).
+     - Biểu tượng ổ khóa bí mật 🔒 ở cuối trang (footer).
+
+5. **🔑 Mật Khẩu Phòng Thi Do Admin Thiết Lập (Không Có Bypass)**:
+   - Quy chế mới: Học sinh bắt buộc phải có mật khẩu phòng thi do Thầy ThanhTaiCoder cấp mới được vào thi.
+   - Admin dễ dàng thay đổi mật khẩu phòng thi trong tab **Mật Khẩu** của CMS.
+
+6. **🔥 Hiệu Ứng Audiophile & Visual FX Khi Làm Bài**:
+   - **Đúng liên tiếp (Combo)**:
+     - Kích hoạt biểu tượng lửa combo động, âm thanh arpeggio hợp âm thăng hoa.
+     - Vệt sáng lửa phát quang quanh viền màn hình và bảng banner chúc mừng.
+   - **Sai liên tiếp (Penalty)**:
+     - Viền màn hình chuyển sang hiệu ứng đỏ cảnh báo (Danger Vignette).
+     - Rung lắc thẻ câu hỏi và phát âm thanh còi cảnh báo tần số kép.
+     - Hiển thị mức phạt điểm trừ tương ứng.
+
+7. **📱 Tối Ưu Hóa Tuyệt Đối Cho Điện Thoại (Mobile Responsive)**:
+   - Hỗ trợ mượt mà trên iPhone (iOS Safari) và các thiết bị Android.
+   - Nút bấm to bản tối thiểu 52px, dễ dàng thao tác bằng ngón tay.
+   - Ngăn chặn triệt để tình trạng bàn phím tự động phóng to (zoom-in) trên iOS bằng font-size chuẩn 16px.
+   - Mở khóa âm thanh Web Audio API ngay từ lần chạm đầu tiên trên màn hình cảm ứng.
+   - Tích hợp rung phản hồi xúc giác (Haptic Feedback) trên các dòng điện thoại hỗ trợ.
+
+8. **🧹 Màn Hình Kết Quả Tối Giản & Chuyên Nghiệp**:
+   - Loại bỏ hoàn toàn câu hỏi và nút "Chơi lại", không gây chồng chéo hoặc xao nhãng.
+   - Thay thế bằng thẻ chứng nhận kết quả chính thức đã lưu vào hệ thống khảo thí.
+   - Nút dẫn trực tiếp sang **Phần Tự Luận (Phần 2)** hoặc **Xem Lại Đáp Án**.
+
+## 👤 Chủ Sở Hữu & Tác Quyền
 - **ThanhTaiCoder**
 - Email: `vothanhtao68@gmail.com`
 - Tên miền: `vthanhtai.id.vn`
