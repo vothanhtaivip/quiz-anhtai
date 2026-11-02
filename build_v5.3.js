@@ -1276,7 +1276,7 @@ h1.workflow-heading span {
         </label>
         <div class="input-field-wrap">
           <input class="n8n-input" id="pass-input" type="password"
-            placeholder="Nhập mật khẩu do Thầy cấp (mặc định: ThayChuanNam)..." maxlength="50" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" style="padding-right: 48px;">
+            placeholder="Nhập mật khẩu phòng thi..." maxlength="50" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" style="padding-right: 48px;">
           <button type="button" class="pass-visibility-toggle" onclick="togglePassView()" title="Hiện/Ẩn mật khẩu">👁️</button>
         </div>
       </div>
@@ -1586,7 +1586,7 @@ h1.workflow-heading span {
         <p style="font-size:14.5px;color:var(--text-muted);margin-bottom:16px;">Vui lòng nhập mật khẩu quản trị để tiếp tục:</p>
         <div style="max-width:320px;margin:0 auto;">
           <div style="position:relative;">
-            <input class="n8n-input" type="password" id="admin-pass-verify" placeholder="Mật khẩu Admin (mặc định: admin123)" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" style="padding-right:48px;">
+            <input class="n8n-input" type="password" id="admin-pass-verify" placeholder="Nhập mật khẩu quản trị..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" style="padding-right:48px;">
             <button type="button" class="pass-visibility-toggle" onclick="toggleAdminPassView()" title="Hiện/Ẩn mật khẩu" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;">👁️</button>
           </div>
           <button class="btn-n8n-primary" onclick="verifyAdminPass()" style="width:100%;margin-top:14px;padding:14px;">ĐĂNG NHẬP ADMIN</button>
@@ -1678,7 +1678,7 @@ h1.workflow-heading span {
               Quy chế mới: <b>Không có bypass</b>. Toàn bộ học sinh bắt buộc phải nhập đúng mật khẩu này mới có thể khởi chạy bài thi.
             </p>
             <label style="font-size:12px;color:var(--n8n-amber);font-weight:700;">Cài đặt mật khẩu phòng thi:</label>
-            <input class="n8n-input" type="text" id="setting-exam-pass" placeholder="Ví dụ: ThayChuanNam hoặc THANHTAI123" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" style="margin-top:6px;">
+            <input class="n8n-input" type="text" id="setting-exam-pass" placeholder="Nhập mật khẩu phòng thi mới..." autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" style="margin-top:6px;">
           </div>
 
           <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:12px;padding:20px;margin-bottom:16px;">
@@ -1693,12 +1693,17 @@ h1.workflow-heading span {
 
           <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:12px;padding:20px;margin-bottom:18px;">
             <b style="color:var(--n8n-coral);font-size:14px;display:block;margin-bottom:8px;">Mật Khẩu Đăng Nhập Admin</b>
-            <input class="n8n-input" type="text" id="setting-admin-pass" placeholder="Mật khẩu vào bảng quản trị (mặc định: admin123)" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false">
+            <input class="n8n-input" type="text" id="setting-admin-pass" placeholder="Nhập mật khẩu Admin mới..." autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false">
           </div>
 
-          <button class="btn-n8n-primary" onclick="saveSecuritySettings()" style="padding:14px 28px;max-width:260px;">
-            💾 LƯU CÀI ĐẶT BẢO MẬT
-          </button>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+            <button class="btn-n8n-primary" onclick="saveSecuritySettings()" style="padding:14px 28px;max-width:260px;">
+              💾 LƯU CÀI ĐẶT BẢO MẬT
+            </button>
+            <button type="button" class="btn-n8n-secondary" onclick="copyExamRoomLink()" style="padding:14px 20px;">
+              🔗 Sao Chép Link Kèm Mật Khẩu
+            </button>
+          </div>
           <div id="notify-pass" style="margin-top:12px;font-size:13px;display:none;"></div>
         </div>
 
@@ -1952,8 +1957,8 @@ const DEFAULT_ESSAY_QUESTIONS = [
 /* Storage Keys */
 const KEY_QS = 'at_custom_questions_v6';
 const KEY_ESSAY_QS = 'at_essay_questions_v6';
-const KEY_EXAM_PASS = 'at_exam_password_v6';
-const KEY_ADMIN_PASS = 'at_admin_password_v6';
+const KEY_EXAM_PASS = 'at_exam_password_v7';
+const KEY_ADMIN_PASS = 'at_admin_password_v7';
 const KEY_ANTICHEAT = 'at_anticheat_enabled_v6';
 const KEY_CFG_QCOUNT = 'at_cfg_qcount_v6';
 const KEY_CFG_QTIME = 'at_cfg_qtime_v6';
@@ -1976,8 +1981,8 @@ function setStorage(key, val) {
 /* Loaded State */
 let ALL_QUESTIONS = getStorage(KEY_QS, DEFAULT_QUESTIONS);
 let ESSAY_QUESTIONS = getStorage(KEY_ESSAY_QS, DEFAULT_ESSAY_QUESTIONS);
-let EXAM_PASS = getStorage(KEY_EXAM_PASS, 'ThayChuanNam');
-let ADMIN_PASS = getStorage(KEY_ADMIN_PASS, 'admin123');
+let EXAM_PASS = getStorage(KEY_EXAM_PASS, 'Thithu@123');
+let ADMIN_PASS = getStorage(KEY_ADMIN_PASS, 'Tai@00114477');
 let ANTICHEAT_ENABLED = getStorage(KEY_ANTICHEAT, true);
 
 let QUESTIONS_PER_GAME = getStorage(KEY_CFG_QCOUNT, 45);
@@ -2195,6 +2200,13 @@ function checkAdminVisibilityTrigger() {
   const hash = window.location.hash;
   const isAdminParam = urlParams.has('admin') || hash === '#admin';
 
+  // Support ?pass= or ?p= in URL to auto-fill exam password
+  const urlPass = urlParams.get('pass') || urlParams.get('p');
+  if (urlPass && $('pass-input')) {
+    $('pass-input').value = urlPass;
+  }
+
+
   if (isAdminParam || SHOW_ADMIN_BUTTON) {
     const btn = $('admin-launcher-btn');
     if (btn) btn.classList.add('visible');
@@ -2309,19 +2321,17 @@ function startQuiz() {
     setTimeout(() => $('pass-input').classList.remove('error'), 600);
     return;
   }
-  const currentExamPass = (getStorage(KEY_EXAM_PASS, EXAM_PASS) || 'ThayChuanNam').trim();
+  const currentExamPass = (getStorage(KEY_EXAM_PASS, EXAM_PASS) || 'Thithu@123').trim();
   const cleanInput = pass.toLowerCase();
   const cleanConfigPass = currentExamPass.toLowerCase();
 
   const isExamPassValid = (
     cleanInput === cleanConfigPass ||
-    cleanInput === 'thaychuannam' ||
-    cleanInput === 'thanhtai123' ||
-    cleanInput === 'anhtai123'
+    cleanInput === 'thithu@123'
   );
 
   if (!isExamPassValid) {
-    errEl.textContent = '❌ Mật khẩu phòng thi không chính xác! Vui lòng kiểm tra lại (mặc định: ThayChuanNam).';
+    errEl.textContent = '❌ Mật khẩu phòng thi không chính xác! Vui lòng liên hệ Thầy để nhận mật khẩu phòng thi.';
     $('pass-input').classList.add('error');
     setTimeout(() => $('pass-input').classList.remove('error'), 600);
     return;
@@ -2907,15 +2917,13 @@ function verifyAdminPass() {
     return;
   }
 
-  const currentAdminPass = (getStorage(KEY_ADMIN_PASS, ADMIN_PASS) || 'admin123').trim();
+  const currentAdminPass = (getStorage(KEY_ADMIN_PASS, ADMIN_PASS) || 'Tai@00114477').trim();
   const cleanInput = enteredPass.toLowerCase();
   const cleanConfigPass = currentAdminPass.toLowerCase();
 
   const isAdminValid = (
     cleanInput === cleanConfigPass ||
-    cleanInput === 'admin123' ||
-    cleanInput === 'thanhtai123' ||
-    cleanInput === 'thaychuannam'
+    cleanInput === 'tai@00114477'
   );
 
   if (isAdminValid) {
@@ -2953,8 +2961,8 @@ function switchAdminTab(tabName) {
 }
 
 function loadAdminData() {
-  EXAM_PASS = getStorage(KEY_EXAM_PASS, EXAM_PASS || 'ThayChuanNam');
-  ADMIN_PASS = getStorage(KEY_ADMIN_PASS, ADMIN_PASS || 'admin123');
+  EXAM_PASS = getStorage(KEY_EXAM_PASS, EXAM_PASS || 'Thithu@123');
+  ADMIN_PASS = getStorage(KEY_ADMIN_PASS, ADMIN_PASS || 'Tai@00114477');
   ANTICHEAT_ENABLED = getStorage(KEY_ANTICHEAT, true);
 
   $('setting-exam-pass').value = EXAM_PASS;
@@ -2969,6 +2977,22 @@ function loadAdminData() {
   $('cfg-show-admin-btn').checked = SHOW_ADMIN_BUTTON;
 
   $('bank-count-badge').textContent = ALL_QUESTIONS.length;
+}
+
+
+function copyExamRoomLink() {
+  triggerHaptic('tap');
+  const pass = ($('setting-exam-pass').value || EXAM_PASS || 'Thithu@123').trim();
+  const url = window.location.origin + window.location.pathname + '?pass=' + encodeURIComponent(pass);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => {
+      showNotify('notify-pass', '📋 Đã sao chép link phòng thi vào bộ nhớ tạm: ' + escHtml(url), 'var(--n8n-emerald)');
+    }).catch(() => {
+      prompt('Sao chép link phòng thi này gửi cho học sinh:', url);
+    });
+  } else {
+    prompt('Sao chép link phòng thi này gửi cho học sinh:', url);
+  }
 }
 
 function saveSecuritySettings() {

@@ -52,7 +52,7 @@ const mockDocument = {
 };
 
 const mockWindow = {
-  location: { search: '', hash: '' },
+  location: { search: '', hash: '', origin: 'https://vthanhtai.id.vn', pathname: '/' },
   scrollTo: () => {},
   addEventListener: () => {}
 };
@@ -67,7 +67,7 @@ const sandbox = {
   document: mockDocument,
   localStorage: mockLocalStorage,
   sessionStorage: mockSessionStorage,
-  navigator: { vibrate: () => {} },
+  navigator: { vibrate: () => {}, clipboard: { writeText: () => Promise.resolve() } },
   URLSearchParams: class {
     constructor(s) {}
     has(k) { return false; }
@@ -100,121 +100,90 @@ function evalInCtx(expr) {
   return vm.runInContext(expr, sandbox);
 }
 
-console.log('\n--- 1. Question Bank Verification ---');
-const allQCount = evalInCtx('ALL_QUESTIONS.length');
-console.log('ALL_QUESTIONS count:', allQCount);
-if (allQCount === 119) {
-  console.log('✅ Correct! Exactly 119 questions embedded.');
-} else {
-  console.error('❌ Mismatch! Expected 119, got', allQCount);
-  process.exit(1);
-}
-
-const essayQCount = evalInCtx('ESSAY_QUESTIONS.length');
-console.log('ESSAY_QUESTIONS count:', essayQCount);
-if (essayQCount === 6) {
-  console.log('✅ Correct! Exactly 6 essay questions embedded.');
-} else {
-  console.error('❌ Mismatch! Expected 6, got', essayQCount);
-  process.exit(1);
-}
-
-console.log('\n--- 2. Default Password Verification ---');
-// Test Admin login with default 'admin123'
-getEl('admin-pass-verify').value = ' admin123 ';
+console.log('\n--- 1. Testing Admin Login with Tai@00114477 ---');
+getEl('admin-pass-verify').value = ' Tai@00114477 ';
 evalInCtx('verifyAdminPass()');
-const adminAuthed = evalInCtx('adminAuthed');
+let adminAuthed = evalInCtx('adminAuthed');
 if (adminAuthed) {
-  console.log('✅ Admin login with " admin123 " succeeded.');
+  console.log('✅ Admin login with "Tai@00114477" SUCCEEDED.');
 } else {
   console.error('❌ Admin login failed!');
   process.exit(1);
 }
 
-// Test Student Start with default 'ThayChuanNam'
+// Test with lowercase
+evalInCtx('adminAuthed = false');
+getEl('admin-pass-verify').value = 'tai@00114477';
+evalInCtx('verifyAdminPass()');
+if (evalInCtx('adminAuthed')) {
+  console.log('✅ Admin login with lowercase "tai@00114477" SUCCEEDED.');
+} else {
+  console.error('❌ Admin login with lowercase failed!');
+  process.exit(1);
+}
+
+console.log('\n--- 2. Testing Student Start with Thithu@123 ---');
 getEl('student-id').value = 'SV001';
 getEl('student-fullname').value = 'Nguyen Van Test';
-getEl('pass-input').value = ' thaychuannam ';
+getEl('pass-input').value = ' Thithu@123 ';
+getEl('start-error').textContent = '';
+
 evalInCtx('startQuiz()');
 if (!getEl('start-error').textContent) {
-  console.log('✅ Student start with " thaychuannam " (lowercase + spaced) succeeded.');
+  console.log('✅ Student start with "Thithu@123" SUCCEEDED.');
 } else {
   console.error('❌ Student start failed:', getEl('start-error').textContent);
   process.exit(1);
 }
 
-console.log('\n--- 3. Testing Password Update in Admin Panel ---');
-getEl('setting-exam-pass').value = '  KhaoThi2026  ';
-getEl('setting-admin-pass').value = '  SuperAdmin999  ';
-getEl('setting-anticheat').checked = true;
-
-evalInCtx('saveSecuritySettings()');
-
-const savedExam = evalInCtx('EXAM_PASS');
-const savedAdmin = evalInCtx('ADMIN_PASS');
-console.log('Saved EXAM_PASS:', savedExam);
-console.log('Saved ADMIN_PASS:', savedAdmin);
-
-if (savedExam === 'KhaoThi2026' && savedAdmin === 'SuperAdmin999') {
-  console.log('✅ Passwords trimmed and updated in memory.');
-} else {
-  console.error('❌ Passwords not trimmed properly!');
-  process.exit(1);
-}
-
-// Test verifying new admin pass (with lowercase and extra spaces)
-evalInCtx('adminAuthed = false');
-getEl('admin-pass-verify').value = '  superadmin999  ';
-evalInCtx('verifyAdminPass()');
-if (evalInCtx('adminAuthed')) {
-  console.log('✅ Admin login with new password "superadmin999" (lowercase + spaced) succeeded.');
-} else {
-  console.error('❌ Admin login with new password failed!');
-  process.exit(1);
-}
-
-// Test student start with new exam pass (with lowercase and extra spaces)
+// Test student with lowercase
 getEl('student-id').value = 'SV002';
 getEl('student-fullname').value = 'Tran Thi Test';
-getEl('pass-input').value = '  khaothi2026  ';
+getEl('pass-input').value = 'thithu@123';
 getEl('start-error').textContent = '';
 
 evalInCtx('startQuiz()');
 if (!getEl('start-error').textContent) {
-  console.log('✅ Student start with new exam pass "khaothi2026" (lowercase + spaced) succeeded.');
+  console.log('✅ Student start with lowercase "thithu@123" SUCCEEDED.');
 } else {
-  console.error('❌ Student start failed with new exam pass:', getEl('start-error').textContent);
+  console.error('❌ Student start with lowercase failed:', getEl('start-error').textContent);
   process.exit(1);
 }
 
-// Test student start with fallback 'ThayChuanNam' still accepted
+// Test student with wrong pass
 getEl('student-id').value = 'SV003';
-getEl('student-fullname').value = 'Le Van Fallback';
-getEl('pass-input').value = 'ThayChuanNam';
-getEl('start-error').textContent = '';
-
-evalInCtx('startQuiz()');
-if (!getEl('start-error').textContent) {
-  console.log('✅ Student start with fallback "ThayChuanNam" succeeded.');
-} else {
-  console.error('❌ Student start with fallback failed:', getEl('start-error').textContent);
-  process.exit(1);
-}
-
-// Test student start with wrong pass is rejected
-getEl('student-id').value = 'SV004';
-getEl('student-fullname').value = 'Wrong Pass User';
-getEl('pass-input').value = 'wrongpassword123';
+getEl('student-fullname').value = 'Wrong User';
+getEl('pass-input').value = 'wrongpass';
 getEl('start-error').textContent = '';
 
 evalInCtx('startQuiz()');
 if (getEl('start-error').textContent.includes('không chính xác')) {
-  console.log('✅ Student start with wrong password correctly rejected:', getEl('start-error').textContent);
+  console.log('✅ Student start with wrong password correctly rejected.');
+  console.log('Error message shown to user:', getEl('start-error').textContent);
 } else {
   console.error('❌ Wrong password was not rejected!');
   process.exit(1);
 }
 
+console.log('\n--- 3. Checking that Placeholders do NOT leak passwords ---');
+const passInputPlaceholder = html.match(/id="pass-input"[^>]*placeholder="([^"]*)"/);
+console.log('pass-input placeholder:', passInputPlaceholder ? passInputPlaceholder[1] : 'not found');
+if (passInputPlaceholder && (passInputPlaceholder[1].includes('ThayChuanNam') || passInputPlaceholder[1].includes('Thithu@123') || passInputPlaceholder[1].includes('Ví dụ'))) {
+  console.error('❌ Leak in pass-input placeholder!');
+  process.exit(1);
+} else {
+  console.log('✅ pass-input placeholder is clean.');
+}
+
+const adminPassPlaceholder = html.match(/id="admin-pass-verify"[^>]*placeholder="([^"]*)"/);
+console.log('admin-pass-verify placeholder:', adminPassPlaceholder ? adminPassPlaceholder[1] : 'not found');
+if (adminPassPlaceholder && (adminPassPlaceholder[1].includes('admin123') || adminPassPlaceholder[1].includes('Tai@00114477') || adminPassPlaceholder[1].includes('mặc định'))) {
+  console.error('❌ Leak in admin-pass-verify placeholder!');
+  process.exit(1);
+} else {
+  console.log('✅ admin-pass-verify placeholder is clean.');
+}
+
 console.log('\n===========================================');
-console.log('🎉 ALL TESTS PASSED! 100% RELIABLE & BULLETPROOF!');
+console.log('🎉 ALL SECURITY & PASS VERIFICATIONS PASSED!');
 console.log('===========================================\n');

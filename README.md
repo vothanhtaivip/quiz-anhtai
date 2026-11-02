@@ -32,17 +32,13 @@ Hệ thống thi trắc nghiệm và tự luận trực tuyến với giao diệ
 
 ---
 
-### 2. 🔐 Khắc Phục Triệt Để Lỗi Đổi Mật Khẩu (Phòng Thi & Admin)
+### 2. 🔐 Cơ Chế Bảo Mật & Mật Khẩu (Phòng Thi & Admin)
 - **Tự động làm sạch & chuẩn hóa dữ liệu đầu vào**:
   - Tự động cắt bỏ dấu cách thừa (`.trim()`) ở đầu/cuối chuỗi do tính năng gợi ý/autocomplete của bàn phím gây ra.
-  - Hỗ trợ so sánh **không phân biệt chữ hoa/thường** (`.toLowerCase()`), khắc phục hoàn toàn hiện tượng bàn phím điện thoại iPhone/Android tự động viết hoa chữ cái đầu tiên (ví dụ: `Thaychuannam` hay `thaychuannam` hay `ThayChuanNam` đều được chấp nhận).
-- **Mật khẩu phòng thi (Exam Password)**:
-  - Mặc định: `ThayChuanNam` (đồng bộ với hệ thống chuẩn) hoặc `THANHTAI123`.
+  - Hỗ trợ so sánh **không phân biệt chữ hoa/thường** (`.toLowerCase()`), khắc phục hoàn toàn hiện tượng bàn phím điện thoại iPhone/Android tự động viết hoa chữ cái đầu tiên.
+- **Bảo mật tuyệt đối**:
+  - Ẩn toàn bộ mật khẩu khỏi placeholder (ví dụ) và thông báo lỗi.
   - Admin có thể thay đổi bất kỳ lúc nào trong tab **Mật Khẩu & Bảo Mật** của CMS.
-  - Lưu trữ trực tiếp và làm mới theo thời gian thực.
-- **Mật khẩu quản trị (Admin Password)**:
-  - Mặc định: `admin123` (hoặc `thanhtai123`, `ThayChuanNam`).
-  - Hỗ trợ cơ chế phục hồi Admin an toàn để không bao giờ bị khóa tài khoản quản trị.
 - **Bổ sung nút Hiện/Ẩn mật khẩu (👁️)**:
   - Thêm nút con mắt bật/tắt hiển thị mật khẩu cho cả ô nhập mật khẩu phòng thi và ô đăng nhập Admin, giúp người dùng dễ dàng kiểm tra xem mình có gõ nhầm ký tự nào hay không.
 - **Bổ sung thuộc tính chống tự động sửa trên thiết bị di động**:
@@ -58,6 +54,5 @@ Hệ thống thi trắc nghiệm và tự luận trực tuyến với giao diệ
 - **Cách 3:** Bấm vào biểu tượng ổ khóa 🔒 ở chân trang (Footer).
 - **Cách 4:** Dùng phím tắt `Ctrl + Shift + A` (hoặc `Cmd + Shift + A` trên Mac).
 
-### Mật Khẩu Mặc Định:
-- **Mật khẩu vào phòng thi:** `ThayChuanNam` hoặc `THANHTAI123`
-- **Mật khẩu đăng nhập Admin:** `admin123`
+### Mật Khẩu:
+- Mật khẩu phòng thi và mật khẩu quản trị do Admin bảo mật thiết lập và cung cấp riêng cho học viên.
