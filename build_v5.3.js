@@ -1283,9 +1283,14 @@ h1.workflow-heading span {
 
       <div class="error-output-text" id="start-error"></div>
 
-      <button type="button" class="btn-n8n-primary" id="btn-start" onclick="startQuiz()">
-        <span>🚀 KHỞI CHẠY BÀI THI</span>
-      </button>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px;">
+        <button type="button" class="btn-n8n-primary" id="btn-start" onclick="startQuiz(false)" style="width:100%;padding:16px 20px;font-size:15px;display:flex;justify-content:center;align-items:center;gap:10px;">
+          <span>🎯 THI CHUẨN (45 CÂU // 35 PHÚT)</span>
+        </button>
+        <button type="button" class="btn-n8n-secondary" id="btn-start-full" onclick="startQuiz(true)" style="width:100%;padding:15px 20px;font-size:14.5px;background:rgba(255,109,90,0.12);border:1.5px solid var(--n8n-coral);color:#ffffff;font-weight:800;display:flex;justify-content:center;align-items:center;gap:10px;box-shadow:0 0 20px rgba(255,109,90,0.25);">
+          <span>🔥 THI FULL TOÀN BỘ ĐỀ (119 CÂU // 93 PHÚT)</span>
+        </button>
+      </div>
     </div>
 
     <!-- Workflow Rules Grid -->
@@ -1294,9 +1299,9 @@ h1.workflow-heading span {
         <span class="rule-node-icon">⏱️</span>
         <div class="rule-node-title">30 Giây / Câu</div>
         <div class="rule-node-desc">
-          Tổng <strong id="rule-q-count" style="color:var(--n8n-coral);">45</strong> câu ngẫu nhiên.<br>
-          ⏳ Tổng thời gian Phần 1: <strong id="rule-p1-time" style="color:var(--n8n-amber);">35</strong> phút.<br>
-          💡 Bấm chọn A/B/C/D hoặc phím số trên bàn phím.
+          🎯 Thi Chuẩn: <strong id="rule-q-count" style="color:var(--n8n-coral);">45</strong> câu / <strong id="rule-p1-time" style="color:var(--n8n-amber);">35</strong> phút.<br>
+          🔥 Thi Full Đề: <strong id="rule-full-q" style="color:var(--n8n-rose);">119</strong> câu / <strong id="rule-full-time" style="color:var(--n8n-amber);">93</strong> phút (nhân theo tỉ lệ).<br>
+          ⏱️ 30 Giây/câu | 💡 Bấm A/B/C/D hoặc phím 1/2/3/4.
         </div>
       </div>
 
@@ -2030,6 +2035,8 @@ let reviewLog = [];
 let part1EndTime = null;
 let part1TimerId = null;
 let part1TimedOut = false;
+let isCurrentQuizFull = false;
+let activePart1LimitMs = PART1_LIMIT_MS;
 
 /* Part 2 Essay State */
 let essayTimerId = null;
@@ -2113,7 +2120,7 @@ function recordSubmissionPart1(grade10, avgTime) {
     avgTime: avgTime,
     submittedAt: new Date().toLocaleString('vi-VN'),
     timestamp: Date.now(),
-    status: 'Đã hoàn thành Trắc nghiệm',
+    status: isCurrentQuizFull ? 'Đã hoàn thành Trắc nghiệm (Full đề)' : 'Đã hoàn thành Trắc nghiệm (Chuẩn)',
     reviewLog: reviewLog,
     essayQuestion: '',
     essayAnswer: '',
@@ -2170,8 +2177,7 @@ function cleanupPhantomSubmissions() {
 
 function initUI() {
   cleanupPhantomSubmissions();
-  $('rule-q-count').textContent = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
-  $('rule-p1-time').textContent = Math.round(PART1_LIMIT_MS / 60000);
+  updateStartScreenLabels();
   $('bank-count-badge').textContent = ALL_QUESTIONS.length;
 
   checkAdminVisibilityTrigger();
@@ -2246,7 +2252,7 @@ function onSecretLockClick() {
    ============================================================ */
 function startPart1Clock() {
   if (part1TimerId) clearInterval(part1TimerId);
-  part1EndTime = Date.now() + PART1_LIMIT_MS;
+  part1EndTime = Date.now() + activePart1LimitMs;
   tickPart1();
   part1TimerId = setInterval(tickPart1, 1000);
 }
@@ -2254,7 +2260,7 @@ function stopPart1Clock() {
   if (part1TimerId) { clearInterval(part1TimerId); part1TimerId = null; }
 }
 function part1Remaining() {
-  if (!part1EndTime) return PART1_LIMIT_MS;
+  if (!part1EndTime) return activePart1LimitMs;
   return Math.max(0, part1EndTime - Date.now());
 }
 function fmtMMSS(ms) {
@@ -2292,7 +2298,8 @@ function shuffle(arr) {
 /* ============================================================
    START QUIZ (MANDATORY PASSWORD - NO BYPASS)
    ============================================================ */
-function startQuiz() {
+function startQuiz(isFullMode = false) {
+  isCurrentQuizFull = !!isFullMode;
   playSound('click');
   triggerHaptic('tap');
   const sid = $('student-id').value.trim();
@@ -2348,9 +2355,20 @@ function startQuiz() {
   currentPlayerName = (sid || sname) ? (sid + (sid && sname ? ' — ' : '') + sname) : 'Ẩn danh';
 
   part1TimedOut = false;
-  startPart1Clock();
 
-  const qLimit = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
+  let qLimit;
+  if (isCurrentQuizFull) {
+    qLimit = ALL_QUESTIONS.length;
+    const stdQ = Math.max(1, QUESTIONS_PER_GAME || 45);
+    const stdMin = Math.round(PART1_LIMIT_MS / 60000);
+    const fullMin = Math.round(qLimit * (stdMin / stdQ));
+    activePart1LimitMs = fullMin * 60 * 1000;
+  } else {
+    qLimit = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
+    activePart1LimitMs = PART1_LIMIT_MS;
+  }
+
+  startPart1Clock();
   questions = shuffle(ALL_QUESTIONS).slice(0, qLimit);
   currentIdx = 0; score = 0; correctCount = 0; wrongCount = 0; totalTimeUsed = 0;
   combo = 0; maxCombo = 0; wrongStreak = 0; reviewLog = [];
@@ -2645,14 +2663,19 @@ function showResult() {
   $('progress-fill').style.width = '100%';
   $('result-name').textContent = currentPlayerName;
 
-  let medal, title, sub, grade10;
-  if (score > 160)      { medal = '🏆'; title = 'XUẤT SẮC!'; sub = 'Nắm vững kiến thức — Đạt chuẩn Chuyên gia Digital Marketing!'; grade10 = 10; }
-  else if (score > 120) { medal = '🥈'; title = 'GIỎI!'; sub = 'Kiến thức rất tốt — Bạn đã hoàn thành xuất sắc bài thi!'; grade10 = 8.5; }
-  else if (score > 60)  { medal = '🥉'; title = 'TRUNG BÌNH'; sub = 'Đạt mức khá — Hãy xem lại đáp án để cải thiện kiến thức nhé!'; grade10 = 6.5; }
-  else                  { medal = '📚'; title = 'CẦN CỐ GẮNG HƠN'; sub = 'Hãy đọc lại nội dung bài học và ôn tập thêm nhé!'; grade10 = 4.0; }
+  const totalQ = Math.max(1, questions.length);
+  const ratio = correctCount / totalQ;
+  const grade10 = Number((ratio * 10).toFixed(1));
+
+  let medal, title, sub;
+  if (grade10 >= 8.5)      { medal = '🏆'; title = 'XUẤT SẮC!'; sub = 'Nắm vững kiến thức — Đạt chuẩn Chuyên gia Digital Marketing!'; }
+  else if (grade10 >= 7.0) { medal = '🥈'; title = 'GIỎI!'; sub = 'Kiến thức rất tốt — Bạn đã hoàn thành bài thi rất tốt!'; }
+  else if (grade10 >= 5.0) { medal = '🥉'; title = 'ĐẠT YÊU CẦU'; sub = 'Đạt mức khá — Hãy xem lại đáp án để cải thiện thêm nhé!'; }
+  else                     { medal = '📚'; title = 'CẦN CỐ GẮNG HƠN'; sub = 'Hãy đọc lại nội dung bài học và ôn tập thêm nhé!'; }
 
   $('result-medal').textContent = medal;
-  $('result-title').textContent = title + ' — ' + grade10 + ' ĐIỂM';
+  $('result-title').textContent = title + ' — ' + grade10 + ' ĐIỂM' + (isCurrentQuizFull ? ' (FULL ĐỀ)' : '');
+  $('stat-correct').textContent = correctCount + '/' + totalQ;
   $('result-sub').textContent = part1TimedOut
     ? ('⏰ Hết thời gian Phần 1 khi bạn đang làm câu ' + (currentIdx + 1) + '/' + questions.length + ' — điểm tính theo câu đã nộp.')
     : sub;
@@ -2956,7 +2979,7 @@ function switchAdminTab(tabName) {
   if (target) target.classList.add('active');
 
   if (tabName === 'results') renderResultsTable();
-  if (tabName === 'bank') renderBankList();
+  if (tabName === 'bank') renderBankList(); updateStartScreenLabels();
   if (tabName === 'essay') $('essay-bank-input').value = ESSAY_QUESTIONS.join('\\n');
 }
 
@@ -3402,7 +3425,7 @@ function deleteBankQuestion(idx) {
   setStorage(KEY_QS, ALL_QUESTIONS);
   $('bank-count-badge').textContent = ALL_QUESTIONS.length;
   $('rule-q-count').textContent = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
-  renderBankList();
+  renderBankList(); updateStartScreenLabels();
 }
 
 function clearAllExamQuestions() {
@@ -3411,7 +3434,7 @@ function clearAllExamQuestions() {
   setStorage(KEY_QS, []);
   $('bank-count-badge').textContent = 0;
   $('rule-q-count').textContent = 0;
-  renderBankList();
+  renderBankList(); updateStartScreenLabels();
   showNotify('notify-bank', 'Đã xóa toàn bộ câu hỏi.', 'var(--n8n-rose)');
 }
 
@@ -3421,7 +3444,7 @@ function restoreDefaultQuestions() {
   setStorage(KEY_QS, ALL_QUESTIONS);
   $('bank-count-badge').textContent = ALL_QUESTIONS.length;
   $('rule-q-count').textContent = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
-  renderBankList();
+  renderBankList(); updateStartScreenLabels();
   showNotify('notify-bank', '✅ Đã khôi phục toàn bộ 119 câu hỏi gốc chuẩn 2026!', 'var(--n8n-emerald)');
 }
 

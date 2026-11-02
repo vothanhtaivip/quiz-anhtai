@@ -24,9 +24,9 @@ Hệ thống thi trắc nghiệm và tự luận trực tuyến với giao diệ
   4. *Trình bày vai trò của Social Media Marketing trong việc xây dựng thương hiệu và tương tác với khách hàng.*
   5. *Những yếu tố nào tạo nên một nội dung thu hút và hiệu quả trong Social Media Marketing?*
   6. *Một doanh nghiệp có lượng truy cập website cao nhưng tỷ lệ chuyển đổi thấp. Hãy phân tích các nguyên nhân có thể xảy ra và đề xuất giải pháp cải thiện.*
-- **Cấu hình thi chuẩn hóa**:
-  - Trắc nghiệm: 45 câu ngẫu nhiên rút từ ngân hàng 119 câu.
-  - Thời gian Phần 1: **35 phút** (30 giây/câu).
+- **2 Chế độ thi linh hoạt (Có nút bấm chọn trực tiếp)**:
+  - 🎯 **Chế độ Thi Chuẩn:** 45 câu ngẫu nhiên trong **35 phút** (30 giây/câu).
+  - 🔥 **Chế độ Thi Full Đề:** Trọn vẹn toàn bộ **119 câu** trong **93 phút** (thời gian tự động nhân theo tỉ lệ chuẩn).
   - Tự luận (Phần 2): **20 phút**, giới hạn 25 - 200 từ.
   - Số lần thi: Tối đa **3 lần** cho mỗi thí sinh.
 
