@@ -360,6 +360,10 @@ topics.forEach((t, tIdx) => {
 
     html += `
     </ul>
+    ${q.explain ? `
+    <div style="margin-top:8px;padding:8px 12px;background:#f0fdf4;border-left:3px solid #10b981;border-radius:4px;font-size:9.5pt;color:#166534;line-height:1.45;">
+      💡 <b>Giải thích đáp án:</b> ${escapeHtml(q.explain)}
+    </div>` : ''}
   </div>`;
   });
 });
