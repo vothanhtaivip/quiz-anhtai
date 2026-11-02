@@ -1,0 +1,3201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Bộ Đề & Đáp Án Digital Marketing 2026 - 119 Câu Trắc Nghiệm & 6 Câu Tự Luận</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+
+  @page {
+    size: A4 portrait;
+    margin: 14mm 14mm 16mm 14mm;
+    @bottom-right {
+      content: counter(page);
+    }
+  }
+
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  
+  body {
+    font-family: 'Be Vietnam Pro', 'Segoe UI', Tahoma, Arial, sans-serif;
+    color: #1e293b;
+    background: #ffffff;
+    line-height: 1.55;
+    font-size: 11pt;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cover & Header */
+  .cover-header {
+    border-bottom: 3px double #e2e8f0;
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .doc-badge {
+    display: inline-block;
+    background: #1e293b;
+    color: #ffffff;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .doc-title {
+    font-size: 21pt;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.25;
+    margin: 0 0 8px 0;
+  }
+  .doc-subtitle {
+    font-size: 13pt;
+    font-weight: 600;
+    color: #e11d48;
+    margin: 0 0 12px 0;
+  }
+  .doc-meta {
+    font-size: 9.5pt;
+    color: #64748b;
+    line-height: 1.6;
+  }
+  .doc-meta b { color: #334155; }
+
+  /* Stats Table */
+  .stats-grid {
+    display: table;
+    width: 100%;
+    margin-bottom: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    border-spacing: 0;
+    overflow: hidden;
+  }
+  .stats-cell {
+    display: table-cell;
+    width: 25%;
+    padding: 10px 12px;
+    text-align: center;
+    border-right: 1px solid #e2e8f0;
+    background: #f8fafc;
+  }
+  .stats-cell:last-child { border-right: none; }
+  .stats-num { font-family: 'JetBrains Mono', monospace; font-size: 15pt; font-weight: 800; color: #0f172a; }
+  .stats-label { font-size: 8.5pt; font-weight: 600; color: #64748b; text-transform: uppercase; margin-top: 2px; }
+
+  /* Section Title */
+  .section-banner {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 13pt;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-top: 28px;
+    margin-bottom: 16px;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .section-banner.essay-sec { background: #7c2d12; }
+
+  /* Question Card */
+  .question-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    background: #ffffff;
+  }
+  .q-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  .q-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.45;
+    flex: 1;
+  }
+  .q-tag {
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #e2e8f0;
+    color: #475569;
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+  
+  /* Options */
+  .options-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .opt-item {
+    font-size: 10.2pt;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    line-height: 1.4;
+    color: #334155;
+    border: 1px solid transparent;
+  }
+  .opt-item.correct {
+    background: #ecfdf5 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+    font-weight: 700 !important;
+  }
+  .opt-prefix {
+    font-weight: 700;
+    display: inline-block;
+    width: 22px;
+  }
+  .correct-badge {
+    display: inline-block;
+    float: right;
+    font-size: 8pt;
+    font-weight: 800;
+    background: #10b981;
+    color: #ffffff;
+    padding: 1px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* Essay Block */
+  .essay-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border: 1.5px solid #fed7aa;
+    background: #fffbeb;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+  }
+  .essay-title {
+    font-size: 11.5pt;
+    font-weight: 800;
+    color: #9a3412;
+    margin-bottom: 6px;
+  }
+  .essay-q {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .hints-box {
+    background: #ffffff;
+    border: 1px dashed #fdba74;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 9.8pt;
+    color: #475569;
+    line-height: 1.5;
+  }
+  .hints-title {
+    font-weight: 700;
+    color: #c2410c;
+    margin-bottom: 4px;
+    display: block;
+    text-transform: uppercase;
+    font-size: 8.5pt;
+    letter-spacing: 0.5px;
+  }
+  .hints-box ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .hints-box li {
+    margin-bottom: 4px;
+  }
+  .hints-box li:last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+  <!-- COVER HEADER -->
+  <div class="cover-header">
+    <div class="doc-badge">Tài Liệu Ôn Tập Khảo Thí Chính Thức 2026</div>
+    <h1 class="doc-title">BỘ ĐỀ THI & ĐÁP ÁN DIGITAL MARKETING</h1>
+    <div class="doc-subtitle">119 Câu Trắc Nghiệm Chuẩn & 6 Câu Hỏi Tự Luận Chuyên Sâu</div>
+    <div class="doc-meta">
+      Đơn vị biên soạn & quản trị: <b>ThanhTaiCoder</b> | Hệ thống thi trực tuyến: <b>https://vthanhtai.id.vn</b><br>
+      Đồng bộ hóa & giải mã 100% từ hệ thống nguồn: <b>https://nguyenchuannam.n1.tinhgon.xyz</b>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stats-cell">
+      <div class="stats-num">28</div>
+      <div class="stats-label">Chuyên đề Website</div>
+    </div>
+    <div class="stats-cell">
+      <div class="stats-num">36</div>
+      <div class="stats-label">SEO & Google Ads</div>
+    </div>
+    <div class="stats-cell">
+      <div class="stats-num">22</div>
+      <div class="stats-label">Social Media</div>
+    </div>
+    <div class="stats-cell">
+      <div class="stats-num">33</div>
+      <div class="stats-label">Email & CRM</div>
+    </div>
+  </div>
+
+<div class="section-banner">PHẦN 1: CHỦ ĐỀ WEBSITE (28 CÂU)</div>
+
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 1: Website đóng vai trò gì trong các hoạt động Digital Marketing?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Là kênh phụ trợ, chỉ dùng khi không chạy được quảng cáo mạng xã hội
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Là trung tâm và nền tảng cốt lõi của mọi hoạt động Digital Marketing
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Là công cụ chỉ phục vụ cho quảng cáo trả phí trên Google
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Là kênh thay thế hoàn toàn cho email marketing và mạng xã hội
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 2: Nếu không có website, hoạt động Digital Marketing của doanh nghiệp sẽ gặp khó khăn gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Không thể chạy bất kỳ quảng cáo nào trên mạng xã hội
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Không thể sử dụng email để liên hệ khách hàng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chi phí quảng cáo luôn giảm nhưng doanh số không tăng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Khó đo lường, thiếu tính sở hữu và phụ thuộc nền tảng bên thứ ba
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 3: Website là &quot;tài sản số thuộc chủ sở hữu&quot; mang lại ý nghĩa gì cho doanh nghiệp?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Không cần trả phí tên miền và hosting
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Có thể đầu tư và mở rộng vô hạn
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Không cần tối ưu SEO cho website
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Được miễn tuân thủ chính sách của Google
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 4: Website là &quot;nơi chuyển đổi xảy ra&quot; vì:</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Thu hút khách hàng tìm kiếm, mua hàng, đặt lịch, đăng ký
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Website là nơi duy nhất khách hàng có thể xem quảng cáo
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Website tự động tạo ra doanh thu mà không cần marketing
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Website thay thế hoàn toàn đội ngũ bán hàng
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 5: Vai trò chính của website tương tác (có đăng ký, bình luận, chat…) trong Digital Marketing là gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Thu thập khách hàng tiềm năng, khảo sát, chăm sóc và giữ chân khách
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Chuyển đổi trực tiếp ra doanh thu qua thanh toán trực tuyến
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Xây dựng cộng đồng và thu dữ liệu hành vi rất lớn từ nội dung người dùng tạo
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Chỉ xây dựng uy tín bằng các trang giới thiệu tĩnh
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 6: Website giao dịch (mua bán, thanh toán) có vai trò gì trong Digital Marketing?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Cung cấp nội dung cho SEO và cho người đang tìm hiểu
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Thu thập lead, khảo sát và chăm sóc khách hàng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Chuyển đổi trực tiếp ra doanh thu
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Lan tỏa tự nhiên thông qua nội dung do người dùng tạo
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 7: Website mạng xã hội (Facebook, TikTok, diễn đàn) đóng vai trò gì trong Digital Marketing?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Cả 3 đáp án đều sai
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Xây cộng đồng, lan tỏa tự nhiên
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chỉ phục vụ thanh toán trực tuyến
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Chỉ dùng để lưu trữ tệp tin của doanh nghiệp
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 8: Ví dụ nào sau đây thuộc nhóm website siêu lớn theo quy mô?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Trang portfolio của một nhiếp ảnh gia
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Shopee, Lazada
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Website giới thiệu của một doanh nghiệp vừa
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Landing page đăng ký một sự kiện
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 9: Khi quy mô website tăng dần, điều gì xảy ra?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Chi phí vận hành giảm dần nhờ hiệu ứng quy mô
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Chỉ cần 1 người vận hành dù quy mô lớn
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Hạ tầng, nhân sự, bảo mật và ngân sách đều tăng theo
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Không còn cần đến bảo mật nhiều lớp
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 10: Theo quyền sở hữu, trang ra mắt sản phẩm hoặc website dự án bất động sản thuộc loại nào?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Cả 3 đáp án đều đúng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Website thương hiệu / dự án
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Website cá nhân
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Website tổ chức / chính phủ
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 11: Website có đuôi .edu.vn hoặc .gov.vn thuộc nhóm nào theo quyền sở hữu?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Cả 3 đáp án đều đúng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Website cá nhân
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Website tổ chức / trường học / chính phủ
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Website doanh nghiệp
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 12: Mục tiêu chính của website cá nhân (portfolio, blog, CV trực tuyến) là gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Xây dựng thương hiệu cá nhân, tìm cơ hội việc làm, hợp tác
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Cung cấp thông tin chính thống và dịch vụ công
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Tập trung chuyển đổi cho một chiến dịch sản phẩm
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Bán hàng với hàng nghìn sản phẩm
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 13: Theo lĩnh vực hoạt động, điểm chuyển đổi chính của website bất động sản là gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Đặt bàn / đặt món
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Mở tài khoản / vay
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Đặt lịch khám
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Nhận tư vấn
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 14: Vì sao nội dung, từ khóa và quảng cáo cần được thiết kế theo từng lĩnh vực?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Vì Google bắt buộc mỗi lĩnh vực dùng một nền tảng website riêng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Vì mỗi lĩnh vực có hành vi tìm kiếm và điểm chuyển đổi riêng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Vì mọi lĩnh vực đều có cùng một điểm chuyển đổi là mua hàng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Vì quảng cáo chỉ hiển thị cho đúng một lĩnh vực mỗi ngày
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 15: Đặc điểm nội dung của website tĩnh là gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Tất cả đáp án đều đúng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Nội dung được truy vấn liên tục từ cơ sở dữ liệu
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Nội dung không thay đổi trừ khi người lập trình sửa đổi mã nguồn
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Tất cả đáp án đều sai
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 16: Ưu điểm của website tĩnh là gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Tốc độ tải nhanh, bảo mật cao, chi phí thấp
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Nội dung linh hoạt, tương tác cao, dễ cập nhật
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Dễ dàng tích hợp bình luận và đăng nhập
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Phù hợp cho mạng xã hội có hàng triệu người dùng
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 17: Nhược điểm của website động (Dynamic Web) là gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Khó cập nhật nội dung và không có tính tương tác
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Chỉ hiển thị được văn bản, không hiển thị hình ảnh
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Không thể sử dụng cho thương mại điện tử
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Tải chậm hơn, yêu cầu tài nguyên lớn hơn, chi phí cao hơn
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 18: Thành phần nào của website là &quot;không gian trên Web Server để lưu trữ các tệp tin của website&quot;?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Tên miền (Domain Name)
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Mã nguồn (Source Code)
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Cơ sở dữ liệu (Database)
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Hosting (Web Hosting)
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 19: Trong các thành phần của website, cơ sở dữ liệu (Database) dùng để làm gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Cung cấp địa chỉ dễ nhớ cho website
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Chứa các tệp HTML, CSS tạo giao diện
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Lưu trữ dữ liệu động như bài viết, thông tin người dùng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Mã hóa kết nối giữa trình duyệt và máy chủ
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 20: Trong URL https://www.huflit.edu.vn/tin-tuc?id=5#top, &quot;.edu.vn&quot; được gọi là gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Domain Name
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Query String
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Scheme/Protocol
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> TLD (Top-Level Domain)
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 21: Chứng chỉ SSL/TLS do ai cấp và giúp đảm bảo yếu tố nào của website?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Do nhà cung cấp hosting cấp; đảm bảo tốc độ tải trang
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Do Google cấp; đảm bảo thứ hạng SEO cao nhất
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Do nhà đăng ký tên miền cấp; đảm bảo giao diện đẹp
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Do CA (Certificate Authority) cấp; đảm bảo tính bảo mật và độ tin cậy
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 22: Yếu tố nào sau đây thuộc UI (User Interface)?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Quy trình mua hàng có đơn giản không
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Thanh toán có thuận tiện, nhanh chóng không
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Layout, font, màu sắc, banner, logo, icon
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Người dùng có dễ tìm kiếm không
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 23: RWD – một yếu tố của UI – là viết tắt của cụm từ nào?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Rapid Web Development
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Remote Web Domain
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Responsive Web Design
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Rich Web Data
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 24: Câu hỏi nào sau đây dùng để đánh giá UX (User Experience) của website?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Website dùng font chữ gì?
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Logo đặt ở vị trí nào?
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Banner có hiệu ứng animation không?
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Quy trình mua hàng có đơn giản không?
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 25: Phát biểu nào đúng về sự khác biệt giữa UI và UX?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> UI tập trung vào thẩm mỹ và trình bày; UX tập trung vào tối ưu hành trình và cảm xúc người dùng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> UI tập trung vào hành trình người dùng; UX tập trung vào giao diện: màu sắc và font chữ
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> UI và UX là một, chỉ khác tên gọi
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> UX chỉ liên quan đến tốc độ máy chủ, không liên quan đến người dùng
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 97: Nhược điểm của website tĩnh (Static Web) là gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Tốc độ tải chậm do phải truy vấn CSDL
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Yêu cầu tài nguyên máy chủ rất lớn
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chi phí xây dựng và vận hành cao
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Khó cập nhật, không có tính tương tác
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 98: Website của chính phủ và cơ quan phi chính phủ có chức năng và mục tiêu gì?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Bán hàng trực tuyến; tăng doanh số
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Cung cấp các dịch vụ công; phục vụ cộng đồng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Video, âm nhạc, trò chơi; giữ chân người dùng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Portfolio, blog; xây dựng thương hiệu cá nhân
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 99: Xu hướng &quot;cá nhân hóa trải nghiệm&quot; trên website được thể hiện như thế nào?</div>
+      <span class="q-tag">Website</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Mọi khách hàng đều thấy cùng một nội dung
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Website chỉ hiển thị cho khách đã đăng nhập
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Tắt toàn bộ gợi ý sản phẩm để tăng tốc độ
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Nội dung, gợi ý sản phẩm, ưu đãi hiển thị theo hành vi và nhóm khách hàng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+<div class="section-banner">PHẦN 2: CHỦ ĐỀ MARKETING CÔNG CỤ TÌM KIẾM (SEO & SEM) (36 CÂU)</div>
+
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 26: So sánh về chi phí giữa SEO và SEM, phát biểu nào đúng?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> SEO trả tiền theo CPC; SEM hoàn toàn miễn phí
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Cả SEO và SEM đều trả tiền cho mỗi lượt click
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Cả SEO và SEM đều trả phí theo 1.000 lượt hiển thị
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> SEO không trả tiền cho mỗi lượt click; SEM trả tiền cho mỗi lượt click
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 27: Đặc điểm hiệu quả của SEO là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Chậm nhưng bền vững
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Nhanh nhưng hết tiền là ngừng hiển thị
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Nhanh và không bao giờ giảm thứ hạng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Chậm và mất hiệu quả ngay khi dừng chi tiền
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 28: Hạn chế về hiệu quả của SEM so với SEO là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Phải chờ 3–6 tháng mới có kết quả
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Không đo lường được hiệu quả
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Hết tiền quảng cáo là ngừng hiển thị
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Không thể nhắm đúng khách hàng mục tiêu
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 29: Công việc chính khi thực hiện SEM là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Tối ưu nội dung, kỹ thuật, uy tín website
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Tối ưu từ khóa, mẫu quảng cáo, giá thầu
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Cả 2 đáp án đều đúng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Cả 2 đáp án đều sai
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 30: Về tầm nhìn, SEO hướng đến mục tiêu nào?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Ngắn hạn – thúc đẩy đơn hàng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Ngắn hạn – xả hàng tồn kho
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Tức thời – tăng lượt click trong ngày
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Dài hạn – xây dựng thương hiệu
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 31: Việc kết hợp đồng thời SEO và SEM được gọi là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Remarketing Campaign
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Broad Match Campaign
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Integrated Campaign
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Organic Campaign
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 32: Thứ tự đúng các bước Google xử lý website là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Index → Crawl → Rank
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Rank → Crawl → Index
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Crawl → Index → Rank
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Crawl → Rank → Index
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 33: Bước &quot;Index&quot; trong quy trình hoạt động của Google là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Googlebot tìm và quét các website để thu thập thông tin
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Sắp xếp kết quả tìm kiếm và trả về cho người dùng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Phân tích và lưu trữ nội dung vào cơ sở dữ liệu của Google
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Tính phí quảng cáo theo lượt nhấp
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 34: Quan niệm &quot;SEO chỉ cần làm 1 lần là được&quot; sai vì:</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> SEO cần duy trì liên tục, theo dõi và cập nhật theo thuật toán công cụ tìm kiếm
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Google chỉ index website một lần duy nhất
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> SEO phải làm lại từ đầu mỗi ngày
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> SEO chỉ có hiệu lực trong 7 ngày
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 35: Quan niệm &quot;SEO chỉ là viết bài với càng nhiều từ khóa càng tốt&quot; sai vì:</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Google không đọc nội dung văn bản trên website
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> SEO đòi hỏi thực hiện toàn diện các yếu tố: kỹ thuật, nội dung, tín hiệu uy tín
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Từ khóa không liên quan gì đến SEO
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> SEO chỉ phụ thuộc vào số lượng backlink
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 36: Nhóm &quot;Yếu tố kỹ thuật&quot; trong SEO bao gồm:</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Thương hiệu, các đánh giá, mạng xã hội
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Số lượng và chất lượng liên kết từ website khác
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Tốc độ trang, bảo mật, thân thiện với thiết bị di động
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Thời gian trên trang, tỷ lệ thoát trang
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 37: Thương hiệu, các đánh giá và mạng xã hội thuộc nhóm yếu tố SEO nào?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Yếu tố kỹ thuật
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Trải nghiệm người dùng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Yếu tố ngoài trang
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Nội dung
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 38: SERP (Search Engine Results Page) là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Bản đồ cấu trúc website gửi cho Google
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Tập tin điều khiển việc Google crawl website
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Thẻ chỉ định trang gốc tránh trùng lặp
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Trang kết quả tìm kiếm hiển thị sau khi người dùng gõ từ khóa
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 39: Alt Text có tác dụng gì trong SEO?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Tạo liên kết giữa các trang trong website
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Mô tả hình ảnh giúp Google hiểu hình ảnh đang nói gì
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chỉ định trang gốc khi có nhiều trang tương tự
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Chặn Google crawl một số thành phần
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 40: Liên kết từ website khác trỏ về trang của mình – một tín hiệu uy tín mạnh – được gọi là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Backlink
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Internal link
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Anchor text
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Canonical tag
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 41: Tập tin nào dùng để điều khiển việc Google được/không được crawl các thành phần của website?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Robots.txt
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Sitemap.xml
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Meta Description
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Canonical Tag
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 42: Internal link giúp ích gì cho website?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Là tín hiệu uy tín mạnh từ website khác
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Mô tả hình ảnh cho Google
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Liên kết các trang trong cùng website, giúp phân bổ PageRank
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Ngăn Google index trang trùng lặp
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 43: Chỉ số Impressions trong SEM là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Số người dùng nhìn thấy quảng cáo
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Số lượt nhấp chuột vào quảng cáo
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Số lần quảng cáo được hiển thị trên trang kết quả tìm kiếm
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Số trang người dùng xem trong một phiên
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 44: Chỉ số Reach (lượt tiếp cận) được hiểu là:</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Số người dùng nhìn thấy quảng cáo
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Số lần quảng cáo được hiển thị
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Thời gian trung bình người dùng ở trên trang
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Tỷ lệ người dùng rời đi không hành động
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 45: Bounce rate (tỷ lệ thoát) trong SEM là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Tỷ lệ email bị trả về
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Tỷ lệ người nhìn thấy quảng cáo và nhấp chuột
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Tỷ lệ người dùng quay lại website
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Tỷ lệ người dùng truy cập qua quảng cáo rồi rời đi mà không thực hiện hành động nào khác
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 46: Điểm chất lượng (Quality Score) của Google Ads được đánh giá trên thang điểm nào?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Từ 0 đến 5
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Từ 1 đến 100
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Từ A đến F
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Từ 1 đến 10
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 47: CPM (Cost per mille) là:</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Chi phí cho mỗi 1.000 lần hiển thị quảng cáo
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Chi phí cho mỗi lần nhấp chuột
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chi phí cho mỗi hành động chuyển đổi
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Doanh thu trên mỗi đồng quảng cáo
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 48: Một quảng cáo có 10.000 lượt hiển thị và 250 lượt nhấp. CTR của quảng cáo là bao nhiêu?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> 2,5%
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 25%
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 0,25%
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> 4%
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 49: Một chiến dịch chi 10 triệu đồng quảng cáo và thu về 40 triệu đồng doanh thu. ROAS là bao nhiêu?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> 4
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 0,25
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 30
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> 400
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 50: Chiến dịch chi 6 triệu đồng và thu được 120 đơn hàng. CPA là bao nhiêu?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> 20.000 đồng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> 50.000 đồng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 72.000 đồng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> 500.000 đồng
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 51: Công thức tính Ad Rank là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Ad Rank = Giá thầu + CTR × CPC
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Ad Rank = Số lượt nhấp ÷ Số lượt hiển thị
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Ad Rank = Doanh thu ÷ Chi phí quảng cáo
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Ad Rank = Giá thầu × Điểm chất lượng + Tác động tiện ích mở rộng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 52: Vì sao giá thầu cao không đảm bảo quảng cáo có vị trí tốt?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Vì Google xếp hạng quảng cáo ngẫu nhiên
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Vì vị trí chỉ phụ thuộc vào số lượng backlink
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Vì điểm chất lượng thấp vẫn có thể khiến quảng cáo xếp sau đối thủ trả giá thấp hơn nhưng nội dung liên quan hơn
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Vì quảng cáo giá cao luôn bị đẩy xuống cuối trang
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 53: Yếu tố nào KHÔNG thuộc 3 thành phần của Google Quality Score?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Tỷ lệ nhấp dự kiến (Expected CTR)
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Mức độ liên quan quảng cáo
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Trải nghiệm trang đích
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Số lượng backlink của website
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 54: Khi Quality Score thấp, điều gì có thể xảy ra?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Quảng cáo luôn hiển thị ở vị trí đầu tiên
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Phải trả CPC cao hơn, hoặc không hiển thị dù giá thầu cao
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> CPC tự động giảm xuống mức thấp nhất
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Google miễn phí lượt nhấp cho quảng cáo
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 55: Thứ tự cấu trúc phân cấp tài khoản Google Ads từ tổng quát đến chi tiết là:</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Chiến dịch → Tài khoản → Từ khóa → Nhóm quảng cáo
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Nhóm quảng cáo → Chiến dịch → Tài khoản → Mẫu quảng cáo
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Tài khoản → Nhóm quảng cáo → Chiến dịch → Từ khóa
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Tài khoản → Chiến dịch → Nhóm quảng cáo → Từ khóa &amp; Mẫu quảng cáo
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 56: Ký hiệu [giày chạy bộ nam] thể hiện loại khớp từ khóa nào?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Khớp chính xác
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Khớp cụm từ
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Khớp rộng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Từ khóa phủ định
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 57: Để loại trừ các truy vấn không liên quan khi dùng từ khóa phủ định, ta làm gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Đặt từ khóa trong dấu ngoặc vuông [ ]
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Thêm dấu trừ (-) phía trước từ khóa cần loại trừ
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Đặt từ khóa trong dấu ngoặc kép &quot; &quot;
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Thêm dấu cộng (+) phía trước từ khóa
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 94: Công cụ nào được nêu trong bài để nghiên cứu từ khóa khi triển khai quảng cáo Google?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Google Keyword Planner
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Google Merchant Center
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Meta Business Suite
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> YouTube Studio
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 100: Bước &quot;Rank&quot; trong quy trình hoạt động của Google là gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Googlebot tìm và quét các website
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Sắp xếp kết quả tìm kiếm và trả về cho người dùng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Phân tích và lưu trữ nội dung vào cơ sở dữ liệu
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Gửi báo cáo lỗi kỹ thuật cho chủ website
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 101: Trong cấu trúc tài khoản Google Ads, cấp &quot;Nhóm quảng cáo (Ad Group)&quot; có vai trò gì?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Quản lý thanh toán và người dùng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Xác định ngân sách, mục tiêu, vị trí địa lý
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Gom các từ khóa và mẫu quảng cáo có chủ đề liên quan
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Đại diện cho toàn bộ doanh nghiệp
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 102: Ký hiệu &quot;giày chạy bộ nam&quot; (đặt trong dấu ngoặc kép) thể hiện loại khớp từ khóa nào?</div>
+      <span class="q-tag">Marketing công cụ tìm kiếm</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Khớp chính xác
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Khớp rộng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Từ khóa phủ định
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Khớp cụm từ
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+<div class="section-banner">PHẦN 3: CHỦ ĐỀ MARKETING TRUYỀN THÔNG XÃ HỘI (SOCIAL MEDIA) (22 CÂU)</div>
+
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 58: Social Media Marketing (SMM) được hiểu là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Chỉ đăng bài quảng cáo sản phẩm trên Facebook
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Gửi thư quảng cáo hàng loạt đến khách hàng qua email
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Sử dụng các nền tảng mạng xã hội để xây dựng thương hiệu, tương tác, nuôi dưỡng quan hệ khách hàng và thúc đẩy mua hàng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Tối ưu website để xếp hạng cao trên Google
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 59: Đặc trưng &quot;hai chiều&quot; của SMM có nghĩa là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Thương hiệu vừa &quot;nói&quot; vừa phải &quot;nghe&quot; và phản hồi
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Thương hiệu đăng bài trên hai nền tảng cùng lúc
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Khách hàng chỉ tiếp nhận thông điệp từ thương hiệu
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Thương hiệu chạy song song quảng cáo và SEO
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 60: Đặc trưng &quot;Lan truyền &amp; UGC&quot; của SMM thể hiện điều gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Thuật toán hiển thị đúng người, đúng thời điểm
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Thương hiệu bắt trend và phản hồi ngay lập tức
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Khách hàng chia sẻ, review, tự tạo nội dung
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Doanh nghiệp trả tiền cho mọi lượt chia sẻ
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 61: So với marketing truyền thống, việc đo lường trong SMM có đặc điểm gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Khó, chậm, chủ yếu ước tính
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Đo lường theo thời gian thực
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chỉ đo được sau khi kết thúc chiến dịch
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Không thể đo lường được
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 62: Trong SMM, khách hàng đóng vai trò gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Chỉ là người tiếp nhận thông điệp
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Người duy nhất trả chi phí quảng cáo
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Người không có ảnh hưởng đến thương hiệu
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Người đồng sáng tạo, lan truyền (UGC, review)
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 63: Trong mô hình POEM, nhược điểm của Paid Media là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Dừng chi tiền là dừng hiển thị
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Cần nhiều thời gian xây dựng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Khó kiểm soát, có thể tiêu cực
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Độ tin cậy thấp nhất trong mọi trường hợp
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 64: Loại truyền thông nào có độ tin cậy cao nhất nhưng khó kiểm soát?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Paid Media
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Earned Media
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Owned Media
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Truyền thông ngoài trời (OOH)
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 65: Bước đầu tiên trong quy trình xây dựng chiến lược SMM là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Chọn nền tảng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Xác định mục tiêu SMART
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Triển khai Organic + Ads
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Lập kế hoạch nội dung
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 66: Theo Luật Quảng cáo sửa đổi (số 75/2025/QH15), KOL, KOC, streamer được xác định là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Người phát hành quảng cáo độc lập không chịu trách nhiệm
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Người tiêu dùng thông thường
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Cơ quan quản lý quảng cáo
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Người chuyển tải sản phẩm quảng cáo
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 67: Theo Luật Trí tuệ nhân tạo, ảnh/video do AI tạo hoặc chỉnh sửa mô phỏng người thật phải làm gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Được đăng tự do không cần ghi chú
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Chỉ được đăng trên YouTube
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Phải bán quyền sở hữu cho nền tảng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Phải gắn nhãn
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 68: Khung hình ưu tiên cho video TikTok là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> 16:9
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> 9:16
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 1:1
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> 4:3
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 69: Quy tắc 80/20 trong content pillars có nghĩa là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> 80% nội dung bán hàng, 20% nội dung giải trí
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 80% ngân sách cho quảng cáo, 20% cho nội dung
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 80% video ngắn, 20% video dài
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Khoảng 80% nội dung mang lại giá trị, 20% nội dung bán hàng trực tiếp
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 70: Phần HOOK của một nội dung video hiệu quả nằm ở khoảng thời gian nào?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> 0–3 giây đầu
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 3–45 giây
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Cuối video
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Giữa video
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 71: KOC là ai?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Người tiêu dùng trải nghiệm thật và review sản phẩm
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Người có chuyên môn, dẫn dắt dư luận
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Người giới thiệu sản phẩm nhận hoa hồng theo đơn
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Nhân viên chăm sóc khách hàng của doanh nghiệp
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 72: Shoppertainment là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Mua sắm tại cửa hàng truyền thống có khu vui chơi
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Hình thức quảng cáo hiển thị trên Google Shopping
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Mua sắm kết hợp giải trí: khách mua khi đang xem nội dung
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Chương trình khách hàng thân thiết qua email
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 73: Trong hệ sinh thái Meta, Messenger đóng vai trò gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Nền tảng thảo luận văn bản mới
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Nền tảng hình ảnh mạnh về thời trang, làm đẹp
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Nhắn tin trực tiếp, tư vấn và chốt đơn hàng với khách hàng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Nhắn tin bán hàng quốc tế cho thị trường xuất khẩu
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 74: Thứ tự cấu trúc chiến dịch Meta Ads là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Quảng cáo (Ad) → Nhóm quảng cáo (Ad set) → Chiến dịch (Campaign)
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Nhóm quảng cáo (Ad set) → Chiến dịch (Campaign) → Quảng cáo (Ad)
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chiến dịch (Campaign) → Quảng cáo (Ad) → Nhóm quảng cáo (Ad set)
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Chiến dịch (Campaign) → Nhóm quảng cáo (Ad set) → Quảng cáo (Ad)
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 75: Custom audience trong Meta Ads là nhóm đối tượng nào?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Người có đặc điểm tương tự tệp khách hàng hiện có
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Người đã tương tác fanpage, xem video, truy cập web, danh sách khách hàng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Người được chọn theo vị trí, tuổi, giới tính, sở thích
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Toàn bộ người dùng Facebook tại Việt Nam
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 76: Một chiến dịch chi 8 triệu đồng quảng cáo, thu về 24 triệu đồng doanh thu. ROAS là bao nhiêu?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> 3
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 0,33
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 16
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> 32
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 77: Trong social listening, &quot;share of voice&quot; là gì?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Sắc thái tích cực/tiêu cực
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Lượng thảo luận
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Thị phần thảo luận
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Tỷ lệ chuyển đổi
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 78: Trong 5 bước xử lý khủng hoảng trên MXH, &quot;giờ vàng&quot; để phản hồi thường là bao lâu?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> 7 ngày đầu
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 1 tháng đầu
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> 24 giờ đầu
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Sau khi khủng hoảng kết thúc
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 95: Lookalike audience trong Meta Ads là nhóm đối tượng nào?</div>
+      <span class="q-tag">Marketing truyền thông xã hội</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Người đã tương tác fanpage hoặc truy cập website
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Người có đặc điểm tương tự tệp khách hàng hiện có
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Người được chọn theo vị trí, tuổi, giới tính, sở thích
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Danh sách khách hàng doanh nghiệp tải lên
+        
+      </li>
+    </ul>
+  </div>
+<div class="section-banner">PHẦN 4: CHỦ ĐỀ EMAIL MARKETING & CRM (33 CÂU)</div>
+
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 79: Theo Kotler &amp; Armstrong (2021), Email Marketing là một công cụ của:</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Quan hệ công chúng (PR)
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Truyền thông marketing trực tiếp
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Marketing truyền thống qua báo in
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Quảng cáo ngoài trời (OOH)
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 80: Hai hình thức gửi Email Marketing được nêu trong bài là:</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Triggered Email và Broadcast Email
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Inbound Email và Outbound Email
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Paid Email và Earned Email
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Static Email và Dynamic Email
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 81: Theo Nghị định 91/2020/NĐ-CP, thư điện tử quảng cáo phải gắn nhãn gì ở đầu tiêu đề?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> [ADS]
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> [QC]
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> [KM]
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> [SPAM]
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 82: Theo Nghị định 91/2020/NĐ-CP, không được gửi quá bao nhiêu thư quảng cáo tới một địa chỉ email trong 24 giờ (trừ khi có thỏa thuận khác)?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> 01 thư
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 05 thư
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 10 thư
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> 03 thư
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 83: Chuỗi email marketing chào mừng (Welcome series) được kích hoạt khi nào?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Khi khách thêm vào giỏ nhưng chưa thanh toán
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Khi khách vừa đăng ký
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Khi khách không mua hàng 60 ngày
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Vào ngày sinh nhật của khách
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 84: Kịch bản &quot;Giỏ hàng bỏ quên&quot; (Abandoned cart) được kích hoạt khi nào?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Khách vừa đăng ký nhận bản tin
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Khách thêm sản phẩm vào giỏ nhưng chưa thanh toán
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Khách vừa hoàn tất đơn hàng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Khách hủy đăng ký nhận email
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 85: Tiêu đề email (subject line) nên có độ dài khoảng bao nhiêu ký tự để hiển thị đủ trên điện thoại?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> 30–50 ký tự
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 5–10 ký tự
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 100–150 ký tự
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Trên 200 ký tự
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 86: Preheader trong email là gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Phần chân trang chứa nút hủy đăng ký
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Dòng mô tả hiện ngay sau tiêu đề trong hộp thư, bổ sung thông tin, lợi ích cho tiêu đề
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Logo và banner ở đầu email
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Địa chỉ email của người gửi
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 87: Tiêu đề email nào sau đây được đánh giá là tốt hơn?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> KHUYẾN MÃI LỚN!!!
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Mua ngay kẻo hết
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chúng tôi có sản phẩm mới
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Nam ơi, giảm 20% cho đôi giày bạn vừa xem
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 88: Nguyên tắc &quot;ưu tiên điện thoại (mobile-first)&quot; trong thiết kế email yêu cầu gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Bố cục nhiều cột, chữ nhỏ để chứa nhiều thông tin
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Chỉ gửi một ảnh lớn duy nhất
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Không cần nút CTA
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Bố cục 1 cột, chữ đủ lớn, nút dễ bấm bằng ngón tay
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 89: Phần Footer của email nên bao gồm những gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Thông tin liên hệ, địa chỉ, mạng xã hội và nút hủy đăng ký
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Banner hình ảnh chính và headline
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Lời chào cá nhân hóa
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Mã giảm giá và nút CTA chính
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 90: Với thư bị trả về dạng hard bounce, cách xử lý được khuyến nghị là gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Xóa ngay khỏi danh sách
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Thử gửi lại nhiều lần
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chuyển sang tên miền khác để gửi
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Giữ lại để tăng số lượng danh sách
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 91: Một chiến dịch email có doanh thu 30 triệu đồng, chi phí 10 triệu đồng. ROI là bao nhiêu?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> 300%
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 33%
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> 200%
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> 20%
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 92: CRM là viết tắt của cụm từ nào?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Customer Revenue Marketing
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Customer Relationship Management
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Content Resource Management
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Customer Retention Media
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 93: Với nhóm khách hàng có nguy cơ rời bỏ (lâu không mua), loại email phù hợp là gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Email &quot;đánh thức&quot; (win-back) kèm voucher
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Ưu đãi độc quyền, mua sớm sản phẩm mới
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Hướng dẫn sử dụng sản phẩm vừa mua
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Thư chào mừng đăng ký
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 96: Với nhóm lead chưa mua hàng, doanh nghiệp nên gửi loại email nào?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Ưu đãi độc quyền dành cho khách VIP
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Email cảm ơn sau mua và xin đánh giá
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Chuỗi nuôi dưỡng: nội dung hữu ích, đánh giá
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Hướng dẫn sử dụng sản phẩm đã mua
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 103: Transactional Email (email giao dịch) là loại email nào?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Email giới thiệu chương trình flash sale cuối tuần
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Email bản tin chia sẻ kiến thức hằng tháng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Email bắt buộc gửi, liên quan đến giao dịch hoặc hành động người dùng đã thực hiện
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Email khảo sát mức độ hài lòng của khách hàng
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 104: Email nhắc giỏ hàng bị bỏ quên được xếp vào loại email nào trong bài?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Transactional Email (email giao dịch)
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">B.</span> Promotional Email (email khuyến mãi – bán hàng)
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Relational Email (email quan hệ – nuôi dưỡng)
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Email chào mừng khách hàng mới
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 105: Thứ tự các tầng trong phễu Email Marketing từ trên xuống là gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Open → Delivery → Trust → Click
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Click → Open → Delivery → Trust
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Delivery → Open → Click → Trust/Conversion
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Trust → Click → Open → Delivery
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 106: Yếu tố nào quyết định nhiều nhất đến việc khách hàng có mở email hay không?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Màu sắc của phần footer
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Số lượng hình ảnh trong thân email
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Tiêu đề email
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Dung lượng tệp đính kèm
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 107: Doanh nghiệp gửi 10.000 email, có 9.700 email đến được hộp thư. Delivery Rate là bao nhiêu?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> 3%
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 9,7%
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 100%
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> 97%
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 108: Theo phân phối theo thời gian, &quot;giờ vàng&quot; gửi email thường là khoảng nào?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> 0–2h sáng
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 10–12h trưa
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 4–6h sáng
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> 8–10h sáng hoặc 20–22h
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 109: CRM phân tích (Analytical CRM) có chức năng chính là gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Tự động hóa công việc hằng ngày của bán hàng, marketing
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Chia sẻ thông tin khách hàng giữa các bộ phận và đối tác
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Phân tích dữ liệu khách hàng để hiểu hành vi, phân khúc và dự báo
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Thiết kế giao diện và nội dung cho website
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 110: Vì sao email được xem là kênh sở hữu dữ liệu khách hàng trực tiếp (first-party data)?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Email do Google sở hữu và cung cấp dữ liệu cho doanh nghiệp
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Dữ liệu email được mua từ bên thứ ba có uy tín
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Mọi email đều được lưu trữ công khai trên Internet
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Doanh nghiệp tự nắm danh sách email, ít phụ thuộc thuật toán của nền tảng như Facebook hay TikTok
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 111: Khi gửi email marketing, loại tệp đính kèm nào nên tránh để không bị vào thư rác?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Không đính kèm tệp nào
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Liên kết đến website uy tín
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Tệp nặng, tệp .exe, .zip
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Hình ảnh có văn bản thay thế
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 112: Email giao dịch (xác nhận đơn hàng, thanh toán) nên được gửi khi nào?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Sau 1 tuần
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Vào giờ vàng 20–22h
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">C.</span> Gửi ngay lập tức
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Gộp chung vào bản tin cuối tháng
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 113: Một chiến dịch email có chi phí 2 triệu đồng, doanh thu 10 triệu đồng. ROI là bao nhiêu?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> 500%
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> 80%
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> 20%
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> 400%
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 114: Các hệ thống Email Marketing thường đo tỷ lệ mở email bằng cách nào?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Gọi điện hỏi trực tiếp người nhận
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Yêu cầu người nhận trả lời email
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Đếm số lần email được chuyển tiếp
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Chèn một hình ảnh rất nhỏ, vô hình (tracking pixel) vào email
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 115: Mục tiêu tạo ra &quot;hồ sơ khách hàng duy nhất&quot; của CRM được gọi là gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Single customer view
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Customer journey map
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Lead magnet
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Landing page
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 116: CRM cộng tác (Collaborative CRM) có chức năng chính là gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Chia sẻ thông tin khách hàng giữa các bộ phận và đối tác, đồng bộ đa kênh
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Phân tích dữ liệu để dự báo khách hàng rời bỏ
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Tự động hóa việc gửi email hằng ngày
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Thiết kế giao diện website bán hàng
+        
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 117: Relational Email (email quan hệ – nuôi dưỡng) được gửi nhằm mục đích gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Xác nhận giao dịch khách vừa thanh toán
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Thông báo biến động số dư tài khoản
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Bắt buộc khách mua hàng ngay trong ngày
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Giữ liên lạc và cung cấp giá trị cho khách hàng
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 118: Email automation (email gửi tự động khi khách thực hiện một hành động) chính là hình thức gửi nào?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item ">
+        <span class="opt-prefix">A.</span> Broadcast Email
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Email gửi tay từng người
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Email gửi theo danh sách mua ngoài
+        
+      </li>
+      <li class="opt-item correct">
+        <span class="opt-prefix">D.</span> Triggered Email
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+    </ul>
+  </div>
+  <div class="question-block">
+    <div class="q-head">
+      <div class="q-title">Câu 119: CRM tác nghiệp (Operational CRM) có chức năng chính là gì?</div>
+      <span class="q-tag">Email Marketing - CRM</span>
+    </div>
+    <ul class="options-list">
+      <li class="opt-item correct">
+        <span class="opt-prefix">A.</span> Tự động hóa công việc hằng ngày của bán hàng, marketing, dịch vụ
+        <span class="correct-badge">✔ ĐÁP ÁN ĐÚNG</span>
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">B.</span> Phân tích dữ liệu để dự báo khách rời bỏ
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">C.</span> Chia sẻ thông tin khách hàng với đối tác
+        
+      </li>
+      <li class="opt-item ">
+        <span class="opt-prefix">D.</span> Thiết kế giao diện cho website bán hàng
+        
+      </li>
+    </ul>
+  </div>
+<div class="section-banner essay-sec">PHẦN 5: 6 CÂU HỎI TỰ LUẬN CHUYÊN SÂU (KÈM GỢI Ý ĐÁP ÁN)</div>
+
+  <div class="essay-card">
+    <div class="essay-title">Câu 1: Phân tích vai trò của từ khóa trong SEO</div>
+    <div class="essay-q">Phân tích vai trò của từ khóa (Keyword) trong hoạt động SEO. Doanh nghiệp cần lưu ý những gì khi nghiên cứu từ khóa?</div>
+    <div class="hints-box">
+      <span class="hints-title">💡 Gợi Ý Luận Điểm Cốt Lõi Khi Làm Bài:</span>
+      <ul>
+        <li>Vai trò: Cầu nối giữa nhu cầu tìm kiếm của người dùng và nội dung website; định hướng cấu trúc website và chiến lược nội dung; tối ưu tỷ lệ chuyển đổi.</li>
+        <li>Lưu ý: Search Volume (lượng tìm kiếm hàng tháng), Search Intent (ý định tìm kiếm: Thông tin, Điều hướng, Thương mại, Giao dịch), Độ cạnh tranh (Keyword Difficulty), Từ khóa đuôi dài (Long-tail keywords) để tối ưu chi phí và tăng tỷ lệ chốt đơn.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="essay-card">
+    <div class="essay-title">Câu 2: So sánh SEO và Quảng cáo tìm kiếm trả phí (Google Ads)</div>
+    <div class="essay-q">Những lợi ích và hạn chế của SEO so với quảng cáo trả phí trên công cụ tìm kiếm là gì?</div>
+    <div class="hints-box">
+      <span class="hints-title">💡 Gợi Ý Luận Điểm Cốt Lõi Khi Làm Bài:</span>
+      <ul>
+        <li>SEO - Lợi ích: Chi phí click bằng 0 (organic), độ uy tín tự nhiên cao, hiệu quả bền vững lâu dài ngay cả khi tạm dừng tối ưu.</li>
+        <li>SEO - Hạn chế: Thời gian lên top chậm (3–6 tháng), phụ thuộc vào biến động thuật toán Google, tốn nhiều công sức tối ưu kỹ thuật và nội dung.</li>
+        <li>Google Ads: Hiển thị ngay lập tức, nhắm đúng đối tượng mục tiêu, đo lường tức thời nhưng dừng chi tiền là dừng hiển thị (CPC tăng dần theo thời gian).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="essay-card">
+    <div class="essay-title">Câu 3: Các yếu tố ảnh hưởng đến thứ hạng website trên Google</div>
+    <div class="essay-q">Trình bày các yếu tố ảnh hưởng đến thứ hạng website trên trang kết quả tìm kiếm của Google.</div>
+    <div class="hints-box">
+      <span class="hints-title">💡 Gợi Ý Luận Điểm Cốt Lõi Khi Làm Bài:</span>
+      <ul>
+        <li>On-page SEO: Chất lượng nội dung hữu ích (Helpful Content), mật độ và vị trí từ khóa (Title, H1, Meta, URL, Alt Text), cấu trúc Internal Link.</li>
+        <li>Technical SEO: Tốc độ tải trang (Core Web Vitals), giao diện thân thiện di động (Mobile-friendly / RWD), chứng chỉ bảo mật HTTPS (SSL), file robots.txt và sitemap.xml.</li>
+        <li>Off-page SEO: Số lượng và chất lượng backlink từ các tên miền uy tín cùng lĩnh vực, tín hiệu thương hiệu (Brand Mentions) và đánh giá của người dùng.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="essay-card">
+    <div class="essay-title">Câu 4: Vai trò của Social Media Marketing</div>
+    <div class="essay-q">Trình bày vai trò của Social Media Marketing trong việc xây dựng thương hiệu và tương tác với khách hàng.</div>
+    <div class="hints-box">
+      <span class="hints-title">💡 Gợi Ý Luận Điểm Cốt Lõi Khi Làm Bài:</span>
+      <ul>
+        <li>Xây dựng nhận diện thương hiệu: Tiếp cận tệp đối tượng khổng lồ, truyền tải thông điệp đa định dạng (video ngắn, hình ảnh, bài viết).</li>
+        <li>Giao tiếp hai chiều & Chăm sóc khách hàng: Lắng nghe phản hồi thời gian thực, giải đáp thắc mắc, xử lý khiếu nại qua Messenger/Bình luận.</li>
+        <li>Khai thác nội dung do người dùng tạo (UGC) và sự lan truyền (Viral): Khách hàng vừa là người tiêu dùng vừa là đại sứ lan tỏa thương hiệu.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="essay-card">
+    <div class="essay-title">Câu 5: Các yếu tố tạo nên nội dung thu hút trên Social Media</div>
+    <div class="essay-q">Những yếu tố nào tạo nên một nội dung thu hút và hiệu quả trong Social Media Marketing?</div>
+    <div class="hints-box">
+      <span class="hints-title">💡 Gợi Ý Luận Điểm Cốt Lõi Khi Làm Bài:</span>
+      <ul>
+        <li>Phần mở đầu (HOOK) mạnh mẽ: Giữ chân người xem trong 3 giây đầu tiên bằng câu hỏi gợi mở, hình ảnh bất ngờ hoặc số liệu ấn tượng.</li>
+        <li>Quy tắc 80/20 Content Pillars: 80% nội dung mang lại giá trị thực tế (kiến thức, giải trí, cảm xúc), 20% nội dung bán hàng trực tiếp.</li>
+        <li>Định dạng tối ưu nền tảng: Video ngắn dọc 9:16 (TikTok, Reels, Shorts), hình ảnh trực quan chất lượng cao, âm thanh xu hướng (Trending sound).</li>
+        <li>Kêu gọi hành động rõ ràng (Call to Action - CTA): Hướng dẫn người xem like, share, comment hoặc click link sinh động.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="essay-card">
+    <div class="essay-title">Câu 6: Giải pháp cho website có traffic cao nhưng tỷ lệ chuyển đổi thấp</div>
+    <div class="essay-q">Một doanh nghiệp có lượng truy cập website cao nhưng tỷ lệ chuyển đổi thấp. Hãy phân tích các nguyên nhân có thể xảy ra và đề xuất giải pháp cải thiện.</div>
+    <div class="hints-box">
+      <span class="hints-title">💡 Gợi Ý Luận Điểm Cốt Lõi Khi Làm Bài:</span>
+      <ul>
+        <li>Nguyên nhân: Tiếp cận sai đối tượng (từ khóa không khớp ý định mua hàng); Trải nghiệm người dùng (UX) kém, tốc độ tải trang chậm; Lời kêu gọi hành động (CTA) mờ nhạt hoặc quy trình thanh toán/đăng ký quá rườm rà; Thiếu tín hiệu tin cậy (chứng nhận, review khách hàng, chính sách đổi trả).</li>
+        <li>Giải pháp: Phân tích lại Intent từ khóa và nhắm mục tiêu; Tối ưu trang đích (Landing Page Optimization), thiết kế lại CTA nổi bật; Rút ngắn form đăng ký/quy trình thanh toán xuống dưới 3 bước; Bổ sung Feedback thật, chứng chỉ SSL và số hotline tư vấn trực tiếp.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
