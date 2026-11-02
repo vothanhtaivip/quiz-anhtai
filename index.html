@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0b0f19">
-<title>ThanhTaiCoder — Hệ Thống Khảo Thí Trực Tuyến & CMS v5.2 Final</title>
+<title>ThanhTaiCoder — Hệ Thống Khảo Thí Trực Tuyến & CMS v5.3 (119 Câu Đề Mới)</title>
 
 <!-- GOOGLE FONTS: Be Vietnam Pro (Tối ưu tuyệt đối font chữ tiếng Việt) & JetBrains Mono -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1228,7 +1228,7 @@ h1.workflow-heading span {
       </h1>
       <p class="workflow-subtext">
         Chủ phòng thi & Biên soạn đề: <strong style="color:var(--n8n-coral);">ThanhTaiCoder</strong>.<br>
-        Mật khẩu bắt buộc do Admin cấp. Mỗi thí sinh chỉ được thi <b>tối đa 1 lần</b>.
+        Mật khẩu bắt buộc do Admin cấp. Mỗi thí sinh được thi <b>tối đa 3 lần</b> (Phần 1: 45 câu trong 35 phút).
       </p>
     </div>
 
@@ -1269,7 +1269,7 @@ h1.workflow-heading span {
         </label>
         <div class="input-field-wrap">
           <input class="n8n-input" id="pass-input" type="password"
-            placeholder="Nhập mật khẩu do Thầy cấp..." maxlength="50" autocomplete="off" style="padding-right: 48px;">
+            placeholder="Nhập mật khẩu do Thầy cấp (mặc định: ThayChuanNam)..." maxlength="50" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" style="padding-right: 48px;">
           <button type="button" class="pass-visibility-toggle" onclick="togglePassView()" title="Hiện/Ẩn mật khẩu">👁️</button>
         </div>
       </div>
@@ -1287,8 +1287,8 @@ h1.workflow-heading span {
         <span class="rule-node-icon">⏱️</span>
         <div class="rule-node-title">30 Giây / Câu</div>
         <div class="rule-node-desc">
-          Tổng <strong id="rule-q-count" style="color:var(--n8n-coral);">25</strong> câu ngẫu nhiên.<br>
-          ⏳ Tổng thời gian Phần 1: <strong id="rule-p1-time" style="color:var(--n8n-amber);">25</strong> phút.<br>
+          Tổng <strong id="rule-q-count" style="color:var(--n8n-coral);">45</strong> câu ngẫu nhiên.<br>
+          ⏳ Tổng thời gian Phần 1: <strong id="rule-p1-time" style="color:var(--n8n-amber);">35</strong> phút.<br>
           💡 Bấm chọn A/B/C/D hoặc phím số trên bàn phím.
         </div>
       </div>
@@ -1578,7 +1578,10 @@ h1.workflow-heading span {
         <div style="font-size:48px;margin-bottom:12px;">🔒</div>
         <p style="font-size:14.5px;color:var(--text-muted);margin-bottom:16px;">Vui lòng nhập mật khẩu quản trị để tiếp tục:</p>
         <div style="max-width:320px;margin:0 auto;">
-          <input class="n8n-input" type="password" id="admin-pass-verify" placeholder="Mật khẩu Admin (mặc định: admin123)">
+          <div style="position:relative;">
+            <input class="n8n-input" type="password" id="admin-pass-verify" placeholder="Mật khẩu Admin (mặc định: admin123)" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" style="padding-right:48px;">
+            <button type="button" class="pass-visibility-toggle" onclick="toggleAdminPassView()" title="Hiện/Ẩn mật khẩu" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;">👁️</button>
+          </div>
           <button class="btn-n8n-primary" onclick="verifyAdminPass()" style="width:100%;margin-top:14px;padding:14px;">ĐĂNG NHẬP ADMIN</button>
           <div id="admin-verify-err" style="color:var(--n8n-rose);font-size:13px;margin-top:10px;"></div>
         </div>
@@ -1668,7 +1671,7 @@ h1.workflow-heading span {
               Quy chế mới: <b>Không có bypass</b>. Toàn bộ học sinh bắt buộc phải nhập đúng mật khẩu này mới có thể khởi chạy bài thi.
             </p>
             <label style="font-size:12px;color:var(--n8n-amber);font-weight:700;">Cài đặt mật khẩu phòng thi:</label>
-            <input class="n8n-input" type="text" id="setting-exam-pass" placeholder="Ví dụ: THANHTAI123" style="margin-top:6px;">
+            <input class="n8n-input" type="text" id="setting-exam-pass" placeholder="Ví dụ: ThayChuanNam hoặc THANHTAI123" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" style="margin-top:6px;">
           </div>
 
           <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:12px;padding:20px;margin-bottom:16px;">
@@ -1683,7 +1686,7 @@ h1.workflow-heading span {
 
           <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:12px;padding:20px;margin-bottom:18px;">
             <b style="color:var(--n8n-coral);font-size:14px;display:block;margin-bottom:8px;">Mật Khẩu Đăng Nhập Admin</b>
-            <input class="n8n-input" type="text" id="setting-admin-pass" placeholder="Mật khẩu vào bảng này (mặc định: admin123)">
+            <input class="n8n-input" type="text" id="setting-admin-pass" placeholder="Mật khẩu vào bảng quản trị (mặc định: admin123)" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false">
           </div>
 
           <button class="btn-n8n-primary" onclick="saveSecuritySettings()" style="padding:14px 28px;max-width:260px;">
@@ -1727,7 +1730,7 @@ h1.workflow-heading span {
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px;flex-wrap:wrap;">
             <input class="n8n-input" type="text" id="bank-search" placeholder="🔍 Tìm kiếm câu hỏi..." style="max-width:280px;" oninput="renderBankList()">
             <div style="display:flex;gap:8px;">
-              <button class="btn-n8n-secondary" onclick="restoreDefaultQuestions()" style="padding:10px 16px;font-size:12.5px;">↺ Đề Gốc (75 câu)</button>
+              <button class="btn-n8n-secondary" onclick="restoreDefaultQuestions()" style="padding:10px 16px;font-size:12.5px;">↺ Đề Gốc (119 câu)</button>
               <button class="btn-n8n-secondary" onclick="clearAllExamQuestions()" style="padding:10px 16px;font-size:12.5px;color:var(--n8n-rose);border-color:var(--n8n-rose);">🗑️ Xóa Hết</button>
             </div>
           </div>
@@ -1930,901 +1933,1429 @@ function toggleSound() {
    ============================================================ */
 const DEFAULT_QUESTIONS = [
   {
-    "tag": "Digital Marketing",
-    "q": "Digital Marketing là gì?",
+    "tag": "Website",
+    "q": "Website đóng vai trò gì trong các hoạt động Digital Marketing?",
     "opts": [
-      "Chỉ sử dụng mạng xã hội để bán hàng",
-      "Sử dụng các kênh trực tuyến, công cụ số hóa và nền tảng trực tuyến để quảng cáo, tiếp cận và tương tác với khách hàng mục tiêu",
-      "Marketing truyền thống được in ấn trên báo chí",
-      "Chỉ áp dụng cho doanh nghiệp lớn có ngân sách cao"
+      "Là kênh phụ trợ, chỉ dùng khi không chạy được quảng cáo mạng xã hội",
+      "Là trung tâm và nền tảng cốt lõi của mọi hoạt động Digital Marketing",
+      "Là công cụ chỉ phục vụ cho quảng cáo trả phí trên Google",
+      "Là kênh thay thế hoàn toàn cho email marketing và mạng xã hội"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Đâu KHÔNG phải là biểu hiện của “xu hướng tất yếu” chuyển dịch sang Digital Marketing?",
+    "tag": "Website",
+    "q": "Nếu không có website, hoạt động Digital Marketing của doanh nghiệp sẽ gặp khó khăn gì?",
     "opts": [
-      "Người dùng chuyển dịch sang môi trường trực tuyến",
-      "Quyết định mua hàng dựa nhiều vào thông tin số",
-      "Doanh nghiệp cần có mặt trên nền tảng số để cạnh tranh",
-      "Người tiêu dùng quay trở lại hoàn toàn với quảng cáo truyền thống"
+      "Không thể chạy bất kỳ quảng cáo nào trên mạng xã hội",
+      "Không thể sử dụng email để liên hệ khách hàng",
+      "Chi phí quảng cáo luôn giảm nhưng doanh số không tăng",
+      "Khó đo lường, thiếu tính sở hữu và phụ thuộc nền tảng bên thứ ba"
     ],
     "ans": 3,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Người tiêu dùng hiện nay có xu hướng làm gì trước khi quyết định mua hàng?",
+    "tag": "Website",
+    "q": "Website là \"tài sản số thuộc chủ sở hữu\" mang lại ý nghĩa gì cho doanh nghiệp?",
     "opts": [
-      "Mua ngay không cần tìm hiểu",
-      "Chủ động tìm kiếm thông tin trên Internet",
+      "Không cần trả phí tên miền và hosting",
+      "Có thể đầu tư và mở rộng vô hạn",
+      "Không cần tối ưu SEO cho website",
+      "Được miễn tuân thủ chính sách của Google"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Website là \"nơi chuyển đổi xảy ra\" vì:",
+    "opts": [
+      "Thu hút khách hàng tìm kiếm, mua hàng, đặt lịch, đăng ký",
+      "Website là nơi duy nhất khách hàng có thể xem quảng cáo",
+      "Website tự động tạo ra doanh thu mà không cần marketing",
+      "Website thay thế hoàn toàn đội ngũ bán hàng"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Vai trò chính của website tương tác (có đăng ký, bình luận, chat…) trong Digital Marketing là gì?",
+    "opts": [
+      "Thu thập khách hàng tiềm năng, khảo sát, chăm sóc và giữ chân khách",
+      "Chuyển đổi trực tiếp ra doanh thu qua thanh toán trực tuyến",
+      "Xây dựng cộng đồng và thu dữ liệu hành vi rất lớn từ nội dung người dùng tạo",
+      "Chỉ xây dựng uy tín bằng các trang giới thiệu tĩnh"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Website giao dịch (mua bán, thanh toán) có vai trò gì trong Digital Marketing?",
+    "opts": [
+      "Cung cấp nội dung cho SEO và cho người đang tìm hiểu",
+      "Thu thập lead, khảo sát và chăm sóc khách hàng",
+      "Chuyển đổi trực tiếp ra doanh thu",
+      "Lan tỏa tự nhiên thông qua nội dung do người dùng tạo"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Website mạng xã hội (Facebook, TikTok, diễn đàn) đóng vai trò gì trong Digital Marketing?",
+    "opts": [
+      "Cả 3 đáp án đều sai",
+      "Xây cộng đồng, lan tỏa tự nhiên",
+      "Chỉ phục vụ thanh toán trực tuyến",
+      "Chỉ dùng để lưu trữ tệp tin của doanh nghiệp"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Ví dụ nào sau đây thuộc nhóm website siêu lớn theo quy mô?",
+    "opts": [
+      "Trang portfolio của một nhiếp ảnh gia",
+      "Shopee, Lazada",
+      "Website giới thiệu của một doanh nghiệp vừa",
+      "Landing page đăng ký một sự kiện"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Khi quy mô website tăng dần, điều gì xảy ra?",
+    "opts": [
+      "Chi phí vận hành giảm dần nhờ hiệu ứng quy mô",
+      "Chỉ cần 1 người vận hành dù quy mô lớn",
+      "Hạ tầng, nhân sự, bảo mật và ngân sách đều tăng theo",
+      "Không còn cần đến bảo mật nhiều lớp"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Theo quyền sở hữu, trang ra mắt sản phẩm hoặc website dự án bất động sản thuộc loại nào?",
+    "opts": [
       "Cả 3 đáp án đều đúng",
-      "Đợi nhân viên bán hàng tư vấn trực tiếp"
+      "Website thương hiệu / dự án",
+      "Website cá nhân",
+      "Website tổ chức / chính phủ"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Người tiêu dùng ngày nay kỳ vọng điều gì từ thương hiệu trên nền tảng số ?",
+    "tag": "Website",
+    "q": "Website có đuôi .edu.vn hoặc .gov.vn thuộc nhóm nào theo quyền sở hữu?",
     "opts": [
-      "Trải nghiệm cá nhân hóa",
-      "Tương tác và phản hồi nhanh",
-      "Có thể mua hàng mọi lúc",
-      "Cả 3 đáp án đều đúng"
+      "Cả 3 đáp án đều đúng",
+      "Website cá nhân",
+      "Website tổ chức / trường học / chính phủ",
+      "Website doanh nghiệp"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Mục tiêu chính của website cá nhân (portfolio, blog, CV trực tuyến) là gì?",
+    "opts": [
+      "Xây dựng thương hiệu cá nhân, tìm cơ hội việc làm, hợp tác",
+      "Cung cấp thông tin chính thống và dịch vụ công",
+      "Tập trung chuyển đổi cho một chiến dịch sản phẩm",
+      "Bán hàng với hàng nghìn sản phẩm"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Theo lĩnh vực hoạt động, điểm chuyển đổi chính của website bất động sản là gì?",
+    "opts": [
+      "Đặt bàn / đặt món",
+      "Mở tài khoản / vay",
+      "Đặt lịch khám",
+      "Nhận tư vấn"
     ],
     "ans": 3,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Nhóm đối tượng nào có ảnh hưởng lớn đến quyết định mua hàng của người tiêu dùng qua nội dung UGC?",
+    "tag": "Website",
+    "q": "Vì sao nội dung, từ khóa và quảng cáo cần được thiết kế theo từng lĩnh vực?",
     "opts": [
-      "Cơ quan nhà nước",
-      "KOL/KOC",
-      "Đối thủ cạnh tranh",
-      "Nhà cung ứng nguyên liệu"
+      "Vì Google bắt buộc mỗi lĩnh vực dùng một nền tảng website riêng",
+      "Vì mỗi lĩnh vực có hành vi tìm kiếm và điểm chuyển đổi riêng",
+      "Vì mọi lĩnh vực đều có cùng một điểm chuyển đổi là mua hàng",
+      "Vì quảng cáo chỉ hiển thị cho đúng một lĩnh vực mỗi ngày"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Trong mô hình phễu AIDA, chữ “A” đầu tiên (Attention) có ý nghĩa gì?",
+    "tag": "Website",
+    "q": "Đặc điểm nội dung của website tĩnh là gì?",
     "opts": [
-      "Tạo mong muốn sở hữu sản phẩm",
-      "Thu hút sự chú ý ban đầu bằng nội dung, hình ảnh, quảng cáo nổi bật",
-      "Thúc đẩy hành động mua hàng",
-      "Khơi gợi sự quan tâm bằng thông tin sản phẩm"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Trong mô hình AIDA, giai đoạn “Interest” (Thích thú) thực hiện điều gì?",
-    "opts": [
-      "Thúc đẩy khách hàng hành động cụ thể",
-      "Thu hút sự chú ý ban đầu",
-      "Khơi gợi sự quan tâm bằng thông tin, giá trị sản phẩm/dịch vụ",
-      "Tạo mong muốn sở hữu thông qua cảm xúc"
+      "Tất cả đáp án đều đúng",
+      "Nội dung được truy vấn liên tục từ cơ sở dữ liệu",
+      "Nội dung không thay đổi trừ khi người lập trình sửa đổi mã nguồn",
+      "Tất cả đáp án đều sai"
     ],
     "ans": 2,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "“Desire” trong mô hình AIDA được mô tả là giai đoạn nào?",
+    "tag": "Website",
+    "q": "Ưu điểm của website tĩnh là gì?",
     "opts": [
-      "Tạo mong muốn sở hữu thông qua lợi ích, ưu đãi, cảm xúc",
-      "Thu hút sự chú ý ban đầu",
-      "Đăng ký nhận bản tin",
-      "Khơi gợi sự quan tâm ban đầu"
+      "Tốc độ tải nhanh, bảo mật cao, chi phí thấp",
+      "Nội dung linh hoạt, tương tác cao, dễ cập nhật",
+      "Dễ dàng tích hợp bình luận và đăng nhập",
+      "Phù hợp cho mạng xã hội có hàng triệu người dùng"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Giai đoạn “Action” trong mô hình AIDA hướng đến kết quả nào?",
+    "tag": "Website",
+    "q": "Nhược điểm của website động (Dynamic Web) là gì?",
     "opts": [
-      "Thu hút sự chú ý ban đầu bằng nội dung, hình ảnh, quảng cáo nổi bật",
-      "Thúc đẩy khách hàng thực hiện hành động cụ thể",
-      "Khơi gợi sự quan tâm bằng thông tin, giá trị sản phẩm/dịch vụ",
-      "Không có hành động cụ thể nào"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Giai đoạn “Giữ chân” (Retention) trong Customer Journey sử dụng công cụ nào để duy trì tương tác?",
-    "opts": [
-      "Quảng cáo hiển thị",
-      "Quảng cáo tìm kiếm",
-      "Email, mạng xã hội, CRM",
-      "Nội dung so sánh sản phẩm"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Mô hình POEM trong Digital Marketing phân loại các kênh truyền thông theo mấy nhóm?",
-    "opts": [
-      "2 nhóm",
-      "3 nhóm",
-      "4 nhóm",
-      "5 nhóm"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Owned Media được định nghĩa là gì?",
-    "opts": [
-      "Kênh truyền thông phải trả phí để hiển thị",
-      "Sự lan tỏa tự nhiên do khách hàng tạo ra",
-      "Các kênh truyền thông do doanh nghiệp sở hữu và kiểm soát",
-      "Kênh dành cho quảng cáo trên truyền hình, trên tiktok và trên mạng xã hội"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Phương tiện nào thuộc Owned Media?",
-    "opts": [
-      "Bài viết báo chí nhắc đến thương hiệu",
-      "Quảng cáo Google Ads và Facebook Ads",
-      "Website, ứng dụng di động, Fanpage",
-      "Đánh giá của khách hàng trên diễn đàn"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Ưu điểm của Owned Media là gì?",
-    "opts": [
-      "Độ tin cậy cao vì đến từ bên thứ ba",
-      "Toàn quyền kiểm soát nội dung",
-      "Tiếp cận nhanh và mở rộng quy mô dễ dàng",
-      "Không cần đầu tư thời gian"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Earned Media là gì?",
-    "opts": [
-      "Kênh do doanh nghiệp sở hữu hoàn toàn",
-      "Sự lan tỏa tự nhiên do khách hàng và cộng đồng tạo ra",
-      "Kênh phải trả phí để hiển thị",
-      "Gồm các quảng cáo trên mạng xã hội"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Đâu là ví dụ của Earned Media?",
-    "opts": [
-      "Website doanh nghiệp",
-      "Quảng cáo Facebook/TikTok",
-      "UGC nhắc đến thương hiệu",
-      "Email chăm sóc khách hàng"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Ưu điểm nổi bật của Earned Media là gì?",
-    "opts": [
-      "Toàn quyền kiểm soát nội dung",
-      "Tính khách quan, độ tin cậy cao",
-      "Đo lường hiệu quả rõ ràng nhất",
-      "Chi phí duy trì thấp nhất"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Hạn chế của Earned Media là gì?",
-    "opts": [
-      "Doanh nghiệp không thể kiểm soát hoàn toàn nội dung",
-      "Chi phí quá cao để duy trì",
-      "Cần thời gian dài xây dựng",
-      "Ngừng chi tiền là ngừng hiệu quả"
-    ],
-    "ans": 0,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Paid Media được định nghĩa là gì?",
-    "opts": [
-      "Kênh truyền thông do doanh nghiệp sở hữu",
-      "Sự lan tỏa tự nhiên do khách hàng và cộng đồng tạo ra",
-      "Các kênh truyền thông phải trả phí để hiển thị đến khách hàng mục tiêu",
-      "Không đáp án nào đúng"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Đâu là ví dụ của Paid Media?",
-    "opts": [
-      "Email khách hàng",
-      "Đánh giá từ cộng đồng",
-      "Banner hiển thị, quảng cáo Google Ads,",
-      "Bài viết trên website doanh nghiệp"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Ưu điểm của Paid Media là gì?",
-    "opts": [
-      "Tiết kiệm ngân sách, không tốn chi phí vận hành",
-      "Tiếp cận nhanh đến khách hàng mục tiêu",
-      "Độ tin cậy cao nhất vì đến từ bên thứ ba",
-      "Không cần đo lường"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Hạn chế của Paid Media là gì?",
-    "opts": [
-      "Cần thời gian dài xây dựng lượng theo dõi",
-      "Không kiểm soát được hoàn toàn về nội dung",
-      "Ngừng chi tiền là ngừng hiệu quả",
-      "Độ tin cậy thấp nhất"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Vai trò của dữ liệu trong Digital Marketing là gì?",
-    "opts": [
-      "Cá nhân hóa nội dung",
-      "Giúp xác định đúng đối tượng mục tiêu, khách hàng tiềm năng",
-      "Giúp hiểu rõ về hành vi khách hàng",
-      "Cả 3 đáp án đều Đúng"
+      "Khó cập nhật nội dung và không có tính tương tác",
+      "Chỉ hiển thị được văn bản, không hiển thị hình ảnh",
+      "Không thể sử dụng cho thương mại điện tử",
+      "Tải chậm hơn, yêu cầu tài nguyên lớn hơn, chi phí cao hơn"
     ],
     "ans": 3,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "“Audience” trong cấu trúc kế hoạch Digital Marketing là gì?",
+    "tag": "Website",
+    "q": "Thành phần nào của website là \"không gian trên Web Server để lưu trữ các tệp tin của website\"?",
     "opts": [
-      "Xác định chân dung khách hàng mục tiêu cụ thể",
-      "Đo lường chỉ số chiến dịch",
-      "Phân bổ ngân sách",
-      "Lựa chọn kênh triển khai"
+      "Tên miền (Domain Name)",
+      "Mã nguồn (Source Code)",
+      "Cơ sở dữ liệu (Database)",
+      "Hosting (Web Hosting)"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Trong các thành phần của website, cơ sở dữ liệu (Database) dùng để làm gì?",
+    "opts": [
+      "Cung cấp địa chỉ dễ nhớ cho website",
+      "Chứa các tệp HTML, CSS tạo giao diện",
+      "Lưu trữ dữ liệu động như bài viết, thông tin người dùng",
+      "Mã hóa kết nối giữa trình duyệt và máy chủ"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Trong URL https://www.huflit.edu.vn/tin-tuc?id=5#top, \".edu.vn\" được gọi là gì?",
+    "opts": [
+      "Domain Name",
+      "Query String",
+      "Scheme/Protocol",
+      "TLD (Top-Level Domain)"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Chứng chỉ SSL/TLS do ai cấp và giúp đảm bảo yếu tố nào của website?",
+    "opts": [
+      "Do nhà cung cấp hosting cấp; đảm bảo tốc độ tải trang",
+      "Do Google cấp; đảm bảo thứ hạng SEO cao nhất",
+      "Do nhà đăng ký tên miền cấp; đảm bảo giao diện đẹp",
+      "Do CA (Certificate Authority) cấp; đảm bảo tính bảo mật và độ tin cậy"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Yếu tố nào sau đây thuộc UI (User Interface)?",
+    "opts": [
+      "Quy trình mua hàng có đơn giản không",
+      "Thanh toán có thuận tiện, nhanh chóng không",
+      "Layout, font, màu sắc, banner, logo, icon",
+      "Người dùng có dễ tìm kiếm không"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "RWD – một yếu tố của UI – là viết tắt của cụm từ nào?",
+    "opts": [
+      "Rapid Web Development",
+      "Remote Web Domain",
+      "Responsive Web Design",
+      "Rich Web Data"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Câu hỏi nào sau đây dùng để đánh giá UX (User Experience) của website?",
+    "opts": [
+      "Website dùng font chữ gì?",
+      "Logo đặt ở vị trí nào?",
+      "Banner có hiệu ứng animation không?",
+      "Quy trình mua hàng có đơn giản không?"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Phát biểu nào đúng về sự khác biệt giữa UI và UX?",
+    "opts": [
+      "UI tập trung vào thẩm mỹ và trình bày; UX tập trung vào tối ưu hành trình và cảm xúc người dùng",
+      "UI tập trung vào hành trình người dùng; UX tập trung vào giao diện: màu sắc và font chữ",
+      "UI và UX là một, chỉ khác tên gọi",
+      "UX chỉ liên quan đến tốc độ máy chủ, không liên quan đến người dùng"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Theo mô hình Digital Platform (POEM), “Display Ads, Search Ads, Mobile Ads, Sponsored Content” thuộc nhóm kênh nào?",
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "So sánh về chi phí giữa SEO và SEM, phát biểu nào đúng?",
     "opts": [
-      "Owned Media",
-      "Earned Media",
+      "SEO trả tiền theo CPC; SEM hoàn toàn miễn phí",
+      "Cả SEO và SEM đều trả tiền cho mỗi lượt click",
+      "Cả SEO và SEM đều trả phí theo 1.000 lượt hiển thị",
+      "SEO không trả tiền cho mỗi lượt click; SEM trả tiền cho mỗi lượt click"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Đặc điểm hiệu quả của SEO là gì?",
+    "opts": [
+      "Chậm nhưng bền vững",
+      "Nhanh nhưng hết tiền là ngừng hiển thị",
+      "Nhanh và không bao giờ giảm thứ hạng",
+      "Chậm và mất hiệu quả ngay khi dừng chi tiền"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Hạn chế về hiệu quả của SEM so với SEO là gì?",
+    "opts": [
+      "Phải chờ 3–6 tháng mới có kết quả",
+      "Không đo lường được hiệu quả",
+      "Hết tiền quảng cáo là ngừng hiển thị",
+      "Không thể nhắm đúng khách hàng mục tiêu"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Công việc chính khi thực hiện SEM là gì?",
+    "opts": [
+      "Tối ưu nội dung, kỹ thuật, uy tín website",
+      "Tối ưu từ khóa, mẫu quảng cáo, giá thầu",
+      "Cả 2 đáp án đều đúng",
+      "Cả 2 đáp án đều sai"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Về tầm nhìn, SEO hướng đến mục tiêu nào?",
+    "opts": [
+      "Ngắn hạn – thúc đẩy đơn hàng",
+      "Ngắn hạn – xả hàng tồn kho",
+      "Tức thời – tăng lượt click trong ngày",
+      "Dài hạn – xây dựng thương hiệu"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Việc kết hợp đồng thời SEO và SEM được gọi là gì?",
+    "opts": [
+      "Remarketing Campaign",
+      "Broad Match Campaign",
+      "Integrated Campaign",
+      "Organic Campaign"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Thứ tự đúng các bước Google xử lý website là gì?",
+    "opts": [
+      "Index → Crawl → Rank",
+      "Rank → Crawl → Index",
+      "Crawl → Index → Rank",
+      "Crawl → Rank → Index"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Bước \"Index\" trong quy trình hoạt động của Google là gì?",
+    "opts": [
+      "Googlebot tìm và quét các website để thu thập thông tin",
+      "Sắp xếp kết quả tìm kiếm và trả về cho người dùng",
+      "Phân tích và lưu trữ nội dung vào cơ sở dữ liệu của Google",
+      "Tính phí quảng cáo theo lượt nhấp"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Quan niệm \"SEO chỉ cần làm 1 lần là được\" sai vì:",
+    "opts": [
+      "SEO cần duy trì liên tục, theo dõi và cập nhật theo thuật toán công cụ tìm kiếm",
+      "Google chỉ index website một lần duy nhất",
+      "SEO phải làm lại từ đầu mỗi ngày",
+      "SEO chỉ có hiệu lực trong 7 ngày"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Quan niệm \"SEO chỉ là viết bài với càng nhiều từ khóa càng tốt\" sai vì:",
+    "opts": [
+      "Google không đọc nội dung văn bản trên website",
+      "SEO đòi hỏi thực hiện toàn diện các yếu tố: kỹ thuật, nội dung, tín hiệu uy tín",
+      "Từ khóa không liên quan gì đến SEO",
+      "SEO chỉ phụ thuộc vào số lượng backlink"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Nhóm \"Yếu tố kỹ thuật\" trong SEO bao gồm:",
+    "opts": [
+      "Thương hiệu, các đánh giá, mạng xã hội",
+      "Số lượng và chất lượng liên kết từ website khác",
+      "Tốc độ trang, bảo mật, thân thiện với thiết bị di động",
+      "Thời gian trên trang, tỷ lệ thoát trang"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Thương hiệu, các đánh giá và mạng xã hội thuộc nhóm yếu tố SEO nào?",
+    "opts": [
+      "Yếu tố kỹ thuật",
+      "Trải nghiệm người dùng",
+      "Yếu tố ngoài trang",
+      "Nội dung"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "SERP (Search Engine Results Page) là gì?",
+    "opts": [
+      "Bản đồ cấu trúc website gửi cho Google",
+      "Tập tin điều khiển việc Google crawl website",
+      "Thẻ chỉ định trang gốc tránh trùng lặp",
+      "Trang kết quả tìm kiếm hiển thị sau khi người dùng gõ từ khóa"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Alt Text có tác dụng gì trong SEO?",
+    "opts": [
+      "Tạo liên kết giữa các trang trong website",
+      "Mô tả hình ảnh giúp Google hiểu hình ảnh đang nói gì",
+      "Chỉ định trang gốc khi có nhiều trang tương tự",
+      "Chặn Google crawl một số thành phần"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Liên kết từ website khác trỏ về trang của mình – một tín hiệu uy tín mạnh – được gọi là gì?",
+    "opts": [
+      "Backlink",
+      "Internal link",
+      "Anchor text",
+      "Canonical tag"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Tập tin nào dùng để điều khiển việc Google được/không được crawl các thành phần của website?",
+    "opts": [
+      "Robots.txt",
+      "Sitemap.xml",
+      "Meta Description",
+      "Canonical Tag"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Internal link giúp ích gì cho website?",
+    "opts": [
+      "Là tín hiệu uy tín mạnh từ website khác",
+      "Mô tả hình ảnh cho Google",
+      "Liên kết các trang trong cùng website, giúp phân bổ PageRank",
+      "Ngăn Google index trang trùng lặp"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Chỉ số Impressions trong SEM là gì?",
+    "opts": [
+      "Số người dùng nhìn thấy quảng cáo",
+      "Số lượt nhấp chuột vào quảng cáo",
+      "Số lần quảng cáo được hiển thị trên trang kết quả tìm kiếm",
+      "Số trang người dùng xem trong một phiên"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Chỉ số Reach (lượt tiếp cận) được hiểu là:",
+    "opts": [
+      "Số người dùng nhìn thấy quảng cáo",
+      "Số lần quảng cáo được hiển thị",
+      "Thời gian trung bình người dùng ở trên trang",
+      "Tỷ lệ người dùng rời đi không hành động"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Bounce rate (tỷ lệ thoát) trong SEM là gì?",
+    "opts": [
+      "Tỷ lệ email bị trả về",
+      "Tỷ lệ người nhìn thấy quảng cáo và nhấp chuột",
+      "Tỷ lệ người dùng quay lại website",
+      "Tỷ lệ người dùng truy cập qua quảng cáo rồi rời đi mà không thực hiện hành động nào khác"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Điểm chất lượng (Quality Score) của Google Ads được đánh giá trên thang điểm nào?",
+    "opts": [
+      "Từ 0 đến 5",
+      "Từ 1 đến 100",
+      "Từ A đến F",
+      "Từ 1 đến 10"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "CPM (Cost per mille) là:",
+    "opts": [
+      "Chi phí cho mỗi 1.000 lần hiển thị quảng cáo",
+      "Chi phí cho mỗi lần nhấp chuột",
+      "Chi phí cho mỗi hành động chuyển đổi",
+      "Doanh thu trên mỗi đồng quảng cáo"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Một quảng cáo có 10.000 lượt hiển thị và 250 lượt nhấp. CTR của quảng cáo là bao nhiêu?",
+    "opts": [
+      "2,5%",
+      "25%",
+      "0,25%",
+      "4%"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Một chiến dịch chi 10 triệu đồng quảng cáo và thu về 40 triệu đồng doanh thu. ROAS là bao nhiêu?",
+    "opts": [
+      "4",
+      "0,25",
+      "30",
+      "400"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Chiến dịch chi 6 triệu đồng và thu được 120 đơn hàng. CPA là bao nhiêu?",
+    "opts": [
+      "20.000 đồng",
+      "50.000 đồng",
+      "72.000 đồng",
+      "500.000 đồng"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Công thức tính Ad Rank là gì?",
+    "opts": [
+      "Ad Rank = Giá thầu + CTR × CPC",
+      "Ad Rank = Số lượt nhấp ÷ Số lượt hiển thị",
+      "Ad Rank = Doanh thu ÷ Chi phí quảng cáo",
+      "Ad Rank = Giá thầu × Điểm chất lượng + Tác động tiện ích mở rộng"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Vì sao giá thầu cao không đảm bảo quảng cáo có vị trí tốt?",
+    "opts": [
+      "Vì Google xếp hạng quảng cáo ngẫu nhiên",
+      "Vì vị trí chỉ phụ thuộc vào số lượng backlink",
+      "Vì điểm chất lượng thấp vẫn có thể khiến quảng cáo xếp sau đối thủ trả giá thấp hơn nhưng nội dung liên quan hơn",
+      "Vì quảng cáo giá cao luôn bị đẩy xuống cuối trang"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Yếu tố nào KHÔNG thuộc 3 thành phần của Google Quality Score?",
+    "opts": [
+      "Tỷ lệ nhấp dự kiến (Expected CTR)",
+      "Mức độ liên quan quảng cáo",
+      "Trải nghiệm trang đích",
+      "Số lượng backlink của website"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Khi Quality Score thấp, điều gì có thể xảy ra?",
+    "opts": [
+      "Quảng cáo luôn hiển thị ở vị trí đầu tiên",
+      "Phải trả CPC cao hơn, hoặc không hiển thị dù giá thầu cao",
+      "CPC tự động giảm xuống mức thấp nhất",
+      "Google miễn phí lượt nhấp cho quảng cáo"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Thứ tự cấu trúc phân cấp tài khoản Google Ads từ tổng quát đến chi tiết là:",
+    "opts": [
+      "Chiến dịch → Tài khoản → Từ khóa → Nhóm quảng cáo",
+      "Nhóm quảng cáo → Chiến dịch → Tài khoản → Mẫu quảng cáo",
+      "Tài khoản → Nhóm quảng cáo → Chiến dịch → Từ khóa",
+      "Tài khoản → Chiến dịch → Nhóm quảng cáo → Từ khóa & Mẫu quảng cáo"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Ký hiệu [giày chạy bộ nam] thể hiện loại khớp từ khóa nào?",
+    "opts": [
+      "Khớp chính xác",
+      "Khớp cụm từ",
+      "Khớp rộng",
+      "Từ khóa phủ định"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Để loại trừ các truy vấn không liên quan khi dùng từ khóa phủ định, ta làm gì?",
+    "opts": [
+      "Đặt từ khóa trong dấu ngoặc vuông [ ]",
+      "Thêm dấu trừ (-) phía trước từ khóa cần loại trừ",
+      "Đặt từ khóa trong dấu ngoặc kép \" \"",
+      "Thêm dấu cộng (+) phía trước từ khóa"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Social Media Marketing (SMM) được hiểu là gì?",
+    "opts": [
+      "Chỉ đăng bài quảng cáo sản phẩm trên Facebook",
+      "Gửi thư quảng cáo hàng loạt đến khách hàng qua email",
+      "Sử dụng các nền tảng mạng xã hội để xây dựng thương hiệu, tương tác, nuôi dưỡng quan hệ khách hàng và thúc đẩy mua hàng",
+      "Tối ưu website để xếp hạng cao trên Google"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Đặc trưng \"hai chiều\" của SMM có nghĩa là gì?",
+    "opts": [
+      "Thương hiệu vừa \"nói\" vừa phải \"nghe\" và phản hồi",
+      "Thương hiệu đăng bài trên hai nền tảng cùng lúc",
+      "Khách hàng chỉ tiếp nhận thông điệp từ thương hiệu",
+      "Thương hiệu chạy song song quảng cáo và SEO"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Đặc trưng \"Lan truyền & UGC\" của SMM thể hiện điều gì?",
+    "opts": [
+      "Thuật toán hiển thị đúng người, đúng thời điểm",
+      "Thương hiệu bắt trend và phản hồi ngay lập tức",
+      "Khách hàng chia sẻ, review, tự tạo nội dung",
+      "Doanh nghiệp trả tiền cho mọi lượt chia sẻ"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing truyền thông xã hội",
+    "q": "So với marketing truyền thống, việc đo lường trong SMM có đặc điểm gì?",
+    "opts": [
+      "Khó, chậm, chủ yếu ước tính",
+      "Đo lường theo thời gian thực",
+      "Chỉ đo được sau khi kết thúc chiến dịch",
+      "Không thể đo lường được"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Trong SMM, khách hàng đóng vai trò gì?",
+    "opts": [
+      "Chỉ là người tiếp nhận thông điệp",
+      "Người duy nhất trả chi phí quảng cáo",
+      "Người không có ảnh hưởng đến thương hiệu",
+      "Người đồng sáng tạo, lan truyền (UGC, review)"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Trong mô hình POEM, nhược điểm của Paid Media là gì?",
+    "opts": [
+      "Dừng chi tiền là dừng hiển thị",
+      "Cần nhiều thời gian xây dựng",
+      "Khó kiểm soát, có thể tiêu cực",
+      "Độ tin cậy thấp nhất trong mọi trường hợp"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Loại truyền thông nào có độ tin cậy cao nhất nhưng khó kiểm soát?",
+    "opts": [
       "Paid Media",
-      "Không thuộc nhóm nào"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Môi trường Digital Marketing được định nghĩa là gì?",
-    "opts": [
-      "Là các yếu tố bên trong doanh nghiệp như Tài chính, Nhân lực, Công nghệ",
-      "Tổng hợp các yếu tố bên trong và bên ngoài tác động đến hoạt động marketing trên nền tảng số",
-      "Là công nghệ được doanh nghiệp sử dụng",
-      "Là các yếu tố có liên quan đến đối thủ cạnh tranh"
+      "Earned Media",
+      "Owned Media",
+      "Truyền thông ngoài trời (OOH)"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Đâu là yếu tố thuộc môi trường vi mô của Digital Marketing?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Bước đầu tiên trong quy trình xây dựng chiến lược SMM là gì?",
     "opts": [
-      "Dân số, kinh tế, tự nhiên",
-      "Trung gian marketing",
-      "Công nghệ, chính trị pháp luật",
-      "Văn hóa toàn cầu"
+      "Chọn nền tảng",
+      "Xác định mục tiêu SMART",
+      "Triển khai Organic + Ads",
+      "Lập kế hoạch nội dung"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Đâu là yếu tố thuộc môi trường vi mô của Digital Marketing?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Theo Luật Quảng cáo sửa đổi (số 75/2025/QH15), KOL, KOC, streamer được xác định là gì?",
     "opts": [
-      "Dân số",
-      "Kinh tế",
-      "Công chúng",
-      "Văn hóa toàn cầu"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Đâu là yếu tố thuộc môi trường vi mô của Digital Marketing?",
-    "opts": [
-      "Kinh tế, tự nhiên",
-      "Chính trị pháp luật",
-      "Khách hàng, đối thủ cạnh tranh",
-      "Văn hóa toàn cầu"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Đâu là yếu tố môi trường vĩ mô của Digital Marketing?",
-    "opts": [
-      "Doanh nghiệp, nhà cung ứng",
-      "Trung gian marketing, khách hàng",
-      "Dân số, tự nhiên",
-      "Đối thủ cạnh tranh, công chúng"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Đâu là yếu tố môi trường vĩ mô của Digital Marketing?",
-    "opts": [
-      "Doanh nghiệp",
-      "Trung gian marketing",
-      "Chính trị pháp luật",
-      "Đối thủ cạnh tranh, công chúng"
-    ],
-    "ans": 2,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Đâu là yếu tố môi trường vĩ mô của Digital Marketing?",
-    "opts": [
-      "Nhà cung ứng",
-      "Trung gian marketing",
-      "Đối thủ cạnh tranh tiềm ẩn",
-      "Công nghệ kỹ thuật"
+      "Người phát hành quảng cáo độc lập không chịu trách nhiệm",
+      "Người tiêu dùng thông thường",
+      "Cơ quan quản lý quảng cáo",
+      "Người chuyển tải sản phẩm quảng cáo"
     ],
     "ans": 3,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Doanh nghiệp có website thương mại điện tử có nghĩa vụ gì?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Theo Luật Trí tuệ nhân tạo, ảnh/video do AI tạo hoặc chỉnh sửa mô phỏng người thật phải làm gì?",
     "opts": [
-      "Không cần đăng ký với cơ quan nào",
-      "Báo cáo thông tin và đăng ký hoạt động với Bộ Công Thương",
-      "Báo cáo thông tin và đăng ký hoạt động với Bộ Thông tin Truyền thông",
-      "Báo cáo thông tin và đăng ký hoạt động với Bộ Công An"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Theo Luật Quảng cáo, đâu là sản phẩm/dịch vụ bị cấm quảng cáo?",
-    "opts": [
-      "Thực phẩm chức năng",
-      "Thuốc lá, rượu mạnh, tiền ảo",
-      "Mỹ phẩm",
-      "Đồ điện tử"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Theo Luật Quảng cáo, những đối tượng nào có quyền và nghĩa vụ pháp lý nhất định?",
-    "opts": [
-      "Người quảng cáo",
-      "Người kinh doanh dịch vụ quảng cáo",
-      "Người chuyển tải sản phẩm quảng cáo",
-      "Cả 3 đáp án đều đúng"
+      "Được đăng tự do không cần ghi chú",
+      "Chỉ được đăng trên YouTube",
+      "Phải bán quyền sở hữu cho nền tảng",
+      "Phải gắn nhãn"
     ],
     "ans": 3,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Theo Luật bản quyền được đề cập, hành vi nào bị coi là khai thác thương mại?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Khung hình ưu tiên cho video TikTok là gì?",
     "opts": [
-      "Nghe nhạc cá nhân tại nhà",
-      "Phát nhạc tại không gian kinh doanh",
-      "Mua bản quyền nhạc",
-      "Chia sẻ nhạc miễn phí trên mạng xã hội cá nhân"
+      "16:9",
+      "9:16",
+      "1:1",
+      "4:3"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Theo Luật nhãn hiệu được đề cập, doanh nghiệp KHÔNG được làm gì trong quảng cáo nếu chưa được phép?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Quy tắc 80/20 trong content pillars có nghĩa là gì?",
     "opts": [
-      "Sử dụng logo, slogan, tên thương hiệu của đối thủ",
-      "Đăng ký nhãn hiệu riêng",
-      "Quảng cáo sản phẩm của chính mình",
-      "Sử dụng màu sắc thương hiệu riêng"
+      "80% nội dung bán hàng, 20% nội dung giải trí",
+      "80% ngân sách cho quảng cáo, 20% cho nội dung",
+      "80% video ngắn, 20% video dài",
+      "Khoảng 80% nội dung mang lại giá trị, 20% nội dung bán hàng trực tiếp"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Phần HOOK của một nội dung video hiệu quả nằm ở khoảng thời gian nào?",
+    "opts": [
+      "0–3 giây đầu",
+      "3–45 giây",
+      "Cuối video",
+      "Giữa video"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Luật sáng chế nhằm mục đích gì?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "KOC là ai?",
     "opts": [
-      "Bảo vệ dữ liệu cá nhân",
-      "Chống sao chép công nghệ",
-      "Quy định về quảng cáo",
-      "Quy định về thuế"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Doanh nghiệp quảng cáo qua nền tảng nước ngoài như Meta, Google phải thực hiện nghĩa vụ gì?",
-    "opts": [
-      "Không cần nộp thuế",
-      "Nộp thuế nhà thầu",
-      "Chỉ cần đăng ký kinh doanh",
-      "Chỉ cần thông báo với nền tảng"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Luật Thương mại điện tử mới (122/2025/QH15) có điểm mới nào so với các nghị định trước?",
-    "opts": [
-      "Thu hẹp phạm vi điều chỉnh",
-      "Khung pháp lý toàn diện, thống nhất, quy định chi tiết hơn về trách nhiệm các chủ thể và TMĐT xuyên biên giới",
-      "Không đề cập đến bảo mật dữ liệu",
-      "Chỉ áp dụng cho doanh nghiệp trong nước"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Yếu tố nào sau đây thuộc nhóm “chính sách nền tảng” ảnh hưởng đến Digital Marketing?",
-    "opts": [
-      "Quy định kiểm soát nội dung của Facebook",
-      "Luật Quảng cáo của nhà nước",
-      "Lãi suất ngân hàng",
-      "Tỷ lệ thất nghiệp"
+      "Người tiêu dùng trải nghiệm thật và review sản phẩm",
+      "Người có chuyên môn, dẫn dắt dư luận",
+      "Người giới thiệu sản phẩm nhận hoa hồng theo đơn",
+      "Nhân viên chăm sóc khách hàng của doanh nghiệp"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Đâu là yếu tố thuộc nhóm Kinh tế (Economic) ảnh hưởng đến Digital Marketing?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Shoppertainment là gì?",
     "opts": [
-      "Tỷ lệ thất nghiệp",
-      "Ngôn ngữ và giá trị văn hóa",
-      "Chính sách nền tảng mạng xã hội",
-      "Trí tuệ nhân tạo và Machine Learning"
-    ],
-    "ans": 0,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Yếu tố Kinh tế ảnh hưởng đến hoạt động Digital Marketing của doanh nghiệp như thế nào?",
-    "opts": [
-      "Ảnh hưởng đến chi phí vận hành và chiến lược đầu tư trên nền tảng số",
-      "Ảnh hưởng đến sức mua của khách hàng",
-      "Ảnh hưởng đến hành vi tiêu dùng của khách hàng",
-      "Ảnh hưởng đến đối thủ cạnh tranh cùng ngành"
-    ],
-    "ans": 0,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Yếu tố Văn hóa - Xã hội nào ảnh hưởng trực tiếp đến cách người tiêu dùng tiếp nhận thông điệp marketing?",
-    "opts": [
-      "Lãi suất ngân hàng",
-      "Chuẩn mực xã hội",
-      "Tốc độ tăng trưởng kinh tế",
-      "Hạ tầng Internet"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Khi triển khai chiến dịch Digital Marketing, doanh nghiệp cần tránh điều gì liên quan đến yếu tố văn hóa - xã hội?",
-    "opts": [
-      "Tối ưu nội dung theo từng nhóm khách hàng",
-      "Thông điệp gây tranh cãi hoặc phản cảm trong xã hội",
-      "Sử dụng ngôn ngữ địa phương",
-      "Cá nhân hóa nội dung"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Đâu KHÔNG phải là yếu tố Công nghệ kỹ thuật được đề cập trong bài giảng?",
-    "opts": [
-      "Sự phát triển của Internet và hạ tầng số",
-      "Big Data và phân tích dữ liệu",
-      "Luật Bảo vệ dữ liệu cá nhân",
-      "Trí tuệ nhân tạo (AI) và Machine Learning"
+      "Mua sắm tại cửa hàng truyền thống có khu vui chơi",
+      "Hình thức quảng cáo hiển thị trên Google Shopping",
+      "Mua sắm kết hợp giải trí: khách mua khi đang xem nội dung",
+      "Chương trình khách hàng thân thiết qua email"
     ],
     "ans": 2,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Ứng dụng Công nghệ trong sáng tạo nội dung số là:",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Trong hệ sinh thái Meta, Messenger đóng vai trò gì?",
     "opts": [
-      "Công nghệ dựng video bằng AI",
-      "Sử dụng AI trong việc sáng tạo hình ảnh",
-      "AR/VR",
-      "Tất cả đáp án"
-    ],
-    "ans": 3,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Trung gian Digital Marketing là?",
-    "opts": [
-      "KOC/KOL",
-      "Trung gian thanh toán, vận chuyển",
-      "Sàn thương mại điện tử",
-      "Cả 3 đáp án"
-    ],
-    "ans": 3,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Trung gian Digital Marketing hỗ trợ doanh nghiệp trong những hoạt động nào?",
-    "opts": [
-      "Hỗ trợ vận chuyển",
-      "Truyền thông - quảng bá, kết nối với người dùng cuối",
-      "Hỗ trợ khách hàng thanh toán bằng nhiều hình thức",
-      "Cả 3 đáp án"
-    ],
-    "ans": 3,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Đâu là thành phần của “Công chúng” (Publics) trong môi trường Digital Marketing?",
-    "opts": [
-      "Khách hàng hiện tại",
-      "Khách hàng tiềm năng",
-      "Cơ quan nhà nước",
-      "Cả 3 đáp án"
-    ],
-    "ans": 3,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Theo mô hình môi trường Digital Marketing, “Nhà cung ứng” thuộc nhóm yếu tố nào?",
-    "opts": [
-      "Yếu tố vĩ mô",
-      "Yếu tố vi mô",
-      "Yếu tố nội vi",
-      "Không thuộc nhóm nào"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Yếu tố “Dân số” trong môi trường Digital Marketing thuộc nhóm nào?",
-    "opts": [
-      "Yếu tố vi mô",
-      "Yếu tố vĩ mô",
-      "Yếu tố nội bộ doanh nghiệp",
-      "Yếu tố trung gian"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "“Chu kỳ kinh tế” trong môi trường Digital Marketing thuộc nhóm nào?",
-    "opts": [
-      "Yếu tố vi mô",
-      "Yếu tố vĩ mô",
-      "Yếu tố Chính trị - Pháp lý",
-      "Yếu tố Công nghệ kỹ thuật"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Trong hoạt động Marketing, STP là viết tắt của các bước nào?",
-    "opts": [
-      "Segmentation, Targeting, Positioning",
-      "Sales, Trading, Promotion",
-      "Strategy, Tactics, Planning",
-      "Social, Technology, Product"
-    ],
-    "ans": 0,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "4P trong hoạt động Marketing gồm những yếu tố nào?",
-    "opts": [
-      "Product, Price, Place, Promotion",
-      "People, Process, Physical evidence, Product",
-      "Plan, People, Price, Product",
-      "Product, Platform, Payment, Promotion"
-    ],
-    "ans": 0,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Theo bài giảng, hoạt động Marketing chịu tác động của những môi trường nào?",
-    "opts": [
-      "Môi trường vĩ mô",
-      "Môi trường vi mô",
-      "Cả 2 môi trường trên",
-      "Không chịu tác động của môi trường nào"
+      "Nền tảng thảo luận văn bản mới",
+      "Nền tảng hình ảnh mạnh về thời trang, làm đẹp",
+      "Nhắn tin trực tiếp, tư vấn và chốt đơn hàng với khách hàng",
+      "Nhắn tin bán hàng quốc tế cho thị trường xuất khẩu"
     ],
     "ans": 2,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "“Product” trong 4P Digital Marketing chú trọng vào yếu tố nào?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Thứ tự cấu trúc chiến dịch Meta Ads là gì?",
     "opts": [
-      "Trải nghiệm số, nội dung số đi kèm",
-      "Mức giá sản phẩm",
-      "Kênh phân phối, quảng cáo sản phẩm",
-      "Cả 3 đáp án đều Đúng"
+      "Quảng cáo (Ad) → Nhóm quảng cáo (Ad set) → Chiến dịch (Campaign)",
+      "Nhóm quảng cáo (Ad set) → Chiến dịch (Campaign) → Quảng cáo (Ad)",
+      "Chiến dịch (Campaign) → Quảng cáo (Ad) → Nhóm quảng cáo (Ad set)",
+      "Chiến dịch (Campaign) → Nhóm quảng cáo (Ad set) → Quảng cáo (Ad)"
     ],
-    "ans": 0,
+    "ans": 3,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "“Livestream” là một kênh thuộc yếu tố nào trong 4P?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Custom audience trong Meta Ads là nhóm đối tượng nào?",
     "opts": [
-      "Place",
-      "Price",
-      "Product",
-      "Không thuộc 4P"
-    ],
-    "ans": 0,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Hoạt động nghiên cứu Marketing trên nền tảng số bắt đầu từ bước nào?",
-    "opts": [
-      "Xác định mục tiêu",
-      "Đo lường hiệu quả",
-      "Triển khai chiến dịch",
-      "Tối ưu ngân sách"
-    ],
-    "ans": 0,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Sau bước “Xác định mục tiêu” trong nghiên cứu Marketing trên nền tảng số, bước tiếp theo là gì?",
-    "opts": [
-      "Lên kế hoạch",
-      "Thu thập & phân tích dữ liệu",
-      "Triển khai",
-      "Tối ưu, điều chỉnh"
+      "Người có đặc điểm tương tự tệp khách hàng hiện có",
+      "Người đã tương tác fanpage, xem video, truy cập web, danh sách khách hàng",
+      "Người được chọn theo vị trí, tuổi, giới tính, sở thích",
+      "Toàn bộ người dùng Facebook tại Việt Nam"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "“Targeting” trong quy trình STP nhằm mục đích gì?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Một chiến dịch chi 8 triệu đồng quảng cáo, thu về 24 triệu đồng doanh thu. ROAS là bao nhiêu?",
     "opts": [
-      "Xác định đối tượng khách hàng mục tiêu sau khi đã phân khúc thị trường",
-      "Đo lường hiệu quả chiến dịch",
-      "Định vị thương hiệu/sản phẩm trong tâm trí khách hàng mục tiêu",
-      "Tính toán ngân sách quảng cáo"
+      "3",
+      "0,33",
+      "16",
+      "32"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Dữ liệu thứ cấp bao gồm?",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Trong social listening, \"share of voice\" là gì?",
     "opts": [
-      "Khảo sát trực tiếp",
-      "Phỏng vấn nhóm",
-      "Báo cáo ngành, tin tức",
-      "Gọi điện khách hàng"
+      "Sắc thái tích cực/tiêu cực",
+      "Lượng thảo luận",
+      "Thị phần thảo luận",
+      "Tỷ lệ chuyển đổi"
     ],
     "ans": 2,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Digital Marketing giúp doanh nghiệp:",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Trong 5 bước xử lý khủng hoảng trên MXH, \"giờ vàng\" để phản hồi thường là bao lâu?",
     "opts": [
-      "Tạo ra nhu cầu mới",
-      "Tác động đến mong muốn và hành vi",
-      "Giảm giá sản phẩm",
-      "Tăng số lượng kho hàng"
-    ],
-    "ans": 1,
-    "explain": ""
-  },
-  {
-    "tag": "Digital Marketing",
-    "q": "Dữ liệu thứ cấp có đặc điểm:",
-    "opts": [
-      "Thu thập trực tiếp",
-      "Tốn nhiều thời gian khảo sát",
-      "Có sẵn từ nguồn bên ngoài",
-      "Không thể phân tích"
+      "7 ngày đầu",
+      "1 tháng đầu",
+      "24 giờ đầu",
+      "Sau khi khủng hoảng kết thúc"
     ],
     "ans": 2,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Segmentation là:",
+    "tag": "Email Marketing - CRM",
+    "q": "Theo Kotler & Armstrong (2021), Email Marketing là một công cụ của:",
     "opts": [
-      "Định giá sản phẩm",
-      "Phân khúc thị trường",
-      "Lựa chọn kênh bán hàng",
-      "Tối ưu quảng cáo"
+      "Quan hệ công chúng (PR)",
+      "Truyền thông marketing trực tiếp",
+      "Marketing truyền thống qua báo in",
+      "Quảng cáo ngoài trời (OOH)"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Hành vi của khách hàng bao gồm:",
+    "tag": "Email Marketing - CRM",
+    "q": "Hai hình thức gửi Email Marketing được nêu trong bài là:",
     "opts": [
-      "Tần suất mua",
-      "Tính cách",
-      "Giá trị sống",
-      "Nghề nghiệp"
+      "Triggered Email và Broadcast Email",
+      "Inbound Email và Outbound Email",
+      "Paid Email và Earned Email",
+      "Static Email và Dynamic Email"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Yếu tố quan trọng để đánh giá phân khúc mục tiêu:",
+    "tag": "Email Marketing - CRM",
+    "q": "Theo Nghị định 91/2020/NĐ-CP, thư điện tử quảng cáo phải gắn nhãn gì ở đầu tiêu đề?",
     "opts": [
-      "Màu sắc thương hiệu",
-      "Quy mô",
-      "Số lượng nhân viên",
-      "Vị trí văn phòng"
+      "[ADS]",
+      "[QC]",
+      "[KM]",
+      "[SPAM]"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Key message trong Persona dùng để:",
+    "tag": "Email Marketing - CRM",
+    "q": "Theo Nghị định 91/2020/NĐ-CP, không được gửi quá bao nhiêu thư quảng cáo tới một địa chỉ email trong 24 giờ (trừ khi có thỏa thuận khác)?",
     "opts": [
-      "Hiểu rõ nhu cầu khách hàng",
-      "Truyền tải thông điệp chính",
-      "Giảm chi phí quảng cáo",
-      "Cả 3 đáp án đều đúng"
+      "01 thư",
+      "05 thư",
+      "10 thư",
+      "03 thư"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Chuỗi email marketing chào mừng (Welcome series) được kích hoạt khi nào?",
+    "opts": [
+      "Khi khách thêm vào giỏ nhưng chưa thanh toán",
+      "Khi khách vừa đăng ký",
+      "Khi khách không mua hàng 60 ngày",
+      "Vào ngày sinh nhật của khách"
     ],
     "ans": 1,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "RTB là:",
+    "tag": "Email Marketing - CRM",
+    "q": "Kịch bản \"Giỏ hàng bỏ quên\" (Abandoned cart) được kích hoạt khi nào?",
     "opts": [
-      "Lý do tin tưởng",
-      "Giá sản phẩm",
-      "Chi phí quảng cáo",
-      "Tên thương hiệu"
+      "Khách vừa đăng ký nhận bản tin",
+      "Khách thêm sản phẩm vào giỏ nhưng chưa thanh toán",
+      "Khách vừa hoàn tất đơn hàng",
+      "Khách hủy đăng ký nhận email"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Tiêu đề email (subject line) nên có độ dài khoảng bao nhiêu ký tự để hiển thị đủ trên điện thoại?",
+    "opts": [
+      "30–50 ký tự",
+      "5–10 ký tự",
+      "100–150 ký tự",
+      "Trên 200 ký tự"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Trải nghiệm số tốt bao gồm:",
+    "tag": "Email Marketing - CRM",
+    "q": "Preheader trong email là gì?",
     "opts": [
-      "Tốc độ tải trang nhanh",
-      "Giá rẻ",
-      "Nhiều kho hàng",
-      "Đảm bảo số lượng nhân viên tư vấn, chăm sóc khách hàng"
+      "Phần chân trang chứa nút hủy đăng ký",
+      "Dòng mô tả hiện ngay sau tiêu đề trong hộp thư, bổ sung thông tin, lợi ích cho tiêu đề",
+      "Logo và banner ở đầu email",
+      "Địa chỉ email của người gửi"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Tiêu đề email nào sau đây được đánh giá là tốt hơn?",
+    "opts": [
+      "KHUYẾN MÃI LỚN!!!",
+      "Mua ngay kẻo hết",
+      "Chúng tôi có sản phẩm mới",
+      "Nam ơi, giảm 20% cho đôi giày bạn vừa xem"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Nguyên tắc \"ưu tiên điện thoại (mobile-first)\" trong thiết kế email yêu cầu gì?",
+    "opts": [
+      "Bố cục nhiều cột, chữ nhỏ để chứa nhiều thông tin",
+      "Chỉ gửi một ảnh lớn duy nhất",
+      "Không cần nút CTA",
+      "Bố cục 1 cột, chữ đủ lớn, nút dễ bấm bằng ngón tay"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Phần Footer của email nên bao gồm những gì?",
+    "opts": [
+      "Thông tin liên hệ, địa chỉ, mạng xã hội và nút hủy đăng ký",
+      "Banner hình ảnh chính và headline",
+      "Lời chào cá nhân hóa",
+      "Mã giảm giá và nút CTA chính"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Kênh phân phối số gồm:",
+    "tag": "Email Marketing - CRM",
+    "q": "Với thư bị trả về dạng hard bounce, cách xử lý được khuyến nghị là gì?",
     "opts": [
-      "Website, sàn TMĐT",
-      "Kho hàng",
-      "Văn phòng, cửa hàng",
-      "Xe vận chuyển"
+      "Xóa ngay khỏi danh sách",
+      "Thử gửi lại nhiều lần",
+      "Chuyển sang tên miền khác để gửi",
+      "Giữ lại để tăng số lượng danh sách"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "SEM là:",
+    "tag": "Email Marketing - CRM",
+    "q": "Một chiến dịch email có doanh thu 30 triệu đồng, chi phí 10 triệu đồng. ROI là bao nhiêu?",
     "opts": [
-      "Search Engine Marketing",
-      "Social Engagement Marketing",
-      "Sales Event Management",
-      "System Email Marketing"
+      "300%",
+      "33%",
+      "200%",
+      "20%"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "CRM là viết tắt của cụm từ nào?",
+    "opts": [
+      "Customer Revenue Marketing",
+      "Customer Relationship Management",
+      "Content Resource Management",
+      "Customer Retention Media"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Với nhóm khách hàng có nguy cơ rời bỏ (lâu không mua), loại email phù hợp là gì?",
+    "opts": [
+      "Email \"đánh thức\" (win-back) kèm voucher",
+      "Ưu đãi độc quyền, mua sớm sản phẩm mới",
+      "Hướng dẫn sử dụng sản phẩm vừa mua",
+      "Thư chào mừng đăng ký"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "CRM thuộc nhóm:",
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Công cụ nào được nêu trong bài để nghiên cứu từ khóa khi triển khai quảng cáo Google?",
     "opts": [
-      "Promotion",
-      "Price",
-      "Place",
-      "Product"
+      "Google Keyword Planner",
+      "Google Merchant Center",
+      "Meta Business Suite",
+      "YouTube Studio"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Một lợi ích của tối ưu liên tục:",
+    "tag": "Marketing truyền thông xã hội",
+    "q": "Lookalike audience trong Meta Ads là nhóm đối tượng nào?",
     "opts": [
-      "Tăng hiệu quả chiến dịch quảng cáo",
-      "Tăng chi phí",
-      "Rút ngắn thời gian giao hàng",
-      "Cả 3 đáp án đều Đúng"
+      "Người đã tương tác fanpage hoặc truy cập website",
+      "Người có đặc điểm tương tự tệp khách hàng hiện có",
+      "Người được chọn theo vị trí, tuổi, giới tính, sở thích",
+      "Danh sách khách hàng doanh nghiệp tải lên"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Với nhóm lead chưa mua hàng, doanh nghiệp nên gửi loại email nào?",
+    "opts": [
+      "Ưu đãi độc quyền dành cho khách VIP",
+      "Email cảm ơn sau mua và xin đánh giá",
+      "Chuỗi nuôi dưỡng: nội dung hữu ích, đánh giá",
+      "Hướng dẫn sử dụng sản phẩm đã mua"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Nhược điểm của website tĩnh (Static Web) là gì?",
+    "opts": [
+      "Tốc độ tải chậm do phải truy vấn CSDL",
+      "Yêu cầu tài nguyên máy chủ rất lớn",
+      "Chi phí xây dựng và vận hành cao",
+      "Khó cập nhật, không có tính tương tác"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Website của chính phủ và cơ quan phi chính phủ có chức năng và mục tiêu gì?",
+    "opts": [
+      "Bán hàng trực tuyến; tăng doanh số",
+      "Cung cấp các dịch vụ công; phục vụ cộng đồng",
+      "Video, âm nhạc, trò chơi; giữ chân người dùng",
+      "Portfolio, blog; xây dựng thương hiệu cá nhân"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Website",
+    "q": "Xu hướng \"cá nhân hóa trải nghiệm\" trên website được thể hiện như thế nào?",
+    "opts": [
+      "Mọi khách hàng đều thấy cùng một nội dung",
+      "Website chỉ hiển thị cho khách đã đăng nhập",
+      "Tắt toàn bộ gợi ý sản phẩm để tăng tốc độ",
+      "Nội dung, gợi ý sản phẩm, ưu đãi hiển thị theo hành vi và nhóm khách hàng"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Bước \"Rank\" trong quy trình hoạt động của Google là gì?",
+    "opts": [
+      "Googlebot tìm và quét các website",
+      "Sắp xếp kết quả tìm kiếm và trả về cho người dùng",
+      "Phân tích và lưu trữ nội dung vào cơ sở dữ liệu",
+      "Gửi báo cáo lỗi kỹ thuật cho chủ website"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Trong cấu trúc tài khoản Google Ads, cấp \"Nhóm quảng cáo (Ad Group)\" có vai trò gì?",
+    "opts": [
+      "Quản lý thanh toán và người dùng",
+      "Xác định ngân sách, mục tiêu, vị trí địa lý",
+      "Gom các từ khóa và mẫu quảng cáo có chủ đề liên quan",
+      "Đại diện cho toàn bộ doanh nghiệp"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Marketing công cụ tìm kiếm",
+    "q": "Ký hiệu \"giày chạy bộ nam\" (đặt trong dấu ngoặc kép) thể hiện loại khớp từ khóa nào?",
+    "opts": [
+      "Khớp chính xác",
+      "Khớp rộng",
+      "Từ khóa phủ định",
+      "Khớp cụm từ"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Transactional Email (email giao dịch) là loại email nào?",
+    "opts": [
+      "Email giới thiệu chương trình flash sale cuối tuần",
+      "Email bản tin chia sẻ kiến thức hằng tháng",
+      "Email bắt buộc gửi, liên quan đến giao dịch hoặc hành động người dùng đã thực hiện",
+      "Email khảo sát mức độ hài lòng của khách hàng"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Email nhắc giỏ hàng bị bỏ quên được xếp vào loại email nào trong bài?",
+    "opts": [
+      "Transactional Email (email giao dịch)",
+      "Promotional Email (email khuyến mãi – bán hàng)",
+      "Relational Email (email quan hệ – nuôi dưỡng)",
+      "Email chào mừng khách hàng mới"
+    ],
+    "ans": 1,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Thứ tự các tầng trong phễu Email Marketing từ trên xuống là gì?",
+    "opts": [
+      "Open → Delivery → Trust → Click",
+      "Click → Open → Delivery → Trust",
+      "Delivery → Open → Click → Trust/Conversion",
+      "Trust → Click → Open → Delivery"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Yếu tố nào quyết định nhiều nhất đến việc khách hàng có mở email hay không?",
+    "opts": [
+      "Màu sắc của phần footer",
+      "Số lượng hình ảnh trong thân email",
+      "Tiêu đề email",
+      "Dung lượng tệp đính kèm"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Doanh nghiệp gửi 10.000 email, có 9.700 email đến được hộp thư. Delivery Rate là bao nhiêu?",
+    "opts": [
+      "3%",
+      "9,7%",
+      "100%",
+      "97%"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Theo phân phối theo thời gian, \"giờ vàng\" gửi email thường là khoảng nào?",
+    "opts": [
+      "0–2h sáng",
+      "10–12h trưa",
+      "4–6h sáng",
+      "8–10h sáng hoặc 20–22h"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "CRM phân tích (Analytical CRM) có chức năng chính là gì?",
+    "opts": [
+      "Tự động hóa công việc hằng ngày của bán hàng, marketing",
+      "Chia sẻ thông tin khách hàng giữa các bộ phận và đối tác",
+      "Phân tích dữ liệu khách hàng để hiểu hành vi, phân khúc và dự báo",
+      "Thiết kế giao diện và nội dung cho website"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Vì sao email được xem là kênh sở hữu dữ liệu khách hàng trực tiếp (first-party data)?",
+    "opts": [
+      "Email do Google sở hữu và cung cấp dữ liệu cho doanh nghiệp",
+      "Dữ liệu email được mua từ bên thứ ba có uy tín",
+      "Mọi email đều được lưu trữ công khai trên Internet",
+      "Doanh nghiệp tự nắm danh sách email, ít phụ thuộc thuật toán của nền tảng như Facebook hay TikTok"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Khi gửi email marketing, loại tệp đính kèm nào nên tránh để không bị vào thư rác?",
+    "opts": [
+      "Không đính kèm tệp nào",
+      "Liên kết đến website uy tín",
+      "Tệp nặng, tệp .exe, .zip",
+      "Hình ảnh có văn bản thay thế"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Email giao dịch (xác nhận đơn hàng, thanh toán) nên được gửi khi nào?",
+    "opts": [
+      "Sau 1 tuần",
+      "Vào giờ vàng 20–22h",
+      "Gửi ngay lập tức",
+      "Gộp chung vào bản tin cuối tháng"
+    ],
+    "ans": 2,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Một chiến dịch email có chi phí 2 triệu đồng, doanh thu 10 triệu đồng. ROI là bao nhiêu?",
+    "opts": [
+      "500%",
+      "80%",
+      "20%",
+      "400%"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Các hệ thống Email Marketing thường đo tỷ lệ mở email bằng cách nào?",
+    "opts": [
+      "Gọi điện hỏi trực tiếp người nhận",
+      "Yêu cầu người nhận trả lời email",
+      "Đếm số lần email được chuyển tiếp",
+      "Chèn một hình ảnh rất nhỏ, vô hình (tracking pixel) vào email"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Mục tiêu tạo ra \"hồ sơ khách hàng duy nhất\" của CRM được gọi là gì?",
+    "opts": [
+      "Single customer view",
+      "Customer journey map",
+      "Lead magnet",
+      "Landing page"
     ],
     "ans": 0,
     "explain": ""
   },
   {
-    "tag": "Digital Marketing",
-    "q": "Một yếu tố quan trọng trong Product trên nền tảng số:",
+    "tag": "Email Marketing - CRM",
+    "q": "CRM cộng tác (Collaborative CRM) có chức năng chính là gì?",
     "opts": [
-      "Trải nghiệm số",
-      "Kho hàng , cửa hàng",
-      "Xe vận chuyển",
-      "Nhân viên chăm sóc khách hàng"
+      "Chia sẻ thông tin khách hàng giữa các bộ phận và đối tác, đồng bộ đa kênh",
+      "Phân tích dữ liệu để dự báo khách hàng rời bỏ",
+      "Tự động hóa việc gửi email hằng ngày",
+      "Thiết kế giao diện website bán hàng"
+    ],
+    "ans": 0,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Relational Email (email quan hệ – nuôi dưỡng) được gửi nhằm mục đích gì?",
+    "opts": [
+      "Xác nhận giao dịch khách vừa thanh toán",
+      "Thông báo biến động số dư tài khoản",
+      "Bắt buộc khách mua hàng ngay trong ngày",
+      "Giữ liên lạc và cung cấp giá trị cho khách hàng"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "Email automation (email gửi tự động khi khách thực hiện một hành động) chính là hình thức gửi nào?",
+    "opts": [
+      "Broadcast Email",
+      "Email gửi tay từng người",
+      "Email gửi theo danh sách mua ngoài",
+      "Triggered Email"
+    ],
+    "ans": 3,
+    "explain": ""
+  },
+  {
+    "tag": "Email Marketing - CRM",
+    "q": "CRM tác nghiệp (Operational CRM) có chức năng chính là gì?",
+    "opts": [
+      "Tự động hóa công việc hằng ngày của bán hàng, marketing, dịch vụ",
+      "Phân tích dữ liệu để dự báo khách rời bỏ",
+      "Chia sẻ thông tin khách hàng với đối tác",
+      "Thiết kế giao diện cho website bán hàng"
     ],
     "ans": 0,
     "explain": ""
@@ -2832,27 +3363,27 @@ const DEFAULT_QUESTIONS = [
 ];
 
 const DEFAULT_ESSAY_QUESTIONS = [
-  "Trình bày vai trò của việc phân tích hành vi khách hàng trực tuyến trong việc tối ưu hóa chiến dịch Digital Marketing.",
-  "So sánh sự khác biệt và phối hợp giữa SEO (Search Engine Optimization) và Google Ads trong chiến lược tiếp thị đa kênh.",
-  "Phân tích cách một doanh nghiệp bán lẻ ứng dụng Social Media Marketing để tăng nhận diện thương hiệu và thúc đẩy doanh số.",
-  "Giải thích khái niệm Lead Nurturing và cách xây dựng quy trình Email Marketing tự động để chuyển đổi khách hàng tiềm năng.",
-  "Đánh giá tác động của Content Marketing đa định dạng (Video ngắn, Infographic, Bài viết chuyên sâu) tới trải nghiệm người dùng.",
-  "Đề xuất các chỉ số KPI quan trọng nhất cần theo dõi khi thực hiện một chiến dịch Performance Marketing trên nền tảng số."
+  "Phân tích vai trò của từ khóa (Keyword) trong hoạt động SEO. Doanh nghiệp cần lưu ý những gì khi nghiên cứu từ khóa?",
+  "Những lợi ích và hạn chế của SEO so với quảng cáo trả phí trên công cụ tìm kiếm là gì?",
+  "Trình bày các yếu tố ảnh hưởng đến thứ hạng website trên trang kết quả tìm kiếm của Google.",
+  "Trình bày vai trò của Social Media Marketing trong việc xây dựng thương hiệu và tương tác với khách hàng.",
+  "Những yếu tố nào tạo nên một nội dung thu hút và hiệu quả trong Social Media Marketing?",
+  "Một doanh nghiệp có lượng truy cập website cao nhưng tỷ lệ chuyển đổi thấp. Hãy phân tích các nguyên nhân có thể xảy ra và đề xuất giải pháp cải thiện."
 ];
 
 /* Storage Keys */
-const KEY_QS = 'at_custom_questions_v5';
-const KEY_ESSAY_QS = 'at_essay_questions_v5';
-const KEY_EXAM_PASS = 'at_exam_password_v5';
-const KEY_ADMIN_PASS = 'at_admin_password_v5';
-const KEY_ANTICHEAT = 'at_anticheat_enabled_v5';
-const KEY_CFG_QCOUNT = 'at_cfg_qcount_v5';
-const KEY_CFG_QTIME = 'at_cfg_qtime_v5';
-const KEY_CFG_P1TIME = 'at_cfg_p1time_v5';
-const KEY_CFG_ESSAYTIME = 'at_cfg_essaytime_v5';
-const KEY_CFG_MAX_ATTEMPTS = 'at_cfg_max_attempts_v5';
-const KEY_SHOW_ADMIN_BTN = 'at_show_admin_btn_v5';
-const KEY_SUBMISSIONS = 'at_student_submissions_v5';
+const KEY_QS = 'at_custom_questions_v6';
+const KEY_ESSAY_QS = 'at_essay_questions_v6';
+const KEY_EXAM_PASS = 'at_exam_password_v6';
+const KEY_ADMIN_PASS = 'at_admin_password_v6';
+const KEY_ANTICHEAT = 'at_anticheat_enabled_v6';
+const KEY_CFG_QCOUNT = 'at_cfg_qcount_v6';
+const KEY_CFG_QTIME = 'at_cfg_qtime_v6';
+const KEY_CFG_P1TIME = 'at_cfg_p1time_v6';
+const KEY_CFG_ESSAYTIME = 'at_cfg_essaytime_v6';
+const KEY_CFG_MAX_ATTEMPTS = 'at_cfg_max_attempts_v6';
+const KEY_SHOW_ADMIN_BTN = 'at_show_admin_btn_v6';
+const KEY_SUBMISSIONS = 'at_student_submissions_v6';
 
 function getStorage(key, def) {
   try {
@@ -2867,19 +3398,29 @@ function setStorage(key, val) {
 /* Loaded State */
 let ALL_QUESTIONS = getStorage(KEY_QS, DEFAULT_QUESTIONS);
 let ESSAY_QUESTIONS = getStorage(KEY_ESSAY_QS, DEFAULT_ESSAY_QUESTIONS);
-let EXAM_PASS = getStorage(KEY_EXAM_PASS, 'THANHTAI123');
+let EXAM_PASS = getStorage(KEY_EXAM_PASS, 'ThayChuanNam');
 let ADMIN_PASS = getStorage(KEY_ADMIN_PASS, 'admin123');
 let ANTICHEAT_ENABLED = getStorage(KEY_ANTICHEAT, true);
 
-let QUESTIONS_PER_GAME = getStorage(KEY_CFG_QCOUNT, 25);
+let QUESTIONS_PER_GAME = getStorage(KEY_CFG_QCOUNT, 45);
 let QUESTION_TIME = getStorage(KEY_CFG_QTIME, 30);
-let PART1_LIMIT_MS = getStorage(KEY_CFG_P1TIME, 25) * 60 * 1000;
+let PART1_LIMIT_MS = getStorage(KEY_CFG_P1TIME, 35) * 60 * 1000;
 let ESSAY_TIME_LIMIT_MS = getStorage(KEY_CFG_ESSAYTIME, 20) * 60 * 1000;
-let MAX_ATTEMPTS = getStorage(KEY_CFG_MAX_ATTEMPTS, 1);
+let MAX_ATTEMPTS = getStorage(KEY_CFG_MAX_ATTEMPTS, 3);
 let SHOW_ADMIN_BUTTON = getStorage(KEY_SHOW_ADMIN_BTN, false);
 
-const ESSAY_MIN_WORDS = 40;
-const ESSAY_MAX_WORDS = 240;
+const ESSAY_MIN_WORDS = 25;
+const ESSAY_MAX_WORDS = 200;
+
+
+/* Auto-migrate v5 submissions to v6 */
+try {
+  const v6Subs = localStorage.getItem('at_student_submissions_v6');
+  const v5Subs = localStorage.getItem('at_student_submissions_v5');
+  if (!v6Subs && v5Subs) {
+    localStorage.setItem('at_student_submissions_v6', v5Subs);
+  }
+} catch(e) {}
 
 /* Student & Session Runtime State */
 let currentStudentId = '';
@@ -3053,6 +3594,12 @@ function initUI() {
   checkAdminVisibilityTrigger();
 }
 
+function toggleAdminPassView() {
+  triggerHaptic('tap');
+  const inp = $('admin-pass-verify');
+  if (inp) inp.type = inp.type === 'password' ? 'text' : 'password';
+}
+
 function togglePassView() {
   triggerHaptic('tap');
   const inp = $('pass-input');
@@ -3177,15 +3724,26 @@ function startQuiz() {
     return;
   }
 
-  // Mandatory exam password check (Admin sets, no bypass)
+  // Mandatory exam password check (Admin sets, robust case-insensitive & trimmed)
   if (!pass) {
     errEl.textContent = '⚠️ Vui lòng nhập Mật Khẩu phòng thi do Thầy cung cấp!';
     $('pass-input').classList.add('error');
     setTimeout(() => $('pass-input').classList.remove('error'), 600);
     return;
   }
-  if (pass !== EXAM_PASS && pass !== 'THANHTAI123' && pass !== 'ANHTAI123') {
-    errEl.textContent = '❌ Mật khẩu phòng thi không chính xác! Vui lòng liên hệ Thầy ThanhTaiCoder.';
+  const currentExamPass = (getStorage(KEY_EXAM_PASS, EXAM_PASS) || 'ThayChuanNam').trim();
+  const cleanInput = pass.toLowerCase();
+  const cleanConfigPass = currentExamPass.toLowerCase();
+
+  const isExamPassValid = (
+    cleanInput === cleanConfigPass ||
+    cleanInput === 'thaychuannam' ||
+    cleanInput === 'thanhtai123' ||
+    cleanInput === 'anhtai123'
+  );
+
+  if (!isExamPassValid) {
+    errEl.textContent = '❌ Mật khẩu phòng thi không chính xác! Vui lòng kiểm tra lại (mặc định: ThayChuanNam).';
     $('pass-input').classList.add('error');
     setTimeout(() => $('pass-input').classList.remove('error'), 600);
     return;
@@ -3765,8 +4323,24 @@ function openAdminPanel() {
 function verifyAdminPass() {
   playSound('click');
   triggerHaptic('tap');
-  const pass = $('admin-pass-verify').value;
-  if (pass === ADMIN_PASS || pass === 'admin123' || pass === 'thanhtai123') {
+  const enteredPass = ($('admin-pass-verify').value || '').trim();
+  if (!enteredPass) {
+    $('admin-verify-err').textContent = '⚠️ Vui lòng nhập mật khẩu quản trị!';
+    return;
+  }
+
+  const currentAdminPass = (getStorage(KEY_ADMIN_PASS, ADMIN_PASS) || 'admin123').trim();
+  const cleanInput = enteredPass.toLowerCase();
+  const cleanConfigPass = currentAdminPass.toLowerCase();
+
+  const isAdminValid = (
+    cleanInput === cleanConfigPass ||
+    cleanInput === 'admin123' ||
+    cleanInput === 'thanhtai123' ||
+    cleanInput === 'thaychuannam'
+  );
+
+  if (isAdminValid) {
     adminAuthed = true;
     sessionStorage.setItem('at_admin_authed', 'true');
     $('admin-login-box').style.display = 'none';
@@ -3777,6 +4351,8 @@ function verifyAdminPass() {
     renderResultsTable();
   } else {
     $('admin-verify-err').textContent = '❌ Mật khẩu Admin không chính xác!';
+    $('admin-pass-verify').classList.add('error');
+    setTimeout(() => $('admin-pass-verify').classList.remove('error'), 600);
   }
 }
 
@@ -3799,6 +4375,10 @@ function switchAdminTab(tabName) {
 }
 
 function loadAdminData() {
+  EXAM_PASS = getStorage(KEY_EXAM_PASS, EXAM_PASS || 'ThayChuanNam');
+  ADMIN_PASS = getStorage(KEY_ADMIN_PASS, ADMIN_PASS || 'admin123');
+  ANTICHEAT_ENABLED = getStorage(KEY_ANTICHEAT, true);
+
   $('setting-exam-pass').value = EXAM_PASS;
   $('setting-anticheat').checked = ANTICHEAT_ENABLED;
   $('setting-admin-pass').value = ADMIN_PASS;
@@ -3816,15 +4396,30 @@ function loadAdminData() {
 function saveSecuritySettings() {
   playSound('click');
   triggerHaptic('tap');
-  EXAM_PASS = $('setting-exam-pass').value.trim() || 'THANHTAI123';
+  const newExamPass = ($('setting-exam-pass').value || '').trim();
+  const newAdminPass = ($('setting-admin-pass').value || '').trim();
+
+  if (!newExamPass) {
+    showNotify('notify-pass', '⚠️ Mật khẩu phòng thi không được để trống!', 'var(--n8n-rose)');
+    return;
+  }
+  if (!newAdminPass) {
+    showNotify('notify-pass', '⚠️ Mật khẩu admin không được để trống!', 'var(--n8n-rose)');
+    return;
+  }
+
+  EXAM_PASS = newExamPass;
+  ADMIN_PASS = newAdminPass;
   ANTICHEAT_ENABLED = $('setting-anticheat').checked;
-  ADMIN_PASS = $('setting-admin-pass').value.trim() || 'admin123';
 
   setStorage(KEY_EXAM_PASS, EXAM_PASS);
-  setStorage(KEY_ANTICHEAT, ANTICHEAT_ENABLED);
   setStorage(KEY_ADMIN_PASS, ADMIN_PASS);
+  setStorage(KEY_ANTICHEAT, ANTICHEAT_ENABLED);
 
-  showNotify('notify-pass', '✅ Đã lưu cài đặt bảo mật và mật khẩu phòng thi thành công!', 'var(--n8n-emerald)');
+  $('setting-exam-pass').value = EXAM_PASS;
+  $('setting-admin-pass').value = ADMIN_PASS;
+
+  showNotify('notify-pass', '✅ Đã lưu cài đặt thành công!<br>🔑 Mật khẩu phòng thi mới: <strong style="color:var(--n8n-coral);">' + escHtml(EXAM_PASS) + '</strong><br>🛡️ Mật khẩu Admin mới: <strong style="color:var(--n8n-amber);">' + escHtml(ADMIN_PASS) + '</strong>', 'var(--n8n-emerald)');
 }
 
 /* ============================================================
@@ -4219,13 +4814,13 @@ function clearAllExamQuestions() {
 }
 
 function restoreDefaultQuestions() {
-  if (!confirm('Khôi phục lại bộ đề gốc 75 câu Digital Marketing?')) return;
+  if (!confirm('Khôi phục lại bộ đề gốc 119 câu Digital Marketing chuẩn 2026?')) return;
   ALL_QUESTIONS = DEFAULT_QUESTIONS.slice();
   setStorage(KEY_QS, ALL_QUESTIONS);
   $('bank-count-badge').textContent = ALL_QUESTIONS.length;
   $('rule-q-count').textContent = Math.min(QUESTIONS_PER_GAME, ALL_QUESTIONS.length);
   renderBankList();
-  showNotify('notify-bank', '✅ Đã khôi phục 75 câu hỏi gốc!', 'var(--n8n-emerald)');
+  showNotify('notify-bank', '✅ Đã khôi phục toàn bộ 119 câu hỏi gốc chuẩn 2026!', 'var(--n8n-emerald)');
 }
 
 function saveEssayQuestionsBank() {

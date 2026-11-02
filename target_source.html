@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Bài Kiểm Tra</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--card:#1c2230;--border:#2d3748;--accent:#f6c90e;--accent2:#00e5ff;--accent3:#ff4f7b;--text:#e8edf5;--text-muted:#7b8fa6;--correct:#00c896;--wrong:#ff4f7b;--radius:16px;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;overflow-x:hidden;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:16px;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(246,201,14,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(246,201,14,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0;}
+.blob{position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;}
+.blob-1{width:400px;height:400px;background:rgba(246,201,14,.08);top:-80px;right:-80px;}
+.blob-2{width:350px;height:350px;background:rgba(0,229,255,.06);bottom:0;left:-80px;}
+.container{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:24px 16px 60px;}
+header{text-align:center;padding:48px 0 36px;}
+.badge{display:inline-block;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);background:rgba(246,201,14,.12);border:1px solid rgba(246,201,14,.3);padding:6px 16px;border-radius:100px;margin-bottom:20px;}
+h1{font-family:'Syne',sans-serif;font-size:clamp(26px,5vw,48px);font-weight:800;line-height:1.1;margin-bottom:12px;}
+h1 span{color:var(--accent);}
+.subtitle{color:var(--text-muted);font-size:15px;font-weight:300;max-width:440px;margin:0 auto;line-height:1.6;}
+#start-screen{text-align:center;padding:20px 0;}
+.name-input-wrap{max-width:380px;margin:28px auto 0;}
+.part-label{display:inline-block;font-family:'Syne',sans-serif;font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--bg);background:var(--accent);padding:9px 22px;border-radius:100px;text-align:center;}
+.next-choice-text{color:var(--text);font-size:15px;font-weight:500;text-align:center;max-width:440px;margin:0 auto 16px;line-height:1.6;}
+.btn-essay{background:var(--accent2);color:#0d1117;padding:14px 36px;}
+.essay-badge{text-align:center;margin-bottom:8px;}
+.essay-heading{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;text-align:center;margin:14px 0 6px;}
+.essay-heading span{color:var(--accent2);}
+.puzzle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:420px;margin:32px auto 0;}
+.puzzle-tile{aspect-ratio:1;background:var(--surface);border:2px solid var(--border);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:34px;cursor:pointer;transition:all .25s ease;-webkit-user-select:none;user-select:none;}
+.puzzle-tile:hover{border-color:var(--accent2);transform:translateY(-3px);}
+.puzzle-tile.flipped{background:var(--accent2);border-color:var(--accent2);transform:scale(1.06);cursor:default;}
+.puzzle-tile.disabled{opacity:.35;pointer-events:none;}
+.essay-question-box{background:var(--card);border:2px solid var(--accent2);border-radius:var(--radius);padding:22px 24px;margin:28px auto 18px;max-width:640px;font-size:16px;line-height:1.7;color:var(--text);}
+.essay-textarea{width:100%;max-width:640px;display:block;margin:0 auto;background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:16px 18px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);min-height:220px;resize:vertical;outline:none;transition:border-color .2s;}
+.essay-textarea:focus{border-color:var(--accent2);}
+.word-counter{max-width:640px;margin:8px auto 20px;text-align:right;font-size:13px;color:var(--text-muted);}
+.essay-timer{position:-webkit-sticky;position:sticky;top:10px;z-index:50;max-width:640px;margin:28px auto 0;background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:10px 18px;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;align-items:center;font-size:14px;color:var(--text-muted);transition:border-color .3s;}
+.essay-timer b{font-family:'Syne',sans-serif;font-size:20px;letter-spacing:1px;color:var(--accent2);}
+.essay-timer.warn{border-color:var(--wrong);}
+.essay-timer.warn b{color:var(--wrong);}
+.part1-timer{position:-webkit-sticky;position:sticky;top:10px;z-index:50;background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:10px 18px;margin-bottom:14px;display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;align-items:center;font-size:14px;color:var(--text-muted);transition:all .3s;}
+.part1-timer b{font-family:'Syne',sans-serif;font-size:20px;letter-spacing:1px;color:var(--accent);transition:all .3s;}
+.part1-timer.urgent{border-color:var(--wrong);background:rgba(255,79,123,.14);color:#fff;font-weight:700;box-shadow:0 0 22px rgba(255,79,123,.45);-webkit-animation:p1Pulse 1s ease-in-out infinite;animation:p1Pulse 1s ease-in-out infinite;}
+.part1-timer.urgent b{color:var(--wrong);font-size:30px;}
+@-webkit-keyframes p1Pulse{0%,100%{-webkit-transform:scale(1)}50%{-webkit-transform:scale(1.03)}}
+@keyframes p1Pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+.p1-result-time{font-size:14px;color:var(--text-muted);margin:0 auto 14px;}
+.p1-result-time b{color:var(--accent);}
+.restart-lock-msg{display:none;max-width:460px;margin:0 auto 16px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,79,123,.5);background:rgba(255,79,123,.1);color:#ffb3c6;font-size:14px;font-weight:600;line-height:1.55;}
+.btn-restart.locked,.btn-restart:disabled{opacity:.35;cursor:not-allowed;filter:grayscale(.6);}
+.essay-msg{max-width:640px;margin:-10px auto 16px;text-align:center;color:var(--wrong);font-size:14px;min-height:20px;}
+.essay-submit-wrap{text-align:center;}
+.essay-rule-box{max-width:640px;margin:18px auto 0;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,79,123,.5);background:rgba(255,79,123,.08);color:#ffc2d1;font-size:13.5px;line-height:1.6;text-align:left;}
+.essay-rule-box b{color:#ff8faa;}
+.essay-violation-bar{max-width:640px;margin:12px auto 0;padding:10px 16px;border-radius:12px;background:rgba(255,79,123,.16);border:2px solid var(--wrong);color:#fff;font-size:14px;font-weight:700;text-align:center;}
+.puzzle-tile.used{opacity:.3;pointer-events:none;background:rgba(255,79,123,.12);border-color:rgba(255,79,123,.4);}
+.lock-overlay{position:fixed;inset:0;background:rgba(13,17,23,.94);display:flex;align-items:center;justify-content:center;z-index:9999;padding:24px;-webkit-animation:fadeIn .3s ease;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.lock-card{background:var(--card);border:2px solid var(--accent);border-radius:20px;padding:44px 32px;text-align:center;max-width:460px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+.lock-emoji{font-size:56px;margin-bottom:18px;}
+.lock-title{font-family:'Syne',sans-serif;font-size:21px;font-weight:800;color:var(--text);line-height:1.5;}
+.lock-title span{color:var(--accent);}
+.lock-sub{color:var(--text-muted);font-size:14px;margin-top:14px;}
+.name-label{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent2);margin-bottom:10px;display:block;}
+.name-input{width:100%;background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:14px 18px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:var(--text);outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;}
+.name-input:focus{border-color:var(--accent);}
+.name-input::-webkit-input-placeholder{color:var(--text-muted);}
+.name-input::placeholder{color:var(--text-muted);}
+.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px auto;text-align:left;max-width:480px;}
+.rule-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;cursor:pointer;transition:border-color .2s,transform .15s;}
+.rule-box:hover{border-color:var(--accent);transform:translateY(-2px);}
+.score-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;}
+.score-modal-overlay.show{display:flex;}
+.score-modal{background:#1c2230;border:1px solid var(--border);border-radius:16px;padding:28px 24px;max-width:440px;width:90%;max-height:90vh;overflow-y:auto;position:relative;}
+.score-modal h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--accent);margin:0 0 4px;}
+.score-modal .modal-sub{font-size:13px;color:var(--text-muted);margin:0 0 18px;}
+.score-section{margin-bottom:16px;}
+.score-section-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent2);margin-bottom:8px;}
+.score-table{width:100%;border-collapse:collapse;font-size:13px;}
+.score-table th{text-align:left;padding:6px 10px;background:rgba(255,255,255,.05);color:var(--text-muted);font-weight:600;}
+.score-table td{padding:7px 10px;border-top:1px solid rgba(255,255,255,.06);color:var(--text);}
+.score-table tr:hover td{background:rgba(255,255,255,.03);}
+.highlight-row td{color:#f6c90e;font-weight:600;}
+.tag-green{background:rgba(0,200,150,.15);color:#00c896;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;}
+.tag-red{background:rgba(255,79,123,.15);color:#ff4f7b;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;}
+.tag-blue{background:rgba(0,229,255,.15);color:#00e5ff;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;}
+.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text-muted);font-size:22px;cursor:pointer;line-height:1;padding:0;}
+.modal-close:hover{color:var(--text);}
+.formula-box{background:rgba(246,201,14,.08);border:1px solid rgba(246,201,14,.25);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--text);line-height:1.7;margin-bottom:14px;}
+.formula-box code{color:var(--accent);font-family:monospace;font-size:13px;}
+.rule-icon{font-size:24px;margin-bottom:10px;display:block;}
+.rule-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;}
+.rule-desc{font-size:13px;color:var(--text-muted);line-height:1.5;}
+.btn-start-wrap{display:flex;justify-content:center;margin-top:28px;}
+.pass-input-wrap{max-width:380px;margin:16px auto 0;}
+.pass-label{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent3);margin-bottom:10px;display:block;}
+.pass-input{width:100%;background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:14px 18px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;color:var(--text);outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;}
+.pass-input:focus{border-color:var(--accent3);}
+.pass-input.error{border-color:var(--wrong);-webkit-animation:shake .4s ease;animation:shake .4s ease;}
+@-webkit-keyframes shake{0%,100%{-webkit-transform:translateX(0)}20%{-webkit-transform:translateX(-8px)}40%{-webkit-transform:translateX(8px)}60%{-webkit-transform:translateX(-5px)}80%{-webkit-transform:translateX(5px)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.pass-error{color:var(--wrong);font-size:13px;font-weight:600;margin-top:8px;min-height:20px;text-align:center;}
+.btn-start{font-size:17px;padding:18px 56px;}
+.meta-bar{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 20px;margin-bottom:28px;flex-wrap:wrap;}
+.meta-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;}
+.meta-item .icon{font-size:16px;}
+.meta-sep{width:1px;height:20px;background:var(--border);}
+.progress-wrap{flex:1;min-width:120px;}
+.progress-label{font-size:12px;color:var(--text-muted);margin-bottom:6px;display:flex;justify-content:space-between;}
+.progress-bar{height:6px;background:var(--border);border-radius:99px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1);width:0%;}
+#score-display{color:var(--accent);font-weight:700;}
+#timer-display{color:var(--accent2);font-weight:700;font-variant-numeric:tabular-nums;}
+#combo-display{font-family:'Syne',sans-serif;font-weight:800;font-size:14px;color:#ff8c00;transition:all .3s;min-width:80px;text-align:center;}
+.penalty-popup{position:fixed;top:50%;left:50%;-webkit-transform:translate(-50%,-50%) scale(0);transform:translate(-50%,-50%) scale(0);font-family:'Syne',sans-serif;font-size:clamp(26px,5vw,46px);font-weight:800;color:#ff4f7b;text-shadow:0 0 30px rgba(255,79,123,.7);z-index:999;pointer-events:none;white-space:nowrap;}
+.penalty-popup.show{-webkit-animation:penaltyBurst .75s cubic-bezier(.2,1.4,.4,1) forwards;animation:penaltyBurst .75s cubic-bezier(.2,1.4,.4,1) forwards;}
+@-webkit-keyframes penaltyBurst{0%{-webkit-transform:translate(-50%,-50%) scale(0);opacity:0}35%{-webkit-transform:translate(-50%,-50%) scale(1.15);opacity:1}65%{-webkit-transform:translate(-50%,-50%) scale(1);opacity:1}100%{-webkit-transform:translate(-50%,-60%) scale(.9);opacity:0}}
+@keyframes penaltyBurst{0%{transform:translate(-50%,-50%) scale(0);opacity:0}35%{transform:translate(-50%,-50%) scale(1.15);opacity:1}65%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-60%) scale(.9);opacity:0}}
+@-webkit-keyframes shakeScreen{0%,100%{-webkit-transform:translateX(0)}15%{-webkit-transform:translateX(-8px)}30%{-webkit-transform:translateX(8px)}45%{-webkit-transform:translateX(-6px)}60%{-webkit-transform:translateX(6px)}75%{-webkit-transform:translateX(-3px)}90%{-webkit-transform:translateX(3px)}}
+@keyframes shakeScreen{0%,100%{transform:translateX(0)}15%{transform:translateX(-8px)}30%{transform:translateX(8px)}45%{transform:translateX(-6px)}60%{transform:translateX(6px)}75%{transform:translateX(-3px)}90%{transform:translateX(3px)}}
+.shake{-webkit-animation:shakeScreen .45s ease;animation:shakeScreen .45s ease;}
+@-webkit-keyframes scoreDrop{0%{-webkit-transform:scale(1)}30%{-webkit-transform:scale(1.35);color:#ff4f7b}100%{-webkit-transform:scale(1);color:var(--accent)}}
+@keyframes scoreDrop{0%{transform:scale(1)}30%{transform:scale(1.35);color:#ff4f7b}100%{transform:scale(1);color:var(--accent)}}
+#score-display.score-drop{-webkit-animation:scoreDrop .5s ease;animation:scoreDrop .5s ease;}
+.flip-scene{margin-bottom:20px;}
+.flip-card{width:100%;position:relative;-webkit-transition:-webkit-transform .5s cubic-bezier(.4,0,.2,1);transition:transform .5s cubic-bezier(.4,0,.2,1);}
+.flip-card.flipping{-webkit-transform:rotateY(90deg);transform:rotateY(90deg);}
+.flip-card-front{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;position:relative;overflow:hidden;}
+.flip-card-front::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.q-tag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:14px;display:block;}
+.q-number{font-family:'Syne',sans-serif;font-size:13px;color:var(--text-muted);margin-bottom:10px;}
+.q-text{font-size:clamp(16px,2.5vw,20px);font-weight:500;line-height:1.55;color:var(--text);}
+.options{display:grid;gap:12px;margin-bottom:24px;}
+.opt{background:var(--surface);border:2px solid var(--border);border-radius:12px;padding:16px 20px;cursor:pointer;display:-webkit-flex;display:flex;-webkit-align-items:flex-start;align-items:flex-start;gap:14px;-webkit-transition:all .2s ease;transition:all .2s ease;text-align:left;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);line-height:1.5;width:100%;-webkit-appearance:none;appearance:none;touch-action:manipulation;}
+.opt:active{opacity:.85;}
+.opt-key{min-width:28px;height:28px;border-radius:8px;background:var(--border);display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;-webkit-flex-shrink:0;flex-shrink:0;-webkit-transition:all .2s;transition:all .2s;}
+.opt.correct{border-color:var(--correct);background:rgba(0,200,150,.1);-webkit-animation:correctPop .3s ease;animation:correctPop .3s ease;}
+.opt.correct .opt-key{background:var(--correct);color:#000;}
+@-webkit-keyframes correctPop{0%{-webkit-transform:scale(1)}50%{-webkit-transform:scale(1.02)}100%{-webkit-transform:scale(1)}}
+@keyframes correctPop{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+.opt.wrong{border-color:var(--wrong);background:rgba(255,79,123,.1);}
+.opt.wrong .opt-key{background:var(--wrong);color:#fff;}
+.opt.reveal{border-color:var(--correct);background:rgba(0,200,150,.06);}
+.opt:disabled{cursor:default;}
+.feedback{border-radius:12px;padding:14px 20px;margin-bottom:20px;font-size:15px;font-weight:600;display:none;-webkit-animation:fadeIn .3s ease;animation:fadeIn .3s ease;text-align:center;}
+@-webkit-keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.feedback.show{display:block;}
+.feedback.correct-fb{background:rgba(0,200,150,.12);border:1px solid rgba(0,200,150,.4);color:var(--correct);}
+.feedback.wrong-fb{background:rgba(255,79,123,.12);border:1px solid rgba(255,79,123,.4);color:#ff8faa;}
+.combo-popup{position:fixed;top:50%;left:50%;-webkit-transform:translate(-50%,-50%) scale(0);transform:translate(-50%,-50%) scale(0);font-family:'Syne',sans-serif;font-size:clamp(28px,6vw,52px);font-weight:800;color:#ff8c00;text-shadow:0 0 30px rgba(255,140,0,.6);z-index:999;pointer-events:none;white-space:nowrap;}
+.combo-popup.show{-webkit-animation:comboBurst .8s cubic-bezier(.2,1.4,.4,1) forwards;animation:comboBurst .8s cubic-bezier(.2,1.4,.4,1) forwards;}
+@-webkit-keyframes comboBurst{0%{-webkit-transform:translate(-50%,-50%) scale(0);opacity:0}40%{-webkit-transform:translate(-50%,-50%) scale(1.1);opacity:1}70%{-webkit-transform:translate(-50%,-50%) scale(1);opacity:1}100%{-webkit-transform:translate(-50%,-60%) scale(.9);opacity:0}}
+@keyframes comboBurst{0%{transform:translate(-50%,-50%) scale(0);opacity:0}40%{transform:translate(-50%,-50%) scale(1.1);opacity:1}70%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-60%) scale(.9);opacity:0}}
+.btn{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;padding:14px 32px;border-radius:10px;border:none;cursor:pointer;-webkit-transition:all .2s ease;transition:all .2s ease;letter-spacing:.5px;touch-action:manipulation;-webkit-appearance:none;appearance:none;}
+.btn-primary{background:var(--accent);color:#0d1117;display:block;width:100%;}
+.btn-primary:active{filter:brightness(.9);}
+.btn-primary:disabled{opacity:.4;cursor:default;}
+#result-screen{display:none;text-align:center;}
+.result-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:40px 28px;position:relative;overflow:hidden;margin-bottom:20px;}
+.result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));}
+.medal{font-size:64px;margin-bottom:10px;display:block;}
+.result-name{font-family:'Syne',sans-serif;font-size:clamp(22px,5vw,36px);font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:8px;text-shadow:0 0 24px rgba(0,229,255,.35);}
+.result-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:6px;}
+.result-sub{color:var(--text-muted);font-size:15px;margin-bottom:20px;}
+.score-big{font-family:'Syne',sans-serif;font-size:80px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:2px;}
+.score-label{color:var(--text-muted);font-size:13px;margin-bottom:20px;}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
+.stat-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;}
+.stat-val{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;margin-bottom:4px;}
+.stat-name{font-size:12px;color:var(--text-muted);}
+.stat-box.s-correct .stat-val{color:var(--correct);}
+.stat-box.s-wrong .stat-val{color:var(--wrong);}
+.stat-box.s-time .stat-val{color:var(--accent2);}
+.result-btns{display:-webkit-flex;display:flex;gap:12px;-webkit-justify-content:center;justify-content:center;-webkit-flex-wrap:wrap;flex-wrap:wrap;}
+.btn-restart{background:var(--accent);color:#0d1117;padding:14px 36px;}
+.btn-review{background:transparent;color:var(--accent2);border:2px solid var(--accent2);padding:14px 28px;}
+#review-panel{display:none;margin-bottom:24px;}
+.review-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--accent);margin-bottom:16px;text-align:center;}
+.review-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:12px;text-align:left;}
+.review-item.r-correct{border-color:rgba(0,200,150,.4);}
+.review-item.r-wrong{border-color:rgba(255,79,123,.4);}
+.review-q{font-size:14px;font-weight:500;margin-bottom:10px;line-height:1.5;}
+.review-ans{font-size:13px;margin-bottom:6px;}
+.review-ans span{font-weight:700;}
+.review-explain{font-size:13px;color:var(--text-muted);line-height:1.6;padding-top:10px;border-top:1px solid var(--border);margin-top:8px;}
+.r-correct .review-explain{color:#7ecab4;}
+.r-wrong .review-explain{color:#c8879a;}
+.ri-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:8px;display:block;}
+.ri-result{font-size:12px;font-weight:700;margin-bottom:8px;}
+.r-correct .ri-result{color:var(--correct);}
+.r-wrong .ri-result{color:var(--wrong);}
+.site-footer{text-align:center;padding:36px 0 4px;color:var(--text-muted);font-size:13px;}
+.site-footer strong{color:var(--accent);font-family:'Syne',sans-serif;font-weight:700;font-size:14px;}
+.confetti-piece{position:fixed;width:8px;height:8px;border-radius:2px;pointer-events:none;z-index:999;-webkit-animation:confettiFall linear forwards;animation:confettiFall linear forwards;}
+@-webkit-keyframes confettiFall{0%{-webkit-transform:translateY(-20px) rotate(0deg);opacity:1}100%{-webkit-transform:translateY(100vh) rotate(720deg);opacity:0}}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+@media(max-width:600px){
+  .container{padding:16px 12px 80px;}
+  header{padding:24px 0 16px;}
+  h1{font-size:clamp(20px,6vw,28px);}
+  .subtitle{font-size:13px;}
+  .rules-grid{grid-template-columns:1fr;}
+  .btn-start{font-size:15px;padding:16px 32px;width:100%;}
+  .meta-bar{gap:8px;padding:10px 12px;border-radius:10px;margin-bottom:16px;}
+  .meta-item{font-size:12px;}
+  .meta-sep{display:none;}
+  .progress-wrap{width:100%;-webkit-flex-basis:100%;flex-basis:100%;order:10;}
+  .flip-card-front{padding:20px 16px;}
+  .q-tag{font-size:10px;}
+  .q-number{font-size:12px;}
+  .q-text{font-size:clamp(14px,4vw,17px);line-height:1.5;}
+  .opt{padding:14px 12px;gap:10px;font-size:14px;border-radius:10px;min-height:52px;}
+  .opt-key{min-width:26px;height:26px;font-size:11px;}
+  .feedback{font-size:13px;padding:12px 14px;}
+  .btn-primary{font-size:15px;padding:16px 20px;}
+  .result-card{padding:24px 16px;}
+  .score-big{font-size:56px;}
+  .stats-grid{gap:6px;}
+  .stat-box{padding:10px 6px;}
+  .stat-val{font-size:18px;}
+  .stat-name{font-size:10px;}
+  .result-btns{-webkit-flex-direction:column;flex-direction:column;-webkit-align-items:center;align-items:center;}
+  .btn-restart,.btn-review{width:100%;max-width:360px;}
+  .review-item{padding:14px 12px;}
+  .review-q{font-size:13px;}
+  .review-ans,.review-explain{font-size:12px;}
+  .name-input{font-size:16px;padding:14px;}
+  .rule-box{padding:14px;}
+}
+@media(max-width:380px){
+  .stat-val{font-size:16px;}
+  .score-big{font-size:44px;}
+  .q-text{font-size:14px;}
+  .opt{font-size:13px;padding:12px 10px;}
+}
+</style>
+</head>
+<body>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="combo-popup" id="combo-popup"></div>
+<div class="penalty-popup" id="penalty-popup"></div>
+
+
+<div class="container">
+  <header>
+    <div class="badge">Digital Marketing</div>
+    <h1>BÀI <span>KIỂM TRA</span></h1>
+    <p class="subtitle">Kiểm tra kiến thức về Digital Marketing</p>
+  </header>
+
+  <div id="start-screen">
+    <div class="part-label">📝 Phần 1: Trò chơi trắc nghiệm</div>
+    <div class="name-input-wrap">
+      <label class="name-label" for="student-id">🎓 Mã Sinh Viên</label>
+      <input class="name-input" id="student-id" type="text" placeholder="Nhập mã sinh viên của bạn..." maxlength="200" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="name-input-wrap">
+      <label class="name-label" for="student-fullname">✏️ Họ Tên</label>
+      <input class="name-input" id="student-fullname" type="text" placeholder="Nhập họ tên của bạn..." maxlength="200" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="pass-input-wrap">
+      <label class="pass-label" for="pass-input">🔒 Mật Khẩu</label>
+      <div style="position:relative;">
+        <input class="pass-input" id="pass-input" type="password" placeholder="Nhập mật khẩu để vào chơi..." maxlength="30" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="padding-right:52px;">
+        <button type="button" id="toggle-pass" onclick="togglePassView()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.07);border:none;cursor:pointer;padding:6px 8px;border-radius:8px;line-height:0;transition:background .2s;" title="Hiện/Ẩn mật khẩu">
+          <svg id="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="10" ry="6"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg id="eye-off-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent2)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20C7 20 2.73 16.39 1 12a9.97 9.97 0 0 1 2.7-4.53"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c5 0 9.27 3.61 11 8a9.9 9.9 0 0 1-1.74 2.94"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+        </button>
+      </div>
+      <div class="pass-error" id="pass-error"></div>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-box">
+        <span class="rule-icon">⏱️</span>
+        <div class="rule-title">30 giây / câu</div>
+        <div class="rule-desc">Tổng 45 câu hỏi<br><span style="color:var(--wrong);font-size:12px;">⏳ Tổng thời gian Phần 1: 35 phút (tính cả các lần chơi lại)</span><br><span style="color:var(--accent2);font-size:12px;">🔁 Mỗi Mã SV được chơi tối đa 3 lần</span><br><span style="color:var(--accent);font-size:12px;">💡 Click A/B/C/D để chọn đáp án</span></div>
+      </div>
+      <div class="rule-box" onclick="openScoreModal()" title="Bấm để xem cách tính điểm chi tiết" style="cursor:pointer;">
+        <span class="rule-icon">🔥</span>
+        <div class="rule-title">Combo &amp; Phạt <span style="font-size:11px;color:var(--accent);font-family:DM Sans,sans-serif;font-weight:400;margin-left:4px;">↗ chi tiết</span></div>
+        <div class="rule-desc">Đúng liên tiếp → nhân điểm. Sai liên tiếp từ lần 2 → bị trừ điểm!</div>
+      </div>
+      <div class="rule-box" style="grid-column:1/-1;border-color:rgba(255,79,123,0.4);background:rgba(255,79,123,0.06);">
+        <span class="rule-icon">🚨</span>
+        <div class="rule-title" style="color:#ff4f7b;">Chống Gian Lận</div>
+        <div class="rule-desc">Chuyển tab, Alt+Tab, thu nhỏ cửa sổ hoặc click ra ngoài trong lúc làm bài → <span style="color:#ff4f7b;font-weight:600;">câu đó tính 0 điểm & bị phạt!</span></div>
+      </div>
+    </div>
+    <div class="btn-start-wrap">
+      <button type="button" class="btn btn-primary btn-start" id="btn-start">🚀 Bắt Đầu Chơi</button>
+    </div>
+  </div>
+
+  <!-- Scoring Modal -->
+  <div class="score-modal-overlay" id="score-modal-overlay" onclick="closeScoreModal(event)">
+    <div class="score-modal" role="dialog" aria-modal="true" aria-label="Cách tính điểm">
+      <button class="modal-close" type="button" onclick="closeScoreModal(null)" title="Đóng">×</button>
+      <h3>🔥 Cách Tính Điểm</h3>
+      <p class="modal-sub">Hiểu luật → chơi thông minh hơn</p>
+
+      <div class="score-section">
+        <div class="score-section-title">✅ Khi trả lời ĐÚNG</div>
+        <div class="formula-box">
+          Điểm nhận = <code>4</code> (cơ bản) + <code>Speed Bonus</code> + <code>Combo Bonus</code>
+        </div>
+        <table class="score-table">
+          <tr><th>Thành phần</th><th>Chi tiết</th><th>Tối đa</th></tr>
+          <tr><td>Điểm cơ bản</td><td>Luôn nhận được khi đúng</td><td><span class="tag-green">+4</span></td></tr>
+          <tr><td>⚡ Speed Bonus</td><td>Giây 0–5: +2 ⚡⚡<br>Giây 6–12: +1 ⚡<br>Giây 13–30: +0</td><td><span class="tag-blue">+2</span></td></tr>
+          <tr class="highlight-row"><td>🔥 Combo Bonus</td><td>Đúng ≥3 lần liên tiếp → +(combo−3)</td><td><span class="tag-green">không giới hạn</span></td></tr>
+        </table>
+      </div>
+
+      <div class="score-section">
+        <div class="score-section-title">⚡ Combo Bonus chi tiết</div>
+        <table class="score-table">
+          <tr><th>Chuỗi đúng</th><th>Combo Bonus</th><th>Tổng điểm/câu (nhanh)</th></tr>
+          <tr><td>x1 — x3</td><td>+0</td><td>6</td></tr>
+          <tr><td>x4</td><td>+1</td><td>7</td></tr>
+          <tr><td>x5</td><td>+2</td><td>8</td></tr>
+          <tr><td>x6</td><td>+3</td><td>9</td></tr>
+          <tr class="highlight-row"><td>x10</td><td>+7</td><td>13</td></tr>
+        </table>
+      </div>
+
+      <div class="score-section">
+        <div class="score-section-title">❌ Khi trả lời SAI / hết giờ</div>
+        <table class="score-table">
+          <tr><th>Lần sai liên tiếp</th><th>Hậu quả</th></tr>
+          <tr><td>Lần 1</td><td>⚠️ Cảnh báo — không trừ điểm</td></tr>
+          <tr><td>Lần 2</td><td><span class="tag-red">−2 điểm</span></td></tr>
+          <tr><td>Lần 3</td><td><span class="tag-red">−3 điểm</span></td></tr>
+          <tr><td>Lần 4+</td><td><span class="tag-red">−4 điểm</span></td></tr>
+        </table>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">⚠️ Điểm tối thiểu = 0, không bao giờ bị âm. Combo reset về 0 khi sai.</p>
+      </div>
+
+      <div class="score-section">
+        <div class="score-section-title">🏆 Xếp hạng kết quả</div>
+        <table class="score-table">
+          <tr><th>Điểm</th><th>Huy chương</th><th>Đánh giá</th></tr>
+          <tr><td>&gt; 340</td><td>🏆</td><td>Xuất Sắc — 10 điểm</td></tr>
+          <tr><td>281 – 340</td><td>🥇</td><td>Giỏi — 9 điểm</td></tr>
+          <tr><td>221 – 280</td><td>🥈</td><td>Khá Giỏi — 8 điểm</td></tr>
+          <tr><td>181 – 220</td><td>🥉</td><td>Khá — 7 điểm</td></tr>
+          <tr><td>141 – 180</td><td>🎖️</td><td>Trung Bình Khá — 6 điểm</td></tr>
+          <tr><td>101 – 140</td><td>📘</td><td>Trung Bình — 5 điểm</td></tr>
+          <tr><td>≤ 100</td><td>📚</td><td>Cần Cố Gắng Hơn — 4 điểm</td></tr>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div id="quiz-screen" style="display:none">
+    <div class="part1-timer" id="part1-timer"><span>⏳ Thời gian Phần 1 còn lại</span><b id="part1-time-left">35:00</b></div>
+    <div class="meta-bar">
+      <div class="meta-item"><span class="icon">&#x2B50;</span><span>Điểm: <strong id="score-display">0</strong></span></div>
+      <div class="meta-sep"></div>
+      <div class="meta-item"><span class="icon">⏱️</span><span>Còn: <strong id="timer-display">25</strong>s</span></div>
+      <div class="meta-sep"></div>
+      <div id="combo-display"></div>
+      <div class="meta-sep"></div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span id="q-progress-text">Câu 1 / 45</span><span id="q-pct">0%</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+    </div>
+    <div class="flip-scene">
+      <div class="flip-card" id="flip-card">
+        <div class="flip-card-front">
+          <span class="q-tag" id="q-tag">Digital Marketing</span>
+          <div class="q-number" id="q-number">Câu 1 / 45</div>
+          <div class="q-text" id="q-text"></div>
+        </div>
+      </div>
+    </div>
+    <div class="options" id="options-container"></div>
+    <div class="feedback" id="feedback"></div>
+    <button type="button" class="btn btn-primary" id="next-btn" disabled>Câu tiếp theo &#x2192;</button>
+  </div>
+
+  <div id="result-screen" style="display:none">
+    <div class="result-card">
+      <span class="medal" id="result-medal">🏆</span>
+      <div class="result-name" id="result-name"></div>
+      <div class="result-title" id="result-title">Xuất sắc!</div>
+      <div class="result-sub" id="result-sub"></div>
+      <div class="score-big" id="result-score">0</div>
+      <div class="score-label">điểm</div>
+      <div class="stats-grid">
+        <div class="stat-box s-correct"><div class="stat-val" id="stat-correct">0</div><div class="stat-name">✅ Đúng</div></div>
+        <div class="stat-box s-wrong"><div class="stat-val" id="stat-wrong">0</div><div class="stat-name">❌ Sai</div></div>
+        <div class="stat-box s-time"><div class="stat-val" id="stat-time">0s</div><div class="stat-name">⏱ TB/câu</div></div>
+      </div>
+      <div class="next-choice-text">Bạn có muốn Chơi lại phần trắc nghiệm hay Làm tiếp Phần Tự Luận.</div>
+      <div class="p1-result-time" id="p1-result-time">⏳ Thời gian Phần 1 còn lại: <b id="p1-result-left">35:00</b></div>
+      <div class="p1-result-time" id="p1-attempts">🔁 Lượt chơi Phần 1: <b id="p1-attempts-used">1</b> / 3</div>
+      <div class="restart-lock-msg" id="restart-lock-msg"></div>
+      <div class="result-btns">
+        <button type="button" class="btn btn-restart" id="btn-restart">🔄 Chơi Lại</button>
+        <button type="button" class="btn btn-essay" id="btn-essay">✍️ Tự Luận</button>
+      </div>
+    </div>
+    <div id="review-panel">
+      <div class="review-title">📋 Đáp Án &amp; Giải Thích</div>
+      <div id="review-items"></div>
+    </div>
+  </div>
+
+  <div id="essay-screen" style="display:none">
+    <div class="essay-badge"><span class="part-label">✍️ Phần 2: Tự Luận</span></div>
+    <h2 class="essay-heading">🧩 Chọn một <span>mảnh ghép</span> để mở câu hỏi</h2>
+    <p class="subtitle">Mỗi mảnh ghép ẩn giấu một câu hỏi bất ngờ — chọn 1 mảnh để bắt đầu, chỉ được chọn một lần.<br>⏱ Thời gian làm bài: <b>20 phút</b> kể từ khi câu hỏi hiện ra · Bài làm từ <b>25</b> đến <b>200</b> từ.</p>
+    <div class="essay-rule-box">🚨 <b>Chống gian lận / AI:</b> Trong lúc làm Tự Luận, nếu rời khỏi màn hình (chuyển tab, Alt+Tab, thu nhỏ, click ra ngoài, tải lại trang) → <b>câu hỏi bị hủy</b> và phải chọn lại câu khác. <b>Rời màn hình 3 lần → kết thúc Phần 2 và nhận 0 điểm.</b> Không được dán (paste) nội dung vào ô trả lời.</div>
+    <div class="essay-timer" id="essay-timer" style="display:none"><span>⏱ Thời gian còn lại của Phần 2</span><b id="essay-time-left">20:00</b></div>
+    <div class="essay-violation-bar" id="essay-violation-bar" style="display:none"></div>
+    <div class="puzzle-grid" id="puzzle-grid"></div>
+
+    <div id="essay-question-area" style="display:none">
+      <div class="essay-question-box" id="essay-question-text"></div>
+      <textarea class="essay-textarea" id="essay-answer" placeholder="Nhập câu trả lời của bạn tại đây (tối thiểu 25 từ, tối đa 200 từ)..."></textarea>
+      <div class="word-counter" id="word-counter">0 / 200 từ (tối thiểu 25 từ)</div>
+      <div class="essay-msg" id="essay-msg"></div>
+      <div class="essay-submit-wrap">
+        <button type="button" class="btn btn-primary" id="btn-submit-essay">📨 Gửi</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <strong>ThS Nguyễn Chuẩn Nam</strong><br>
+    Digital Marketing — Tổng quan về Website, SMM, Marketing trên công cụ tìm kiếm và Email Marketing
+  </footer>
+</div>
+
+<script>
+const ALL_QUESTIONS = [
+{tag:"Website",q:"Website đóng vai trò gì trong các hoạt động Digital Marketing?",opts:["Là kênh phụ trợ, chỉ dùng khi không chạy được quảng cáo mạng xã hội", "Là trung tâm và nền tảng cốt lõi của mọi hoạt động Digital Marketing", "Là công cụ chỉ phục vụ cho quảng cáo trả phí trên Google", "Là kênh thay thế hoàn toàn cho email marketing và mạng xã hội"],k:"1dbwgcvo8qx",explain:''},
+{tag:"Website",q:"Nếu không có website, hoạt động Digital Marketing của doanh nghiệp sẽ gặp khó khăn gì?",opts:["Không thể chạy bất kỳ quảng cáo nào trên mạng xã hội", "Không thể sử dụng email để liên hệ khách hàng", "Chi phí quảng cáo luôn giảm nhưng doanh số không tăng", "Khó đo lường, thiếu tính sở hữu và phụ thuộc nền tảng bên thứ ba"],k:"erz8hmcdov",explain:''},
+{tag:"Website",q:"Website là \"tài sản số thuộc chủ sở hữu\" mang lại ý nghĩa gì cho doanh nghiệp?",opts:["Không cần trả phí tên miền và hosting", "Có thể đầu tư và mở rộng vô hạn", "Không cần tối ưu SEO cho website", "Được miễn tuân thủ chính sách của Google"],k:"1wer9thggmb",explain:''},
+{tag:"Website",q:"Website là \"nơi chuyển đổi xảy ra\" vì:",opts:["Thu hút khách hàng tìm kiếm, mua hàng, đặt lịch, đăng ký", "Website là nơi duy nhất khách hàng có thể xem quảng cáo", "Website tự động tạo ra doanh thu mà không cần marketing", "Website thay thế hoàn toàn đội ngũ bán hàng"],k:"1vow5yh6cxr",explain:''},
+{tag:"Website",q:"Vai trò chính của website tương tác (có đăng ký, bình luận, chat…) trong Digital Marketing là gì?",opts:["Thu thập khách hàng tiềm năng, khảo sát, chăm sóc và giữ chân khách", "Chuyển đổi trực tiếp ra doanh thu qua thanh toán trực tuyến", "Xây dựng cộng đồng và thu dữ liệu hành vi rất lớn từ nội dung người dùng tạo", "Chỉ xây dựng uy tín bằng các trang giới thiệu tĩnh"],k:"2azoqberls3",explain:''},
+{tag:"Website",q:"Website giao dịch (mua bán, thanh toán) có vai trò gì trong Digital Marketing?",opts:["Cung cấp nội dung cho SEO và cho người đang tìm hiểu", "Thu thập lead, khảo sát và chăm sóc khách hàng", "Chuyển đổi trực tiếp ra doanh thu", "Lan tỏa tự nhiên thông qua nội dung do người dùng tạo"],k:"2f25pv28cqr",explain:''},
+{tag:"Website",q:"Website mạng xã hội (Facebook, TikTok, diễn đàn) đóng vai trò gì trong Digital Marketing?",opts:["Cả 3 đáp án đều sai", "Xây cộng đồng, lan tỏa tự nhiên", "Chỉ phục vụ thanh toán trực tuyến", "Chỉ dùng để lưu trữ tệp tin của doanh nghiệp"],k:"1yk6u69ou54",explain:''},
+{tag:"Website",q:"Ví dụ nào sau đây thuộc nhóm website siêu lớn theo quy mô?",opts:["Trang portfolio của một nhiếp ảnh gia", "Shopee, Lazada", "Website giới thiệu của một doanh nghiệp vừa", "Landing page đăng ký một sự kiện"],k:"168cr01za0j",explain:''},
+{tag:"Website",q:"Khi quy mô website tăng dần, điều gì xảy ra?",opts:["Chi phí vận hành giảm dần nhờ hiệu ứng quy mô", "Chỉ cần 1 người vận hành dù quy mô lớn", "Hạ tầng, nhân sự, bảo mật và ngân sách đều tăng theo", "Không còn cần đến bảo mật nhiều lớp"],k:"1d7szi91o91",explain:''},
+{tag:"Website",q:"Theo quyền sở hữu, trang ra mắt sản phẩm hoặc website dự án bất động sản thuộc loại nào?",opts:["Cả 3 đáp án đều đúng", "Website thương hiệu / dự án", "Website cá nhân", "Website tổ chức / chính phủ"],k:"145cudc4l8",explain:''},
+{tag:"Website",q:"Website có đuôi .edu.vn hoặc .gov.vn thuộc nhóm nào theo quyền sở hữu?",opts:["Cả 3 đáp án đều đúng", "Website cá nhân", "Website tổ chức / trường học / chính phủ", "Website doanh nghiệp"],k:"f0zvbot88s",explain:''},
+{tag:"Website",q:"Mục tiêu chính của website cá nhân (portfolio, blog, CV trực tuyến) là gì?",opts:["Xây dựng thương hiệu cá nhân, tìm cơ hội việc làm, hợp tác", "Cung cấp thông tin chính thống và dịch vụ công", "Tập trung chuyển đổi cho một chiến dịch sản phẩm", "Bán hàng với hàng nghìn sản phẩm"],k:"wpcdwlxkoc",explain:''},
+{tag:"Website",q:"Theo lĩnh vực hoạt động, điểm chuyển đổi chính của website bất động sản là gì?",opts:["Đặt bàn / đặt món", "Mở tài khoản / vay", "Đặt lịch khám", "Nhận tư vấn"],k:"1qtuoj1tlb0",explain:''},
+{tag:"Website",q:"Vì sao nội dung, từ khóa và quảng cáo cần được thiết kế theo từng lĩnh vực?",opts:["Vì Google bắt buộc mỗi lĩnh vực dùng một nền tảng website riêng", "Vì mỗi lĩnh vực có hành vi tìm kiếm và điểm chuyển đổi riêng", "Vì mọi lĩnh vực đều có cùng một điểm chuyển đổi là mua hàng", "Vì quảng cáo chỉ hiển thị cho đúng một lĩnh vực mỗi ngày"],k:"1243dfr8c93",explain:''},
+{tag:"Website",q:"Đặc điểm nội dung của website tĩnh là gì?",opts:["Tất cả đáp án đều đúng", "Nội dung được truy vấn liên tục từ cơ sở dữ liệu", "Nội dung không thay đổi trừ khi người lập trình sửa đổi mã nguồn", "Tất cả đáp án đều sai"],k:"18v3nkjxw5h",explain:''},
+{tag:"Website",q:"Ưu điểm của website tĩnh là gì?",opts:["Tốc độ tải nhanh, bảo mật cao, chi phí thấp", "Nội dung linh hoạt, tương tác cao, dễ cập nhật", "Dễ dàng tích hợp bình luận và đăng nhập", "Phù hợp cho mạng xã hội có hàng triệu người dùng"],k:"1bbs6tzt9tn",explain:''},
+{tag:"Website",q:"Nhược điểm của website động (Dynamic Web) là gì?",opts:["Khó cập nhật nội dung và không có tính tương tác", "Chỉ hiển thị được văn bản, không hiển thị hình ảnh", "Không thể sử dụng cho thương mại điện tử", "Tải chậm hơn, yêu cầu tài nguyên lớn hơn, chi phí cao hơn"],k:"1fx43eiy8ti",explain:''},
+{tag:"Website",q:"Thành phần nào của website là \"không gian trên Web Server để lưu trữ các tệp tin của website\"?",opts:["Tên miền (Domain Name)", "Mã nguồn (Source Code)", "Cơ sở dữ liệu (Database)", "Hosting (Web Hosting)"],k:"h5z0aarc1f",explain:''},
+{tag:"Website",q:"Trong các thành phần của website, cơ sở dữ liệu (Database) dùng để làm gì?",opts:["Cung cấp địa chỉ dễ nhớ cho website", "Chứa các tệp HTML, CSS tạo giao diện", "Lưu trữ dữ liệu động như bài viết, thông tin người dùng", "Mã hóa kết nối giữa trình duyệt và máy chủ"],k:"1uposwxs0gx",explain:''},
+{tag:"Website",q:"Trong URL https://www.huflit.edu.vn/tin-tuc?id=5#top, \".edu.vn\" được gọi là gì?",opts:["Domain Name", "Query String", "Scheme/Protocol", "TLD (Top-Level Domain)"],k:"13bdom8o8mr",explain:''},
+{tag:"Website",q:"Chứng chỉ SSL/TLS do ai cấp và giúp đảm bảo yếu tố nào của website?",opts:["Do nhà cung cấp hosting cấp; đảm bảo tốc độ tải trang", "Do Google cấp; đảm bảo thứ hạng SEO cao nhất", "Do nhà đăng ký tên miền cấp; đảm bảo giao diện đẹp", "Do CA (Certificate Authority) cấp; đảm bảo tính bảo mật và độ tin cậy"],k:"25rtuuqjehw",explain:''},
+{tag:"Website",q:"Yếu tố nào sau đây thuộc UI (User Interface)?",opts:["Quy trình mua hàng có đơn giản không", "Thanh toán có thuận tiện, nhanh chóng không", "Layout, font, màu sắc, banner, logo, icon", "Người dùng có dễ tìm kiếm không"],k:"mmi0b4b7j3",explain:''},
+{tag:"Website",q:"RWD – một yếu tố của UI – là viết tắt của cụm từ nào?",opts:["Rapid Web Development", "Remote Web Domain", "Responsive Web Design", "Rich Web Data"],k:"6zr0hu53i1",explain:''},
+{tag:"Website",q:"Câu hỏi nào sau đây dùng để đánh giá UX (User Experience) của website?",opts:["Website dùng font chữ gì?", "Logo đặt ở vị trí nào?", "Banner có hiệu ứng animation không?", "Quy trình mua hàng có đơn giản không?"],k:"3ad63ntk7p",explain:''},
+{tag:"Website",q:"Phát biểu nào đúng về sự khác biệt giữa UI và UX?",opts:["UI tập trung vào thẩm mỹ và trình bày; UX tập trung vào tối ưu hành trình và cảm xúc người dùng", "UI tập trung vào hành trình người dùng; UX tập trung vào giao diện: màu sắc và font chữ", "UI và UX là một, chỉ khác tên gọi", "UX chỉ liên quan đến tốc độ máy chủ, không liên quan đến người dùng"],k:"1q5z6sbf6va",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"So sánh về chi phí giữa SEO và SEM, phát biểu nào đúng?",opts:["SEO trả tiền theo CPC; SEM hoàn toàn miễn phí", "Cả SEO và SEM đều trả tiền cho mỗi lượt click", "Cả SEO và SEM đều trả phí theo 1.000 lượt hiển thị", "SEO không trả tiền cho mỗi lượt click; SEM trả tiền cho mỗi lượt click"],k:"yg02y7x9r5",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Đặc điểm hiệu quả của SEO là gì?",opts:["Chậm nhưng bền vững", "Nhanh nhưng hết tiền là ngừng hiển thị", "Nhanh và không bao giờ giảm thứ hạng", "Chậm và mất hiệu quả ngay khi dừng chi tiền"],k:"2g5s3x6qy7h",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Hạn chế về hiệu quả của SEM so với SEO là gì?",opts:["Phải chờ 3–6 tháng mới có kết quả", "Không đo lường được hiệu quả", "Hết tiền quảng cáo là ngừng hiển thị", "Không thể nhắm đúng khách hàng mục tiêu"],k:"s8dloeay3a",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Công việc chính khi thực hiện SEM là gì?",opts:["Tối ưu nội dung, kỹ thuật, uy tín website", "Tối ưu từ khóa, mẫu quảng cáo, giá thầu", "Cả 2 đáp án đều đúng", "Cả 2 đáp án đều sai"],k:"m3k9jb6k8g",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Về tầm nhìn, SEO hướng đến mục tiêu nào?",opts:["Ngắn hạn – thúc đẩy đơn hàng", "Ngắn hạn – xả hàng tồn kho", "Tức thời – tăng lượt click trong ngày", "Dài hạn – xây dựng thương hiệu"],k:"1cgg447bcza",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Việc kết hợp đồng thời SEO và SEM được gọi là gì?",opts:["Remarketing Campaign", "Broad Match Campaign", "Integrated Campaign", "Organic Campaign"],k:"mu6123ohyz",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Thứ tự đúng các bước Google xử lý website là gì?",opts:["Index → Crawl → Rank", "Rank → Crawl → Index", "Crawl → Index → Rank", "Crawl → Rank → Index"],k:"25f6vt4jcu9",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Bước \"Index\" trong quy trình hoạt động của Google là gì?",opts:["Googlebot tìm và quét các website để thu thập thông tin", "Sắp xếp kết quả tìm kiếm và trả về cho người dùng", "Phân tích và lưu trữ nội dung vào cơ sở dữ liệu của Google", "Tính phí quảng cáo theo lượt nhấp"],k:"1qz4u60l4ce",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Quan niệm \"SEO chỉ cần làm 1 lần là được\" sai vì:",opts:["SEO cần duy trì liên tục, theo dõi và cập nhật theo thuật toán công cụ tìm kiếm", "Google chỉ index website một lần duy nhất", "SEO phải làm lại từ đầu mỗi ngày", "SEO chỉ có hiệu lực trong 7 ngày"],k:"1x09qn2ialq",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Quan niệm \"SEO chỉ là viết bài với càng nhiều từ khóa càng tốt\" sai vì:",opts:["Google không đọc nội dung văn bản trên website", "SEO đòi hỏi thực hiện toàn diện các yếu tố: kỹ thuật, nội dung, tín hiệu uy tín", "Từ khóa không liên quan gì đến SEO", "SEO chỉ phụ thuộc vào số lượng backlink"],k:"8dfw05cqci",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Nhóm \"Yếu tố kỹ thuật\" trong SEO bao gồm:",opts:["Thương hiệu, các đánh giá, mạng xã hội", "Số lượng và chất lượng liên kết từ website khác", "Tốc độ trang, bảo mật, thân thiện với thiết bị di động", "Thời gian trên trang, tỷ lệ thoát trang"],k:"alpx3kcc39",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Thương hiệu, các đánh giá và mạng xã hội thuộc nhóm yếu tố SEO nào?",opts:["Yếu tố kỹ thuật", "Trải nghiệm người dùng", "Yếu tố ngoài trang", "Nội dung"],k:"7t8508u3kt",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"SERP (Search Engine Results Page) là gì?",opts:["Bản đồ cấu trúc website gửi cho Google", "Tập tin điều khiển việc Google crawl website", "Thẻ chỉ định trang gốc tránh trùng lặp", "Trang kết quả tìm kiếm hiển thị sau khi người dùng gõ từ khóa"],k:"1g3gxaf7c2g",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Alt Text có tác dụng gì trong SEO?",opts:["Tạo liên kết giữa các trang trong website", "Mô tả hình ảnh giúp Google hiểu hình ảnh đang nói gì", "Chỉ định trang gốc khi có nhiều trang tương tự", "Chặn Google crawl một số thành phần"],k:"mv92qnd2ag",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Liên kết từ website khác trỏ về trang của mình – một tín hiệu uy tín mạnh – được gọi là gì?",opts:["Backlink", "Internal link", "Anchor text", "Canonical tag"],k:"devzy96rsa",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Tập tin nào dùng để điều khiển việc Google được/không được crawl các thành phần của website?",opts:["Robots.txt", "Sitemap.xml", "Meta Description", "Canonical Tag"],k:"1kf1h79dldl",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Internal link giúp ích gì cho website?",opts:["Là tín hiệu uy tín mạnh từ website khác", "Mô tả hình ảnh cho Google", "Liên kết các trang trong cùng website, giúp phân bổ PageRank", "Ngăn Google index trang trùng lặp"],k:"1w8xkgcutm9",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Chỉ số Impressions trong SEM là gì?",opts:["Số người dùng nhìn thấy quảng cáo", "Số lượt nhấp chuột vào quảng cáo", "Số lần quảng cáo được hiển thị trên trang kết quả tìm kiếm", "Số trang người dùng xem trong một phiên"],k:"29a6f1c3dsh",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Chỉ số Reach (lượt tiếp cận) được hiểu là:",opts:["Số người dùng nhìn thấy quảng cáo", "Số lần quảng cáo được hiển thị", "Thời gian trung bình người dùng ở trên trang", "Tỷ lệ người dùng rời đi không hành động"],k:"27sknv8wioa",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Bounce rate (tỷ lệ thoát) trong SEM là gì?",opts:["Tỷ lệ email bị trả về", "Tỷ lệ người nhìn thấy quảng cáo và nhấp chuột", "Tỷ lệ người dùng quay lại website", "Tỷ lệ người dùng truy cập qua quảng cáo rồi rời đi mà không thực hiện hành động nào khác"],k:"pg6fjxgtm0",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Điểm chất lượng (Quality Score) của Google Ads được đánh giá trên thang điểm nào?",opts:["Từ 0 đến 5", "Từ 1 đến 100", "Từ A đến F", "Từ 1 đến 10"],k:"kbmt4thyo1",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"CPM (Cost per mille) là:",opts:["Chi phí cho mỗi 1.000 lần hiển thị quảng cáo", "Chi phí cho mỗi lần nhấp chuột", "Chi phí cho mỗi hành động chuyển đổi", "Doanh thu trên mỗi đồng quảng cáo"],k:"1gu3hcyttkv",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Một quảng cáo có 10.000 lượt hiển thị và 250 lượt nhấp. CTR của quảng cáo là bao nhiêu?",opts:["2,5%", "25%", "0,25%", "4%"],k:"7z9wwkcyx7",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Một chiến dịch chi 10 triệu đồng quảng cáo và thu về 40 triệu đồng doanh thu. ROAS là bao nhiêu?",opts:["4", "0,25", "30", "400"],k:"1m9w8rwh2ve",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Chiến dịch chi 6 triệu đồng và thu được 120 đơn hàng. CPA là bao nhiêu?",opts:["20.000 đồng", "50.000 đồng", "72.000 đồng", "500.000 đồng"],k:"19xkm1xfeps",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Công thức tính Ad Rank là gì?",opts:["Ad Rank = Giá thầu + CTR × CPC", "Ad Rank = Số lượt nhấp ÷ Số lượt hiển thị", "Ad Rank = Doanh thu ÷ Chi phí quảng cáo", "Ad Rank = Giá thầu × Điểm chất lượng + Tác động tiện ích mở rộng"],k:"g858iydiv7",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Vì sao giá thầu cao không đảm bảo quảng cáo có vị trí tốt?",opts:["Vì Google xếp hạng quảng cáo ngẫu nhiên", "Vì vị trí chỉ phụ thuộc vào số lượng backlink", "Vì điểm chất lượng thấp vẫn có thể khiến quảng cáo xếp sau đối thủ trả giá thấp hơn nhưng nội dung liên quan hơn", "Vì quảng cáo giá cao luôn bị đẩy xuống cuối trang"],k:"1e85rb316ja",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Yếu tố nào KHÔNG thuộc 3 thành phần của Google Quality Score?",opts:["Tỷ lệ nhấp dự kiến (Expected CTR)", "Mức độ liên quan quảng cáo", "Trải nghiệm trang đích", "Số lượng backlink của website"],k:"1miymzdleya",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Khi Quality Score thấp, điều gì có thể xảy ra?",opts:["Quảng cáo luôn hiển thị ở vị trí đầu tiên", "Phải trả CPC cao hơn, hoặc không hiển thị dù giá thầu cao", "CPC tự động giảm xuống mức thấp nhất", "Google miễn phí lượt nhấp cho quảng cáo"],k:"244m195y7og",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Thứ tự cấu trúc phân cấp tài khoản Google Ads từ tổng quát đến chi tiết là:",opts:["Chiến dịch → Tài khoản → Từ khóa → Nhóm quảng cáo", "Nhóm quảng cáo → Chiến dịch → Tài khoản → Mẫu quảng cáo", "Tài khoản → Nhóm quảng cáo → Chiến dịch → Từ khóa", "Tài khoản → Chiến dịch → Nhóm quảng cáo → Từ khóa & Mẫu quảng cáo"],k:"2dyfyd9gq2d",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Ký hiệu [giày chạy bộ nam] thể hiện loại khớp từ khóa nào?",opts:["Khớp chính xác", "Khớp cụm từ", "Khớp rộng", "Từ khóa phủ định"],k:"1eaj8eqm73j",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Để loại trừ các truy vấn không liên quan khi dùng từ khóa phủ định, ta làm gì?",opts:["Đặt từ khóa trong dấu ngoặc vuông [ ]", "Thêm dấu trừ (-) phía trước từ khóa cần loại trừ", "Đặt từ khóa trong dấu ngoặc kép \" \"", "Thêm dấu cộng (+) phía trước từ khóa"],k:"luvedk6f1k",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Social Media Marketing (SMM) được hiểu là gì?",opts:["Chỉ đăng bài quảng cáo sản phẩm trên Facebook", "Gửi thư quảng cáo hàng loạt đến khách hàng qua email", "Sử dụng các nền tảng mạng xã hội để xây dựng thương hiệu, tương tác, nuôi dưỡng quan hệ khách hàng và thúc đẩy mua hàng", "Tối ưu website để xếp hạng cao trên Google"],k:"1idmrcbp7xi",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Đặc trưng \"hai chiều\" của SMM có nghĩa là gì?",opts:["Thương hiệu vừa \"nói\" vừa phải \"nghe\" và phản hồi", "Thương hiệu đăng bài trên hai nền tảng cùng lúc", "Khách hàng chỉ tiếp nhận thông điệp từ thương hiệu", "Thương hiệu chạy song song quảng cáo và SEO"],k:"2fulc950a7y",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Đặc trưng \"Lan truyền & UGC\" của SMM thể hiện điều gì?",opts:["Thuật toán hiển thị đúng người, đúng thời điểm", "Thương hiệu bắt trend và phản hồi ngay lập tức", "Khách hàng chia sẻ, review, tự tạo nội dung", "Doanh nghiệp trả tiền cho mọi lượt chia sẻ"],k:"8anlhgt8k1",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"So với marketing truyền thống, việc đo lường trong SMM có đặc điểm gì?",opts:["Khó, chậm, chủ yếu ước tính", "Đo lường theo thời gian thực", "Chỉ đo được sau khi kết thúc chiến dịch", "Không thể đo lường được"],k:"1i0gmix4imm",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Trong SMM, khách hàng đóng vai trò gì?",opts:["Chỉ là người tiếp nhận thông điệp", "Người duy nhất trả chi phí quảng cáo", "Người không có ảnh hưởng đến thương hiệu", "Người đồng sáng tạo, lan truyền (UGC, review)"],k:"1dc8jawqj4l",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Trong mô hình POEM, nhược điểm của Paid Media là gì?",opts:["Dừng chi tiền là dừng hiển thị", "Cần nhiều thời gian xây dựng", "Khó kiểm soát, có thể tiêu cực", "Độ tin cậy thấp nhất trong mọi trường hợp"],k:"mukrxad5ud",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Loại truyền thông nào có độ tin cậy cao nhất nhưng khó kiểm soát?",opts:["Paid Media", "Earned Media", "Owned Media", "Truyền thông ngoài trời (OOH)"],k:"i5dccdzg99",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Bước đầu tiên trong quy trình xây dựng chiến lược SMM là gì?",opts:["Chọn nền tảng", "Xác định mục tiêu SMART", "Triển khai Organic + Ads", "Lập kế hoạch nội dung"],k:"r5rpd3ainb",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Theo Luật Quảng cáo sửa đổi (số 75/2025/QH15), KOL, KOC, streamer được xác định là gì?",opts:["Người phát hành quảng cáo độc lập không chịu trách nhiệm", "Người tiêu dùng thông thường", "Cơ quan quản lý quảng cáo", "Người chuyển tải sản phẩm quảng cáo"],k:"24vaaq1zbau",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Theo Luật Trí tuệ nhân tạo, ảnh/video do AI tạo hoặc chỉnh sửa mô phỏng người thật phải làm gì?",opts:["Được đăng tự do không cần ghi chú", "Chỉ được đăng trên YouTube", "Phải bán quyền sở hữu cho nền tảng", "Phải gắn nhãn"],k:"2ga42ghnpe7",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Khung hình ưu tiên cho video TikTok là gì?",opts:["16:9", "9:16", "1:1", "4:3"],k:"28lfves52f0",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Quy tắc 80/20 trong content pillars có nghĩa là gì?",opts:["80% nội dung bán hàng, 20% nội dung giải trí", "80% ngân sách cho quảng cáo, 20% cho nội dung", "80% video ngắn, 20% video dài", "Khoảng 80% nội dung mang lại giá trị, 20% nội dung bán hàng trực tiếp"],k:"17jpu9npp6n",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Phần HOOK của một nội dung video hiệu quả nằm ở khoảng thời gian nào?",opts:["0–3 giây đầu", "3–45 giây", "Cuối video", "Giữa video"],k:"1xqsqw0xrat",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"KOC là ai?",opts:["Người tiêu dùng trải nghiệm thật và review sản phẩm", "Người có chuyên môn, dẫn dắt dư luận", "Người giới thiệu sản phẩm nhận hoa hồng theo đơn", "Nhân viên chăm sóc khách hàng của doanh nghiệp"],k:"pt5uo3r7pr",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Shoppertainment là gì?",opts:["Mua sắm tại cửa hàng truyền thống có khu vui chơi", "Hình thức quảng cáo hiển thị trên Google Shopping", "Mua sắm kết hợp giải trí: khách mua khi đang xem nội dung", "Chương trình khách hàng thân thiết qua email"],k:"2dtzi81wllf",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Trong hệ sinh thái Meta, Messenger đóng vai trò gì?",opts:["Nền tảng thảo luận văn bản mới", "Nền tảng hình ảnh mạnh về thời trang, làm đẹp", "Nhắn tin trực tiếp, tư vấn và chốt đơn hàng với khách hàng", "Nhắn tin bán hàng quốc tế cho thị trường xuất khẩu"],k:"21bvo7kj2ba",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Thứ tự cấu trúc chiến dịch Meta Ads là gì?",opts:["Quảng cáo (Ad) → Nhóm quảng cáo (Ad set) → Chiến dịch (Campaign)", "Nhóm quảng cáo (Ad set) → Chiến dịch (Campaign) → Quảng cáo (Ad)", "Chiến dịch (Campaign) → Quảng cáo (Ad) → Nhóm quảng cáo (Ad set)", "Chiến dịch (Campaign) → Nhóm quảng cáo (Ad set) → Quảng cáo (Ad)"],k:"293lojzpa4f",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Custom audience trong Meta Ads là nhóm đối tượng nào?",opts:["Người có đặc điểm tương tự tệp khách hàng hiện có", "Người đã tương tác fanpage, xem video, truy cập web, danh sách khách hàng", "Người được chọn theo vị trí, tuổi, giới tính, sở thích", "Toàn bộ người dùng Facebook tại Việt Nam"],k:"1m781px9li5",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Một chiến dịch chi 8 triệu đồng quảng cáo, thu về 24 triệu đồng doanh thu. ROAS là bao nhiêu?",opts:["3", "0,33", "16", "32"],k:"7i7nttt25t",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Trong social listening, \"share of voice\" là gì?",opts:["Sắc thái tích cực/tiêu cực", "Lượng thảo luận", "Thị phần thảo luận", "Tỷ lệ chuyển đổi"],k:"h5udyq5gb1",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Trong 5 bước xử lý khủng hoảng trên MXH, \"giờ vàng\" để phản hồi thường là bao lâu?",opts:["7 ngày đầu", "1 tháng đầu", "24 giờ đầu", "Sau khi khủng hoảng kết thúc"],k:"1so5kic97c1",explain:''},
+{tag:"Email Marketing - CRM",q:"Theo Kotler & Armstrong (2021), Email Marketing là một công cụ của:",opts:["Quan hệ công chúng (PR)", "Truyền thông marketing trực tiếp", "Marketing truyền thống qua báo in", "Quảng cáo ngoài trời (OOH)"],k:"99ndfan89v",explain:''},
+{tag:"Email Marketing - CRM",q:"Hai hình thức gửi Email Marketing được nêu trong bài là:",opts:["Triggered Email và Broadcast Email", "Inbound Email và Outbound Email", "Paid Email và Earned Email", "Static Email và Dynamic Email"],k:"1972eqqsm3h",explain:''},
+{tag:"Email Marketing - CRM",q:"Theo Nghị định 91/2020/NĐ-CP, thư điện tử quảng cáo phải gắn nhãn gì ở đầu tiêu đề?",opts:["[ADS]", "[QC]", "[KM]", "[SPAM]"],k:"11k577qzjvk",explain:''},
+{tag:"Email Marketing - CRM",q:"Theo Nghị định 91/2020/NĐ-CP, không được gửi quá bao nhiêu thư quảng cáo tới một địa chỉ email trong 24 giờ (trừ khi có thỏa thuận khác)?",opts:["01 thư", "05 thư", "10 thư", "03 thư"],k:"2bm5rx46c9p",explain:''},
+{tag:"Email Marketing - CRM",q:"Chuỗi email marketing chào mừng (Welcome series) được kích hoạt khi nào?",opts:["Khi khách thêm vào giỏ nhưng chưa thanh toán", "Khi khách vừa đăng ký", "Khi khách không mua hàng 60 ngày", "Vào ngày sinh nhật của khách"],k:"243wlhncanr",explain:''},
+{tag:"Email Marketing - CRM",q:"Kịch bản \"Giỏ hàng bỏ quên\" (Abandoned cart) được kích hoạt khi nào?",opts:["Khách vừa đăng ký nhận bản tin", "Khách thêm sản phẩm vào giỏ nhưng chưa thanh toán", "Khách vừa hoàn tất đơn hàng", "Khách hủy đăng ký nhận email"],k:"37p1347ito",explain:''},
+{tag:"Email Marketing - CRM",q:"Tiêu đề email (subject line) nên có độ dài khoảng bao nhiêu ký tự để hiển thị đủ trên điện thoại?",opts:["30–50 ký tự", "5–10 ký tự", "100–150 ký tự", "Trên 200 ký tự"],k:"5rzsuq5fz1",explain:''},
+{tag:"Email Marketing - CRM",q:"Preheader trong email là gì?",opts:["Phần chân trang chứa nút hủy đăng ký", "Dòng mô tả hiện ngay sau tiêu đề trong hộp thư, bổ sung thông tin, lợi ích cho tiêu đề", "Logo và banner ở đầu email", "Địa chỉ email của người gửi"],k:"1k55xca780c",explain:''},
+{tag:"Email Marketing - CRM",q:"Tiêu đề email nào sau đây được đánh giá là tốt hơn?",opts:["KHUYẾN MÃI LỚN!!!", "Mua ngay kẻo hết", "Chúng tôi có sản phẩm mới", "Nam ơi, giảm 20% cho đôi giày bạn vừa xem"],k:"19gddat8zt6",explain:''},
+{tag:"Email Marketing - CRM",q:"Nguyên tắc \"ưu tiên điện thoại (mobile-first)\" trong thiết kế email yêu cầu gì?",opts:["Bố cục nhiều cột, chữ nhỏ để chứa nhiều thông tin", "Chỉ gửi một ảnh lớn duy nhất", "Không cần nút CTA", "Bố cục 1 cột, chữ đủ lớn, nút dễ bấm bằng ngón tay"],k:"9w09ieu27y",explain:''},
+{tag:"Email Marketing - CRM",q:"Phần Footer của email nên bao gồm những gì?",opts:["Thông tin liên hệ, địa chỉ, mạng xã hội và nút hủy đăng ký", "Banner hình ảnh chính và headline", "Lời chào cá nhân hóa", "Mã giảm giá và nút CTA chính"],k:"l7dhzduvqx",explain:''},
+{tag:"Email Marketing - CRM",q:"Với thư bị trả về dạng hard bounce, cách xử lý được khuyến nghị là gì?",opts:["Xóa ngay khỏi danh sách", "Thử gửi lại nhiều lần", "Chuyển sang tên miền khác để gửi", "Giữ lại để tăng số lượng danh sách"],k:"1c3yxsx1m9i",explain:''},
+{tag:"Email Marketing - CRM",q:"Một chiến dịch email có doanh thu 30 triệu đồng, chi phí 10 triệu đồng. ROI là bao nhiêu?",opts:["300%", "33%", "200%", "20%"],k:"28rjqc900tf",explain:''},
+{tag:"Email Marketing - CRM",q:"CRM là viết tắt của cụm từ nào?",opts:["Customer Revenue Marketing", "Customer Relationship Management", "Content Resource Management", "Customer Retention Media"],k:"2ecglupt8hu",explain:''},
+{tag:"Email Marketing - CRM",q:"Với nhóm khách hàng có nguy cơ rời bỏ (lâu không mua), loại email phù hợp là gì?",opts:["Email \"đánh thức\" (win-back) kèm voucher", "Ưu đãi độc quyền, mua sớm sản phẩm mới", "Hướng dẫn sử dụng sản phẩm vừa mua", "Thư chào mừng đăng ký"],k:"1f7t74qqlgs",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Công cụ nào được nêu trong bài để nghiên cứu từ khóa khi triển khai quảng cáo Google?",opts:["Google Keyword Planner", "Google Merchant Center", "Meta Business Suite", "YouTube Studio"],k:"lmfvm0o6ky",explain:''},
+{tag:"Marketing truyền thông xã hội",q:"Lookalike audience trong Meta Ads là nhóm đối tượng nào?",opts:["Người đã tương tác fanpage hoặc truy cập website", "Người có đặc điểm tương tự tệp khách hàng hiện có", "Người được chọn theo vị trí, tuổi, giới tính, sở thích", "Danh sách khách hàng doanh nghiệp tải lên"],k:"tkc039vwm7",explain:''},
+{tag:"Email Marketing - CRM",q:"Với nhóm lead chưa mua hàng, doanh nghiệp nên gửi loại email nào?",opts:["Ưu đãi độc quyền dành cho khách VIP", "Email cảm ơn sau mua và xin đánh giá", "Chuỗi nuôi dưỡng: nội dung hữu ích, đánh giá", "Hướng dẫn sử dụng sản phẩm đã mua"],k:"1ds00ac6oiv",explain:''},
+{tag:"Website",q:"Nhược điểm của website tĩnh (Static Web) là gì?",opts:["Tốc độ tải chậm do phải truy vấn CSDL", "Yêu cầu tài nguyên máy chủ rất lớn", "Chi phí xây dựng và vận hành cao", "Khó cập nhật, không có tính tương tác"],k:"2cbaogkl0zr",explain:''},
+{tag:"Website",q:"Website của chính phủ và cơ quan phi chính phủ có chức năng và mục tiêu gì?",opts:["Bán hàng trực tuyến; tăng doanh số", "Cung cấp các dịch vụ công; phục vụ cộng đồng", "Video, âm nhạc, trò chơi; giữ chân người dùng", "Portfolio, blog; xây dựng thương hiệu cá nhân"],k:"1t8wyw1k7x9",explain:''},
+{tag:"Website",q:"Xu hướng \"cá nhân hóa trải nghiệm\" trên website được thể hiện như thế nào?",opts:["Mọi khách hàng đều thấy cùng một nội dung", "Website chỉ hiển thị cho khách đã đăng nhập", "Tắt toàn bộ gợi ý sản phẩm để tăng tốc độ", "Nội dung, gợi ý sản phẩm, ưu đãi hiển thị theo hành vi và nhóm khách hàng"],k:"1zmoc69ipiw",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Bước \"Rank\" trong quy trình hoạt động của Google là gì?",opts:["Googlebot tìm và quét các website", "Sắp xếp kết quả tìm kiếm và trả về cho người dùng", "Phân tích và lưu trữ nội dung vào cơ sở dữ liệu", "Gửi báo cáo lỗi kỹ thuật cho chủ website"],k:"1ntxlndvde5",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Trong cấu trúc tài khoản Google Ads, cấp \"Nhóm quảng cáo (Ad Group)\" có vai trò gì?",opts:["Quản lý thanh toán và người dùng", "Xác định ngân sách, mục tiêu, vị trí địa lý", "Gom các từ khóa và mẫu quảng cáo có chủ đề liên quan", "Đại diện cho toàn bộ doanh nghiệp"],k:"21h73o5d9ht",explain:''},
+{tag:"Marketing công cụ tìm kiếm",q:"Ký hiệu \"giày chạy bộ nam\" (đặt trong dấu ngoặc kép) thể hiện loại khớp từ khóa nào?",opts:["Khớp chính xác", "Khớp rộng", "Từ khóa phủ định", "Khớp cụm từ"],k:"1z28n4y2m85",explain:''},
+{tag:"Email Marketing - CRM",q:"Transactional Email (email giao dịch) là loại email nào?",opts:["Email giới thiệu chương trình flash sale cuối tuần", "Email bản tin chia sẻ kiến thức hằng tháng", "Email bắt buộc gửi, liên quan đến giao dịch hoặc hành động người dùng đã thực hiện", "Email khảo sát mức độ hài lòng của khách hàng"],k:"2cdqryzh3cr",explain:''},
+{tag:"Email Marketing - CRM",q:"Email nhắc giỏ hàng bị bỏ quên được xếp vào loại email nào trong bài?",opts:["Transactional Email (email giao dịch)", "Promotional Email (email khuyến mãi – bán hàng)", "Relational Email (email quan hệ – nuôi dưỡng)", "Email chào mừng khách hàng mới"],k:"25iizmmhkjo",explain:''},
+{tag:"Email Marketing - CRM",q:"Thứ tự các tầng trong phễu Email Marketing từ trên xuống là gì?",opts:["Open → Delivery → Trust → Click", "Click → Open → Delivery → Trust", "Delivery → Open → Click → Trust/Conversion", "Trust → Click → Open → Delivery"],k:"jakayy4wvw",explain:''},
+{tag:"Email Marketing - CRM",q:"Yếu tố nào quyết định nhiều nhất đến việc khách hàng có mở email hay không?",opts:["Màu sắc của phần footer", "Số lượng hình ảnh trong thân email", "Tiêu đề email", "Dung lượng tệp đính kèm"],k:"2bunqyjtce7",explain:''},
+{tag:"Email Marketing - CRM",q:"Doanh nghiệp gửi 10.000 email, có 9.700 email đến được hộp thư. Delivery Rate là bao nhiêu?",opts:["3%", "9,7%", "100%", "97%"],k:"x6385mgy9r",explain:''},
+{tag:"Email Marketing - CRM",q:"Theo phân phối theo thời gian, \"giờ vàng\" gửi email thường là khoảng nào?",opts:["0–2h sáng", "10–12h trưa", "4–6h sáng", "8–10h sáng hoặc 20–22h"],k:"1mq1jtz7adp",explain:''},
+{tag:"Email Marketing - CRM",q:"CRM phân tích (Analytical CRM) có chức năng chính là gì?",opts:["Tự động hóa công việc hằng ngày của bán hàng, marketing", "Chia sẻ thông tin khách hàng giữa các bộ phận và đối tác", "Phân tích dữ liệu khách hàng để hiểu hành vi, phân khúc và dự báo", "Thiết kế giao diện và nội dung cho website"],k:"22m4f8lp3n3",explain:''},
+{tag:"Email Marketing - CRM",q:"Vì sao email được xem là kênh sở hữu dữ liệu khách hàng trực tiếp (first-party data)?",opts:["Email do Google sở hữu và cung cấp dữ liệu cho doanh nghiệp", "Dữ liệu email được mua từ bên thứ ba có uy tín", "Mọi email đều được lưu trữ công khai trên Internet", "Doanh nghiệp tự nắm danh sách email, ít phụ thuộc thuật toán của nền tảng như Facebook hay TikTok"],k:"2bqtsfemelq",explain:''},
+{tag:"Email Marketing - CRM",q:"Khi gửi email marketing, loại tệp đính kèm nào nên tránh để không bị vào thư rác?",opts:["Không đính kèm tệp nào", "Liên kết đến website uy tín", "Tệp nặng, tệp .exe, .zip", "Hình ảnh có văn bản thay thế"],k:"13z4qbuu017",explain:''},
+{tag:"Email Marketing - CRM",q:"Email giao dịch (xác nhận đơn hàng, thanh toán) nên được gửi khi nào?",opts:["Sau 1 tuần", "Vào giờ vàng 20–22h", "Gửi ngay lập tức", "Gộp chung vào bản tin cuối tháng"],k:"jhydyfptrg",explain:''},
+{tag:"Email Marketing - CRM",q:"Một chiến dịch email có chi phí 2 triệu đồng, doanh thu 10 triệu đồng. ROI là bao nhiêu?",opts:["500%", "80%", "20%", "400%"],k:"1bjl5vmkjug",explain:''},
+{tag:"Email Marketing - CRM",q:"Các hệ thống Email Marketing thường đo tỷ lệ mở email bằng cách nào?",opts:["Gọi điện hỏi trực tiếp người nhận", "Yêu cầu người nhận trả lời email", "Đếm số lần email được chuyển tiếp", "Chèn một hình ảnh rất nhỏ, vô hình (tracking pixel) vào email"],k:"ha2rsu64q4",explain:''},
+{tag:"Email Marketing - CRM",q:"Mục tiêu tạo ra \"hồ sơ khách hàng duy nhất\" của CRM được gọi là gì?",opts:["Single customer view", "Customer journey map", "Lead magnet", "Landing page"],k:"84hvwcwhfo",explain:''},
+{tag:"Email Marketing - CRM",q:"CRM cộng tác (Collaborative CRM) có chức năng chính là gì?",opts:["Chia sẻ thông tin khách hàng giữa các bộ phận và đối tác, đồng bộ đa kênh", "Phân tích dữ liệu để dự báo khách hàng rời bỏ", "Tự động hóa việc gửi email hằng ngày", "Thiết kế giao diện website bán hàng"],k:"ishrel4d7h",explain:''},
+{tag:"Email Marketing - CRM",q:"Relational Email (email quan hệ – nuôi dưỡng) được gửi nhằm mục đích gì?",opts:["Xác nhận giao dịch khách vừa thanh toán", "Thông báo biến động số dư tài khoản", "Bắt buộc khách mua hàng ngay trong ngày", "Giữ liên lạc và cung cấp giá trị cho khách hàng"],k:"pultlkk7bt",explain:''},
+{tag:"Email Marketing - CRM",q:"Email automation (email gửi tự động khi khách thực hiện một hành động) chính là hình thức gửi nào?",opts:["Broadcast Email", "Email gửi tay từng người", "Email gửi theo danh sách mua ngoài", "Triggered Email"],k:"1s93w8cvsvn",explain:''},
+{tag:"Email Marketing - CRM",q:"CRM tác nghiệp (Operational CRM) có chức năng chính là gì?",opts:["Tự động hóa công việc hằng ngày của bán hàng, marketing, dịch vụ", "Phân tích dữ liệu để dự báo khách rời bỏ", "Chia sẻ thông tin khách hàng với đối tác", "Thiết kế giao diện cho website bán hàng"],k:"2drgt1ridsa",explain:''}
+];
+
+// Đáp án được mã hóa 1 chiều: mỗi câu chỉ lưu mã băm "k" của (khóa + câu hỏi + đáp án đúng),
+// không lưu vị trí đáp án → xem mã nguồn không đọc ra được đáp án đúng.
+function qHash(str) {
+  var h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+  for (var i = 0, ch; i < str.length; i++) {
+    ch = str.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507);
+  h1 ^= Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507);
+  h2 ^= Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(36);
+}
+var Q_SALT = "xdw#Nam@2026";
+function qAnswerIndex(q) {
+  for (var i = 0; i < q.opts.length; i++) {
+    if (qHash(Q_SALT + '|' + q.q + '|' + q.opts[i]) === q.k) return i;
+  }
+  return 0;
+}
+
+var QUESTIONS_PER_GAME = 45;
+var questions = [], currentIdx = 0, score = 0, correctCount = 0, wrongCount = 0;
+var timerInterval = null, timeLeft = 25, totalTimeUsed = 0, answered = false;
+var combo = 0, maxCombo = 0, wrongStreak = 0, currentPlayerName = '', currentStudentId = '', currentStudentFullname = '', reviewLog = [];
+var currentResultId = null; // id bản ghi kết quả trắc nghiệm vừa lưu, dùng để gắn bài tự luận vào đúng bản ghi này
+var essaySelectedQuestion = '';
+var ESSAY_MIN_WORDS = 25;
+var ESSAY_MAX_WORDS = 200;
+var ESSAY_TIME_LIMIT_MS = 20 * 60 * 1000; // 20 phút cho Phần 2
+var essayTimerId = null;
+var essayEndTime = 0;
+var essaySubmitted = false;
+
+// ----- Giới hạn tổng thời gian Phần 1: 35 phút, tính cả các lần chơi lại -----
+var PART1_LIMIT_MS = 35 * 60 * 1000;        // tổng 35 phút cho Phần 1
+var PART1_LIMIT_MIN = 35;
+var MAX_ATTEMPTS = 3;                       // mỗi Mã SV chơi Phần 1 tối đa 3 lần
+var attemptsUsed = 0;                       // số lượt Phần 1 Mã SV này đã dùng (theo server)
+var PART1_NO_RESTART_MS = 3 * 60 * 1000;    // còn dưới 3 phút → khóa nút Chơi Lại
+var PART1_URGENT_MS = 90 * 1000;            // còn dưới 90 giây → hiện nổi bật
+var part1EndTime = 0;                       // mốc hết giờ Phần 1 (0 = chưa bắt đầu)
+var part1TimerId = null;
+var part1TimedOut = false;                  // lượt chơi cuối bị dừng do hết 35 phút
+
+// Lưu mốc hết giờ theo Mã SV trên trình duyệt để tải lại trang không được "reset" 35 phút (server cũng lưu mốc này).
+// Mốc cũ hơn 3 giờ được bỏ qua (tránh khóa nhầm khi làm lại đề vào buổi khác).
+function part1StorageKey() {
+  return 'quizP1End:' + String(currentStudentId || currentStudentFullname || 'an-danh').trim().toLowerCase();
+}
+function loadPart1EndTime() {
+  try {
+    var v = Number(localStorage.getItem(part1StorageKey()));
+    if (v && Date.now() - v < 3 * 60 * 60 * 1000) return v;
+  } catch (e) {}
+  return 0;
+}
+function savePart1EndTime() {
+  try { localStorage.setItem(part1StorageKey(), String(part1EndTime)); } catch (e) {}
+}
+function part1Remaining() {
+  return part1EndTime ? Math.max(0, part1EndTime - Date.now()) : PART1_LIMIT_MS;
+}
+function fmtMMSS(ms) {
+  var sec = Math.ceil(ms / 1000), mm = Math.floor(sec / 60), ss = sec % 60;
+  return (mm < 10 ? '0' : '') + mm + ':' + (ss < 10 ? '0' : '') + ss;
+}
+function startPart1Clock() {
+  if (!part1EndTime) {
+    part1EndTime = loadPart1EndTime() || (Date.now() + PART1_LIMIT_MS);
+    savePart1EndTime();
+  }
+  if (!part1TimerId) part1TimerId = setInterval(tickPart1, 1000);
+  tickPart1();
+}
+function stopPart1Clock() {
+  if (part1TimerId) { clearInterval(part1TimerId); part1TimerId = null; }
+}
+function tickPart1() {
+  var remain = part1Remaining();
+  var txt = fmtMMSS(remain);
+  $('part1-time-left').textContent = txt;
+  $('p1-result-left').textContent = txt;
+  $('part1-timer').classList.toggle('urgent', remain > 0 && remain <= PART1_URGENT_MS);
+  // Đang chơi mà hết 35 phút → kết thúc ngay, tính theo số điểm hiện có
+  if (remain <= 0 && $('quiz-screen').style.display !== 'none') endPart1ByTimeout();
+  updateRestartLock();
+}
+function endPart1ByTimeout() {
+  part1TimedOut = true;
+  clearInterval(timerInterval);
+  if (!answered) totalTimeUsed += Math.max(0, 30 - timeLeft); // câu đang dở: cộng thời gian đã dùng, không tính đúng/sai
+  answered = true;
+  var ac = document.getElementById('ac-modal');
+  if (ac) ac.style.display = 'none';
+  showResult();
+}
+// Khóa nút Chơi Lại khi thời gian Phần 1 còn dưới 3 phút
+function updateRestartLock() {
+  var btn = $('btn-restart'), msg = $('restart-lock-msg');
+  var remain = part1Remaining();
+  if (devtoolsBanned) {
+    btn.disabled = true;
+    btn.classList.add('locked');
+    msg.style.display = 'block';
+    msg.textContent = '🚫 Phần 1 bị khóa do mở F12 / xem mã nguồn ' + DEVTOOLS_MAX + ' lần — hãy bấm Tự Luận để làm Phần 2.';
+    return;
+  }
+  var noAttemptsLeft = attemptsUsed >= MAX_ATTEMPTS;
+  if (noAttemptsLeft && !(part1EndTime && remain <= 0)) {
+    btn.disabled = true;
+    btn.classList.add('locked');
+    msg.style.display = 'block';
+    msg.textContent = '🔁 Bạn đã dùng hết ' + MAX_ATTEMPTS + '/' + MAX_ATTEMPTS + ' lượt chơi Phần 1. Vui lòng qua làm Phần 2.';
+  } else if (part1EndTime && remain < PART1_NO_RESTART_MS) {
+    btn.disabled = true;
+    btn.classList.add('locked');
+    msg.style.display = 'block';
+    msg.textContent = remain <= 0
+      ? (part1TimedOut ? '⏰ Đã hết ' + PART1_LIMIT_MIN + ' phút Phần 1 — điểm được tính theo số điểm bạn đang có. ' : '⏰ Đã hết ' + PART1_LIMIT_MIN + ' phút Phần 1. ') + 'Bạn không được chơi lại. Vui lòng qua làm Phần 2.'
+      : 'Chỉ còn 3 phút hết thời gian chơi Phần 1 nên Bạn không được chơi lại. Vui lòng qua làm Phần 2';
+  } else {
+    btn.disabled = false;
+    btn.classList.remove('locked');
+    msg.style.display = 'none';
+  }
+}
+
+var ESSAY_QUESTIONS = [
+  "Phân tích vai trò của từ khóa (Keyword) trong hoạt động SEO. Doanh nghiệp cần lưu ý những gì khi nghiên cứu từ khóa?",
+  "Những lợi ích và hạn chế của SEO so với quảng cáo trả phí trên công cụ tìm kiếm là gì?",
+  "Trình bày các yếu tố ảnh hưởng đến thứ hạng website trên trang kết quả tìm kiếm của Google.",
+  "Trình bày vai trò của Social Media Marketing trong việc xây dựng thương hiệu và tương tác với khách hàng.",
+  "Những yếu tố nào tạo nên một nội dung thu hút và hiệu quả trong Social Media Marketing?",
+  "Một doanh nghiệp có lượng truy cập website cao nhưng tỷ lệ chuyển đổi thấp. Hãy phân tích các nguyên nhân có thể xảy ra và đề xuất giải pháp cải thiện.",
+];
+// Frontend và backend chạy chung 1 domain (test.nguyenchuannam.cloud):
+// khi mở qua web thì gửi kết quả về chính domain đang mở;
+// khi mở file trực tiếp trên máy (file://) thì gửi về domain thật để test.
+var API_BASE_URL = location.protocol.indexOf('http') === 0
+  ? location.origin
+  : 'https://test.nguyenchuannam.cloud';
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+function $(id) { return document.getElementById(id); }
+
+var CORRECT_PASS = 'ThayChuanNam';
+function startQuiz() {
+  var passEl = $('pass-input');
+  var passErr = $('pass-error');
+  if (passEl.value !== CORRECT_PASS) {
+    passEl.classList.remove('error');
+    void passEl.offsetWidth;
+    passEl.classList.add('error');
+    passErr.textContent = '❌ Mật khẩu không đúng. Vui lòng thử lại!';
+    passEl.value = '';
+    passEl.focus();
+    setTimeout(function() { passEl.classList.remove('error'); }, 500);
+    return;
+  }
+  passErr.textContent = '';
+  currentStudentId = $('student-id').value.trim();
+  currentStudentFullname = $('student-fullname').value.trim();
+  if (!currentStudentId) {
+    passErr.textContent = '⚠️ Vui lòng nhập Mã Sinh Viên (mỗi Mã SV được chơi tối đa ' + MAX_ATTEMPTS + ' lần).';
+    $('student-id').focus();
+    return;
+  }
+  currentPlayerName = currentStudentId + (currentStudentFullname ? ' - ' + currentStudentFullname : '');
+  var btnStart = $('btn-start');
+  btnStart.disabled = true;
+  btnStart.textContent = '⏳ Đang kiểm tra Mã SV...';
+  requestStartAttempt(function (st) {
+    btnStart.disabled = false;
+    btnStart.textContent = '🚀 Bắt Đầu Chơi';
+    handleStartStatus(st);
+  });
+}
+
+// Hỏi server: Mã SV này còn được chơi Phần 1 không? (đếm lượt, kiểm tra đã làm Tự Luận chưa, thời gian 35 phút)
+function requestStartAttempt(cb) {
+  fetch(API_BASE_URL + '/api/start-attempt', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ studentId: currentStudentId, studentFullname: currentStudentFullname }),
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { cb(d || {}); })
+    .catch(function () {
+      // Không kết nối được server (vd. mở file trực tiếp trên máy) → đếm lượt tạm trên trình duyệt
+      var k = 'quizAttempts:' + currentStudentId.toLowerCase();
+      var n = 0;
+      try { n = Number(localStorage.getItem(k)) || 0; } catch (e) {}
+      var local = loadPart1EndTime();
+      var remain = local ? Math.max(0, local - Date.now()) : PART1_LIMIT_MS;
+      if (remain <= 0) return cb({ ok: false, reason: 'part1Timeout', attempts: n });
+      if (n >= MAX_ATTEMPTS) return cb({ ok: false, reason: 'maxAttempts', attempts: n });
+      try { localStorage.setItem(k, String(n + 1)); } catch (e) {}
+      cb({ ok: true, attempts: n + 1, part1RemainingMs: remain, offline: true });
+    });
+}
+
+function handleStartStatus(st) {
+  var passErr = $('pass-error');
+  if (typeof st.attempts === 'number') attemptsUsed = st.attempts;
+  if (typeof st.part1RemainingMs === 'number') {
+    part1EndTime = Date.now() + st.part1RemainingMs;
+    savePart1EndTime();
+  }
+  if (st.reason === 'essayDone') {
+    passErr.textContent = '🔒 Mã SV này đã hoàn thành Phần 2 Tự Luận — không được làm lại bài kiểm tra.';
+    return;
+  }
+  if (st.reason === 'essayInProgress') {
+    // Đã mở câu hỏi Tự Luận trước đó → không được quay lại Phần 1, vào thẳng Phần 2
+    $('start-screen').style.display = 'none';
+    $('result-screen').style.display = 'none';
+    goToEssay(st.essay);
+    return;
+  }
+  if (st.reason === 'devtoolsBanned') { // đã mở F12 lần 2 → Phần 1 = 0 điểm, chỉ còn Phần 2
+    devtoolsViolations = DEVTOOLS_MAX;
+    devtoolsBanned = true;
+    passErr.textContent = '🚫 Mã SV này đã mở F12 (xem mã nguồn) ' + DEVTOOLS_MAX + ' lần — Phần 1 bị 0 điểm. Đang chuyển sang Phần 2: Tự Luận...';
+    setTimeout(function () { $('start-screen').style.display = 'none'; goToEssay(st.essay); }, 1800);
+    return;
+  }
+  if (typeof st.devtoolsViolations === 'number') devtoolsViolations = Math.max(devtoolsViolations, st.devtoolsViolations);
+  if (st.reason === 'part1Timeout' || st.reason === 'maxAttempts') {
+    passErr.textContent = st.reason === 'part1Timeout'
+      ? '⏰ Đã hết ' + PART1_LIMIT_MIN + ' phút của Phần 1. Vui lòng qua làm Phần 2.'
+      : '🔁 Mã SV này đã dùng hết ' + MAX_ATTEMPTS + ' lượt chơi Phần 1. Vui lòng qua làm Phần 2.';
+    if ($('result-name').textContent) { // đã có kết quả → quay về màn hình kết quả để bấm Tự Luận
+      $('start-screen').style.display = 'none';
+      $('result-screen').style.display = 'block';
+      updateRestartLock();
+    } else {
+      $('start-screen').style.display = 'none';
+      goToEssay(st.essay);
+    }
+    return;
+  }
+  if (!st.ok) {
+    passErr.textContent = '❌ ' + (st.error || 'Không thể bắt đầu bài, vui lòng thử lại.');
+    return;
+  }
+  part1TimedOut = false;
+  startPart1Clock();
+  beginPart1Game();
+}
+
+// Bắt đầu (hoặc làm lại từ đầu) 1 lượt Phần 1: bốc câu mới, điểm về 0
+function beginPart1Game() {
+  clearInterval(timerInterval);
+  answered = false;
+  devtoolsResetBaseline();
+  questions = shuffle(ALL_QUESTIONS).slice(0, QUESTIONS_PER_GAME);
+  currentIdx = 0; score = 0; correctCount = 0; wrongCount = 0; totalTimeUsed = 0;
+  combo = 0; maxCombo = 0; wrongStreak = 0; reviewLog = [];
+  $('start-screen').style.display = 'none';
+  $('result-screen').style.display = 'none';
+  $('review-panel').style.display = 'none';
+  $('quiz-screen').style.display = 'block';
+  $('score-display').textContent = '0';
+  $('combo-display').textContent = '';
+  loadQuestion();
+}
+
+function loadQuestion() {
+  answered = false;
+  clearInterval(timerInterval);
+  var q = questions[currentIdx];
+  var total = questions.length;
+  var pct = Math.round((currentIdx / total) * 100);
+  var card = $('flip-card');
+  /* card.classList.add('flipping'); */ // disabled on mobile
+
+  // Shuffle options ONCE per question
+  var shuffleIdx = shuffle([0, 1, 2, 3]);
+  var newCorrect = shuffleIdx.indexOf(qAnswerIndex(q));
+  // Store for anti-cheat
+  acFired = false;
+  acCurrentCorrect = newCorrect;
+  acCurrentExplain = q.explain;
+  acCurrentTag = q.tag;
+  acCurrentQText = q.q;
+  acCurrentShuffleIdx = shuffleIdx.slice();
+  acCurrentOrigOpts = q.opts.slice();
+
+  setTimeout(function() {
+    $('q-tag').textContent = q.tag;
+    $('q-number').textContent = 'Câu ' + (currentIdx + 1) + ' / ' + total;
+    $('q-text').textContent = q.q;
+    /* card.classList.remove('flipping'); */
+  }, 250);
+
+  $('q-progress-text').textContent = 'Câu ' + (currentIdx + 1) + ' / ' + total;
+  $('q-pct').textContent = pct + '%';
+  $('progress-fill').style.width = pct + '%';
+  var fb = $('feedback'); fb.className = 'feedback'; fb.style.display = 'none';
+  var nb = $('next-btn'); nb.disabled = true;
+  nb.textContent = currentIdx === total - 1 ? '🏁 Xem Kết Quả' : 'Câu tiếp theo →';
+
+  setTimeout(function() {
+    var container = $('options-container'); container.innerHTML = '';
+    var keys = ['A', 'B', 'C', 'D'];
+    for (var i = 0; i < 4; i++) {
+      (function(idx, origIdx) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'opt';
+        btn.innerHTML = '<span class="opt-key">' + keys[idx] + '</span><span>' + escHtml(q.opts[origIdx]) + '</span>';
+        btn.setAttribute('data-idx', idx);
+        btn.onclick = function() { selectAnswer(idx, newCorrect, q.explain, q.tag, q.q, shuffleIdx, q.opts); };
+        container.appendChild(btn);
+      })(i, shuffleIdx[i]);
+    }
+  }, 260);
+
+  timeLeft = 30;
+  $('timer-display').textContent = timeLeft;
+  $('timer-display').style.color = 'var(--accent2)';
+  timerInterval = setInterval(function() {
+    timeLeft--;
+    $('timer-display').textContent = timeLeft;
+    $('timer-display').style.color = timeLeft <= 5 ? '#ff4f7b' : 'var(--accent2)';
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      totalTimeUsed += 30;
+      if (!answered) timeOut(newCorrect, q.explain, q.tag, q.q, shuffleIdx, q.opts);
+    }
+  }, 1000);
+}
+
+function selectAnswer(chosen, correct, explain, tag, qText, shuffleIdx, origOpts) {
+  if (answered) return;
+  answered = true;
+  clearInterval(timerInterval);
+  var timeUsed = 30 - timeLeft;
+  totalTimeUsed += timeUsed;
+  var opts = document.querySelectorAll('.opt');
+  for (var i = 0; i < opts.length; i++) {
+    opts[i].disabled = true;
+    if (i === correct) opts[i].classList.add(chosen === correct ? 'correct' : 'reveal');
+    if (i === chosen && chosen !== correct) opts[i].classList.add('wrong');
+  }
+  var fb = $('feedback');
+  if (chosen === correct) {
+    combo++; wrongStreak = 0;
+    if (combo > maxCombo) maxCombo = combo;
+    var secUsed = 30 - timeLeft; var speedBonus = secUsed <= 5 ? 2 : secUsed <= 12 ? 1 : 0;
+    var comboBonus = combo >= 3 ? combo - 3 : 0;
+    var gained = 4 + speedBonus + comboBonus;
+    score += gained; correctCount++;
+    var msg = '✅ Chính xác! +' + gained + ' điểm';
+    if (speedBonus > 0) msg += ' ⚡';
+    if (combo >= 2) msg += ' 🔥 combo x' + combo;
+    fb.className = 'feedback correct-fb show'; fb.style.display = 'block';
+    fb.innerHTML = msg + '<div style="margin-top:8px;font-size:13px;font-weight:400;color:#a8f0d8;line-height:1.5;border-top:1px solid rgba(255,255,255,.15);padding-top:8px;">💡 ' + explain + '</div>';
+    if (combo >= 2) showComboPopup(combo);
+  } else {
+    combo = 0; wrongStreak++; wrongCount++;
+    applyPenalty(fb, wrongStreak, explain);
+  }
+  updateComboDisplay();
+  // Store with shuffled opts for correct review display
+  var shuffledOpts = [];
+  for (var j = 0; j < 4; j++) shuffledOpts.push(origOpts[shuffleIdx[j]]);
+  reviewLog.push({ tag: tag, q: qText, chosen: chosen, correct: correct, explain: explain, isCorrect: chosen === correct, opts: shuffledOpts });
+  $('score-display').textContent = score;
+  $('next-btn').disabled = false;
+}
+
+function applyPenalty(fb, streak, explain) {
+  var penalty = 0, msg = '';
+  if (streak === 1) {
+    msg = '❌ Chưa đúng! ⚠️ Sai thêm sẽ bị trừ điểm!';
+    fb.className = 'feedback wrong-fb show'; fb.style.display = 'block';
+    fb.innerHTML = msg + (explain ? '<div style="margin-top:8px;font-size:13px;font-weight:400;color:#f9b8c8;line-height:1.5;border-top:1px solid rgba(255,255,255,.15);padding-top:8px;">💡 ' + explain + '</div>' : '');
+  } else {
+    penalty = streak >= 4 ? 4 : streak >= 3 ? 3 : 2;
+    score = Math.max(0, score - penalty);
+    msg = '❌ Sai lần ' + streak + ' liên tiếp! −' + penalty + ' điểm 💸';
+    fb.className = 'feedback wrong-fb show'; fb.style.display = 'block';
+    fb.innerHTML = msg + (explain ? '<div style="margin-top:8px;font-size:13px;font-weight:400;color:#f9b8c8;line-height:1.5;border-top:1px solid rgba(255,255,255,.15);padding-top:8px;">💡 ' + explain + '</div>' : '');
+    showPenaltyPopup(penalty, streak);
+    if (streak >= 3) {
+      var cont = document.querySelector('.container');
+      cont.classList.remove('shake'); void cont.offsetWidth; cont.classList.add('shake');
+      setTimeout(function() { cont.classList.remove('shake'); }, 500);
+    }
+    var sd = $('score-display');
+    sd.classList.remove('score-drop'); void sd.offsetWidth; sd.classList.add('score-drop');
+    setTimeout(function() { sd.classList.remove('score-drop'); }, 500);
+  }
+}
+
+function timeOut(correct, explain, tag, qText, shuffleIdx, origOpts) {
+  answered = true; combo = 0; wrongStreak++; wrongCount++;
+  var opts = document.querySelectorAll('.opt');
+  for (var i = 0; i < opts.length; i++) {
+    opts[i].disabled = true;
+    if (i === correct) opts[i].classList.add('reveal');
+  }
+  var fb = $('feedback');
+  var msg = '⏰ Hết giờ!';
+  if (wrongStreak >= 2) {
+    var penalty = wrongStreak >= 4 ? 4 : wrongStreak >= 3 ? 3 : 2;
+    score = Math.max(0, score - penalty);
+    msg += ' Sai ' + wrongStreak + ' lần liên tiếp — −' + penalty + ' điểm 💸';
+    showPenaltyPopup(penalty, wrongStreak);
+    var sd = $('score-display');
+    sd.classList.remove('score-drop'); void sd.offsetWidth; sd.classList.add('score-drop');
+    setTimeout(function() { sd.classList.remove('score-drop'); }, 500);
+  } else {
+    msg += ' ⚠️ Sai thêm sẽ bị trừ điểm!';
+  }
+  fb.className = 'feedback wrong-fb show'; fb.style.display = 'block';
+  fb.innerHTML = msg + (explain ? '<div style="margin-top:8px;font-size:13px;font-weight:400;color:#f9b8c8;line-height:1.5;border-top:1px solid rgba(255,255,255,.15);padding-top:8px;">💡 ' + explain + '</div>' : '');
+  updateComboDisplay();
+  var shuffledOpts = [];
+  for (var j = 0; j < 4; j++) shuffledOpts.push(origOpts[shuffleIdx[j]]);
+  reviewLog.push({ tag: tag, q: qText, chosen: -1, correct: correct, explain: explain, isCorrect: false, opts: shuffledOpts });
+  $('score-display').textContent = score;
+  $('next-btn').disabled = false;
+}
+
+function updateComboDisplay() {
+  var el = $('combo-display');
+  if (combo >= 2) {
+    el.textContent = '🔥 x' + combo + ' Combo!';
+    el.style.color = combo >= 5 ? '#ff4f7b' : combo >= 3 ? '#ff8c00' : '#f6c90e';
+  } else if (wrongStreak >= 2) {
+    el.textContent = '💸 −' + wrongStreak + ' streak';
+    el.style.color = '#ff4f7b';
+  } else {
+    el.textContent = '';
+  }
+}
+
+function showComboPopup(c) {
+  var el = $('combo-popup');
+  var msgs = { 2: '🔥 x2 Combo!', 3: '🔥 x3 Combo!', 4: '🔥🔥 x4 Combo!!', 5: '🔥🔥🔥 x5 STREAK!!!' };
+  el.textContent = msgs[c] || '🔥 x' + c + ' COMBO!!!';
+  el.classList.remove('show'); void el.offsetWidth; el.classList.add('show');
+  setTimeout(function() { el.classList.remove('show'); }, 900);
+}
+
+function showPenaltyPopup(penalty, streak) {
+  var el = $('penalty-popup');
+  var msgs = { 2: '💸 −2 điểm!', 3: '😱 −3 điểm!!', 4: '🚨 −4 điểm!!!' };
+  el.textContent = msgs[penalty] || '−' + penalty + ' điểm!';
+  el.classList.remove('show'); void el.offsetWidth; el.classList.add('show');
+  setTimeout(function() { el.classList.remove('show'); }, 850);
+}
+
+function nextQuestion() {
+  currentIdx++;
+  if (currentIdx >= questions.length) showResult();
+  else loadQuestion();
+}
+
+function showResult() {
+  clearInterval(timerInterval);
+  $('quiz-screen').style.display = 'none';
+  $('result-screen').style.display = 'block';
+  var answeredCount = correctCount + wrongCount;
+  var avgTime = Math.round(totalTimeUsed / Math.max(1, answeredCount));
+  $('result-score').textContent = score;
+  $('stat-correct').textContent = correctCount;
+  $('stat-wrong').textContent = wrongCount;
+  $('stat-time').textContent = avgTime + 's';
+  $('progress-fill').style.width = '100%';
+  $('result-name').textContent = currentPlayerName;
+  var medal, title, sub;
+  var grade10;
+  if (score > 340) { medal = '🏆'; title = 'Xuất Sắc!'; sub = 'Nắm vững kiến thức Digital Marketing — Marketing Master!'; grade10 = 10; }
+  else if (score > 280) { medal = '🥇'; title = 'Giỏi!'; sub = 'Kiến thức rất tốt — chỉ còn vài điểm nhỏ cần hoàn thiện.'; grade10 = 9; }
+  else if (score > 220) { medal = '🥈'; title = 'Khá Giỏi!'; sub = 'Kiến thức khá tốt — chỉ cần ôn lại một số điểm nhỏ.'; grade10 = 8; }
+  else if (score > 180) { medal = '🥉'; title = 'Khá'; sub = 'Nắm được phần lớn kiến thức — ôn thêm để bứt phá nhé!'; grade10 = 7; }
+  else if (score > 140) { medal = '🎖️'; title = 'Trung Bình Khá'; sub = 'Cần ôn lại nội dung slide kỹ hơn nhé!'; grade10 = 6; }
+  else if (score > 100) { medal = '📘'; title = 'Trung Bình'; sub = 'Còn nhiều chỗ hổng — hãy đọc lại slide kỹ hơn nhé!'; grade10 = 5; }
+  else { medal = '📚'; title = 'Cần Cố Gắng Hơn'; sub = 'Hãy đọc lại slide và thử lại — bạn sẽ làm được!'; grade10 = 4; }
+  if (devtoolsBanned) { medal = '🚫'; title = 'Gian lận F12'; sub = 'Bạn đã mở F12 / xem mã nguồn ' + DEVTOOLS_MAX + ' lần — Phần 1 bị tính 0 điểm. Hãy bấm Tự Luận để làm Phần 2.'; grade10 = 0; }
+  $('result-medal').textContent = medal;
+  $('result-title').textContent = title + ' — ' + grade10 + ' điểm';
+  $('result-sub').textContent = devtoolsBanned ? sub : part1TimedOut ? '⏰ Hết ' + PART1_LIMIT_MIN + ' phút Phần 1 khi bạn đang làm câu ' + (currentIdx + 1) + '/' + questions.length + ' — điểm được tính theo số điểm hiện có.' : sub;
+  if (score > 220 && !devtoolsBanned) launchConfetti();
+  $('p1-attempts-used').textContent = attemptsUsed;
+  tickPart1();
+  submitResultToServer(avgTime, grade10);
+  window.scrollTo(0, 0);
+}
+
+function submitResultToServer(avgTime, grade10) {
+  if (!API_BASE_URL) return; // Chưa cấu hình backend — bỏ qua, quiz vẫn hoạt động bình thường
+  fetch(API_BASE_URL + '/api/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      studentId: currentStudentId,
+      studentFullname: currentStudentFullname,
+      playerName: currentPlayerName,
+      score: score,
+      grade10: grade10,
+      correctCount: correctCount,
+      wrongCount: wrongCount,
+      maxCombo: maxCombo,
+      avgTime: avgTime,
+      totalQuestions: questions.length,
+    }),
+  })
+    .then(function (res) { return res.json(); })
+    .then(function (data) { if (data && data.ok) currentResultId = data.id; })
+    .catch(function (err) {
+      console.warn('Không thể lưu kết quả lên server (quiz vẫn hoạt động bình thường):', err);
+    });
+}
+
+// ================== PHẦN 2: TỰ LUẬN ==================
+
+function escHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+var essayViolations = 0;            // số lần rời màn hình khi đang làm Tự Luận (tối đa 3)
+var ESSAY_MAX_VIOLATIONS = 3;
+var essayUsedQuestions = [];       // các câu hỏi đã được mở (không được trùng khi chọn lại)
+var essayUsedTiles = [];           // các mảnh ghép đã bị mở
+var essayQuestionOpen = false;     // đang hiển thị câu hỏi (đang làm bài) → bật giám sát
+var essayViolationLock = false;    // đang hiện thông báo bắt gian → bỏ qua sự kiện trùng
+var essayStartedOnServer = false;
+
+// essayState (tùy chọn) = trạng thái Phần 2 lưu trên server, dùng khi SV vào lại trang giữa chừng
+function goToEssay(essayState) {
+  stopPart1Clock();
+  $('result-screen').style.display = 'none';
+  $('essay-screen').style.display = 'block';
+  if (essayState) applyEssayState(essayState);
+  else fetchEssayState();
+  window.scrollTo(0, 0);
+}
+
+function fetchEssayState() {
+  if (!currentStudentId) return;
+  fetch(API_BASE_URL + '/api/student-status?studentId=' + encodeURIComponent(currentStudentId))
+    .then(function (r) { return r.json(); })
+    .then(function (d) { if (d && d.ok && d.essay) applyEssayState(d.essay); })
+    .catch(function () {});
+}
+
+function applyEssayState(es) {
+  if (!es) return;
+  if (es.done) { essaySubmitted = true; showLockOverlay(false, !!es.cheated, true); return; }
+  essayViolations = Number(es.violations) || 0;
+  essayUsedQuestions = Array.isArray(es.usedQuestions) ? es.usedQuestions.slice() : [];
+  if (es.started) {
+    essayStartedOnServer = true;
+    essayEndTime = Date.now() + Math.max(0, Number(es.remainingMs) || 0);
+    $('essay-timer').style.display = '';
+    if (!essayTimerId) { essayTimerId = setInterval(tickEssayTimer, 1000); }
+    tickEssayTimer();
+  }
+  updateViolationBar();
+}
+
+function updateViolationBar() {
+  var bar = $('essay-violation-bar');
+  if (essayViolations > 0) {
+    bar.style.display = 'block';
+    bar.textContent = '⚠️ Bạn đã rời màn hình ' + essayViolations + '/' + ESSAY_MAX_VIOLATIONS + ' lần — lần thứ ' + ESSAY_MAX_VIOLATIONS + ' sẽ bị 0 điểm Phần 2!';
+  } else bar.style.display = 'none';
+}
+
+function setupPuzzleGrid() {
+  var grid = $('puzzle-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  for (var i = 0; i < 6; i++) {
+    var tile = document.createElement('div');
+    tile.className = 'puzzle-tile';
+    tile.setAttribute('data-tile', i);
+    if (essayUsedTiles.indexOf(i) !== -1) { tile.classList.add('used'); tile.textContent = '🚫'; }
+    else tile.textContent = '🧩';
+    tile.addEventListener('click', onPuzzleTileClick);
+    grid.appendChild(tile);
+  }
+}
+
+function pickEssayQuestion() {
+  var remaining = ESSAY_QUESTIONS.filter(function (q) { return essayUsedQuestions.indexOf(q) === -1; });
+  if (!remaining.length) remaining = ESSAY_QUESTIONS.slice(); // phòng hờ, thực tế không xảy ra (6 câu, tối đa 3 lần chọn)
+  return remaining[Math.floor(Math.random() * remaining.length)];
+}
+
+function onPuzzleTileClick(e) {
+  if (essaySubmitted || essayQuestionOpen) return;
+  var tile = e.currentTarget;
+  var tiles = document.querySelectorAll('.puzzle-tile');
+  tiles.forEach(function (t) { t.classList.add('disabled'); });
+  tile.classList.remove('disabled');
+  tile.classList.add('flipped');
+  tile.textContent = '✅';
+  essayUsedTiles.push(Number(tile.getAttribute('data-tile')));
+
+  essaySelectedQuestion = pickEssayQuestion();
+  essayUsedQuestions.push(essaySelectedQuestion);
+  reportEssayStart(essaySelectedQuestion);
+
+  setTimeout(function () {
+    if (essaySubmitted) return;
+    $('essay-question-text').textContent = essaySelectedQuestion;
+    $('essay-answer').value = '';
+    $('essay-msg').textContent = '';
+    $('btn-submit-essay').disabled = false;
+    $('btn-submit-essay').textContent = '📨 Gửi';
+    $('essay-question-area').style.display = 'block';
+    updateWordCounter(0);
+    startEssayTimer(); // 20 phút bắt đầu tính từ lúc câu hỏi ĐẦU TIÊN hiện ra, chọn lại không được cộng thêm giờ
+    essayQuestionOpen = true;
+    $('essay-question-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 450);
+}
+
+// Báo server: SV đã mở câu hỏi Tự Luận (khóa không cho quay lại Phần 1, lưu câu đã mở, mốc 20 phút)
+function reportEssayStart(question) {
+  if (!currentStudentId) return;
+  fetch(API_BASE_URL + '/api/essay-start', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ studentId: currentStudentId, studentFullname: currentStudentFullname, question: question }),
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (d && d.ok && typeof d.remainingMs === 'number') {
+        essayEndTime = Date.now() + d.remainingMs; // đồng bộ theo giờ server
+        essayStartedOnServer = true;
+      }
+    })
+    .catch(function () {});
+}
+
+// ===== ANTI-AI PHẦN 2: rời màn hình khi đang làm Tự Luận =====
+function fireEssayViolation() {
+  if (essaySubmitted || !essayQuestionOpen || essayViolationLock) return;
+  if ($('essay-screen').style.display === 'none') return;
+  essayViolationLock = true;
+  essayQuestionOpen = false;
+  essayViolations++;
+  // Ẩn ngay câu hỏi + bài làm để SV không tiếp tục xem/chép
+  $('essay-question-area').style.display = 'none';
+  $('essay-answer').value = '';
+  reportEssayViolation();
+  updateViolationBar();
+  var last = essayViolations >= ESSAY_MAX_VIOLATIONS;
+  $('essay-ac-title').textContent = last ? 'Hết lượt rồi nhé!' : 'Thầy đã thấy rồi nhé';
+  $('essay-ac-body').innerHTML = last
+    ? 'Bạn đã rời khỏi màn hình làm bài <strong style="color:#ff4f7b;">' + essayViolations + '/' + ESSAY_MAX_VIOLATIONS + ' lần</strong>.<br>Phần Tự Luận <strong style="color:#ff4f7b;">kết thúc và bị 0 điểm</strong>.'
+    : 'Bạn đã rời khỏi màn hình làm bài (lần <strong style="color:#ff4f7b;">' + essayViolations + '/' + ESSAY_MAX_VIOLATIONS + '</strong>).<br>Câu hỏi này bị hủy — bạn phải <b>chọn lại mảnh ghép khác</b> (câu hỏi mới, không trùng câu cũ).<br><span style="color:#ffb3c6;">⚠️ Rời màn hình đủ ' + ESSAY_MAX_VIOLATIONS + ' lần → kết thúc Phần 2 và nhận 0 điểm. Đồng hồ 20 phút vẫn tiếp tục chạy.</span>';
+  $('essay-ac-btn').textContent = last ? 'Đã hiểu' : '🧩 Chọn lại câu hỏi';
+  $('essay-ac-modal').style.display = 'flex';
+  if (last) finishEssay(false, true);
+}
+
+function closeEssayViolation() {
+  $('essay-ac-modal').style.display = 'none';
+  essayViolationLock = false;
+  if (essaySubmitted) return;
+  setupPuzzleGrid(); // quay về màn hình chọn mảnh ghép, các mảnh đã mở bị khóa
+  window.scrollTo(0, 0);
+}
+
+function reportEssayViolation() {
+  if (!currentStudentId) return;
+  try {
+    fetch(API_BASE_URL + '/api/essay-violation', {
+      method: 'POST',
+      keepalive: true, // vẫn gửi được khi SV tải lại / đóng trang
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ studentId: currentStudentId, question: essaySelectedQuestion }),
+    }).catch(function () {});
+  } catch (e) {}
+}
+
+document.addEventListener('visibilitychange', function () {
+  if (document.hidden) fireEssayViolation();
+});
+window.addEventListener('blur', function () { fireEssayViolation(); });
+window.addEventListener('pagehide', function () { fireEssayViolation(); });
+
+// Chặn dán / kéo-thả / chuột phải trong ô trả lời (hạn chế chép bài từ AI)
+function blockEssayPaste(e) {
+  e.preventDefault();
+  $('essay-msg').textContent = '🚫 Không được dán nội dung vào bài làm — hãy tự viết bằng lời của bạn.';
+}
+
+function countWords(str) {
+  var trimmed = str.trim();
+  return trimmed ? trimmed.split(/\s+/).length : 0;
+}
+
+// Giới hạn tối đa max từ nhưng GIỮ NGUYÊN xuống dòng/khoảng trắng của phần còn lại
+function limitWords(text, max) {
+  var re = /\S+/g, m, count = 0;
+  while ((m = re.exec(text)) !== null) {
+    count++;
+    if (count === max) {
+      var end = m.index + m[0].length;
+      if (/\S/.test(text.slice(end))) {
+        return { text: text.slice(0, end), count: max, truncated: true };
+      }
+      return { text: text, count: max, truncated: false };
+    }
+  }
+  return { text: text, count: count, truncated: false };
+}
+
+function updateWordCounter(n) {
+  var counter = $('word-counter');
+  counter.textContent = n + ' / ' + ESSAY_MAX_WORDS + ' từ (tối thiểu ' + ESSAY_MIN_WORDS + ' từ)';
+  counter.style.color = n >= ESSAY_MAX_WORDS ? 'var(--wrong)' : (n >= ESSAY_MIN_WORDS ? 'var(--correct)' : '');
+}
+
+function onEssayAnswerInput() {
+  var ta = $('essay-answer');
+  var r = limitWords(ta.value, ESSAY_MAX_WORDS);
+  if (r.truncated) ta.value = r.text;
+  updateWordCounter(r.count);
+  $('essay-msg').textContent = '';
+  ta.style.borderColor = '';
+}
+
+// ----- Đồng hồ 20 phút của Phần 2 (tính theo mốc thời gian thật, không bị lệch khi tab chạy nền) -----
+function startEssayTimer() {
+  $('essay-timer').style.display = '';
+  if (essayTimerId) return;
+  if (!essayEndTime) essayEndTime = Date.now() + ESSAY_TIME_LIMIT_MS;
+  tickEssayTimer();
+  essayTimerId = setInterval(tickEssayTimer, 1000);
+}
+
+function tickEssayTimer() {
+  if (essaySubmitted) return;
+  var remain = Math.max(0, essayEndTime - Date.now());
+  var sec = Math.ceil(remain / 1000);
+  var mm = Math.floor(sec / 60), ss = sec % 60;
+  $('essay-time-left').textContent = (mm < 10 ? '0' : '') + mm + ':' + (ss < 10 ? '0' : '') + ss;
+  $('essay-timer').classList.toggle('warn', remain <= 2 * 60 * 1000); // 2 phút cuối đổi màu đỏ
+  if (remain <= 0) finishEssay(true); // hết giờ → tự động nộp phần đã viết
+}
+
+document.addEventListener('visibilitychange', function () {
+  if (!document.hidden && essayTimerId) tickEssayTimer();
+  if (!document.hidden && part1TimerId) tickPart1();
+});
+
+function submitEssayToServer(question, answer, timedOut, cheated) {
+  if (!API_BASE_URL) return;
+  fetch(API_BASE_URL + '/api/submit-essay', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      resultId: currentResultId,
+      studentId: currentStudentId,
+      studentFullname: currentStudentFullname,
+      essayQuestion: question,
+      essayAnswer: answer,
+      timedOut: !!timedOut,
+      cheated: !!cheated,
+      violations: essayViolations,
+    }),
+    keepalive: true,
+  }).catch(function (err) {
+    console.warn('Không thể lưu bài tự luận lên server:', err);
+  });
+}
+
+function showLockOverlay(timedOut, cheated, already) {
+  var overlay = document.createElement('div');
+  overlay.className = 'lock-overlay';
+  var emoji = cheated ? '🚫' : '🎉';
+  var title = cheated
+    ? '<span>' + escHtml(currentStudentFullname || currentStudentId || 'Bạn') + '</span> — Phần Tự Luận đã kết thúc'
+    : (already ? 'Mã SV <span>' + escHtml(currentStudentId) + '</span> đã hoàn thành Bài kiểm tra!' : 'Chúc mừng <span>' + escHtml(currentStudentFullname || 'bạn') + '</span> đã hoàn thành Bài kiểm tra!');
+  var sub = cheated
+    ? 'Bạn đã rời khỏi màn hình làm bài ' + ESSAY_MAX_VIOLATIONS + ' lần — Phần 2 bị tính <b style="color:#ff4f7b;">0 điểm</b>.<br>'
+    : (timedOut ? 'Đã hết thời gian làm Phần 2 — bài làm của bạn đã được tự động nộp.<br>' : (already ? 'Không được làm lại bài kiểm tra.<br>' : ''));
+  overlay.innerHTML =
+    '<div class="lock-card"' + (cheated ? ' style="border-color:#ff4f7b;"' : '') + '>' +
+    '<div class="lock-emoji">' + emoji + '</div>' +
+    '<div class="lock-title">' + title + '</div>' +
+    '<div class="lock-sub">' + sub + 'Bạn có thể đóng trang này lại.</div>' +
+    '</div>';
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+  document.querySelectorAll('button, input, textarea, select').forEach(function (el) {
+    if (el.id !== 'essay-ac-btn') el.disabled = true;
+  });
+}
+
+// Kết thúc Phần 2: gửi bài lên server rồi khóa trang.
+// timedOut=true khi hết 20 phút (tự động nộp phần đã viết); cheated=true khi rời màn hình đủ 3 lần (0 điểm)
+function finishEssay(timedOut, cheated) {
+  if (essaySubmitted) return;
+  essaySubmitted = true;
+  essayQuestionOpen = false;
+  if (essayTimerId) { clearInterval(essayTimerId); essayTimerId = null; }
+  var answer = cheated ? '' : $('essay-answer').value.trim();
+  submitEssayToServer(essaySelectedQuestion, answer, timedOut, cheated);
+  if (cheated) {
+    // đợi SV bấm "Đã hiểu" trên thông báo bắt gian rồi mới khóa trang
+    var btn = $('essay-ac-btn');
+    btn.onclick = function () { $('essay-ac-modal').style.display = 'none'; showLockOverlay(false, true); };
+    return;
+  }
+  $('essay-question-area').style.display = 'none';
+  showLockOverlay(timedOut, false);
+}
+
+function submitEssay() {
+  if (essaySubmitted) return;
+  var ta = $('essay-answer');
+  var n = countWords(ta.value);
+  if (n < ESSAY_MIN_WORDS) {
+    $('essay-msg').textContent = 'Bài làm cần tối thiểu ' + ESSAY_MIN_WORDS + ' từ (hiện có ' + n + ' từ). Vui lòng viết thêm.';
+    ta.style.borderColor = 'var(--wrong)';
+    ta.focus();
+    return;
+  }
+  $('btn-submit-essay').textContent = 'Đang gửi...';
+  finishEssay(false);
+}
+
+function buildReview() {
+  var container = $('review-items'); container.innerHTML = '';
+  var keys = ['A', 'B', 'C', 'D'];
+  for (var idx = 0; idx < reviewLog.length; idx++) {
+    var item = reviewLog[idx];
+    var div = document.createElement('div');
+    div.className = 'review-item ' + (item.isCorrect ? 'r-correct' : 'r-wrong');
+    var chosenText = item.chosen >= 0 ? (keys[item.chosen] + '. ' + item.opts[item.chosen]) : 'Hết giờ';
+    div.innerHTML =
+      '<span class="ri-tag">' + item.tag + '</span>' +
+      '<div class="ri-result">' + (item.isCorrect ? '✅ Đúng' : '❌ Sai') + ' — Câu ' + (idx + 1) + '</div>' +
+      '<div class="review-q">' + item.q + '</div>' +
+      '<div class="review-ans">Bạn chọn: <span>' + chosenText + '</span></div>' +
+      '<div class="review-ans">Đáp án đúng: <span>' + keys[item.correct] + '. ' + item.opts[item.correct] + '</span></div>' +
+      '<div class="review-explain">💡 ' + item.explain + '</div>';
+    container.appendChild(div);
+  }
+}
+
+function restartQuiz() {
+  if (devtoolsBanned) { updateRestartLock(); return; }
+  if ((part1EndTime && part1Remaining() < PART1_NO_RESTART_MS) || attemptsUsed >= MAX_ATTEMPTS) { updateRestartLock(); return; }
+  $('review-panel').style.display = 'none';
+  $('result-screen').style.display = 'none';
+  $('start-screen').style.display = 'block';
+  $('progress-fill').style.width = '0%';
+  $('student-id').value = currentStudentId;
+  $('student-fullname').value = currentStudentFullname;
+  window.scrollTo(0, 0);
+}
+
+function launchConfetti() {
+  var colors = ['#f6c90e', '#00e5ff', '#ff4f7b', '#00c896', '#fff'];
+  for (var i = 0; i < 70; i++) {
+    (function(delay) {
+      setTimeout(function() {
+        var el = document.createElement('div'); el.className = 'confetti-piece';
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.background = colors[Math.floor(Math.random() * colors.length)];
+        el.style.width = (Math.random() * 8 + 4) + 'px';
+        el.style.height = (Math.random() * 8 + 4) + 'px';
+        el.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+        el.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+        document.body.appendChild(el);
+        setTimeout(function() { el.remove(); }, 4000);
+      }, delay);
+    })(i * 40);
+  }
+}
+
+// Event listeners — no inline onclick (safer for Safari)
+function togglePassView() {
+  var inp = document.getElementById('pass-input');
+  var eyeOn = document.getElementById('eye-icon');
+  var eyeOff = document.getElementById('eye-off-icon');
+  if (inp.type === 'password') {
+    inp.type = 'text';
+    eyeOn.style.display = 'none';
+    eyeOff.style.display = 'inline';
+  } else {
+    inp.type = 'password';
+    eyeOn.style.display = 'inline';
+    eyeOff.style.display = 'none';
+  }
+  inp.focus();
+}
+
+function openScoreModal() {
+  document.getElementById('score-modal-overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeScoreModal(e) {
+  if (e && e.target !== document.getElementById('score-modal-overlay')) return;
+  document.getElementById('score-modal-overlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeScoreModal(null);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  $('btn-start').addEventListener('click', startQuiz);
+  $('next-btn').addEventListener('click', nextQuestion);
+  $('btn-restart').addEventListener('click', restartQuiz);
+  $('btn-essay').addEventListener('click', goToEssay);
+  $('essay-answer').addEventListener('input', onEssayAnswerInput);
+  $('btn-submit-essay').addEventListener('click', submitEssay);
+  $('essay-ac-btn').addEventListener('click', closeEssayViolation);
+  ['paste', 'drop', 'contextmenu'].forEach(function (ev) { $('essay-answer').addEventListener(ev, blockEssayPaste); });
+  $('essay-answer').addEventListener('beforeinput', function (e) {
+    if (e.inputType === 'insertFromPaste' || e.inputType === 'insertFromDrop' || e.inputType === 'insertFromPasteAsQuotation') blockEssayPaste(e);
+  });
+  setupPuzzleGrid();
+  $('student-id').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') $('student-fullname').focus();
+  });
+  $('student-fullname').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') $('pass-input').focus();
+  });
+  $('pass-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') startQuiz();
+  });
+  $('pass-input').addEventListener('input', function() {
+    $('pass-error').textContent = '';
+  });
+  document.getElementById('ac-ok-btn').addEventListener('click', closeAnticheat);
+  document.getElementById('devtools-btn').addEventListener('click', closeDevtoolsModal);
+});
+
+// ====== ANTI-CHEAT ======
+var acFired = false;
+var acCurrentCorrect = -1;
+var acCurrentExplain = '';
+var acCurrentTag = '';
+var acCurrentQText = '';
+var acCurrentShuffleIdx = [];
+var acCurrentOrigOpts = [];
+
+function isQuizActive() {
+  return $('quiz-screen') && $('quiz-screen').style.display !== 'none' && !answered;
+}
+
+function fireAnticheat() {
+  if (!isQuizActive()) return;
+  if (devtoolsModalOpen) return;
+  if (acFired) return;
+  acFired = true;
+  clearInterval(timerInterval);
+  document.getElementById('ac-modal').style.display = 'flex';
+}
+
+function closeAnticheat() {
+  document.getElementById('ac-modal').style.display = 'none';
+  if (acCurrentCorrect < 0) { nextQuestion(); return; }
+  answered = true;
+  combo = 0; wrongStreak++; wrongCount++;
+  var opts = document.querySelectorAll('.opt');
+  for (var i = 0; i < opts.length; i++) {
+    opts[i].disabled = true;
+    if (i === acCurrentCorrect) opts[i].classList.add('reveal');
+  }
+  var fb = $('feedback');
+  var msg = '👀 Bắt gian! Câu này tính 0 điểm.';
+  if (wrongStreak >= 2) {
+    var penalty = wrongStreak >= 4 ? 4 : wrongStreak >= 3 ? 3 : 2;
+    score = Math.max(0, score - penalty);
+    msg += ' Sai ' + wrongStreak + ' lần liên tiếp — −' + penalty + ' điểm 💸';
+    showPenaltyPopup(penalty, wrongStreak);
+    var sd = $('score-display');
+    sd.classList.remove('score-drop'); void sd.offsetWidth; sd.classList.add('score-drop');
+    setTimeout(function() { sd.classList.remove('score-drop'); }, 500);
+  } else {
+    msg += ' ⚠️ Sai thêm sẽ bị trừ điểm!';
+  }
+  fb.className = 'feedback wrong-fb show'; fb.style.display = 'block';
+  fb.innerHTML = msg;
+  updateComboDisplay();
+  var shuffledOpts = [];
+  for (var j = 0; j < 4; j++) shuffledOpts.push(acCurrentOrigOpts[acCurrentShuffleIdx[j]]);
+  reviewLog.push({ tag: acCurrentTag, q: acCurrentQText, chosen: -1, correct: acCurrentCorrect, explain: 'Vi phạm: rời khỏi trang khi đang làm bài.', isCorrect: false, opts: shuffledOpts });
+  $('score-display').textContent = score;
+  $('next-btn').disabled = false;
+}
+
+
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) fireAnticheat();
+});
+
+window.addEventListener('blur', function() {
+  fireAnticheat();
+});
+// ====== CHỐNG MỞ F12 / XEM MÃ NGUỒN (PHẦN 1) ======
+// Lần 1: cảnh cáo + làm lại Phần 1 từ đầu (không tốn thêm lượt). Lần 2: Phần 1 = 0 điểm, khóa Phần 1.
+// Số lần vi phạm lưu trên server theo Mã SV nên tải lại trang / đổi trình duyệt cũng không xóa được.
+var DEVTOOLS_MAX = 2;
+var devtoolsViolations = 0;
+var devtoolsBanned = false;
+var devtoolsModalOpen = false;
+var devtoolsLastFire = 0;
+var devtoolsBaseW = 0, devtoolsBaseH = 0;
+
+
+function isPart1Screen() {
+  return $('quiz-screen') && $('quiz-screen').style.display !== 'none';
+}
+
+// Tổ hợp phím mở DevTools / xem nguồn: F12, Ctrl+Shift+I/J/C/K, Cmd+Opt+I/J/C (Mac), Ctrl+U / Cmd+Opt+U
+function isDevtoolsKey(e) {
+  var k = (e.key || '').toLowerCase();
+  if (e.key === 'F12' || e.keyCode === 123) return true;
+  if ((e.ctrlKey || e.metaKey) && e.shiftKey && ['i', 'j', 'c', 'k'].indexOf(k) !== -1) return true;
+  if (e.metaKey && e.altKey && ['i', 'j', 'c', 'u'].indexOf(k) !== -1) return true;
+  if ((e.ctrlKey || e.metaKey) && !e.shiftKey && k === 'u') return true;
+  return false;
+}
+
+document.addEventListener('keydown', function (e) {
+  if (!isDevtoolsKey(e)) return;
+  // Chặn phím ở mọi màn hình → trình duyệt không mở được cửa sổ F12 bằng bàn phím
+  e.preventDefault();
+  e.stopPropagation();
+  if (isPart1Screen()) fireDevtoolsViolation();
+}, true);
+
+// Chặn chuột phải (menu "Kiểm tra / Inspect") trong lúc làm Phần 1
+document.addEventListener('contextmenu', function (e) {
+  if (isPart1Screen()) e.preventDefault();
+});
+
+// Phát hiện cửa sổ DevTools mở bằng menu trình duyệt (dạng gắn vào cạnh màn hình):
+// so khoảng chênh giữa khung cửa sổ và vùng trang với mốc lúc bắt đầu chơi.
+function devtoolsGap() {
+  return { w: window.outerWidth - window.innerWidth, h: window.outerHeight - window.innerHeight };
+}
+function devtoolsResetBaseline() {
+  var g = devtoolsGap();
+  devtoolsBaseW = g.w; devtoolsBaseH = g.h;
+}
+function devtoolsLooksOpen() {
+  if (!window.outerWidth || ('ontouchstart' in window && navigator.maxTouchPoints > 0)) return false; // bỏ qua điện thoại/máy tính bảng
+  var g = devtoolsGap();
+  return (g.w - devtoolsBaseW > 160) || (g.h - devtoolsBaseH > 160);
+}
+setInterval(function () {
+  if (!isPart1Screen()) return;
+  var open = devtoolsLooksOpen();
+  $('devtools-shield').style.display = open ? 'flex' : 'none'; // che kín câu hỏi khi DevTools đang mở
+  if (open) fireDevtoolsViolation();
+}, 800);
+window.addEventListener('resize', function () {
+  // Phóng to/thu nhỏ cửa sổ khi DevTools đang đóng → cập nhật mốc để tránh báo nhầm
+  if (!isPart1Screen() || devtoolsModalOpen) return;
+  var g = devtoolsGap();
+  if (g.w <= devtoolsBaseW + 20 && g.h <= devtoolsBaseH + 20) devtoolsResetBaseline();
+});
+
+function fireDevtoolsViolation() {
+  if (devtoolsModalOpen || devtoolsBanned) return;
+  if (Date.now() - devtoolsLastFire < 1500) return; // tránh đếm trùng 1 lần mở
+  devtoolsLastFire = Date.now();
+  devtoolsModalOpen = true;
+  clearInterval(timerInterval);
+  answered = true;
+  var ac = $('ac-modal'); if (ac) ac.style.display = 'none';
+  devtoolsViolations++;
+  reportDevtoolsViolation();
+  var last = devtoolsViolations >= DEVTOOLS_MAX;
+  $('devtools-title').textContent = last ? 'Vi phạm lần ' + devtoolsViolations + ' — 0 điểm!' : 'Cảnh cáo: không được mở F12!';
+  $('devtools-body').innerHTML = last
+    ? 'Bạn đã mở F12 / xem mã nguồn lần thứ <strong style="color:#ff4f7b;">' + devtoolsViolations + '</strong>.<br>Phần 1 Trắc Nghiệm bị tính <strong style="color:#ff4f7b;">0 điểm</strong> và bị khóa.<br>Bạn vẫn được làm Phần 2: Tự Luận.'
+    : 'Sinh viên <b>không được phép</b> mở màn hình F12 / xem mã nguồn trong lúc làm bài.<br>Hãy <b>đóng cửa sổ F12</b> (nếu đang mở). Phần 1 sẽ được <b>làm lại từ đầu</b> (điểm về 0).<br><span style="color:#ffb3c6;">⚠️ Mở F12 lần ' + DEVTOOLS_MAX + ' → Phần 1 bị 0 điểm.</span>';
+  $('devtools-btn').textContent = last ? 'Đã hiểu — xem kết quả' : '🔄 Đã đóng F12 — Làm lại Phần 1';
+  $('devtools-modal').style.display = 'flex';
+}
+
+function closeDevtoolsModal() {
+  // DevTools vẫn đang mở → chưa cho đóng thông báo
+  if (devtoolsLooksOpen()) {
+    $('devtools-wait').textContent = '⛔ Cửa sổ F12 vẫn đang mở — hãy đóng lại (bấm dấu × hoặc F12) rồi bấm lại nút này.';
+    return;
+  }
+  $('devtools-wait').textContent = '';
+  $('devtools-modal').style.display = 'none';
+  $('devtools-shield').style.display = 'none';
+  devtoolsModalOpen = false;
+  if (devtoolsViolations >= DEVTOOLS_MAX) {
+    devtoolsBanned = true;
+    attemptsUsed = MAX_ATTEMPTS; // khóa nút Chơi Lại
+    score = 0;
+    showResult();
+    return;
+  }
+  // Lần 1: làm lại Phần 1 từ đầu trong cùng lượt (đồng hồ 35 phút vẫn chạy)
+  if (part1Remaining() <= 0 || !isPart1Screen()) { updateRestartLock(); return; } // đã hết 35 phút trong lúc hiện cảnh cáo
+  $('review-panel').style.display = 'none';
+  beginPart1Game();
+}
+
+function reportDevtoolsViolation() {
+  if (!currentStudentId) return;
+  fetch(API_BASE_URL + '/api/devtools-violation', {
+    method: 'POST',
+    keepalive: true,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ studentId: currentStudentId, studentFullname: currentStudentFullname }),
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      if (d && d.ok && typeof d.violations === 'number' && d.violations > devtoolsViolations) devtoolsViolations = d.violations;
+    })
+    .catch(function () {
+      try { localStorage.setItem('quizF12:' + currentStudentId.toLowerCase(), String(devtoolsViolations)); } catch (e) {}
+    });
+}
+// ====== END ANTI-CHEAT ======
+</script>
+
+<!-- Anti-cheat modal -->
+<div id="ac-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
+  <div style="background:#1c2230;border:2px solid #ff4f7b;border-radius:16px;padding:36px 32px;max-width:420px;width:90%;text-align:center;box-shadow:0 0 40px rgba(255,79,123,0.4);">
+    <div style="font-size:56px;margin-bottom:12px;">👀</div>
+    <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#ff4f7b;margin-bottom:14px;">Thầy đã thấy rồi nhé</div>
+    <div style="font-size:15px;color:#e8edf5;line-height:1.7;margin-bottom:28px;">Bạn đang chơi gian lận rồi!<br>Câu này tính <strong style="color:#ff4f7b;">0 điểm</strong> nha</div>
+    <button id="ac-ok-btn" style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;padding:14px 48px;border-radius:10px;border:none;background:#f6c90e;color:#0d1117;cursor:pointer;letter-spacing:.5px;width:100%;">OK, Làm Câu Tiếp</button>
+  </div>
+</div>
+<!-- Anti-AI modal Phần 2 -->
+<div id="essay-ac-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.88);align-items:center;justify-content:center;">
+  <div style="background:#1c2230;border:2px solid #ff4f7b;border-radius:16px;padding:36px 32px;max-width:460px;width:90%;text-align:center;box-shadow:0 0 40px rgba(255,79,123,0.4);">
+    <div style="font-size:56px;margin-bottom:12px;">👀</div>
+    <div id="essay-ac-title" style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#ff4f7b;margin-bottom:14px;">Thầy đã thấy rồi nhé</div>
+    <div id="essay-ac-body" style="font-size:15px;color:#e8edf5;line-height:1.7;margin-bottom:28px;"></div>
+    <button id="essay-ac-btn" style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;padding:14px 48px;border-radius:10px;border:none;background:#f6c90e;color:#0d1117;cursor:pointer;letter-spacing:.5px;width:100%;">🧩 Chọn lại câu hỏi</button>
+  </div>
+</div>
+<!-- Chống mở F12 — Phần 1 -->
+<div id="devtools-shield" style="display:none;position:fixed;inset:0;z-index:99990;background:#0d1117;align-items:center;justify-content:center;color:#ff4f7b;font-family:'Syne',sans-serif;font-size:20px;font-weight:800;text-align:center;padding:20px;">🚫 Hãy đóng cửa sổ F12 để tiếp tục làm bài</div>
+<div id="devtools-modal" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;">
+  <div style="background:#1c2230;border:2px solid #ff4f7b;border-radius:16px;padding:36px 32px;max-width:480px;width:90%;text-align:center;box-shadow:0 0 40px rgba(255,79,123,0.4);">
+    <div style="font-size:56px;margin-bottom:12px;">🛑</div>
+    <div id="devtools-title" style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#ff4f7b;margin-bottom:14px;">Cảnh cáo: không được mở F12!</div>
+    <div id="devtools-body" style="font-size:15px;color:#e8edf5;line-height:1.7;margin-bottom:20px;"></div>
+    <div id="devtools-wait" style="font-size:13.5px;color:#ffb3c6;min-height:18px;margin-bottom:12px;"></div>
+    <button id="devtools-btn" type="button" style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;padding:14px 32px;border-radius:10px;border:none;background:#f6c90e;color:#0d1117;cursor:pointer;letter-spacing:.5px;width:100%;">🔄 Đã đóng F12 — Làm lại Phần 1</button>
+  </div>
+</div>
+</body>
+</html>
